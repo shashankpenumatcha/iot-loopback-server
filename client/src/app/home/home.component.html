@@ -1,0 +1,36 @@
+<p>home works!</p>
+<button (click)="logout()">log out</button>
+<h2>Locations</h2>
+<button (click)="launchDeviceAdder()">Add Location</button>
+<h2>Devices</h2>
+<ng-container *ngIf="roomsCount>0">
+  <div style="border: 1px solid black;margin-bottom: 15px;width: 240px;padding: 15px;max-width: 100%;" *ngFor="let room of joinedRooms | keyvalue">
+    <div>id: {{room.key}}</div>
+    <div>name: {{room.value.name}}</div>
+    <div *ngIf="boards&&boards[room.key]">Online</div>
+    <div *ngIf="!boards||!boards[room.key]">Offline</div>
+
+  </div>
+</ng-container>
+<h2>Boards</h2>
+<ng-container *ngIf="boards">
+  <div  *ngFor="let device of boards | keyvalue">
+    <div style="border: 1px solid black;margin-bottom: 15px;width: 240px;padding: 15px;max-width: 100%;" *ngFor="let board of device.value | keyvalue">
+      <div>id: {{board.key}}</div>
+      <div>switches:</div>
+        <span *ngIf="board.value&&board.value.switches&&board.value.switches.length">
+          <div (click)="toggle(device.key,switch,board.key,i)" *ngFor="let switch of board.value.switches; let i =index">
+            {{switch}}
+        </div>
+        </span>
+    </div>
+
+  </div>
+</ng-container>
+
+<pre>
+  {{joinedRooms|json}}
+</pre>
+<pre>
+  {{boards|json}}
+</pre>

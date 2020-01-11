@@ -1,0 +1,17 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "loopback": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "iot",
+    "password": "",
+    "name": "loopback",
+    "user": "",
+    "useNewUrlParser": true,
+    "connector": "mongodb"
+  }
+}

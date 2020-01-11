@@ -1,0 +1,8 @@
+
+<div *ngIf="!devices|| !devices.length">
+  <h3>Register your device</h3>
+  <input type="text" [(ngModel)]="deviceId">
+  <button [disabled]="!deviceId || !deviceId.length" (click)="register(deviceId)">Register</button>
+</div>
+
+

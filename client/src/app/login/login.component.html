@@ -1,0 +1,5 @@
+<form>
+  <input placeholder="username" type="text" name="username" id="username" [(ngModel)]="username">
+  <input placeholder="password" type="password" name="password" id="password" [(ngModel)]="password">
+  <button [disabled]="!username||!password" (click)="login()">Login</button>
+</form>

@@ -1,0 +1,42 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DataService } from '../shared/services/data.service';
+import { Subscription } from 'rxjs';
+import { FetchData } from '../shared/services/fetch-data';
+
+@Component({
+  selector: 'app-device',
+  templateUrl: './device.component.html',
+  styleUrls: ['./device.component.css']
+})
+export class DeviceComponent implements OnInit, OnDestroy {
+
+  subscriptions = new Subscription();
+  devices: any[];
+  deviceId;
+
+  constructor(private dataService: DataService, private fetchData: FetchData) { }
+
+  ngOnInit() {
+    this.subscriptions.add(this.dataService.devices$.subscribe(
+      devices => {
+        this.devices = devices;
+      }
+    ));
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+  }
+
+  register(deviceId) {
+    if (deviceId) {
+      this.fetchData.registerDevice(deviceId).subscribe(res => {
+        if (res && res.devices && res.devices.length) {
+          this.dataService.setDevices(res.devices);
+        }
+        //TODO navigate to on-boarding
+      });
+    }
+  }
+
+}

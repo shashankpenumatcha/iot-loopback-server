@@ -1,0 +1,34 @@
+<h3>add-location</h3>
+
+<div id="add-location-form">
+  <span>name </span>
+  <input [disabled]="adding" [(ngModel)]="name" type="text"/>
+</div>
+
+ <div id="scan-section">
+   <button id="scan-btn" (click)="scan()">Scan</button>
+   <div id="switches" *ngIf="deviceLength&&!adding">
+      <div *ngFor="let device of devices | keyvalue">
+          <ng-container *ngIf="device.value">
+            <div *ngFor="let board of device.value | keyvalue">
+              <ng-container *ngIf="board.value && board.value.switches">
+                <div *ngFor="let switch of board.value.switches; let i = index">
+                    <button (click)="toggle(device.key,switch,board.key,i)">Toggle Switch</button>
+                    <span *ngIf="selectedSwitches&&board.key&&device.key">
+                      <button *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)">select switch</button>
+                      <button  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)">deselect switch</button>
+
+                      <input *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" placeholder="label" [(ngModel)]="selectedSwitches[device.key][board.key][i].label">
+                    </span>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+      </div>
+      <button [disabled]="!name||adding" (click)="addLocation()">Add Location</button>
+   </div>
+   <div *ngIf="!deviceLength">
+     no devices found
+   </div>
+ </div>
+{{selectedSwitches | json}}

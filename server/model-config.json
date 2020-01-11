@@ -1,0 +1,62 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "loopback",
+    "public": true,
+    "acls": [
+      {
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "admin",
+        "permission": "ALLOW"
+      },
+      {
+        "accessType": "READ",
+        "principalType": "ROLE",
+        "principalId": "$owner",
+        "permission": "ALLOW",
+        "property": "device"
+      }
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "loopback",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "loopback",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "loopback",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "loopback",
+    "public": false
+  },
+  "Device": {
+    "dataSource": "loopback",
+    "public": true
+  },
+  "Board": {
+    "dataSource": "loopback",
+    "public": true
+  }
+}
