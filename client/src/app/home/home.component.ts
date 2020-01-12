@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   joinedRooms: any = {};
   locations: any = [];
   roomsCount = 0;
-  boards: any = null;
+  onlineDevices: any = null;
   subscriptions = new Subscription();
 
   constructor(
@@ -38,18 +38,17 @@ export class HomeComponent implements OnInit, OnDestroy {
       if (res && res.devices && res.devices.length) {
         this.subscriptions.add(this.connect.roomsMap.subscribe((roomsMap) => {
           if (roomsMap) {
-            console.log(roomsMap)
+            console.log(roomsMap);
             this.joinedRooms = roomsMap;
             this.roomsCount = Object.keys(roomsMap).length;
           }
         }));
 
-        this.subscriptions.add(this.connect.boards.subscribe((boards) => {
-          if (boards) {
-            if (!this.boards) {
-              this.boards = {};
-            }
-            this.boards[boards.deviceId] = boards.boards;
+        this.subscriptions.add(this.connect.onlineDevices$.subscribe((response) => {
+          if (response) {
+            this.onlineDevices = response;
+          } else {
+            this.onlineDevices = null;
           }
         }));
 
@@ -82,12 +81,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   toggle(device: any, value: any, board: any, swtch: any) {
     if (board && swtch != null && swtch !== undefined && device &&
       this.inRoom(device) &&
-      this.boards &&
-      this.boards[device] &&
-      this.boards[device][board] &&
-      this.boards[device][board].switches &&
-      this.boards[device][board].switches[swtch] != null &&
-      this.boards[device][board].switches[swtch] !== undefined) {
+      this.onlineDevices &&
+      this.onlineDevices[device] &&
+      this.onlineDevices[device][board] &&
+      this.onlineDevices[device][board].switches &&
+      this.onlineDevices[device][board].switches[swtch] != null &&
+      this.onlineDevices[device][board].switches[swtch] !== undefined) {
         this.connect.toggle(device, !value, board, swtch);
     }
   }

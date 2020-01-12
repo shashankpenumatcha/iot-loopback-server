@@ -59,8 +59,14 @@ boot(app, __dirname, function(err) {
 
     app.io.on('connection', function(socket){
       log.info('a user connected');
+
       socket.on('disconnect', function(){
         log.info('user disconnected');
+        if(socket.handshake.query.device){
+          console.log(11111111111111)
+          app.io.to(socket.handshake.query.device).emit('deviceDisconnected',socket.handshake.query.device);
+
+        }
       });
 
       socket.on('join',function(msg){
@@ -71,6 +77,8 @@ boot(app, __dirname, function(err) {
               socket.join(msg,function(){
                 log.info(`joined room ${msg}`)
                 app.io.to(socket.id).emit('joined',msg)
+                console.log(socket.handshake.query)
+
               });
             }else{
               log.error(`unable to find device ${msg}`);
@@ -92,6 +100,7 @@ boot(app, __dirname, function(err) {
           console.log(device)
           if(device){
             app.io.to(socket.id).emit('deviceInfo',device);
+
             log.info(`device info sent to ${deviceId}`);
           }else{
             log.error(`device ${deviceId} not found`);
@@ -113,6 +122,7 @@ boot(app, __dirname, function(err) {
 
       socket.on('boards',function(msg){
         log.info(`sending boards for ${msg.deviceId}`)
+
         app.io.to(msg.deviceId).emit('boards',msg);
       });
 

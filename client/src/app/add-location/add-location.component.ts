@@ -23,14 +23,9 @@ export class AddLocationComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions.add(
-      this.connect.boards.subscribe(res => {
-        if (res.deviceId) {
-          if (!this.devices[res.deviceId]) {
-            this.devices[res.deviceId] = {};
-          }
-          if (res.boards) {
-            this.devices[res.deviceId] = res.boards;
-          }
+      this.connect.onlineDevices$.subscribe(res => {
+        if (res) {
+          this.devices = res;
         }
         console.log(this.devices);
         if (this.devices) {

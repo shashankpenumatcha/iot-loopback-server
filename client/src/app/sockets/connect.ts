@@ -6,11 +6,26 @@ import { BehaviorSubject } from 'rxjs';
 export class ConnectSocket {
 
   rooms: any = {};
+  onlineDevices: any = null;
   roomsMap = new BehaviorSubject<any>(null);
-  boards =  new BehaviorSubject<any>(null);
-
+  onlineDevices$ = new BehaviorSubject(this.onlineDevices);
   constructor(private socket: Socket) {
     this.getSwitches();
+    this.onDeviceDisconnect();
+  }
+
+  onDeviceDisconnect() {
+    this.socket.on('deviceDisconnected', id => {
+      if (id) {
+        if (this.onlineDevices && this.onlineDevices[id]) {
+          delete this.onlineDevices[id];
+          if (Object.keys(this.onlineDevices).length) {
+            this.onlineDevices = null;
+          }
+          this.onlineDevices$.next(this.onlineDevices);
+        }
+      }
+    });
   }
 
   join(msg: string, device: any) {
@@ -38,9 +53,13 @@ export class ConnectSocket {
   }
 
   getSwitches() {
-    return this.socket.fromEvent('boards').subscribe(m => {
-      if (this.rooms && m != null && typeof(m) === 'object') {
-        this.boards.next(m);
+    this.socket.on('boards', response => {
+      if (this.rooms && response && response.deviceId && response.boards) {
+        if (!this.onlineDevices) {
+          this.onlineDevices = {};
+        }
+        this.onlineDevices[response.deviceId] = response.boards;
+        this.onlineDevices$.next(this.onlineDevices);
       }
     });
   }
