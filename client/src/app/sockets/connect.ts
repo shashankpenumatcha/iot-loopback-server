@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { BehaviorSubject } from 'rxjs';
+import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 
 @Injectable()
 export class ConnectSocket {
@@ -9,6 +10,7 @@ export class ConnectSocket {
   onlineDevices: any = null;
   roomsMap = new BehaviorSubject<any>(null);
   onlineDevices$ = new BehaviorSubject(this.onlineDevices);
+  assignedSwitches = new BehaviorSubject(null);
   constructor(private socket: Socket) {
     this.getSwitches();
     this.onDeviceDisconnect();

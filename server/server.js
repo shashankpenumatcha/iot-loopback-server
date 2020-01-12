@@ -132,7 +132,7 @@ boot(app, __dirname, function(err) {
       });
 
       socket.on('locationAdded',function(msg){
-        log.info(`toggle added confirmation from device`)
+        log.info(` added confirmation from device`)
         app.io.to(msg.deviceId).emit('locationAdded',msg)
       })
 
@@ -167,7 +167,25 @@ boot(app, __dirname, function(err) {
             return m
           })
         }
+      });
+
+      socket.on('getAssignedSwitches',function(id){
+        log.debug(`get assigned switched request`);
+        app.io.to(id).emit('getAssignedSwitches', socket.id);
       })
+
+      socket.on('assignedSwitches', function(msg) {
+        log.debug(`got assigned switches`)
+        if(msg.deviceId){
+          if(msg.error){
+            log.error(msg.error);
+          }
+          let socketId = msg.socketId;
+          delete msg.socketId
+          app.io.to(socketId).emit('assignedSwitches', msg);
+        }
+      })
+
 
 
     });

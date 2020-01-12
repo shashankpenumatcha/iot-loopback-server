@@ -6,8 +6,8 @@
 </div>
 
  <div id="scan-section">
-   <button id="scan-btn" (click)="scan()">Scan</button>
-   <div id="switches" *ngIf="deviceLength&&!adding">
+   <button id="scan-btn" (click)="scan(true)">Scan</button>
+   <div id="switches" *ngIf="deviceLength&&!adding&&showSwitches">
       <div *ngFor="let device of devices | keyvalue">
           <ng-container *ngIf="device.value">
             <div *ngFor="let board of device.value | keyvalue">
@@ -31,4 +31,6 @@
      no devices found
    </div>
  </div>
+ {{devices | json}}
 {{selectedSwitches | json}}
+{{assignedSwitches | json}}
