@@ -8,12 +8,61 @@ export class ConnectSocket {
 
   rooms: any = {};
   onlineDevices: any = null;
+  locations: any = null;
   roomsMap = new BehaviorSubject<any>(null);
   onlineDevices$ = new BehaviorSubject(this.onlineDevices);
-  assignedSwitches = new BehaviorSubject(null);
+  locations$ = new BehaviorSubject(this.locations);
   constructor(private socket: Socket) {
     this.getSwitches();
     this.onDeviceDisconnect();
+    this.initLocations();
+  }
+
+  initLocations() {
+    this.socket.on('locations', res => {
+      console.log(res);
+      if (!res.error) {
+        if (res.deviceId && res.switches && res.switches.length) {
+          if (!this.locations) {
+            this.locations = {};
+          }
+          res.switches.some(s => {
+              if (!this.locations[s.locationId]) {
+                this.locations[s.locationId] = {};
+              }
+              this.locations[s.locationId].name = s.locationName;
+              if (!this.locations[s.locationId].devices) {
+                this.locations[s.locationId].devices = {};
+              }
+              if (!this.locations[s.locationId].devices[res.deviceId]) {
+                this.locations[s.locationId].devices[res.deviceId] = {};
+              }
+              if (! this.locations[s.locationId].devices[res.deviceId][s.board]) {
+                this.locations[s.locationId].devices[res.deviceId][s.board] = {};
+              }
+
+              if (!this.locations[s.locationId].devices[res.deviceId][s.board][s.switch]) {
+                this.locations[s.locationId].devices[res.deviceId][s.board][s.switch] = {};
+              }
+              this.locations[s.locationId].devices[res.deviceId][s.board][s.switch].name = s.name;
+          });
+          this.locations$.next(this.locations);
+        }
+      }
+    });
+  }
+
+  getLocations() {
+    let devices = [];
+    if (this.onlineDevices) {
+      devices = Object.keys(this.onlineDevices);
+    }
+    if (devices.length) {
+      this.socket.emit('getLocations', devices);
+    } else {
+      this.locations = null;
+      this.locations$.next(null);
+    }
   }
 
   onDeviceDisconnect() {
@@ -24,6 +73,7 @@ export class ConnectSocket {
           if (Object.keys(this.onlineDevices).length) {
             this.onlineDevices = null;
           }
+          this.getLocations();
           this.onlineDevices$.next(this.onlineDevices);
         }
       }
@@ -61,6 +111,7 @@ export class ConnectSocket {
           this.onlineDevices = {};
         }
         this.onlineDevices[response.deviceId] = response.boards;
+        this.getLocations();
         this.onlineDevices$.next(this.onlineDevices);
       }
     });

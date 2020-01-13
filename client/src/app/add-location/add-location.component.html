@@ -1,5 +1,5 @@
 <h3>add-location</h3>
-
+<span *ngIf="!adding" (click)="activeModal.dismiss()">close</span>
 <div id="add-location-form">
   <span>name </span>
   <input [disabled]="adding" [(ngModel)]="name" type="text"/>
@@ -8,10 +8,12 @@
  <div id="scan-section">
    <button id="scan-btn" (click)="scan(true)">Scan</button>
    <div id="switches" *ngIf="deviceLength&&!adding&&showSwitches">
-      <div *ngFor="let device of devices | keyvalue">
+      <div *ngFor="let device of devices | keyvalue ; let ix=index">
           <ng-container *ngIf="device.value">
-            <div *ngFor="let board of device.value | keyvalue">
-              <ng-container *ngIf="board.value && board.value.switches">
+            <div *ngFor="let board of device.value | keyvalue; let ixx = index">
+              {{setSwitchCount(ix,ixx, board)}}
+
+              <ng-container *ngIf="board.value && board.value.switches; ">
                 <div *ngFor="let switch of board.value.switches; let i = index">
                     <button (click)="toggle(device.key,switch,board.key,i)">Toggle Switch</button>
                     <span *ngIf="selectedSwitches&&board.key&&device.key">
@@ -25,12 +27,13 @@
             </div>
           </ng-container>
       </div>
-      <button [disabled]="!name||adding" (click)="addLocation()">Add Location</button>
+      <button  [disabled]="!name||adding||!switchCount" (click)="addLocation()">Add Location</button>
+      <div *ngIf="!switchCount">
+        <p>No free switches available</p>
+      </div>
    </div>
    <div *ngIf="!deviceLength">
      no devices found
    </div>
  </div>
- {{devices | json}}
 {{selectedSwitches | json}}
-{{assignedSwitches | json}}

@@ -21,6 +21,8 @@ export class AddLocationComponent implements OnInit, OnDestroy {
   adding: boolean;
   activeRequests = [];
   showSwitches = false;
+  switchCount = 0;
+  selectedSwitchCount = 0;
   // get available switches
   constructor(public activeModal: NgbActiveModal, private connect: ConnectSocket, private socket: Socket) { }
 
@@ -28,25 +30,30 @@ export class AddLocationComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.connect.onlineDevices$.subscribe(res => {
         if (res) {
-          this.devices = res;
+           this.devices = JSON.parse(JSON.stringify(res));
         }
-        console.log(this.devices);
         if (this.devices) {
           this.deviceLength = Object.keys(this.devices).length;
         } else {
           this.deviceLength = 0;
         }
-      //  / this.scan(false);
+      //  this.scan(false);
       })
     );
     this.socket.on('locationAdded', (res) => {
-
-      if (res.name && res.deviceId) {
-        this.activeRequests.splice(this.activeRequests.indexOf(res.deviceId), 1);
-      }
-      if (!this.activeRequests.length && res.name) {
+      if (!res.error) {
+        if (res.name && res.deviceId) {
+          this.activeRequests.splice(this.activeRequests.indexOf(res.deviceId), 1);
+        }
+        if (!this.activeRequests.length && res.name) {
+          this.adding = false;
+          this.connect.getLocations();
+          this.activeModal.dismiss();
+        }
+      } else {
         this.adding = false;
-        alert(`new location added ${res.name}`);
+        this.activeRequests = [];
+        alert(res.error);
       }
     });
   }
@@ -72,14 +79,7 @@ export class AddLocationComponent implements OnInit, OnDestroy {
           this.activeRequests.splice(this.activeRequests.indexOf(res.deviceId), 1);
           if (res.switches && res.switches.length) {
             res.switches.some(s => {
-             /*  this.assignedSwitches[s.board] = {};
-              this.assignedSwitches[s.board][`${s.switch}`] = {};
-              if (s.name) {
-                this.assignedSwitches[s.board][`${s.switch}`].label = s.name;
-              } */
               console.log(this.devices);
-
-
               if (this.devices[res.deviceId] && this.devices[res.deviceId][s.board]
                 && this.devices[res.deviceId][s.board].switches
                 // tslint:disable-next-line: radix
@@ -111,6 +111,7 @@ export class AddLocationComponent implements OnInit, OnDestroy {
     }
     if (!this.selectedSwitches[device][board][swtch]) {
       this.selectedSwitches[device][board][swtch] = {};
+      this.selectedSwitchCount += 1;
     }
   }
 
@@ -121,6 +122,7 @@ export class AddLocationComponent implements OnInit, OnDestroy {
           delete this.selectedSwitches[device][board];
           if (!Object.keys(this.selectedSwitches[device]).length) {
             delete this.selectedSwitches[device];
+            this.selectedSwitchCount -= 1;
           }
         }
       }
@@ -148,5 +150,15 @@ export class AddLocationComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  setSwitchCount(ix, ixx, board) {
+      if (ix === 0 && ixx === 0) {
+        this.switchCount = 0;
+      }
+      if (board && board.value && board.value.switches) {
+        this.switchCount += board.value.switches.length;
+      }
+
+    }
 
 }

@@ -1,7 +1,33 @@
 <p>home works!</p>
 <button (click)="logout()">log out</button>
 <h2>Locations</h2>
-<button (click)="launchDeviceAdder()">Add Location</button>
+
+<ng-container *ngIf="locations">
+  <div *ngFor="let location of locations | keyvalue">
+    <h5 style="margin-bottom:0px" *ngIf="location.value.name">{{location.value.name}}</h5>
+    <ng-container *ngIf="location.value.devices">
+      <ng-container *ngFor="let device of location.value.devices | keyvalue" >
+        <ng-container *ngIf="device.value">
+        <ng-container *ngFor="let board of device.value | keyvalue">
+          <ng-container *ngIf="board.value">
+            <div style="border: 1px solid black;width: 240px;padding: 15px;" *ngFor="let switch of board.value | keyvalue">
+                <p style="margin-bottom:0px" *ngIf="switch.value && switch.value.name"> name: {{switch.value.name}} </p>
+
+                <p style="margin-bottom:0px" *ngIf="onlineDevices&&onlineDevices[device.key]&&onlineDevices[device.key][board.key]&&onlineDevices[device.key][board.key].switches">
+                <span (click)="toggle(device.key,switch,board.key,i)" *ngFor="let switch of onlineDevices[device.key][board.key].switches; let i =index">
+                  state: {{switch}}
+                </span>
+              </p>
+            </div>
+          </ng-container>
+        </ng-container>
+        </ng-container>
+      </ng-container>
+  </ng-container>
+
+  </div>
+</ng-container>
+<button style="margin-top:15px;" (click)="launchDeviceAdder()">Add Location</button>
 <h2>Devices</h2>
 <ng-container *ngIf="roomsCount>0">
   <div style="border: 1px solid black;margin-bottom: 15px;width: 240px;padding: 15px;max-width: 100%;" *ngFor="let room of joinedRooms | keyvalue">
@@ -34,3 +60,4 @@
 <pre>
   {{onlineDevices|json}}
 </pre>
+

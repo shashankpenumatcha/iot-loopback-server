@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   devices: any[];
   joinedRooms: any = {};
-  locations: any = [];
+  locations: any = {};
   roomsCount = 0;
   onlineDevices: any = null;
   subscriptions = new Subscription();
@@ -36,23 +36,26 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.fetchData.registeredDevices().subscribe((res) => {
       if (res && res.devices && res.devices.length) {
+        this.subscriptions.add(this.connect.locations$.subscribe(res => {
+          this.locations = {...res};
+        }));
         this.subscriptions.add(this.connect.roomsMap.subscribe((roomsMap) => {
           if (roomsMap) {
             console.log(roomsMap);
-            this.joinedRooms = roomsMap;
+            this.joinedRooms = {...roomsMap};
             this.roomsCount = Object.keys(roomsMap).length;
           }
         }));
 
         this.subscriptions.add(this.connect.onlineDevices$.subscribe((response) => {
           if (response) {
-            this.onlineDevices = response;
+            this.onlineDevices = {...response};
           } else {
             this.onlineDevices = null;
           }
         }));
 
-        this.devices = res.devices;
+        this.devices = {...res}.devices;
 
         this.devices.map(m => {
           this.connect.join(m.deviceId, m);

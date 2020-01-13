@@ -10,6 +10,8 @@ const boot = require('loopback-boot');
 var log4js = require('log4js');
 var log = log4js.getLogger();
 log.level = 'debug';
+var uuid = require('uuid-random');
+
 
 const app = module.exports = loopback();
 
@@ -133,7 +135,19 @@ boot(app, __dirname, function(err) {
 
       socket.on('locationAdded',function(msg){
         log.info(` added confirmation from device`)
-        app.io.to(msg.deviceId).emit('locationAdded',msg)
+        if(msg.socketId){
+          if(!msg.error){
+            let socket = msg.socketId;
+            delete msg.socketId;
+            app.io.to(socket).emit('locationAdded',msg)
+          } else if (msg.devices){
+            msg.devices.some(s => {
+              app.io.to(s).emit('deleteLocation', msg.locationId);
+            })
+            app.io.to(socket).emit('locationAdded',{error : 'error while creating location'})
+
+          }
+        }
       })
 
       socket.on('addLocation',function(msg, callback){
@@ -162,8 +176,9 @@ boot(app, __dirname, function(err) {
         if(payload && payload.error){
           callback(payload);
         }else{
+          const locationId = uuid();
           devices.map(m => {
-            app.io.to(m).emit('addLocation', {name: msg.name, boards: msg.devices[m]})
+            app.io.to(m).emit('addLocation', {devices:devices,locationId:locationId, name: msg.name, boards: msg.devices[m], socketId: socket.id})
             return m
           })
         }
@@ -186,6 +201,22 @@ boot(app, __dirname, function(err) {
         }
       })
 
+      socket.on('getLocations', devices => {
+        console.log(devices)
+        if(devices && devices.length){
+          devices.some(s=>{
+            app.io.to(s).emit('getLocations',{socketId:socket.id});
+          })
+        } else {
+          app.io.to(socket.id).emit('locations' , {error:'devices length is invalid'});
+        }
+      });
+
+      socket.on('locations', response => {
+        if(response.socketId) {
+            app.io.to(response.socketId).emit('locations', response);
+        }
+      })
 
 
     });
