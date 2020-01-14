@@ -23,15 +23,18 @@ export class ConnectSocket {
       console.log(res);
       if (!res.error) {
         if (res.deviceId && res.switches && res.switches.length) {
-          if (!this.locations) {
-            this.locations = {};
-          }
+          this.locations = {};
           res.switches.some(s => {
               if (!this.locations[s.locationId]) {
                 this.locations[s.locationId] = {};
               }
               this.locations[s.locationId].name = s.locationName;
-              if (!this.locations[s.locationId].devices) {
+              if (!this.locations[s.locationId].switches) {
+                this.locations[s.locationId].switches = [];
+              }
+              s.deviceId = res.deviceId;
+              this.locations[s.locationId].switches.push(s);
+             /*  if (!this.locations[s.locationId].devices) {
                 this.locations[s.locationId].devices = {};
               }
               if (!this.locations[s.locationId].devices[res.deviceId]) {
@@ -44,12 +47,37 @@ export class ConnectSocket {
               if (!this.locations[s.locationId].devices[res.deviceId][s.board][s.switch]) {
                 this.locations[s.locationId].devices[res.deviceId][s.board][s.switch] = {};
               }
-              this.locations[s.locationId].devices[res.deviceId][s.board][s.switch].name = s.name;
+              this.locations[s.locationId].devices[res.deviceId][s.board][s.switch].name = s.name; */
           });
+          this.calculateActiveLocations();
           this.locations$.next(this.locations);
         }
       }
     });
+  }
+
+  calculateActiveLocations() {
+    if (this.locations) {
+      const locations = Object.keys(this.locations);
+      if (locations.length) {
+        locations.some(l => {
+          this.locations[l].active = false;
+          if (this.locations[l].switches) {
+            this.locations[l].switches.some( s => {
+              if (this.onlineDevices && this.onlineDevices[s.deviceId]
+                && this.onlineDevices[s.deviceId][s.board]
+                && this.onlineDevices[s.deviceId][s.board].switches
+                && this.onlineDevices[s.deviceId][s.board].switches.length
+                && this.onlineDevices[s.deviceId][s.board].switches[s.switch]
+              ) {
+                this.locations[l].active = true;
+                return;
+              }
+            });
+          }
+        });
+      }
+    }
   }
 
   getLocations() {

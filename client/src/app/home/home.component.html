@@ -1,63 +1,159 @@
-<p>home works!</p>
-<button (click)="logout()">log out</button>
-<h2>Locations</h2>
 
-<ng-container *ngIf="locations">
-  <div *ngFor="let location of locations | keyvalue">
-    <h5 style="margin-bottom:0px" *ngIf="location.value.name">{{location.value.name}}</h5>
-    <ng-container *ngIf="location.value.devices">
-      <ng-container *ngFor="let device of location.value.devices | keyvalue" >
-        <ng-container *ngIf="device.value">
-        <ng-container *ngFor="let board of device.value | keyvalue">
-          <ng-container *ngIf="board.value">
-            <div style="border: 1px solid black;width: 240px;padding: 15px;" *ngFor="let switch of board.value | keyvalue">
-                <p style="margin-bottom:0px" *ngIf="switch.value && switch.value.name"> name: {{switch.value.name}} </p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div style="display: flex;">
 
-                <p style="margin-bottom:0px" *ngIf="onlineDevices&&onlineDevices[device.key]&&onlineDevices[device.key][board.key]&&onlineDevices[device.key][board.key].switches">
-                <span (click)="toggle(device.key,switch,board.key,i)" *ngFor="let switch of onlineDevices[device.key][board.key].switches; let i =index">
-                  state: {{switch}}
+        <span class="panel">
+
+
+          <table style="display:inline-block;border-right: 2px solid #ffffff61;">
+            <tr>
+              <td>
+                <i *ngIf="onlineDevicesLength" style="font-size: 18px;" class="far fa-hdd"></i>
+                <i *ngIf="!onlineDevicesLength" style="font-size: 18px;" class="fas fa-exclamation"></i>
+              </td>
+              <td style="line-height: 18px;padding: 0px 18px;">
+                <tr><td>
+                  <span style="display: block;"><span>{{onlineDevicesLength}}</span><span> Active</span></span>
+
+                </td></tr>
+                <tr><td style="opacity: 0.5;">
+                  <span style="display:block">Hub<span *ngIf="onlineDevicesLength>1||!onlineDevicesLength">s</span></span>
+
+                </td></tr>
+              </td>
+            </tr>
+          </table>
+
+          <table style="padding:6px;display:inline-block">
+            <tr  (click)="launchDeviceAdder()" style="cursor:pointer">
+              <td>
+                <i  style="font-size: 18px; margin-left: 18px;" class="fas fa-plus"></i>
+              </td>
+              <td style="line-height: 18px;padding: 0px 0px 0px 18px;">
+                <tr><td>
+                  <span style="display: block;">Add Location</span>
+
+                </td></tr>
+
+              </td>
+            </tr>
+          </table>
+
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:45px 0px"  *ngIf="locations" class="row">
+    <div class="col-12">
+      <ng-container *ngFor="let location of locations | keyvalue">
+        <span *ngIf="location.key" [ngClass]="{'selected' : location.key == selectedLocation}"  (click)="selectedLocation = location.key" style="cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;" >
+         {{location.value.name}}
+         <i [ngClass]="{'green': location.value.active}" style="font-weight: 900;font-size: 8px;position: relative;
+         top: -2px;margin-left: 5px;color: #8080806e;" class="fas fa-circle" >
+         </i>
+        </span>
+      </ng-container>
+    </div>
+  </div>
+  <div style="padding-bottom:45px"  *ngIf="locations" class="row">
+      <ng-container *ngFor="let location of locations | keyvalue">
+        <ng-container *ngIf="location.value.switches && location.value.switches.length">
+          <ng-container  *ngFor="let switch of location.value.switches">
+            <div *ngIf="onlineDevices&&onlineDevices[switch.deviceId]&&
+            onlineDevices[switch.deviceId][switch.board]&&
+            onlineDevices[switch.deviceId][switch.board].switches&&
+            onlineDevices[switch.deviceId][switch.board].switches.length&&
+            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&
+            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null" class="col-6 col-md-4 col-lg-3">
+
+            <div style="background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;">
+                <p style="margin-bottom:0px" *ngIf="switch.name"> {{switch.name}} </p>
+
+                <p style="margin-bottom:0px">
+                <span style="cursor:pointer;font-size:12px;font-weight:bold;position: absolute;top:5px;right:27px" (click)="toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)">
+                  <span style="color:#2cb978" *ngIf="onlineDevices[switch.deviceId][switch.board].switches[switch.switch]">ON</span>
+                  <span style="color:#00000040" *ngIf="!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]">OFF</span>
                 </span>
-              </p>
+                </p>
+            </div>
             </div>
           </ng-container>
-        </ng-container>
+
         </ng-container>
       </ng-container>
-  </ng-container>
+
 
   </div>
-</ng-container>
-<button style="margin-top:15px;" (click)="launchDeviceAdder()">Add Location</button>
-<h2>Devices</h2>
-<ng-container *ngIf="roomsCount>0">
-  <div style="border: 1px solid black;margin-bottom: 15px;width: 240px;padding: 15px;max-width: 100%;" *ngFor="let room of joinedRooms | keyvalue">
-    <div>id: {{room.key}}</div>
-    <div>name: {{room.value.name}}</div>
-    <div *ngIf="onlineDevices&&onlineDevices[room.key]">Online</div>
-    <div *ngIf="!onlineDevices||!onlineDevices[room.key]">Offline</div>
 
-  </div>
-</ng-container>
-<h2>Boards</h2>
-<ng-container *ngIf="onlineDevices">
-  <div  *ngFor="let device of onlineDevices | keyvalue">
-    <div style="border: 1px solid black;margin-bottom: 15px;width: 240px;padding: 15px;max-width: 100%;" *ngFor="let board of device.value | keyvalue">
-      <div>id: {{board.key}}</div>
-      <div>switches:</div>
-        <span *ngIf="board.value&&board.value.switches&&board.value.switches.length">
-          <div (click)="toggle(device.key,switch,board.key,i)" *ngFor="let switch of board.value.switches; let i =index">
-            {{switch}}
-        </div>
-        </span>
+</div>
+
+<button (click)="logout()">log out</button>
+
+
+<ng-container *ngIf="1!=1">
+  <h2>Locations</h2>
+
+  <ng-container *ngIf="locations">
+    <div *ngFor="let location of locations | keyvalue">
+      <h5 style="margin-bottom:0px" *ngIf="location.value.name">{{location.value.name}}</h5>
+      <ng-container *ngIf="location.value.devices">
+        <ng-container *ngFor="let device of location.value.devices | keyvalue" >
+          <ng-container *ngIf="device.value">
+          <ng-container *ngFor="let board of device.value | keyvalue">
+            <ng-container *ngIf="board.value">
+              <div style="border: 1px solid black;width: 240px;padding: 15px;" *ngFor="let switch of board.value | keyvalue">
+                  <p style="margin-bottom:0px" *ngIf="switch.value && switch.value.name"> name: {{switch.value.name}} </p>
+
+                  <p style="margin-bottom:0px" *ngIf="onlineDevices&&onlineDevices[device.key]&&onlineDevices[device.key][board.key]&&onlineDevices[device.key][board.key].switches">
+                  <span (click)="toggle(device.key,switch,board.key,i)" *ngFor="let switch of onlineDevices[device.key][board.key].switches; let i =index">
+                    state: {{switch}}
+                  </span>
+                </p>
+              </div>
+            </ng-container>
+          </ng-container>
+          </ng-container>
+        </ng-container>
+    </ng-container>
+
     </div>
+  </ng-container>
+  <button style="margin-top:15px;" (click)="launchDeviceAdder()">Add Location</button>
+  <h2>Devices</h2>
+  <ng-container *ngIf="roomsCount>0">
+    <div style="border: 1px solid black;margin-bottom: 15px;width: 240px;padding: 15px;max-width: 100%;" *ngFor="let room of joinedRooms | keyvalue">
+      <div>id: {{room.key}}</div>
+      <div>name: {{room.value.name}}</div>
+      <div *ngIf="onlineDevices&&onlineDevices[room.key]">Online</div>
+      <div *ngIf="!onlineDevices||!onlineDevices[room.key]">Offline</div>
 
-  </div>
+    </div>
+  </ng-container>
+  <!-- <h2>Boards</h2>
+  <ng-container *ngIf="onlineDevices">
+    <div  *ngFor="let device of onlineDevices | keyvalue">
+      <div style="border: 1px solid black;margin-bottom: 15px;width: 240px;padding: 15px;max-width: 100%;" *ngFor="let board of device.value | keyvalue">
+        <div>id: {{board.key}}</div>
+        <div>switches:</div>
+          <span *ngIf="board.value&&board.value.switches&&board.value.switches.length">
+            <div (click)="toggle(device.key,switch,board.key,i)" *ngFor="let switch of board.value.switches; let i =index">
+              {{switch}}
+          </div>
+          </span>
+      </div>
+
+    </div>
+  </ng-container> -->
+  <!--
+  <pre>
+    {{joinedRooms|json}}
+  </pre>
+  <pre>
+    {{onlineDevices|json}}
+  </pre>
+
+   -->
 </ng-container>
-
-<pre>
-  {{joinedRooms|json}}
-</pre>
-<pre>
-  {{onlineDevices|json}}
-</pre>
-

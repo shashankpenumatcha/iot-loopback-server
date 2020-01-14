@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import {FetchData} from '../shared/services/fetch-data';
 import {Chowkidaar} from '../blocks/chowkidaar';
 import {ConnectSocket} from '../sockets/connect';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject } from 'rxjs';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddLocationComponent } from '../add-location/add-location.component';
 
@@ -15,12 +15,13 @@ import { AddLocationComponent } from '../add-location/add-location.component';
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
-
+  selectedLocation: any;
   devices: any[];
   joinedRooms: any = {};
   locations: any = {};
   roomsCount = 0;
   onlineDevices: any = null;
+  onlineDevicesLength = 0;
   subscriptions = new Subscription();
 
   constructor(
@@ -38,6 +39,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       if (res && res.devices && res.devices.length) {
         this.subscriptions.add(this.connect.locations$.subscribe(res => {
           this.locations = {...res};
+          if (!this.selectedLocation && this.locations &&  Object.keys(this.locations)[0]) {
+            this.selectedLocation = Object.keys(res)[0];
+          }
+
         }));
         this.subscriptions.add(this.connect.roomsMap.subscribe((roomsMap) => {
           if (roomsMap) {
@@ -50,8 +55,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.subscriptions.add(this.connect.onlineDevices$.subscribe((response) => {
           if (response) {
             this.onlineDevices = {...response};
+            this.onlineDevicesLength = Object.keys(this.onlineDevices).length;
+
           } else {
             this.onlineDevices = null;
+            this.onlineDevicesLength = 0;
           }
         }));
 
