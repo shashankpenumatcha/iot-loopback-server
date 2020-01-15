@@ -1,39 +1,78 @@
-<h3>add-location</h3>
-<span *ngIf="!adding" (click)="activeModal.dismiss()">close</span>
-<div id="add-location-form">
-  <span>name </span>
-  <input [disabled]="adding" [(ngModel)]="name" type="text"/>
+<div style="padding:25px;">
+
+
+  <h3>Add Location</h3>
+  <i *ngIf="!adding" (click)="activeModal.dismiss()" style="cursor:pointer;position: absolute;right:27px;top:20px" class="fas fa-times"></i>
+  <div style="margin-top:20px" id="add-location-form">
+    <input style="width: 100%;
+    height: 36px;
+    font-size: 100%;
+    border: none;
+    border-bottom: 1px solid #0000001a;outline:none;" [disabled]="adding" [(ngModel)]="name" type="text" placeholder="Location Name"/>
+  </div>
+  <button style="border:none;background:none;position: absolute;
+  right: 29px;
+  opacity: 0.5;margin-top:20px"  id="scan-btn" (click)="scan(true)"><i class="fas fa-sync-alt"></i></button>
+   <div id="scan-section">
+
+     <div style="    margin-top: 50px;padding: 15px;border-radius: 5px;background: #107a8b08;" id="switches" *ngIf="deviceLength&&!adding&&showSwitches">
+        <div *ngFor="let device of devices | keyvalue ; let ix=index">
+            <ng-container *ngIf="device.value">
+              <div *ngFor="let board of device.value | keyvalue; let ixx = index">
+                {{setSwitchCount(ix,ixx, board)}}
+
+                <ng-container *ngIf="board.value && board.value.switches; ">
+
+
+
+                  <div style="margin-bottom:20px;background:white;" *ngFor="let switch of board.value.switches; let i = index">
+
+
+                    <table style="width:100px;height:70px;">
+                      <tr>
+                        <td style="width:50px;padding:24px">
+                          <button style="outline:none;border:none;background:none;" *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)"><i class="far fa-square"></i></button>
+                         <button style="outline:none;border:none;background:none;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square"></i></button>
+                        </td>
+                        <td>
+                          <tr>
+                            <td>
+                              <button style="outline:none;padding:0px;margin:0px;border:none;background:none;"  *ngIf="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-on"></i></button>
+                              <button style="outline:none;padding:0px;margin: 0px;border:none;background:none;"  *ngIf="!devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-off"></i></button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="height:35px;">
+                              <input style="outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" placeholder="label" [(ngModel)]="selectedSwitches[device.key][board.key][i].label">
+
+                            </td>
+                          </tr>
+                        </td>
+                      </tr>
+                    </table>
+
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+        </div>
+
+        <div *ngIf="!switchCount">
+          <p style="text-align:center">No free switches available</p>
+        </div>
+     </div>
+     <button style="margin: 0 auto;
+        display: block;
+        margin-top: 40px;
+        padding: 10px 35px;
+        background: #3d5af1;
+        border: 1px solid #3d5af1;
+        border-radius: 200px;
+        color: #fff;"  [disabled]="!name||adding||!switchCount" (click)="addLocation()">Add Location</button>
+     <div *ngIf="!deviceLength">
+       No devices found
+     </div>
+   </div>
+
+
 </div>
-
- <div id="scan-section">
-   <button id="scan-btn" (click)="scan(true)">Scan</button>
-   <div id="switches" *ngIf="deviceLength&&!adding&&showSwitches">
-      <div *ngFor="let device of devices | keyvalue ; let ix=index">
-          <ng-container *ngIf="device.value">
-            <div *ngFor="let board of device.value | keyvalue; let ixx = index">
-              {{setSwitchCount(ix,ixx, board)}}
-
-              <ng-container *ngIf="board.value && board.value.switches; ">
-                <div *ngFor="let switch of board.value.switches; let i = index">
-                    <button (click)="toggle(device.key,switch,board.key,i)">Toggle Switch</button>
-                    <span *ngIf="selectedSwitches&&board.key&&device.key">
-                      <button *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)">select switch</button>
-                      <button  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)">deselect switch</button>
-
-                      <input *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" placeholder="label" [(ngModel)]="selectedSwitches[device.key][board.key][i].label">
-                    </span>
-                </div>
-              </ng-container>
-            </div>
-          </ng-container>
-      </div>
-      <button  [disabled]="!name||adding||!switchCount" (click)="addLocation()">Add Location</button>
-      <div *ngIf="!switchCount">
-        <p>No free switches available</p>
-      </div>
-   </div>
-   <div *ngIf="!deviceLength">
-     no devices found
-   </div>
- </div>
-{{selectedSwitches | json}}

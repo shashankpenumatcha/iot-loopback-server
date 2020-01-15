@@ -5,6 +5,8 @@ import {ConnectSocket} from '../sockets/connect';
 import { Subscription, BehaviorSubject } from 'rxjs';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddLocationComponent } from '../add-location/add-location.component';
+import { ThrowStmt } from '@angular/compiler';
+import { DataService } from '../shared/services/data.service';
 
 
 @Component({
@@ -23,11 +25,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   onlineDevices: any = null;
   onlineDevicesLength = 0;
   subscriptions = new Subscription();
+  locationsLength = 0;
 
   constructor(
     private fetchData: FetchData,
     private chowkidaar: Chowkidaar,
     private connect: ConnectSocket,
+    private dataservice: DataService,
     config: NgbModalConfig, private modalService: NgbModal
      ) {
       config.backdrop = 'static';
@@ -35,10 +39,13 @@ export class HomeComponent implements OnInit, OnDestroy {
      }
 
   ngOnInit() {
+
+
     this.fetchData.registeredDevices().subscribe((res) => {
       if (res && res.devices && res.devices.length) {
         this.subscriptions.add(this.connect.locations$.subscribe(res => {
           this.locations = {...res};
+          this.locationsLength = Object.keys(this.locations).length;
           if (!this.selectedLocation && this.locations &&  Object.keys(this.locations)[0]) {
             this.selectedLocation = Object.keys(res)[0];
           }
@@ -103,8 +110,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   launchDeviceAdder() {
-    const modalRef = this.modalService.open(AddLocationComponent);
-    modalRef.componentInstance.name = 'World';
+    if (this.onlineDevicesLength) {
+      const modalRef = this.modalService.open(AddLocationComponent);
+
+    }
   }
 
 }

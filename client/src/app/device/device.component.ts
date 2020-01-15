@@ -1,4 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { DataService } from '../shared/services/data.service';
 import { Subscription } from 'rxjs';
 import { FetchData } from '../shared/services/fetch-data';
@@ -14,7 +16,7 @@ export class DeviceComponent implements OnInit, OnDestroy {
   devices: any[];
   deviceId;
 
-  constructor(private dataService: DataService, private fetchData: FetchData) { }
+  constructor(private router: Router, private dataService: DataService, private fetchData: FetchData) { }
 
   ngOnInit() {
     this.subscriptions.add(this.dataService.devices$.subscribe(
@@ -34,6 +36,7 @@ export class DeviceComponent implements OnInit, OnDestroy {
         if (res && res.devices && res.devices.length) {
           this.dataService.setDevices(res.devices);
         }
+        this.router.navigate['/'];
         //TODO navigate to on-boarding
       });
     }

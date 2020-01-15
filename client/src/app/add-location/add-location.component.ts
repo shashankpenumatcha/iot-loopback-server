@@ -13,6 +13,7 @@ import { Socket } from 'ngx-socket-io';
 export class AddLocationComponent implements OnInit, OnDestroy {
   deviceLength: number  = null;
   devices: any = {};
+  allDevices: any = {};
   subscriptions = new Subscription();
   boards: any [] = [];
   selectedSwitches: any = {};
@@ -30,14 +31,17 @@ export class AddLocationComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.connect.onlineDevices$.subscribe(res => {
         if (res) {
-           this.devices = JSON.parse(JSON.stringify(res));
+           this.allDevices = JSON.parse(JSON.stringify(res));
         }
-        if (this.devices) {
-          this.deviceLength = Object.keys(this.devices).length;
+        if (this.allDevices) {
+          this.deviceLength = Object.keys(this.allDevices).length;
         } else {
           this.deviceLength = 0;
         }
-      //  this.scan(false);
+        if (!this.deviceLength) {
+          this.activeModal.dismiss();
+        }
+        this.scan(true);
       })
     );
     this.socket.on('locationAdded', (res) => {
@@ -66,39 +70,42 @@ export class AddLocationComponent implements OnInit, OnDestroy {
   }
 
   scan(show) {
-    if (this.devices && this.deviceLength) {
-      const devices = Object.keys(this.devices);
+    if (this.allDevices && this.deviceLength) {
+      const devices = Object.keys(this.allDevices);
       devices.map( d => {
         this.socket.emit('getAssignedSwitches', d);
         return d;
       });
       this.activeRequests = devices;
-      this.adding = true;
+      //this.adding = true;
       this.socket.on('assignedSwitches', res => {
         if (res && res.deviceId) {
           this.activeRequests.splice(this.activeRequests.indexOf(res.deviceId), 1);
           if (res.switches && res.switches.length) {
             res.switches.some(s => {
-              console.log(this.devices);
-              if (this.devices[res.deviceId] && this.devices[res.deviceId][s.board]
-                && this.devices[res.deviceId][s.board].switches
+              console.log(this.allDevices);
+              if (this.allDevices[res.deviceId] && this.allDevices[res.deviceId][s.board]
+                && this.allDevices[res.deviceId][s.board].switches
                 // tslint:disable-next-line: radix
-                && (this.devices[res.deviceId][s.board].switches[parseInt(s.switch)] === true ||
-                 this.devices[res.deviceId][s.board].switches[parseInt(s.switch)] === false)) {
+                && (this.allDevices[res.deviceId][s.board].switches[parseInt(s.switch)] === true ||
+                 this.allDevices[res.deviceId][s.board].switches[parseInt(s.switch)] === false)) {
                 // tslint:disable-next-line: radix
-                this.devices[res.deviceId][s.board].switches.splice(parseInt(s.switch), 1);
+                this.allDevices[res.deviceId][s.board].switches.splice(parseInt(s.switch), 1);
               }
             });
           }
         }
         if (!this.activeRequests.length) {
-          this.adding = false;
+         // this.adding = false;
           if (show) {
             this.showSwitches = true;
           }
           this.socket.removeListener('assignedSwitches');
         }
+        this.devices = this.allDevices;
+
       });
+
     }
   }
 
@@ -139,6 +146,8 @@ export class AddLocationComponent implements OnInit, OnDestroy {
         this.connect.toggle(device, !value, board, swtch);
     }
   }
+
+
 
   addLocation() {
     this.adding = true;
