@@ -11,8 +11,8 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { CarouselComponent } from './carousel/carousel.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AddLocationComponent } from './add-location/add-location.component';
-
-const config: SocketIoConfig = { url: 'http://shashank.local:3001', options: {} };
+import {Config} from './app.config.js';
+const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
   imports: [

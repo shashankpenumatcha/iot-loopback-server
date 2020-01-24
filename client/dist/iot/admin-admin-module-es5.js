@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>admin works!</p>\n\n<button [routerLink]=\"['register/device']\">Register Device</button>\n<button [routerLink]=\"['register/board']\">Register Board</button>\n\n";
+    __webpack_exports__["default"] = "<p>admin works!</p>\r\n\r\n<button [routerLink]=\"['register/device']\">Register Device</button>\r\n<button [routerLink]=\"['register/board']\">Register Board</button>\r\n\r\n";
     /***/
   },
 
@@ -41,7 +41,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>Register Board</p>\n\n<form>\n  <div>Device Id</div>\n  <input type=\"text\" name=\"deviceId\" [(ngModel)]=\"deviceId\" />\n  <button [disabled]=\"!deviceId || !deviceId.length\" type=\"submit\" (click)=\"verify()\">Verify Device</button>\n</form><br/>\n<button (click)=\"register()\" *ngIf=\"device\">Add Board</button><br/>\n{{message}}<br/>\n<pre>{{device|json}}</pre><br/>\n\n\n";
+    __webpack_exports__["default"] = "<p>Register Board</p>\r\n\r\n<form>\r\n  <div>Device Id</div>\r\n  <input type=\"text\" name=\"deviceId\" [(ngModel)]=\"deviceId\" />\r\n  <button [disabled]=\"!deviceId || !deviceId.length\" type=\"submit\" (click)=\"verify()\">Verify Device</button>\r\n</form><br/>\r\n<button (click)=\"register()\" *ngIf=\"device\">Add Board</button><br/>\r\n{{message}}<br/>\r\n<pre>{{device|json}}</pre><br/>\r\n\r\n\r\n";
     /***/
   },
 
@@ -61,7 +61,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>Register Device</p>\n<form>\n  <div>Device Id</div>\n  <input type=\"text\" name=\"deviceId\" [(ngModel)]=\"deviceId\" />\n  <button [disabled]=\"!deviceId || !deviceId.length\" type=\"submit\" (click)=\"register()\">Add Device</button>\n</form>\n{{message}}\n";
+    __webpack_exports__["default"] = "<p>Register Device</p>\r\n<form>\r\n  <div>Device Id</div>\r\n  <input type=\"text\" name=\"deviceId\" [(ngModel)]=\"deviceId\" />\r\n  <button [disabled]=\"!deviceId || !deviceId.length\" type=\"submit\" (click)=\"register()\">Add Device</button>\r\n</form>\r\n{{message}}\r\n";
     /***/
   },
 

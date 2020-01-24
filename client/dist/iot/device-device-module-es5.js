@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n<div *ngIf=\"!devices|| !devices.length\">\n  <h3 style=\"text-align: center;margin: 25px;\">Register your device</h3>\n  <p style=\"text-align: center;text-align: center;\n  width: 400px;\n  max-width: 90vw;\n  margin: 0 auto;\n  opacity: 0.5;\n  margin-top: 50px;\">Enter the device ID to register your device. Your device ID can be found printed on the device.</p>\n  <input style=\"width: 300px;\n  max-width: 90vw;\n  margin: 0 auto;\n  display: block;\n  margin-top: 20px;text-align:center;\" type=\"text\" placeholder=\"Enter device ID\" [(ngModel)]=\"deviceId\">\n  <button  [disabled]=\"!deviceId || !deviceId.length\" (click)=\"register(deviceId)\">Register</button>\n</div>\n\n\n";
+    __webpack_exports__["default"] = "\r\n<div *ngIf=\"!devices|| !devices.length\">\r\n  <h3 style=\"text-align: center;margin: 25px;\">Register your device</h3>\r\n  <p style=\"text-align: center;text-align: center;\r\n  width: 400px;\r\n  max-width: 90vw;\r\n  margin: 0 auto;\r\n  opacity: 0.5;\r\n  margin-top: 50px;\">Enter the device ID to register your device. Your device ID can be found printed on the device.</p>\r\n  <input style=\"width: 300px;\r\n  max-width: 90vw;\r\n  margin: 0 auto;\r\n  display: block;\r\n  margin-top: 20px;text-align:center;\" type=\"text\" placeholder=\"Enter device ID\" [(ngModel)]=\"deviceId\">\r\n  <button  [disabled]=\"!deviceId || !deviceId.length\" (click)=\"register(deviceId)\">Register</button>\r\n</div>\r\n\r\n\r\n";
     /***/
   },
 
