@@ -18,7 +18,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifiedComponent } from './verified/verified.component';
 
-const config: SocketIoConfig = { url: 'http://shashank.local:3001', options: {} };
+import {Config} from './app.config.js';
+const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
   imports: [

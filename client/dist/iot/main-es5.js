@@ -91,7 +91,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<router-outlet></router-outlet>\n";
+    __webpack_exports__["default"] = "<router-outlet></router-outlet>\r\n";
     /***/
   },
 
@@ -393,12 +393,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     Licensed under the Apache License, Version 2.0 (the "License"); you may not use
     this file except in compliance with the License. You may obtain a copy of the
     License at http://www.apache.org/licenses/LICENSE-2.0
-    
+
     THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
     KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
     WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
     MERCHANTABLITY OR NON-INFRINGEMENT.
-    
+
     See the Apache Version 2.0 License for specific language governing permissions
     and limitations under the License.
     ***************************************************************************** */
@@ -1504,6 +1504,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/app.config.js":
+  /*!*******************************!*\
+    !*** ./src/app/app.config.js ***!
+    \*******************************/
+
+  /*! exports provided: Config */
+
+  /***/
+  function srcAppAppConfigJs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Config", function () {
+      return Config;
+    });
+
+    var Config = {
+      server: 'http://134.209.155.230:3001'
+    };
+    /***/
+  },
+
+  /***/
   "./src/app/app.module.ts":
   /*!*******************************!*\
     !*** ./src/app/app.module.ts ***!
@@ -1607,7 +1633,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! ./add-location/add-location.component */
     "./src/app/add-location/add-location.component.ts");
     /* harmony import */
-
 
     var _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ./schedule/schedule.component */
@@ -3640,7 +3665,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! C:\Users\shashank\Desktop\iot-loopback-server\client\src\main.ts */
+    /*! C:\Users\bgh45159\Desktop\mukund\iot-loopback-server\client\src\main.ts */
     "./src/main.ts");
     /***/
   },

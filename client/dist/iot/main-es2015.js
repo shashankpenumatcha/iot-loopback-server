@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\r\n");
 
 /***/ }),
 
@@ -793,6 +793,22 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 ], AppComponent);
 
 
+
+/***/ }),
+
+/***/ "./src/app/app.config.js":
+/*!*******************************!*\
+  !*** ./src/app/app.config.js ***!
+  \*******************************/
+/*! exports provided: Config */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
+let Config = {
+    server: 'http://134.209.155.230:3001'
+}
 
 /***/ }),
 
@@ -1866,7 +1882,7 @@ let ConnectSocket = class ConnectSocket {
                          if (! this.locations[s.locationId].devices[res.deviceId][s.board]) {
                            this.locations[s.locationId].devices[res.deviceId][s.board] = {};
                          }
-           
+
                          if (!this.locations[s.locationId].devices[res.deviceId][s.board][s.switch]) {
                            this.locations[s.locationId].devices[res.deviceId][s.board][s.switch] = {};
                          }
@@ -2100,7 +2116,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\shashank\Desktop\iot-loopback-server\client\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\bgh45159\Desktop\mukund\iot-loopback-server\client\src\main.ts */"./src/main.ts");
 
 
 /***/ }),
