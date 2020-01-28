@@ -6,6 +6,7 @@ module.exports = function(Model, options) {
     if (!ctx.isNewInstance) {
       ctx.data.updated = new Date();
     } else {
+      console.log(ctx);
       ctx.instance.created = new Date();
       ctx.instance.updated = new Date();
       ctx.instance.createdBy = (ctx.options.accessToken&&ctx.options.accessToken.userId)?ctx.options.accessToken.userId:null;

@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { BehaviorSubject } from 'rxjs';
 import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 
-@Injectable()
-export class ConnectSocket {
+@Injectable({
+  providedIn: 'root',
+})
+export class ConnectSocket implements OnDestroy {
 
   rooms: any = {};
   onlineDevices: any = null;
@@ -12,10 +14,16 @@ export class ConnectSocket {
   roomsMap = new BehaviorSubject<any>(null);
   onlineDevices$ = new BehaviorSubject(this.onlineDevices);
   locations$ = new BehaviorSubject(this.locations);
+  boards: any = [];
+  boards$ = new BehaviorSubject(this.boards);
   constructor(private socket: Socket) {
     this.getSwitches();
     this.onDeviceDisconnect();
     this.initLocations();
+  }
+
+  ngOnDestroy() {
+    this.leaveAll(Object.keys(this.rooms));
   }
 
   initLocations() {
@@ -141,8 +149,22 @@ export class ConnectSocket {
         this.onlineDevices[response.deviceId] = response.boards;
         this.getLocations();
         this.onlineDevices$.next(this.onlineDevices);
+        this.calculateBoards();
       }
     });
+  }
+
+  calculateBoards() {
+    let boards = [];
+    const dk = Object.keys(this.onlineDevices);
+    dk.some(d => {
+      const bk = Object.keys(this.onlineDevices[d]);
+      bk.some(b => {
+        boards.push(this.onlineDevices[d][b]);
+      });
+    });
+    this.boards = boards;
+    this.boards$.next(this.boards);
   }
 
   toggle(device: string, value: boolean, board: string, swtch: number){

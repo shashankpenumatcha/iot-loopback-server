@@ -36,6 +36,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/add-board/add-board.component.html":
+  /*!******************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/add-board/add-board.component.html ***!
+    \******************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAddBoardAddBoardComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div style=\"padding:25px;\">\n  <h3>Add Board - {{deviceId}}</h3>\n  <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;height: 36px;font-size: 100%;border: none;border-bottom: 1px solid #0000001a;outline:none;\"\n    [disabled]=\"adding\" [(ngModel)]=\"boardId\" type=\"text\" placeholder=\"Enter Board ID\"/>\n  </div>\n\n   <div id=\"scan-section\">\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #3d5af1;\n        border: 1px solid #3d5af1;\n        border-radius: 200px;\n        color: #fff;\"  [disabled]=\"adding||!deviceId||!boardId\" (click)=\"addBoard()\">Add Board</button>\n\n   </div>\n\n\n</div>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/add-location/add-location.component.html":
   /*!************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/add-location/add-location.component.html ***!
@@ -51,7 +71,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div style=\"padding:25px;\">\n\n\n  <h3>Add Location</h3>\n  <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;\n    height: 36px;\n    font-size: 100%;\n    border: none;\n    border-bottom: 1px solid #0000001a;outline:none;\" [disabled]=\"adding\" [(ngModel)]=\"name\" type=\"text\" placeholder=\"Location Name\"/>\n  </div>\n  <button style=\"border:none;background:none;position: absolute;\n  right: 29px;\n  opacity: 0.5;margin-top:20px\"  id=\"scan-btn\" (click)=\"scan(true)\"><i class=\"fas fa-sync-alt\"></i></button>\n   <div id=\"scan-section\">\n\n     <div style=\"    margin-top: 50px;padding: 15px;border-radius: 5px;background: #107a8b08;\" id=\"switches\" *ngIf=\"deviceLength&&!adding&&showSwitches\">\n        <div *ngFor=\"let device of devices | keyvalue ; let ix=index\">\n            <ng-container *ngIf=\"device.value\">\n              <div *ngFor=\"let board of device.value | keyvalue; let ixx = index\">\n                {{setSwitchCount(ix,ixx, board)}}\n\n                <ng-container *ngIf=\"board.value && board.value.switches; \">\n\n\n\n                  <div style=\"margin-bottom:20px;background:white;\" *ngFor=\"let switch of board.value.switches; let i = index\">\n\n\n                    <table style=\"width:100px;height:70px;\">\n                      <tr>\n                        <td style=\"width:50px;padding:24px\">\n                          <button style=\"outline:none;border:none;background:none;\" *ngIf=\"(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])\" (click)=\"select(device.key,board.key, i)\"><i class=\"far fa-square\"></i></button>\n                         <button style=\"outline:none;border:none;background:none;\"  *ngIf=\"selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]\" (click)=\"deselect(device.key,board.key, i)\"><i class=\"far fa-check-square\"></i></button>\n                        </td>\n                        <td>\n                          <tr>\n                            <td>\n                              <button style=\"outline:none;padding:0px;margin:0px;border:none;background:none;\"  *ngIf=\"devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\"><i class=\"fas fa-toggle-on\"></i></button>\n                              <button style=\"outline:none;padding:0px;margin: 0px;border:none;background:none;\"  *ngIf=\"!devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\"><i class=\"fas fa-toggle-off\"></i></button>\n                            </td>\n                          </tr>\n                          <tr>\n                            <td style=\"height:35px;\">\n                              <input style=\"outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;\"  *ngIf=\"selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]\" placeholder=\"label\" [(ngModel)]=\"selectedSwitches[device.key][board.key][i].label\">\n\n                            </td>\n                          </tr>\n                        </td>\n                      </tr>\n                    </table>\n\n                  </div>\n                </ng-container>\n              </div>\n            </ng-container>\n        </div>\n\n        <div *ngIf=\"!switchCount\">\n          <p style=\"text-align:center\">No free switches available</p>\n        </div>\n     </div>\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #3d5af1;\n        border: 1px solid #3d5af1;\n        border-radius: 200px;\n        color: #fff;\"  [disabled]=\"!name||adding||!switchCount\" (click)=\"addLocation()\">Add Location</button>\n     <div *ngIf=\"!deviceLength\">\n       No devices found\n     </div>\n   </div>\n\n\n</div>\n";
+    __webpack_exports__["default"] = "<div style=\"padding:25px;\">\n\n\n  <h3>Add Location</h3>\n  <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;\n    height: 36px;\n    font-size: 100%;\n    border: none;\n    border-bottom: 1px solid #0000001a;outline:none;\" [disabled]=\"adding\" [(ngModel)]=\"name\" type=\"text\" placeholder=\"Location Name\"/>\n  </div>\n  <button style=\"border:none;background:none;position: absolute;\n  right: 29px;\n  opacity: 0.5;margin-top:20px\"  id=\"scan-btn\" (click)=\"scan(true)\"><i class=\"fas fa-sync-alt\"></i></button>\n   <div id=\"scan-section\">\n\n     <div style=\"    margin-top: 50px;padding: 15px;border-radius: 5px;background: #107a8b08;\" id=\"switches\" *ngIf=\"deviceLength&&!adding&&showSwitches\">\n        <div *ngFor=\"let device of devices | keyvalue ; let ix=index\">\n            <ng-container *ngIf=\"device.value\">\n              <div *ngFor=\"let board of device.value | keyvalue; let ixx = index\">\n\n                <ng-container *ngIf=\"board.value && board.value.switches; \">\n\n\n\n                  <div style=\"margin-bottom:20px;background:white;\" *ngFor=\"let switch of board.value.switches; let i = index\">\n\n\n                    <table style=\"width:100px;height:70px;\">\n                      <tr>\n                        <td style=\"width:50px;padding:24px\">\n                          <button style=\"outline:none;border:none;background:none;\" *ngIf=\"(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])\" (click)=\"select(device.key,board.key, i)\"><i class=\"far fa-square\"></i></button>\n                         <button style=\"outline:none;border:none;background:none;\"  *ngIf=\"selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]\" (click)=\"deselect(device.key,board.key, i)\"><i class=\"far fa-check-square\"></i></button>\n                        </td>\n\n                            <td style=\"font-size:25px;\">\n                              <button style=\"outline:none;padding:0px;margin:0px;border:none;background:none;\"  *ngIf=\"devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\"><i class=\"fas fa-toggle-on\"></i></button>\n                              <button style=\"outline:none;padding:0px;margin: 0px;border:none;background:none;\"  *ngIf=\"!devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\"><i class=\"fas fa-toggle-off\"></i></button>\n                            </td>\n\n                            <td style=\"height:35px;padding-left:25px\">\n                              <input style=\"outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;\"  *ngIf=\"selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]\" placeholder=\"label\" [(ngModel)]=\"selectedSwitches[device.key][board.key][i].label\">\n\n                            </td>\n\n\n                      </tr>\n                    </table>\n\n                  </div>\n                </ng-container>\n              </div>\n            </ng-container>\n        </div>\n\n        <div *ngIf=\"!switchCount\">\n          <p style=\"text-align:center\">No free switches available</p>\n        </div>\n     </div>\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #3d5af1;\n        border: 1px solid #3d5af1;\n        border-radius: 200px;\n        color: #fff;\"  [disabled]=\"!name||adding||!switchCount\" (click)=\"addLocation()\">Add Location</button>\n     <div *ngIf=\"!deviceLength\">\n       No devices found\n     </div>\n   </div>\n\n\n</div>\n";
     /***/
   },
 
@@ -91,7 +111,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ngb-carousel *ngIf=\"images\">\n  <ng-template ngbSlide>\n    <div class=\"picsum-img-wrapper\">\n    </div>\n    <div class=\"carousel-caption\">\n      <h3>First slide label</h3>\n      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>\n    </div>\n  </ng-template>\n  <ng-template ngbSlide>\n    <div class=\"picsum-img-wrapper\">\n    </div>\n    <div class=\"carousel-caption\">\n      <h3>Second slide label</h3>\n      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n    </div>\n  </ng-template>\n  <ng-template ngbSlide>\n    <div class=\"picsum-img-wrapper\">\n    </div>\n    <div class=\"carousel-caption\">\n      <h3>Third slide label</h3>\n      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>\n    </div>\n  </ng-template>\n</ngb-carousel>\n<button [routerLink]=\"['/devices/']\">Skip</button>\n";
+    __webpack_exports__["default"] = "<div *ngIf=\"step==1\" class=\"step1-root\">\r\n  <div class=\"step1-head\">Setup your hub</div>\r\n  <div class=\"step1-text\">STEP 1</div>\r\n  <div class=\"step1-text\"><img height=\"250px\" src=\"content/images/connect.gif\" /></div>\r\n  <div class=\"step1-txt\">\r\n    Plug the Bluebox hub into the socket and switch it on\r\n  </div>\r\n  <div (click)=\"step=2\" class=\"step1-btn\"><button class=\"step1-btnn\">Next</button></div>\r\n</div>\r\n\r\n<div *ngIf=\"step==2\" class=\"step2-root\">\r\n  <div class=\"step2-head\">Setup your hub</div>\r\n  <div class=\"step2-text\">STEP 2</div>\r\n  <div class=\"step2-text\"><img height=\"250px\" src=\"content/images/wifi.gif\" /></div>\r\n  <div class=\"step2-txt\">\r\n    Using your browser or phone connect to wireless network called\r\n    AP_BlueBox\r\n  </div>\r\n  <div (click)='step=3' class=\"step2-btn\"><button class=\"step2-btnn\">Next</button></div>\r\n</div>\r\n\r\n\r\n<div *ngIf=\"step==3\" class=\"step2-root\">\r\n  <div class=\"step2-head\">Setup your hub</div>\r\n  <div class=\"step2-text\">STEP 3</div>\r\n  <div class=\"step2-text\"><img height=\"250px\" src=\"content/images/wifi.gif\" /></div>\r\n  <div class=\"step2-txt\">\r\n    Select to your home WiFi Network, enter password and click on connect\r\n  </div>\r\n  <div [routerLink]=\"['/devices']\" class=\"step2-btn\"><button class=\"step2-btnn\">Next</button></div>\r\n</div>\r\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/device-list/device-list.component.html":
+  /*!**********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/device-list/device-list.component.html ***!
+    \**********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppDeviceListDeviceListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div style=\"box-shadow: 0px 0px 4px 0px #6d696929;\" class=\"col-12\">\n      <h4 style=\"color: #3d5af1;opacity: 0.8;margin:15px 0px 25px 0px\">Add Boards</h4>\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div style=\"padding:15px;\" *ngIf=\"onlineDevicesLength\" class=\"col-6 col-md-4 col-lg-3\">\n      <ng-container *ngFor=\"let device of devices|keyvalue\">\n        <div style=\"padding:15px;margin-bottom:15px;    border: 1px solid #00000017;\n        box-shadow: 0px 4px 4px 0px #6d696929;\">\n          <div style=\"margin-bottom:5px;\">\n            <span style=\"font-weight: bold;\">\n              Device Id:\n            </span>\n            <span>{{device.key}}</span>\n          </div>\n          <div style=\"opacity:0.5;margin-bottom:25px;font-size:10px;\">\n            <i  style=\"font-size: 10px;\" class=\"fas fa-microchip\"></i>\n            {{object.keys(device.value).length}}\n          </div>\n          <div (click)=\"launchBoardAdder(device.key)\" style=\"font-size:12px;color:#3d5af1;cursor:pointer;\">\n            <i  style=\"font-size: 10px;\" class=\"fas fa-plus\"></i>\n            Add Board\n          </div>\n        </div>\n      </ng-container>\n    </div>\n    <ng-container *ngIf=\"!onlineDevicesLength\">\n      <p>No online devices</p>\n    </ng-container>\n  </div>\n</div>\n\n\n";
     /***/
   },
 
@@ -111,7 +151,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <div style=\"display: flex;\">\n\n        <span class=\"panel\">\n\n\n          <table style=\"display:inline-block;border-right: 2px solid #ffffff61;\">\n            <tr>\n              <td>\n                <i *ngIf=\"onlineDevicesLength\" style=\"font-size: 18px;\" class=\"far fa-hdd\"></i>\n                <i *ngIf=\"!onlineDevicesLength\" style=\"font-size: 18px;\" class=\"fas fa-exclamation\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\"><span>{{onlineDevicesLength}}</span><span> Active</span></span>\n\n                </td></tr>\n                <tr><td style=\"opacity: 0.5;\">\n                  <span style=\"display:block\">Hub<span *ngIf=\"onlineDevicesLength>1||!onlineDevicesLength\">s</span></span>\n\n                </td></tr>\n              </td>\n            </tr>\n          </table>\n\n          <table [ngClass]=\"{'disabled': !onlineDevicesLength}\" style=\"padding:6px;display:inline-block\">\n            <tr  (click)=\"launchDeviceAdder()\" style=\"cursor:pointer\">\n              <td>\n                <i  style=\"font-size: 18px; margin-left: 18px;\" class=\"fas fa-plus\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 0px 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\">Add Location</span>\n\n                </td></tr>\n\n              </td>\n            </tr>\n          </table>\n\n        </span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"padding:45px 0px\"  *ngIf=\"locations\" class=\"row\">\n    <div class=\"col-12\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <span *ngIf=\"location.key\" [ngClass]=\"{'selected' : location.key == selectedLocation}\"  (click)=\"selectedLocation = location.key\" style=\"cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;\" >\n         {{location.value.name}}\n         <i [ngClass]=\"{'green': location.value.active}\" style=\"font-weight: 900;font-size: 8px;position: relative;\n         top: -2px;margin-left: 5px;color: #8080806e;\" class=\"fas fa-circle\" >\n         </i>\n        </span>\n      </ng-container>\n    </div>\n  </div>\n  <div style=\"padding-bottom:45px\"  *ngIf=\"locations\" class=\"row\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <ng-container *ngIf=\"location.value.switches && location.value.switches.length\">\n          <ng-container  *ngFor=\"let switch of location.value.switches\">\n            <div *ngIf=\"onlineDevices&&onlineDevices[switch.deviceId]&&\n            onlineDevices[switch.deviceId][switch.board]&&\n            onlineDevices[switch.deviceId][switch.board].switches&&\n            onlineDevices[switch.deviceId][switch.board].switches.length&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null&&\n            switch.locationId == selectedLocation\" class=\"col-6 col-md-4 col-lg-3\">\n\n            <div style=\"text-align:center;height:150px;background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;\">\n              <i style=\"margin-top:30px;font-size:34px;opacity:0.5\" class=\"fas fa-tv\"></i>\n              <p style=\"margin-bottom:0px\" *ngIf=\"switch.name\"> {{switch.name}} </p>\n\n                <p style=\"margin-bottom:0px;margin-top:10px;\">\n                <span style=\"cursor:pointer;font-size:12px;font-weight:bold;position: absolute;top:5px;right:27px\" (click)=\"toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)\">\n                  <span style=\"color:#2cb978\" *ngIf=\"onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">ON</span>\n                  <span style=\"color:#00000040\" *ngIf=\"!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">OFF</span>\n                </span>\n                </p>\n                <i style=\" position: absolute;\n                bottom: 7px;\n                right: 27px;\n                opacity: 0.5;\" class=\"fas fa-arrow-right\"></i >\n            </div>\n            </div>\n          </ng-container>\n\n        </ng-container>\n      </ng-container>\n\n\n  </div>\n  <div *ngIf=\"onlineDevicesLength&&!locationsLength \"class=\"row\">\n    <div style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-map-marker-alt\"></i>\n      <p style=\"opacity:0.4\">Looks like you haven't added any locations yet. Please add Locations to continue.</p>\n    </div>\n  </div>\n\n  <div *ngIf=\"devices && devices.length&&!onlineDevicesLength\"class=\"row\">\n    <div style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-wifi\"></i>\n      <p style=\"opacity:0.4\">Please make sure your device is connected to WiFi.</p>\n    </div>\n  </div>\n\n  <div  *ngIf=\"!devices || !devices.length\"class=\"row\">\n    <div [routerLink]=\"['/devices/']\" style=\"text-align:center;cursor:pointer\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"far fa-hdd\"></i>\n      <p style=\"opacity:0.4\">No Devices registered. Click here to register your device</p>\n    </div>\n  </div >\n\n  <div style=\"cursor:pointer;padding:12px;text-align: center;position:fixed;width:100%;height:50px;bottom:0px;left:0px;color:#fff;background:#3d5af1 ;\">\n     <p (click)=\"logout()\" style=\"text-align:center;margin:0px\">Logout</p>\n  </div>\n\n</div>\n";
+    __webpack_exports__["default"] = " <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}}\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <div style=\"display: flex;\">\n\n        <span class=\"panel\">\n\n\n          <table style=\"display:inline-block;border-right: 2px solid #ffffff61;\">\n            <tr>\n              <td>\n                <i *ngIf=\"onlineDevicesLength\" style=\"font-size: 18px;\" class=\"far fa-hdd\"></i>\n                <i *ngIf=\"!onlineDevicesLength\" style=\"font-size: 18px;\" class=\"fas fa-exclamation\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\"><span>{{onlineDevicesLength}}</span><span> Online</span></span>\n\n                </td></tr>\n                <tr><td style=\"opacity: 0.5;\">\n                  <span style=\"display:block\">Hub<span *ngIf=\"onlineDevicesLength>1||!onlineDevicesLength\">s</span></span>\n\n                </td></tr>\n              </td>\n            </tr>\n          </table>\n\n          <table [ngClass]=\"{'disabled': !onlineDevicesLength}\" style=\"padding:6px;display:inline-block\">\n            <tr  (click)=\"launchDeviceAdder()\" style=\"cursor:pointer\">\n              <td>\n                <i  style=\"font-size: 18px; margin-left: 18px;\" class=\"fas fa-plus\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 0px 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\">Add Location</span>\n\n                </td></tr>\n\n              </td>\n            </tr>\n          </table>\n\n        </span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"padding:45px 0px\"  *ngIf=\"locations\" class=\"row\">\n    <div class=\"col-12\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <span *ngIf=\"location.key\" [ngClass]=\"{'selected' : location.key == selectedLocation}\"  (click)=\"selectedLocation = location.key\" style=\"cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;\" >\n         {{location.value.name}}\n         <i [ngClass]=\"{'green': location.value.active}\" style=\"font-weight: 900;font-size: 8px;position: relative;\n         top: -2px;margin-left: 5px;color: #8080806e;\" class=\"fas fa-circle\" >\n         </i>\n        </span>\n      </ng-container>\n    </div>\n  </div>\n  <div style=\"padding-bottom:45px\"  *ngIf=\"locations\" class=\"row\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <ng-container *ngIf=\"location.value.switches && location.value.switches.length\">\n          <ng-container  *ngFor=\"let switch of location.value.switches\">\n            <div *ngIf=\"onlineDevices&&onlineDevices[switch.deviceId]&&\n            onlineDevices[switch.deviceId][switch.board]&&\n            onlineDevices[switch.deviceId][switch.board].switches&&\n            onlineDevices[switch.deviceId][switch.board].switches.length&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null&&\n            switch.locationId == selectedLocation\" class=\"col-6 col-md-4 col-lg-3\">\n\n            <div style=\"text-align:center;height:150px;background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;\">\n              <i style=\"margin-top:30px;font-size:34px;opacity:0.5\" class=\"fas fa-tv\"></i>\n              <p style=\"margin-bottom:0px\" *ngIf=\"switch.name\"> {{switch.name}} </p>\n\n                <p style=\"margin-bottom:0px;margin-top:10px;\">\n                <span style=\"cursor:pointer;font-size:12px;font-weight:bold;position: absolute;top:5px;right:27px\" (click)=\"toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)\">\n                  <span style=\"color:#2cb978\" *ngIf=\"onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">ON</span>\n                  <span style=\"color:#00000040\" *ngIf=\"!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">OFF</span>\n                </span>\n                </p>\n                <i style=\" position: absolute;\n                bottom: 7px;\n                right: 27px;\n                opacity: 0.5;\" class=\"fas fa-arrow-right\"></i >\n            </div>\n            </div>\n          </ng-container>\n\n        </ng-container>\n      </ng-container>\n\n\n  </div>\n  <div *ngIf=\"onlineDevicesLength&&!locationsLength \"class=\"row\">\n    <div [routerLink]=\"['/device-list']\" *ngIf=\"!boards||!boards.length\" style=\"cursor:pointer;text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-microchip\"></i>\n      <p style=\"opacity:0.4\">No boards found. Click here to add a board.</p>\n    </div>\n    <div *ngIf=\"boards&&boards.length\" style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-map-marker-alt\"></i>\n      <p style=\"opacity:0.4\">Looks like you haven't added any locations yet. Please add Locations to continue.</p>\n    </div>\n  </div>\n\n  <div *ngIf=\"devices && devices.length&&!onlineDevicesLength\"class=\"row\">\n    <div style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-wifi\"></i>\n      <p style=\"opacity:0.4\">Please make sure your device is connected to WiFi.</p>\n    </div>\n  </div>\n\n  <div  *ngIf=\"!devices || !devices.length\"class=\"row\">\n    <div [routerLink]=\"['/devices/']\" style=\"text-align:center;cursor:pointer\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"far fa-hdd\"></i>\n      <p style=\"opacity:0.4\">No Devices registered. Click here to register your device</p>\n    </div>\n  </div >\n\n  <div style=\"cursor:pointer;padding:12px;text-align: center;position:fixed;width:100%;height:50px;bottom:0px;left:0px;color:#fff;background:#3d5af1 ;\">\n     <p (click)=\"logout()\" style=\"text-align:center;margin:0px\">Logout</p>\n  </div>\n\n</div>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/landing-page/landing-page.component.html":
+  /*!************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/landing-page/landing-page.component.html ***!
+    \************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppLandingPageLandingPageComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"land-root\">\n  <div class=\"land-help\"><img src=\"content/images/help.png\" class=\"landhelp\"></div>\n  <div class=\"land-top\">\n    <img src=\"content/images/logo.png\" height=\"200px\" class=\"land-logo\" />\n    <div class=\"appname\">BlueBox IoT</div>\n  </div>\n  <div class=\"land-buttons\">\n    <button [routerLink]=\"['/login']\" class=\"land-loginbtn\">Login</button>\n    <button [routerLink]=\"['/signup']\" class=\"land-regbtn\">Signup</button>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -131,7 +191,67 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div style=\"display:flex;height: 100vh;width:100vw; align-items: center;\njustify-content: center;\">\n\n  <div style=\"    width: 370px;\n  align-items: center;\n  justify-content: center;\n  display: flex;\n  padding: 25px;\n  box-shadow: 0px 7px 19px 0px #6d696961;\n\">\n\n    <form style=\"width:80%\">\n      <input style=\"width:100%;display:block;margin:25px 0px;\" placeholder=\"username\" type=\"text\" name=\"username\" id=\"username\" [(ngModel)]=\"username\">\n      <input style=\"width:100%;display:block\" placeholder=\"password\" type=\"password\" name=\"password\" id=\"password\" [(ngModel)]=\"password\">\n      <button [disabled]=\"!username||!password\" (click)=\"login()\">Login</button>\n    </form>\n  </div>\n\n</div>\n\n";
+    __webpack_exports__["default"] = "\n\n\n<div class=\"login-root\">\n  <div class=\"login-head\">Login</div>\n  <div class=\"login-body\">\n\n    <div class=\"loginbdy-up1\"></div>\n\n    <div class=\"loginbdy-up\">\n    <div class=\"loginimg\"><img height=\"150px\" src=\"content/images/login.png\"/></div>\n\n    <input [(ngModel)]=\"username\" class=\"logininp\" placeholder=\"Username\" name=\"username\" id=\"username\">\n\n    <input [(ngModel)]=\"password\" class=\"logininp\" placeholder=\"Password\" type=\"password\" name=\"password\" id=\"password\">\n\n\n\n    </div>\n    <div class=\"loginbdy-down\"></div>\n  </div>\n  <div class=\"loginister-buttons\">\n    <button  [disabled]=\"!username||!password\" (click)=\"login()\" class=\"loginister-btn\">Login</button>\n\n  </div>\n\n<p *ngIf=\"error\" class=\"error\">{{error}}</p>\n\n</div>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/schedule/schedule.component.html":
+  /*!****************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/schedule/schedule.component.html ***!
+    \****************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppScheduleScheduleComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>schedule works!</p>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/sign-up/sign-up.component.html":
+  /*!**************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/sign-up/sign-up.component.html ***!
+    \**************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppSignUpSignUpComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"register-root\">\n  <div class=\"register-head\">Signup</div>\n  <div class=\"register-body\">\n\n    <div class=\"regbdy-up1\"></div>\n    <div class=\"lheadtext\"><p>Dont have an account yet?</p></div>\n    <div class=\"lheadtext\"><img src=\"content/images/singup.png\" height=\"100px\"></div>\n\n\n    <div class=\"regbdy-up\">\n\n    <input [(ngModel)]=\"username\" class=\"reginp\" placeholder=\"Username\">\n\n    <input [(ngModel)]=\"email\" class=\"reginp\" placeholder=\"Email\">\n\n    <input [(ngModel)]=\"password\" class=\"reginp\" placeholder=\"password\" type=\"password\">\n\n    </div>\n    <div class=regbdy-up2><input [(ngModel)]=\"terms\" type=\"checkbox\"></div>\n    <div class=regbdy-up2> <br/><p> I Agree to terms & conditions</p></div>\n    <div class=\"regbdy-down\"></div>\n  </div>\n  <div class=\"register-buttons\">\n    <button (click)=\"signup()\" [disabled]=\"!username||!email||!password||!terms\" class=\"register-btn\">Register</button>\n  </div>\n  <p class=\"error\" *ngIf=\"error\"> {{error}}</p>\n  <p class=\"message\" *ngIf=\"success\">Sign up success. A verification email has been sent to your email account. <span style=\"cursor:pointer\" [routerLink]=\"['/login']\">Proceed to login</span></p>\n</div>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/verified/verified.component.html":
+  /*!****************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/verified/verified.component.html ***!
+    \****************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppVerifiedVerifiedComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n\n\n<div class=\"login-root\">\n  <div class=\"login-head\">Email Verification</div>\n  <div style=\"margin-top:150px\" class=\"login-body\">\n    <p style=\"text-align: center;\">Your email has been verified successfully.</p>\n    <p [routerLink]=\"['/login']\" style=\"cursor:pointer;text-align: center;\">Proceed to login</p>\n\n\n  </div>\n\n\n</div>\n";
     /***/
   },
 
@@ -694,6 +814,157 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/add-board/add-board.component.css":
+  /*!***************************************************!*\
+    !*** ./src/app/add-board/add-board.component.css ***!
+    \***************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAddBoardAddBoardComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZGQtYm9hcmQvYWRkLWJvYXJkLmNvbXBvbmVudC5jc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/add-board/add-board.component.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/add-board/add-board.component.ts ***!
+    \**************************************************/
+
+  /*! exports provided: AddBoardComponent */
+
+  /***/
+  function srcAppAddBoardAddBoardComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AddBoardComponent", function () {
+      return AddBoardComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @ng-bootstrap/ng-bootstrap */
+    "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+    /* harmony import */
+
+
+    var ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ngx-socket-io */
+    "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+    /* harmony import */
+
+
+    var _sockets_connect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../sockets/connect */
+    "./src/app/sockets/connect.ts");
+
+    var AddBoardComponent =
+    /*#__PURE__*/
+    function () {
+      function AddBoardComponent(activeModal, socket, connect) {
+        _classCallCheck(this, AddBoardComponent);
+
+        this.activeModal = activeModal;
+        this.socket = socket;
+        this.connect = connect;
+      }
+
+      _createClass(AddBoardComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.socket.on('board_added', function (res) {
+            if (!res.error) {
+              _this.adding = false;
+
+              if (!_this.adding && res.boardId) {
+                _this.connect.getSwitches();
+
+                _this.activeModal.dismiss();
+              }
+            } else {
+              _this.adding = false;
+              alert(res.error);
+            }
+          });
+        }
+      }, {
+        key: "addBoard",
+        value: function addBoard() {
+          var _this2 = this;
+
+          this.adding = true;
+          this.socket.emit('addBoard', {
+            boardId: this.boardId,
+            deviceId: this.deviceId,
+            token: localStorage.getItem('token')
+          }, function (res) {
+            if (!res || res.error) {
+              _this2.adding = false;
+              alert(res.error);
+            }
+          });
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.socket.removeListener('board_added');
+        }
+      }]);
+
+      return AddBoardComponent;
+    }();
+
+    AddBoardComponent.ctorParameters = function () {
+      return [{
+        type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"]
+      }, {
+        type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_3__["Socket"]
+      }, {
+        type: _sockets_connect__WEBPACK_IMPORTED_MODULE_4__["ConnectSocket"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], AddBoardComponent.prototype, "deviceId", void 0);
+    AddBoardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-add-board',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./add-board.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/add-board/add-board.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./add-board.component.css */
+      "./src/app/add-board/add-board.component.css")).default]
+    })], AddBoardComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/add-location/add-location.component.css":
   /*!*********************************************************!*\
     !*** ./src/app/add-location/add-location.component.css ***!
@@ -709,7 +980,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkZC1sb2NhdGlvbi9hZGQtbG9jYXRpb24uY29tcG9uZW50LmNzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZGQtbG9jYXRpb24vYWRkLWxvY2F0aW9uLmNvbXBvbmVudC5jc3MifQ== */";
     /***/
   },
 
@@ -796,41 +1067,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AddLocationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this = this;
+          var _this3 = this;
 
           this.subscriptions.add(this.connect.onlineDevices$.subscribe(function (res) {
             if (res) {
-              _this.allDevices = JSON.parse(JSON.stringify(res));
+              _this3.allDevices = JSON.parse(JSON.stringify(res));
             }
 
-            if (_this.allDevices) {
-              _this.deviceLength = Object.keys(_this.allDevices).length;
+            if (_this3.allDevices) {
+              _this3.deviceLength = Object.keys(_this3.allDevices).length;
             } else {
-              _this.deviceLength = 0;
+              _this3.deviceLength = 0;
             }
 
-            if (!_this.deviceLength) {
-              _this.activeModal.dismiss();
+            if (!_this3.deviceLength) {
+              _this3.activeModal.dismiss();
             }
 
-            _this.scan(true);
+            _this3.scan(true);
           }));
           this.socket.on('locationAdded', function (res) {
             if (!res.error) {
               if (res.name && res.deviceId) {
-                _this.activeRequests.splice(_this.activeRequests.indexOf(res.deviceId), 1);
+                _this3.activeRequests.splice(_this3.activeRequests.indexOf(res.deviceId), 1);
               }
 
-              if (!_this.activeRequests.length && res.name) {
-                _this.adding = false;
+              if (!_this3.activeRequests.length && res.name) {
+                _this3.adding = false;
 
-                _this.connect.getLocations();
+                _this3.connect.getLocations();
 
-                _this.activeModal.dismiss();
+                _this3.activeModal.dismiss();
               }
             } else {
-              _this.adding = false;
-              _this.activeRequests = [];
+              _this3.adding = false;
+              _this3.activeRequests = [];
               alert(res.error);
             }
           });
@@ -845,12 +1116,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "scan",
         value: function scan(show) {
-          var _this2 = this;
+          var _this4 = this;
 
           if (this.allDevices && this.deviceLength) {
             var devices = Object.keys(this.allDevices);
             devices.map(function (d) {
-              _this2.socket.emit('getAssignedSwitches', d);
+              _this4.socket.emit('getAssignedSwitches', d);
 
               return d;
             });
@@ -858,31 +1129,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             this.socket.on('assignedSwitches', function (res) {
               if (res && res.deviceId) {
-                _this2.activeRequests.splice(_this2.activeRequests.indexOf(res.deviceId), 1);
+                _this4.activeRequests.splice(_this4.activeRequests.indexOf(res.deviceId), 1);
 
                 if (res.switches && res.switches.length) {
                   res.switches.some(function (s) {
-                    console.log(_this2.allDevices);
+                    console.log(_this4.allDevices);
 
-                    if (_this2.allDevices[res.deviceId] && _this2.allDevices[res.deviceId][s.board] && _this2.allDevices[res.deviceId][s.board].switches // tslint:disable-next-line: radix
-                    && (_this2.allDevices[res.deviceId][s.board].switches[parseInt(s.switch)] === true || _this2.allDevices[res.deviceId][s.board].switches[parseInt(s.switch)] === false)) {
+                    if (_this4.allDevices[res.deviceId] && _this4.allDevices[res.deviceId][s.board] && _this4.allDevices[res.deviceId][s.board].switches // tslint:disable-next-line: radix
+                    && (_this4.allDevices[res.deviceId][s.board].switches[parseInt(s.switch)] === true || _this4.allDevices[res.deviceId][s.board].switches[parseInt(s.switch)] === false)) {
                       // tslint:disable-next-line: radix
-                      _this2.allDevices[res.deviceId][s.board].switches.splice(parseInt(s.switch), 1);
+                      _this4.allDevices[res.deviceId][s.board].switches.splice(parseInt(s.switch), 1);
                     }
                   });
                 }
               }
 
-              if (!_this2.activeRequests.length) {
+              if (!_this4.activeRequests.length) {
                 // this.adding = false;
                 if (show) {
-                  _this2.showSwitches = true;
+                  _this4.showSwitches = true;
                 }
 
-                _this2.socket.removeListener('assignedSwitches');
+                _this4.socket.removeListener('assignedSwitches');
               }
 
-              _this2.devices = _this2.allDevices;
+              _this4.devices = _this4.allDevices;
+              var dk = Object.keys(_this4.devices);
+              dk.map(function (d, ix) {
+                var bk = Object.keys(_this4.devices[d]);
+                bk.map(function (b, ixx) {
+                  _this4.setSwitchCount(ix, ixx, _this4.devices[d][b]);
+
+                  return b;
+                });
+                return d;
+              });
             });
           }
         }
@@ -928,7 +1209,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addLocation",
         value: function addLocation() {
-          var _this3 = this;
+          var _this5 = this;
 
           this.adding = true;
           this.activeRequests = Object.keys(this.selectedSwitches) || [];
@@ -937,7 +1218,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             devices: this.selectedSwitches
           }, function (res) {
             if (!res || res.error) {
-              _this3.adding = false;
+              _this5.adding = false;
               alert(res.error);
             }
           });
@@ -949,8 +1230,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.switchCount = 0;
           }
 
-          if (board && board.value && board.value.switches) {
-            this.switchCount += board.value.switches.length;
+          if (board && board.switches) {
+            this.switchCount += board.switches.length;
           }
         }
       }]);
@@ -1041,13 +1322,59 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./carousel/carousel.component */
     "./src/app/carousel/carousel.component.ts");
+    /* harmony import */
+
+
+    var _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./schedule/schedule.component */
+    "./src/app/schedule/schedule.component.ts");
+    /* harmony import */
+
+
+    var _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./device-list/device-list.component */
+    "./src/app/device-list/device-list.component.ts");
+    /* harmony import */
+
+
+    var _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./landing-page/landing-page.component */
+    "./src/app/landing-page/landing-page.component.ts");
+    /* harmony import */
+
+
+    var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./sign-up/sign-up.component */
+    "./src/app/sign-up/sign-up.component.ts");
+    /* harmony import */
+
+
+    var _verified_verified_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./verified/verified.component */
+    "./src/app/verified/verified.component.ts");
 
     var routes = [{
+      path: 'verified',
+      component: _verified_verified_component__WEBPACK_IMPORTED_MODULE_11__["VerifiedComponent"]
+    }, {
+      path: 'signup',
+      component: _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_10__["SignUpComponent"]
+    }, {
       path: 'login',
       component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
     }, {
+      path: 'welcome',
+      component: _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__["LandingPageComponent"]
+    }, {
       path: 'carousel',
       component: _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_6__["CarouselComponent"],
+      canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
+      data: {
+        authorities: ['authenticated']
+      }
+    }, {
+      path: 'device-list',
+      component: _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_8__["DeviceListComponent"],
       canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
       data: {
         authorities: ['authenticated']
@@ -1082,8 +1409,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         });
       }
     }, {
+      path: 'schedules',
+      component: _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_7__["ScheduleComponent"],
+      canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
+      data: {
+        authorities: ['authenticated']
+      }
+    }, {
       path: '**',
-      component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
+      component: _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__["LandingPageComponent"]
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -1115,7 +1449,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */";
     /***/
   },
 
@@ -1272,9 +1606,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./add-location/add-location.component */
     "./src/app/add-location/add-location.component.ts");
+    /* harmony import */
+
+
+    var _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! ./schedule/schedule.component */
+    "./src/app/schedule/schedule.component.ts");
+    /* harmony import */
+
+
+    var _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! ./device-list/device-list.component */
+    "./src/app/device-list/device-list.component.ts");
+    /* harmony import */
+
+
+    var _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! ./add-board/add-board.component */
+    "./src/app/add-board/add-board.component.ts");
+    /* harmony import */
+
+
+    var _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! ./landing-page/landing-page.component */
+    "./src/app/landing-page/landing-page.component.ts");
+    /* harmony import */
+
+
+    var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! ./sign-up/sign-up.component */
+    "./src/app/sign-up/sign-up.component.ts");
+    /* harmony import */
+
+
+    var _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! ./verified/verified.component */
+    "./src/app/verified/verified.component.ts");
 
     var config = {
-      url: 'http://ec2-15-206-158-222.ap-south-1.compute.amazonaws.com:3001',
+      url: 'http://shashank.local:3001',
       options: {}
     };
 
@@ -1284,8 +1654,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       imports: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__["NgbModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_10__["SocketIoModule"].forRoot(config)],
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_11__["CarouselComponent"], _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"]],
-      entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_11__["CarouselComponent"], _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__["ScheduleComponent"], _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_15__["DeviceListComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__["LandingPageComponent"], _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__["SignUpComponent"], _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"]],
+      entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"]],
       providers: [{
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HTTP_INTERCEPTORS"],
         useClass: _blocks_auth_interceptor__WEBPACK_IMPORTED_MODULE_9__["AuthInterceptor"],
@@ -1419,7 +1789,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(Chowkidaar, [{
         key: "canActivate",
         value: function canActivate(route, state) {
-          var _this4 = this;
+          var _this6 = this;
 
           var authorities = route.data['authorities'];
           var url = state.url;
@@ -1442,7 +1812,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (sessionStorage.getItem('url')) {
                   sessionStorage.setItem('url', '');
 
-                  _this4.router.navigate(['']);
+                  _this6.router.navigate(['']);
                 }
               }
 
@@ -1452,13 +1822,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             sessionStorage.setItem('url', url);
 
-            _this4.logout();
+            _this6.logout();
 
             return false;
           }, function (error) {
             sessionStorage.setItem('url', url);
 
-            _this4.logout();
+            _this6.logout();
 
             return false;
           });
@@ -1468,7 +1838,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function logout() {
           this.fetchData.logout().subscribe(function (r) {});
           localStorage.removeItem('token');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/welcome']);
         }
       }]);
 
@@ -1505,7 +1875,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Nhcm91c2VsL2Nhcm91c2VsLmNvbXBvbmVudC5jc3MifQ== */";
+    __webpack_exports__["default"] = "@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n.step1-head {\r\n  background-color: #282c34;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 1rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n  align-items: center;\r\n}\r\n\r\n.step1-text {\r\n  padding-top: 3rem;\r\n  font-size: 2rem;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.step1-txt {\r\n  display: flex;\r\n  justify-content: center;\r\n  text-align: center;\r\n  padding: 2rem;\r\n  font-size: 1.5rem;\r\n}\r\n\r\n.step1-btn {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.step1-btnn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.step2-head {\r\n  background-color: #282c34;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 1rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n  align-items: center;\r\n}\r\n\r\n.step2-text {\r\n  padding-top: 3rem;\r\n  font-size: 2rem;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.step2-txt {\r\n  display: flex;\r\n  justify-content: center;\r\n  text-align: center;\r\n  padding: 2rem;\r\n  font-size: 1.5rem;\r\n}\r\n\r\n.step2-btnn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.step2-btn {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNhcm91c2VsL2Nhcm91c2VsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsb0ZBQW9GOztBQUVwRjtFQUNFLHlCQUF5QjtFQUN6QixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGFBQWE7RUFDYiwyQ0FBMkM7RUFDM0MsbUJBQW1CO0FBQ3JCOztBQUlBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLDJDQUEyQztBQUM3Qzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixZQUFZO0VBQ1osWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFLQTtFQUNFLHlCQUF5QjtFQUN6QixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGFBQWE7RUFDYiwyQ0FBMkM7RUFDM0MsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLDJDQUEyQztBQUM3Qzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixZQUFZO0VBQ1osaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtBQUN6QiIsImZpbGUiOiJjYXJvdXNlbC9jYXJvdXNlbC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvK0NvbmRlbnNlZCZkaXNwbGF5PXN3YXBcIik7XHJcblxyXG4uc3RlcDEtaGVhZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAxcmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90byBDb25kZW5zZWRcIiwgc2Fucy1zZXJpZjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG5cclxuXHJcbi5zdGVwMS10ZXh0IHtcclxuICBwYWRkaW5nLXRvcDogM3JlbTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5zdGVwMS10eHQge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDJyZW07XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbn1cclxuXHJcbi5zdGVwMS1idG4ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi5zdGVwMS1idG5uIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDFiNjAwO1xyXG4gIHdpZHRoOiAyMDBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLnN0ZXAyLWhlYWQge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLnN0ZXAyLXRleHQge1xyXG4gIHBhZGRpbmctdG9wOiAzcmVtO1xyXG4gIGZvbnQtc2l6ZTogMnJlbTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90byBDb25kZW5zZWRcIiwgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuLnN0ZXAyLXR4dCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogMnJlbTtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxufVxyXG5cclxuLnN0ZXAyLWJ0bm4ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMwMWI2MDA7XHJcbiAgd2lkdGg6IDIwMHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4uc3RlcDItYnRuIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcbiJdfQ== */";
     /***/
   },
 
@@ -1547,9 +1917,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       function CarouselComponent() {
         _classCallCheck(this, CarouselComponent);
 
-        this.images = [944, 1011, 984].map(function (n) {
-          return "https://picsum.photos/id/".concat(n, "/900/500");
-        });
+        this.step = 1;
       }
 
       _createClass(CarouselComponent, [{
@@ -1573,6 +1941,163 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/device-list/device-list.component.css":
+  /*!*******************************************************!*\
+    !*** ./src/app/device-list/device-list.component.css ***!
+    \*******************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppDeviceListDeviceListComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJkZXZpY2UtbGlzdC9kZXZpY2UtbGlzdC5jb21wb25lbnQuY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/device-list/device-list.component.ts":
+  /*!******************************************************!*\
+    !*** ./src/app/device-list/device-list.component.ts ***!
+    \******************************************************/
+
+  /*! exports provided: DeviceListComponent */
+
+  /***/
+  function srcAppDeviceListDeviceListComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DeviceListComponent", function () {
+      return DeviceListComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _sockets_connect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../sockets/connect */
+    "./src/app/sockets/connect.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @ng-bootstrap/ng-bootstrap */
+    "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+    /* harmony import */
+
+
+    var _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../add-board/add-board.component */
+    "./src/app/add-board/add-board.component.ts");
+
+    var DeviceListComponent =
+    /*#__PURE__*/
+    function () {
+      function DeviceListComponent(connect, router, config, modalService) {
+        _classCallCheck(this, DeviceListComponent);
+
+        this.connect = connect;
+        this.router = router;
+        this.modalService = modalService;
+        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subscription"]();
+        this.object = Object;
+      }
+
+      _createClass(DeviceListComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this7 = this;
+
+          this.subscriptions.add(this.connect.onlineDevices$.subscribe(function (res) {
+            if (res) {
+              console.log(res);
+              _this7.devices = Object.assign({}, res);
+              _this7.onlineDevicesLength = Object.keys(_this7.devices).length;
+            }
+
+            if (!_this7.onlineDevicesLength) {
+              _this7.router.navigateByUrl('/');
+            }
+          }));
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.subscriptions.unsubscribe();
+        }
+      }, {
+        key: "launchBoardAdder",
+        value: function launchBoardAdder(deviceId) {
+          if (deviceId) {
+            var modalRef = this.modalService.open(_add_board_add_board_component__WEBPACK_IMPORTED_MODULE_6__["AddBoardComponent"], {
+              backdrop: 'static',
+              keyboard: false
+            });
+            modalRef.componentInstance.deviceId = deviceId;
+          }
+        }
+      }]);
+
+      return DeviceListComponent;
+    }();
+
+    DeviceListComponent.ctorParameters = function () {
+      return [{
+        type: _sockets_connect__WEBPACK_IMPORTED_MODULE_2__["ConnectSocket"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }, {
+        type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModalConfig"]
+      }, {
+        type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModal"]
+      }];
+    };
+
+    DeviceListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-device-list',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./device-list.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/device-list/device-list.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./device-list.component.css */
+      "./src/app/device-list/device-list.component.css")).default]
+    })], DeviceListComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/home/home.component.css":
   /*!*****************************************!*\
     !*** ./src/app/home/home.component.css ***!
@@ -1588,7 +2113,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".panel {\r\n  padding: 12px 30px;\r\n  background: #3d5af1;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #3d5af1;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYixxQkFBcUI7RUFDbkIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0NBQXNDO0FBQ3hDOzs7QUFHQTtFQUNFLGdDQUFnQztBQUNsQzs7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCOzs7QUFLQTtFQUNFLHdCQUF3QjtBQUMxQiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbmVsIHtcclxuICBwYWRkaW5nOiAxMnB4IDMwcHg7XHJcbiAgYmFja2dyb3VuZDogIzNkNWFmMTtcclxuICBjb2xvcjogI2ZmZjtcclxuZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICBib3gtc2hhZG93OiAwcHggN3B4IDE5cHggMHB4ICM2ZDY5Njk2MTtcclxufVxyXG5cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICMzZDVhZjE7XHJcbn1cclxuXHJcbi5kaXNhYmxlZHtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLmdyZWVuIHtcclxuICBjb2xvcjogIzJjYjk3OCFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */";
+    __webpack_exports__["default"] = ".panel {\r\n  padding: 12px 30px;\r\n  background: #3d5af1;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #3d5af1;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWUvaG9tZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQWtCO0VBQ2xCLG1CQUFtQjtFQUNuQixXQUFXO0FBQ2IscUJBQXFCO0VBQ25CLGNBQWM7RUFDZCxnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLHNDQUFzQztBQUN4Qzs7O0FBR0E7RUFDRSxnQ0FBZ0M7QUFDbEM7OztBQUVBO0VBQ0UsWUFBWTtFQUNaLG1CQUFtQjtBQUNyQjs7O0FBS0E7RUFDRSx3QkFBd0I7QUFDMUIiLCJmaWxlIjoiaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucGFuZWwge1xyXG4gIHBhZGRpbmc6IDEycHggMzBweDtcclxuICBiYWNrZ3JvdW5kOiAjM2Q1YWYxO1xyXG4gIGNvbG9yOiAjZmZmO1xyXG5kaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgbWFyZ2luLXRvcDogMTVweDtcclxuICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gIGJveC1zaGFkb3c6IDBweCA3cHggMTlweCAwcHggIzZkNjk2OTYxO1xyXG59XHJcblxyXG5cclxuLnNlbGVjdGVkIHtcclxuICBib3JkZXItYm90dG9tOiAycHggc29saWQgIzNkNWFmMTtcclxufVxyXG5cclxuLmRpc2FibGVke1xyXG4gIG9wYWNpdHk6IDAuNTtcclxuICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xyXG59XHJcblxyXG5cclxuXHJcblxyXG4uZ3JlZW4ge1xyXG4gIGNvbG9yOiAjMmNiOTc4IWltcG9ydGFudDtcclxufVxyXG4iXX0= */";
     /***/
   },
 
@@ -1684,6 +2209,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.onlineDevicesLength = 0;
         this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subscription"]();
         this.locationsLength = 0;
+        this.boards = [];
         config.backdrop = 'static';
         config.keyboard = false;
       }
@@ -1691,41 +2217,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(HomeComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this5 = this;
+          var _this8 = this;
 
           this.fetchData.registeredDevices().subscribe(function (res) {
             if (res && res.devices && res.devices.length) {
-              _this5.subscriptions.add(_this5.connect.locations$.subscribe(function (res) {
-                _this5.locations = Object.assign({}, res);
-                _this5.locationsLength = Object.keys(_this5.locations).length;
+              _this8.subscriptions.add(_this8.connect.locations$.subscribe(function (res) {
+                _this8.locations = Object.assign({}, res);
+                _this8.locationsLength = Object.keys(_this8.locations).length;
 
-                if (!_this5.selectedLocation && _this5.locations && Object.keys(_this5.locations)[0]) {
-                  _this5.selectedLocation = Object.keys(res)[0];
+                if (!_this8.selectedLocation && _this8.locations && Object.keys(_this8.locations)[0]) {
+                  _this8.selectedLocation = Object.keys(res)[0];
                 }
               }));
 
-              _this5.subscriptions.add(_this5.connect.roomsMap.subscribe(function (roomsMap) {
+              _this8.subscriptions.add(_this8.connect.roomsMap.subscribe(function (roomsMap) {
                 if (roomsMap) {
                   console.log(roomsMap);
-                  _this5.joinedRooms = Object.assign({}, roomsMap);
-                  _this5.roomsCount = Object.keys(roomsMap).length;
+                  _this8.joinedRooms = Object.assign({}, roomsMap);
+                  _this8.roomsCount = Object.keys(roomsMap).length;
                 }
               }));
 
-              _this5.subscriptions.add(_this5.connect.onlineDevices$.subscribe(function (response) {
+              _this8.subscriptions.add(_this8.connect.onlineDevices$.subscribe(function (response) {
                 if (response) {
-                  _this5.onlineDevices = Object.assign({}, response);
-                  _this5.onlineDevicesLength = Object.keys(_this5.onlineDevices).length;
+                  _this8.onlineDevices = Object.assign({}, response);
+                  _this8.onlineDevicesLength = Object.keys(_this8.onlineDevices).length;
                 } else {
-                  _this5.onlineDevices = null;
-                  _this5.onlineDevicesLength = 0;
+                  _this8.onlineDevices = null;
+                  _this8.onlineDevicesLength = 0;
                 }
               }));
 
-              _this5.devices = Object.assign({}, res).devices;
+              _this8.subscriptions.add(_this8.connect.boards$.subscribe(function (response) {
+                _this8.boards = response;
+              }));
 
-              _this5.devices.map(function (m) {
-                _this5.connect.join(m.deviceId, m);
+              _this8.devices = Object.assign({}, res).devices;
+
+              _this8.devices.map(function (m) {
+                _this8.connect.join(m.deviceId, m);
 
                 return m;
               });
@@ -1735,8 +2265,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
-          this.subscriptions.unsubscribe();
-          this.connect.leaveAll(Object.keys(this.joinedRooms));
+          this.subscriptions.unsubscribe(); // this.connect.leaveAll(Object.keys(this.joinedRooms));
         }
       }, {
         key: "logout",
@@ -1792,11 +2321,104 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./home.component.html */
       "./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html")).default,
-      providers: [_sockets_connect__WEBPACK_IMPORTED_MODULE_4__["ConnectSocket"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModalConfig"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModal"]],
+      providers: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModalConfig"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModal"]],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./home.component.css */
       "./src/app/home/home.component.css")).default]
     })], HomeComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/landing-page/landing-page.component.css":
+  /*!*********************************************************!*\
+    !*** ./src/app/landing-page/landing-page.component.css ***!
+    \*********************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppLandingPageLandingPageComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".land-root {\r\n  display: grid;\r\n  grid-template-rows: 10% 60% 30%;\r\n  height: 100vh;\r\n  width: 600px;\r\n    max-width: 100vw;\r\n    margin: 0 auto;\r\n}\r\n\r\n.land-buttons {\r\n  display: grid;\r\n  grid-template-rows: 1fr 1fr;\r\n}\r\n\r\n.land-loginbtn {\r\n  background-color: #282c34;\r\n  border-radius: 8px;\r\n  border: none;\r\n  outline: none;\r\n  color: white;\r\n  font-size: 1.5rem;\r\n  margin-left: 1rem;\r\n  margin-right: 1rem;\r\n  margin-bottom: 1rem;\r\n  margin-top: 1rem;\r\n  height: 4rem;\r\n}\r\n\r\n.land-regbtn {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  border: 2px solid #282c34;\r\n  outline: none;\r\n  color: #282c34;\r\n  font-size: 1.5rem;\r\n  margin-left: 1rem;\r\n  margin-right: 1rem;\r\n  margin-bottom: 1rem;\r\n  height: 4rem;\r\n}\r\n\r\n.land-top {\r\n  margin: auto auto;\r\n}\r\n\r\n.land-logo {\r\n  display: block;\r\n  -webkit-animation: rotate 3s infinite;\r\n          animation: rotate 3s infinite;\r\n  -webkit-animation-timing-function: cubic-bezier(1, 0, 0.5, 1);\r\n          animation-timing-function: cubic-bezier(1, 0, 0.5, 1);\r\n}\r\n\r\n@-webkit-keyframes rotate {\r\n  from {\r\n    -webkit-transform: rotate(0deg);\r\n  }\r\n  to {\r\n    -webkit-transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n.appname {\r\n  display: flex;\r\n  justify-content: center;\r\n  font-size: 1.5rem;\r\n  color: #282c34;\r\n  font-weight: bold;\r\n}\r\n\r\n.landhelp {\r\n  padding: 1rem;\r\n}\r\n\r\n.land-help {\r\n  display: grid;\r\n  justify-content: end;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxhbmRpbmctcGFnZS9sYW5kaW5nLXBhZ2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7RUFDYiwrQkFBK0I7RUFDL0IsYUFBYTtFQUNiLFlBQVk7SUFDVixnQkFBZ0I7SUFDaEIsY0FBYztBQUNsQjs7QUFFQTtFQUNFLGFBQWE7RUFDYiwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsdUJBQXVCO0VBQ3ZCLGtCQUFrQjtFQUNsQix5QkFBeUI7RUFDekIsYUFBYTtFQUNiLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsY0FBYztFQUNkLHFDQUE2QjtVQUE3Qiw2QkFBNkI7RUFDN0IsNkRBQXFEO1VBQXJELHFEQUFxRDtBQUN2RDs7QUFFQTtFQUNFO0lBQ0UsK0JBQStCO0VBQ2pDO0VBQ0E7SUFDRSxpQ0FBaUM7RUFDbkM7QUFDRjs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxhQUFhO0FBQ2Y7O0FBRUE7RUFDRSxhQUFhO0VBQ2Isb0JBQW9CO0FBQ3RCIiwiZmlsZSI6ImxhbmRpbmctcGFnZS9sYW5kaW5nLXBhZ2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5sYW5kLXJvb3Qge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1yb3dzOiAxMCUgNjAlIDMwJTtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIHdpZHRoOiA2MDBweDtcclxuICAgIG1heC13aWR0aDogMTAwdnc7XHJcbiAgICBtYXJnaW46IDAgYXV0bztcclxufVxyXG5cclxuLmxhbmQtYnV0dG9ucyB7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLXJvd3M6IDFmciAxZnI7XHJcbn1cclxuXHJcbi5sYW5kLWxvZ2luYnRuIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGJvcmRlci1yYWRpdXM6IDhweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgbWFyZ2luLWxlZnQ6IDFyZW07XHJcbiAgbWFyZ2luLXJpZ2h0OiAxcmVtO1xyXG4gIG1hcmdpbi1ib3R0b206IDFyZW07XHJcbiAgbWFyZ2luLXRvcDogMXJlbTtcclxuICBoZWlnaHQ6IDRyZW07XHJcbn1cclxuXHJcbi5sYW5kLXJlZ2J0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICMyODJjMzQ7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBjb2xvcjogIzI4MmMzNDtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxuICBtYXJnaW4tbGVmdDogMXJlbTtcclxuICBtYXJnaW4tcmlnaHQ6IDFyZW07XHJcbiAgbWFyZ2luLWJvdHRvbTogMXJlbTtcclxuICBoZWlnaHQ6IDRyZW07XHJcbn1cclxuXHJcbi5sYW5kLXRvcCB7XHJcbiAgbWFyZ2luOiBhdXRvIGF1dG87XHJcbn1cclxuXHJcbi5sYW5kLWxvZ28ge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIGFuaW1hdGlvbjogcm90YXRlIDNzIGluZmluaXRlO1xyXG4gIGFuaW1hdGlvbi10aW1pbmctZnVuY3Rpb246IGN1YmljLWJlemllcigxLCAwLCAwLjUsIDEpO1xyXG59XHJcblxyXG5ALXdlYmtpdC1rZXlmcmFtZXMgcm90YXRlIHtcclxuICBmcm9tIHtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiByb3RhdGUoMGRlZyk7XHJcbiAgfVxyXG4gIHRvIHtcclxuICAgIC13ZWJraXQtdHJhbnNmb3JtOiByb3RhdGUoMzYwZGVnKTtcclxuICB9XHJcbn1cclxuXHJcbi5hcHBuYW1lIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGNvbG9yOiAjMjgyYzM0O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ubGFuZGhlbHAge1xyXG4gIHBhZGRpbmc6IDFyZW07XHJcbn1cclxuXHJcbi5sYW5kLWhlbHAge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAganVzdGlmeS1jb250ZW50OiBlbmQ7XHJcbn1cclxuIl19 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/landing-page/landing-page.component.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/landing-page/landing-page.component.ts ***!
+    \********************************************************/
+
+  /*! exports provided: LandingPageComponent */
+
+  /***/
+  function srcAppLandingPageLandingPageComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LandingPageComponent", function () {
+      return LandingPageComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+
+    var LandingPageComponent =
+    /*#__PURE__*/
+    function () {
+      function LandingPageComponent(router) {
+        _classCallCheck(this, LandingPageComponent);
+
+        this.router = router;
+      }
+
+      _createClass(LandingPageComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return LandingPageComponent;
+    }();
+
+    LandingPageComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }];
+    };
+
+    LandingPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-landing-page',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./landing-page.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/landing-page/landing-page.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./landing-page.component.css */
+      "./src/app/landing-page/landing-page.component.css")).default]
+    })], LandingPageComponent);
     /***/
   },
 
@@ -1816,7 +2438,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "button {\r\n  margin: 0 auto;\r\n        display: block;\r\n        margin-top: 40px;\r\n        padding: 10px 35px;\r\n        background: #3d5af1;\r\n        border: 1px solid #3d5af1;\r\n        border-radius: 200px;\r\n        color: #fff;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGNBQWM7UUFDUixjQUFjO1FBQ2QsZ0JBQWdCO1FBQ2hCLGtCQUFrQjtRQUNsQixtQkFBbUI7UUFDbkIseUJBQXlCO1FBQ3pCLG9CQUFvQjtRQUNwQixXQUFXO0FBQ25CIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJ1dHRvbiB7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICAgICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICAgICAgbWFyZ2luLXRvcDogNDBweDtcclxuICAgICAgICBwYWRkaW5nOiAxMHB4IDM1cHg7XHJcbiAgICAgICAgYmFja2dyb3VuZDogIzNkNWFmMTtcclxuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjM2Q1YWYxO1xyXG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDIwMHB4O1xyXG4gICAgICAgIGNvbG9yOiAjZmZmO1xyXG59XHJcbiJdfQ== */";
+    __webpack_exports__["default"] = "@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n\r\n.login-root {\r\n  height: 100vh;\r\n  display: grid;\r\n  grid-template-rows: 10% auto auto auto;\r\n}\r\n\r\n\r\n.login-head {\r\n  display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n  background-color: #282c34;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 0.5rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n\r\nbody {\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n\r\n.logininp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  height: 2rem;\r\n  width: 18rem;\r\n  border-radius: 4px;\r\n  margin: 1rem;\r\n  padding: 0.2rem;\r\n  padding-left: 1rem;\r\n  margin: 1rem auto;\r\n  border:none;\r\n}\r\n\r\n\r\n.loginbdy-up {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-left: 1rem;\r\n  padding-top: 4rem;\r\n}\r\n\r\n\r\n.loginister-btn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n\r\n.loginister-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2.5rem;\r\n}\r\n\r\n\r\n.loginimg {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-bottom: 1.5rem;\r\n}\r\n\r\n\r\n.fpasssi {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr;\r\n  grid-gap: 1rem;\r\n}\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsb0ZBQW9GOzs7QUFHcEY7RUFDRSxhQUFhO0VBQ2IsYUFBYTtFQUNiLHNDQUFzQztBQUN4Qzs7O0FBRUE7RUFDRSxhQUFhO0lBQ1gsdUJBQXVCO0lBQ3ZCLG1CQUFtQjtFQUNyQix5QkFBeUI7RUFDekIsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixlQUFlO0VBQ2YsMkNBQTJDO0FBQzdDOzs7QUFFQTtFQUNFLFlBQVk7RUFDWixXQUFXO0FBQ2I7OztBQUVBO0VBQ0UsZ0RBQWdEO0VBQ2hELFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsaUJBQWlCO0FBQ25COzs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsWUFBWTtFQUNaLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixtQkFBbUI7QUFDckI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixzQkFBc0I7QUFDeEI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLDhCQUE4QjtFQUM5QixjQUFjO0FBQ2hCOzs7QUFHQTtFQUNFLFNBQVM7RUFDVCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQiIsImZpbGUiOiJsb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvK0NvbmRlbnNlZCZkaXNwbGF5PXN3YXBcIik7XHJcblxyXG5cclxuLmxvZ2luLXJvb3Qge1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLXJvd3M6IDEwJSBhdXRvIGF1dG8gYXV0bztcclxufVxyXG5cclxuLmxvZ2luLWhlYWQge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBwYWRkaW5nOiAwcHg7XHJcbiAgbWFyZ2luOiAwcHg7XHJcbn1cclxuXHJcbi5sb2dpbmlucCB7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAyMHB4IDBweCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG4gIGhlaWdodDogMnJlbTtcclxuICB3aWR0aDogMThyZW07XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG1hcmdpbjogMXJlbTtcclxuICBwYWRkaW5nOiAwLjJyZW07XHJcbiAgcGFkZGluZy1sZWZ0OiAxcmVtO1xyXG4gIG1hcmdpbjogMXJlbSBhdXRvO1xyXG4gIGJvcmRlcjpub25lO1xyXG59XHJcblxyXG4ubG9naW5iZHktdXAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbiAgcGFkZGluZy10b3A6IDRyZW07XHJcbn1cclxuXHJcbi5sb2dpbmlzdGVyLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAxYjYwMDtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5sb2dpbmlzdGVyLWJ1dHRvbnMge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDIuNXJlbTtcclxufVxyXG5cclxuLmxvZ2luaW1nIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHBhZGRpbmctYm90dG9tOiAxLjVyZW07XHJcbn1cclxuXHJcbi5mcGFzc3NpIHtcclxuICBkaXNwbGF5OiBncmlkO1xyXG4gIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyIDFmcjtcclxuICBncmlkLWdhcDogMXJlbTtcclxufVxyXG5cclxuXHJcbi5lcnJvcntcclxuICBjb2xvcjpyZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG4iXX0= */";
     /***/
   },
 
@@ -1887,8 +2509,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "login",
         value: function login() {
-          var _this6 = this;
+          var _this9 = this;
 
+          this.error = null;
           this.fetchData.login({
             username: this.username,
             password: this.password
@@ -1896,28 +2519,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res.id && res.userId) {
               localStorage.setItem('token', res.id);
 
-              _this6.fetchData.registeredDevices().subscribe(function (res) {
-                console.log(res);
-
-                if (res.devices && res.devices.length) {
-                  _this6.dataService.setDevices(res.devices);
-
-                  if (!sessionStorage.getItem('url')) {
-                    _this6.router.navigate(['']);
-                  } else {
-                    _this6.router.navigate([sessionStorage.getItem('url')]);
-                  }
+              _this9.fetchData.account().subscribe(function (res) {
+                if (!res.emailVerified) {
+                  _this9.error = "Email not verified, please check your email";
                 } else {
-                  _this6.dataService.setDevices([]);
+                  _this9.fetchData.registeredDevices().subscribe(function (res) {
+                    console.log(res);
 
-                  _this6.router.navigate(['carousel']);
+                    if (res.devices && res.devices.length) {
+                      _this9.dataService.setDevices(res.devices);
+
+                      if (!sessionStorage.getItem('url')) {
+                        _this9.router.navigate(['']);
+                      } else {
+                        _this9.router.navigate([sessionStorage.getItem('url')]);
+                      }
+                    } else {
+                      _this9.dataService.setDevices([]);
+
+                      _this9.router.navigate(['carousel']);
+                    }
+                  }, function (err) {
+                    console.log(err);
+                  });
                 }
               }, function (err) {
-                console.log(err);
+                _this9.error = "Account not found";
               });
             }
           }, function (err) {
             console.log(err);
+            console.log(err.error);
+
+            if (err && err.error && err.error && err.error.error.message) {
+              _this9.error = err.error.error.message;
+            }
           });
         }
       }]);
@@ -1944,6 +2580,85 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./login.component.css */
       "./src/app/login/login.component.css")).default]
     })], LoginComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/schedule/schedule.component.css":
+  /*!*************************************************!*\
+    !*** ./src/app/schedule/schedule.component.css ***!
+    \*************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppScheduleScheduleComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzY2hlZHVsZS9zY2hlZHVsZS5jb21wb25lbnQuY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/schedule/schedule.component.ts":
+  /*!************************************************!*\
+    !*** ./src/app/schedule/schedule.component.ts ***!
+    \************************************************/
+
+  /*! exports provided: ScheduleComponent */
+
+  /***/
+  function srcAppScheduleScheduleComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ScheduleComponent", function () {
+      return ScheduleComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var ScheduleComponent =
+    /*#__PURE__*/
+    function () {
+      function ScheduleComponent() {
+        _classCallCheck(this, ScheduleComponent);
+      }
+
+      _createClass(ScheduleComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return ScheduleComponent;
+    }();
+
+    ScheduleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-schedule',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./schedule.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/schedule/schedule.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./schedule.component.css */
+      "./src/app/schedule/schedule.component.css")).default]
+    })], ScheduleComponent);
     /***/
   },
 
@@ -1979,12 +2694,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     RestEndpointConstants.RestEndpoints = {
       endpoints: [{
+        name: 'signup',
+        url: '/api/Customers',
+        method: 'post'
+      }, {
         name: 'login',
-        url: '/api/Users/login',
+        url: '/api/Customers/login',
         method: 'post'
       }, {
         name: 'logout',
-        url: '/api/Users/logout',
+        url: '/api/Customers/logout',
         method: 'post'
       }, {
         name: 'registeredDevices',
@@ -2127,6 +2846,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       _createClass(FetchData, [{
+        key: "signup",
+        value: function signup(payload) {
+          return this.serviceEndpoints.init().signup.makeRequest(payload);
+        }
+      }, {
         key: "login",
         value: function login(payload) {
           return this.serviceEndpoints.init().login.makeRequest(payload);
@@ -2320,6 +3044,138 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/sign-up/sign-up.component.css":
+  /*!***********************************************!*\
+    !*** ./src/app/sign-up/sign-up.component.css ***!
+    \***********************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppSignUpSignUpComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n.register-root {\r\n  height: 100vh;\r\n  display: grid;\r\n  grid-template-rows: 10% auto auto auto;\r\n}\r\n\r\n.register-head {\r\n  background-color: #282c34;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 0.5rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\nbody {\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.reginp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  height: 2rem;\r\n  width: 18rem;\r\n  border-radius: 4px;\r\n  margin: 1rem auto;\r\n  padding: 0.2rem;\r\n  padding-left: 1rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n  border:none;\r\n}\r\n\r\n.regbdy-up {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-left: 1rem;\r\n  padding-top: 1rem;\r\n}\r\n\r\n.register-btn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.register-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.regbdy-up2 {\r\n  display: flex;\r\n  justify-content: center;\r\n  color: #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.lheadtext {\r\n  font-size: 2rem;\r\n  display: flex;\r\n  justify-content: center;\r\n  color: #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.message{\r\n  color:green;\r\n  text-align:center;\r\n  font-weight: 14px;\r\n}\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNpZ24tdXAvc2lnbi11cC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLG9GQUFvRjs7QUFFcEY7RUFDRSxhQUFhO0VBQ2IsYUFBYTtFQUNiLHNDQUFzQztBQUN4Qzs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixlQUFlO0VBQ2YsMkNBQTJDO0FBQzdDOztBQUVBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7QUFDYjs7QUFFQTtFQUNFLGdEQUFnRDtFQUNoRCxZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQiwyQ0FBMkM7RUFDM0MsV0FBVztBQUNiOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixZQUFZO0VBQ1osWUFBWTtFQUNaLGlCQUFpQjtFQUNqQiwyQ0FBMkM7QUFDN0M7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QsMkNBQTJDO0FBQzdDOztBQUVBO0VBQ0UsZUFBZTtFQUNmLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsY0FBYztFQUNkLDJDQUEyQztBQUM3Qzs7QUFHQTtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7RUFDakIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsU0FBUztFQUNULGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCIiwiZmlsZSI6InNpZ24tdXAvc2lnbi11cC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvK0NvbmRlbnNlZCZkaXNwbGF5PXN3YXBcIik7XHJcblxyXG4ucmVnaXN0ZXItcm9vdCB7XHJcbiAgaGVpZ2h0OiAxMDB2aDtcclxuICBkaXNwbGF5OiBncmlkO1xyXG4gIGdyaWQtdGVtcGxhdGUtcm93czogMTAlIGF1dG8gYXV0byBhdXRvO1xyXG59XHJcblxyXG4ucmVnaXN0ZXItaGVhZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbmJvZHkge1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBtYXJnaW46IDBweDtcclxufVxyXG5cclxuLnJlZ2lucCB7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAyMHB4IDBweCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG4gIGhlaWdodDogMnJlbTtcclxuICB3aWR0aDogMThyZW07XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG1hcmdpbjogMXJlbSBhdXRvO1xyXG4gIHBhZGRpbmc6IDAuMnJlbTtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG4gIGJvcmRlcjpub25lO1xyXG59XHJcblxyXG4ucmVnYmR5LXVwIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgcGFkZGluZy1sZWZ0OiAxcmVtO1xyXG4gIHBhZGRpbmctdG9wOiAxcmVtO1xyXG59XHJcblxyXG4ucmVnaXN0ZXItYnRuIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDFiNjAwO1xyXG4gIHdpZHRoOiAyMDBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5yZWdpc3Rlci1idXR0b25zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG4ucmVnYmR5LXVwMiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBjb2xvcjogIzI4MmMzNDtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5saGVhZHRleHQge1xyXG4gIGZvbnQtc2l6ZTogMnJlbTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGNvbG9yOiAjMjgyYzM0O1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90byBDb25kZW5zZWRcIiwgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuXHJcbi5tZXNzYWdle1xyXG4gIGNvbG9yOmdyZWVuO1xyXG4gIHRleHQtYWxpZ246Y2VudGVyO1xyXG4gIGZvbnQtd2VpZ2h0OiAxNHB4O1xyXG59XHJcblxyXG4uZXJyb3J7XHJcbiAgY29sb3I6cmVkO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbn1cclxuIl19 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/sign-up/sign-up.component.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/sign-up/sign-up.component.ts ***!
+    \**********************************************/
+
+  /*! exports provided: SignUpComponent */
+
+  /***/
+  function srcAppSignUpSignUpComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SignUpComponent", function () {
+      return SignUpComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../shared/services/fetch-data */
+    "./src/app/shared/services/fetch-data.ts");
+
+    var SignUpComponent =
+    /*#__PURE__*/
+    function () {
+      function SignUpComponent(fetchData) {
+        _classCallCheck(this, SignUpComponent);
+
+        this.fetchData = fetchData;
+      }
+
+      _createClass(SignUpComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "signup",
+        value: function signup() {
+          var _this10 = this;
+
+          this.success = false;
+          this.error = null;
+          var payload = {
+            username: this.username,
+            email: this.email,
+            password: this.password,
+            emailVerified: false
+          };
+          this.fetchData.signup(payload).subscribe(function (res) {
+            console.log(res);
+            _this10.username = null;
+            _this10.email = null;
+            _this10.password = null;
+            _this10.terms = true;
+            _this10.success = true;
+          }, function (err) {
+            var e = null;
+
+            if (err.error && err.error.error) {
+              e = err.error.error;
+            }
+
+            if (e && e.details && e.details.messages && Object.keys(e.details.messages)) {
+              var m = Object.keys(e.details.messages);
+
+              if (m.length) {
+                return _this10.error = e.details.messages[m[0]];
+              }
+            }
+
+            console.log(err);
+            return _this10.error = 'signup failed';
+          });
+        }
+      }]);
+
+      return SignUpComponent;
+    }();
+
+    SignUpComponent.ctorParameters = function () {
+      return [{
+        type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__["FetchData"]
+      }];
+    };
+
+    SignUpComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-sign-up',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./sign-up.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/sign-up/sign-up.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./sign-up.component.css */
+      "./src/app/sign-up/sign-up.component.css")).default]
+    })], SignUpComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/sockets/connect.ts":
   /*!************************************!*\
     !*** ./src/app/sockets/connect.ts ***!
@@ -2376,36 +3232,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.roomsMap = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
         this.onlineDevices$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.onlineDevices);
         this.locations$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.locations);
+        this.boards = [];
+        this.boards$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.boards);
         this.getSwitches();
         this.onDeviceDisconnect();
         this.initLocations();
       }
 
       _createClass(ConnectSocket, [{
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.leaveAll(Object.keys(this.rooms));
+        }
+      }, {
         key: "initLocations",
         value: function initLocations() {
-          var _this7 = this;
+          var _this11 = this;
 
           this.socket.on('locations', function (res) {
             console.log(res);
 
             if (!res.error) {
               if (res.deviceId && res.switches && res.switches.length) {
-                _this7.locations = {};
+                _this11.locations = {};
                 res.switches.some(function (s) {
-                  if (!_this7.locations[s.locationId]) {
-                    _this7.locations[s.locationId] = {};
+                  if (!_this11.locations[s.locationId]) {
+                    _this11.locations[s.locationId] = {};
                   }
 
-                  _this7.locations[s.locationId].name = s.locationName;
+                  _this11.locations[s.locationId].name = s.locationName;
 
-                  if (!_this7.locations[s.locationId].switches) {
-                    _this7.locations[s.locationId].switches = [];
+                  if (!_this11.locations[s.locationId].switches) {
+                    _this11.locations[s.locationId].switches = [];
                   }
 
                   s.deviceId = res.deviceId;
 
-                  _this7.locations[s.locationId].switches.push(s);
+                  _this11.locations[s.locationId].switches.push(s);
                   /*  if (!this.locations[s.locationId].devices) {
                      this.locations[s.locationId].devices = {};
                    }
@@ -2422,9 +3285,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                 });
 
-                _this7.calculateActiveLocations();
+                _this11.calculateActiveLocations();
 
-                _this7.locations$.next(_this7.locations);
+                _this11.locations$.next(_this11.locations);
               }
             }
           });
@@ -2432,19 +3295,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "calculateActiveLocations",
         value: function calculateActiveLocations() {
-          var _this8 = this;
+          var _this12 = this;
 
           if (this.locations) {
             var locations = Object.keys(this.locations);
 
             if (locations.length) {
               locations.some(function (l) {
-                _this8.locations[l].active = false;
+                _this12.locations[l].active = false;
 
-                if (_this8.locations[l].switches) {
-                  _this8.locations[l].switches.some(function (s) {
-                    if (_this8.onlineDevices && _this8.onlineDevices[s.deviceId] && _this8.onlineDevices[s.deviceId][s.board] && _this8.onlineDevices[s.deviceId][s.board].switches && _this8.onlineDevices[s.deviceId][s.board].switches.length && _this8.onlineDevices[s.deviceId][s.board].switches[s.switch]) {
-                      _this8.locations[l].active = true;
+                if (_this12.locations[l].switches) {
+                  _this12.locations[l].switches.some(function (s) {
+                    if (_this12.onlineDevices && _this12.onlineDevices[s.deviceId] && _this12.onlineDevices[s.deviceId][s.board] && _this12.onlineDevices[s.deviceId][s.board].switches && _this12.onlineDevices[s.deviceId][s.board].switches.length && _this12.onlineDevices[s.deviceId][s.board].switches[s.switch]) {
+                      _this12.locations[l].active = true;
                       return;
                     }
                   });
@@ -2472,20 +3335,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDeviceDisconnect",
         value: function onDeviceDisconnect() {
-          var _this9 = this;
+          var _this13 = this;
 
           this.socket.on('deviceDisconnected', function (id) {
             if (id) {
-              if (_this9.onlineDevices && _this9.onlineDevices[id]) {
-                delete _this9.onlineDevices[id];
+              if (_this13.onlineDevices && _this13.onlineDevices[id]) {
+                delete _this13.onlineDevices[id];
 
-                if (Object.keys(_this9.onlineDevices).length) {
-                  _this9.onlineDevices = null;
+                if (Object.keys(_this13.onlineDevices).length) {
+                  _this13.onlineDevices = null;
                 }
 
-                _this9.getLocations();
+                _this13.getLocations();
 
-                _this9.onlineDevices$.next(_this9.onlineDevices);
+                _this13.onlineDevices$.next(_this13.onlineDevices);
               }
             }
           });
@@ -2499,26 +3362,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "joined",
         value: function joined(device) {
-          var _this10 = this;
+          var _this14 = this;
 
           return this.socket.fromEvent('joined').subscribe(function (m) {
             if (m != null && typeof m === 'string') {
-              _this10.rooms[m] = device;
+              _this14.rooms[m] = device;
 
-              _this10.roomsMap.next(_this10.rooms);
+              _this14.roomsMap.next(_this14.rooms);
 
-              _this10.socket.emit('getBoards', m);
+              _this14.socket.emit('getBoards', m);
             }
           });
         }
       }, {
         key: "leaveAll",
         value: function leaveAll(ids) {
-          var _this11 = this;
+          var _this15 = this;
 
           if (ids && ids.length) {
             ids.map(function (id) {
-              _this11.socket.emit('leave', id);
+              _this15.socket.emit('leave', id);
 
               return id;
             });
@@ -2527,21 +3390,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSwitches",
         value: function getSwitches() {
-          var _this12 = this;
+          var _this16 = this;
 
           this.socket.on('boards', function (response) {
-            if (_this12.rooms && response && response.deviceId && response.boards) {
-              if (!_this12.onlineDevices) {
-                _this12.onlineDevices = {};
+            if (_this16.rooms && response && response.deviceId && response.boards) {
+              if (!_this16.onlineDevices) {
+                _this16.onlineDevices = {};
               }
 
-              _this12.onlineDevices[response.deviceId] = response.boards;
+              _this16.onlineDevices[response.deviceId] = response.boards;
 
-              _this12.getLocations();
+              _this16.getLocations();
 
-              _this12.onlineDevices$.next(_this12.onlineDevices);
+              _this16.onlineDevices$.next(_this16.onlineDevices);
+
+              _this16.calculateBoards();
             }
           });
+        }
+      }, {
+        key: "calculateBoards",
+        value: function calculateBoards() {
+          var _this17 = this;
+
+          var boards = [];
+          var dk = Object.keys(this.onlineDevices);
+          dk.some(function (d) {
+            var bk = Object.keys(_this17.onlineDevices[d]);
+            bk.some(function (b) {
+              boards.push(_this17.onlineDevices[d][b]);
+            });
+          });
+          this.boards = boards;
+          this.boards$.next(this.boards);
         }
       }, {
         key: "toggle",
@@ -2565,7 +3446,88 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }];
     };
 
-    ConnectSocket = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()], ConnectSocket);
+    ConnectSocket = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ConnectSocket);
+    /***/
+  },
+
+  /***/
+  "./src/app/verified/verified.component.css":
+  /*!*************************************************!*\
+    !*** ./src/app/verified/verified.component.css ***!
+    \*************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppVerifiedVerifiedComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n\r\n.login-root {\r\n  height: 100vh;\r\n  display: grid;\r\n  grid-template-rows: 10% auto auto auto;\r\n}\r\n\r\n\r\n.login-head {\r\n  display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n  background-color: #282c34;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 0.5rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n\r\nbody {\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n\r\n.logininp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  height: 2rem;\r\n  width: 18rem;\r\n  border-radius: 4px;\r\n  margin: 1rem;\r\n  padding: 0.2rem;\r\n  padding-left: 1rem;\r\n  margin: 1rem auto;\r\n  border:none;\r\n}\r\n\r\n\r\n.loginbdy-up {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-left: 1rem;\r\n  padding-top: 4rem;\r\n}\r\n\r\n\r\n.loginister-btn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n\r\n.loginister-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2.5rem;\r\n}\r\n\r\n\r\n.loginimg {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-bottom: 1.5rem;\r\n}\r\n\r\n\r\n.fpasssi {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr;\r\n  grid-gap: 1rem;\r\n}\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInZlcmlmaWVkL3ZlcmlmaWVkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsb0ZBQW9GOzs7QUFHcEY7RUFDRSxhQUFhO0VBQ2IsYUFBYTtFQUNiLHNDQUFzQztBQUN4Qzs7O0FBRUE7RUFDRSxhQUFhO0lBQ1gsdUJBQXVCO0lBQ3ZCLG1CQUFtQjtFQUNyQix5QkFBeUI7RUFDekIsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixlQUFlO0VBQ2YsMkNBQTJDO0FBQzdDOzs7QUFFQTtFQUNFLFlBQVk7RUFDWixXQUFXO0FBQ2I7OztBQUVBO0VBQ0UsZ0RBQWdEO0VBQ2hELFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixXQUFXO0FBQ2I7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsaUJBQWlCO0FBQ25COzs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsWUFBWTtFQUNaLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixtQkFBbUI7QUFDckI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixzQkFBc0I7QUFDeEI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLDhCQUE4QjtFQUM5QixjQUFjO0FBQ2hCOzs7QUFHQTtFQUNFLFNBQVM7RUFDVCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQiIsImZpbGUiOiJ2ZXJpZmllZC92ZXJpZmllZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvK0NvbmRlbnNlZCZkaXNwbGF5PXN3YXBcIik7XHJcblxyXG5cclxuLmxvZ2luLXJvb3Qge1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLXJvd3M6IDEwJSBhdXRvIGF1dG8gYXV0bztcclxufVxyXG5cclxuLmxvZ2luLWhlYWQge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBwYWRkaW5nOiAwcHg7XHJcbiAgbWFyZ2luOiAwcHg7XHJcbn1cclxuXHJcbi5sb2dpbmlucCB7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAyMHB4IDBweCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG4gIGhlaWdodDogMnJlbTtcclxuICB3aWR0aDogMThyZW07XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG1hcmdpbjogMXJlbTtcclxuICBwYWRkaW5nOiAwLjJyZW07XHJcbiAgcGFkZGluZy1sZWZ0OiAxcmVtO1xyXG4gIG1hcmdpbjogMXJlbSBhdXRvO1xyXG4gIGJvcmRlcjpub25lO1xyXG59XHJcblxyXG4ubG9naW5iZHktdXAge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbiAgcGFkZGluZy10b3A6IDRyZW07XHJcbn1cclxuXHJcbi5sb2dpbmlzdGVyLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAxYjYwMDtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5sb2dpbmlzdGVyLWJ1dHRvbnMge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDIuNXJlbTtcclxufVxyXG5cclxuLmxvZ2luaW1nIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHBhZGRpbmctYm90dG9tOiAxLjVyZW07XHJcbn1cclxuXHJcbi5mcGFzc3NpIHtcclxuICBkaXNwbGF5OiBncmlkO1xyXG4gIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyIDFmcjtcclxuICBncmlkLWdhcDogMXJlbTtcclxufVxyXG5cclxuXHJcbi5lcnJvcntcclxuICBjb2xvcjpyZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG4iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/verified/verified.component.ts":
+  /*!************************************************!*\
+    !*** ./src/app/verified/verified.component.ts ***!
+    \************************************************/
+
+  /*! exports provided: VerifiedComponent */
+
+  /***/
+  function srcAppVerifiedVerifiedComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "VerifiedComponent", function () {
+      return VerifiedComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var VerifiedComponent =
+    /*#__PURE__*/
+    function () {
+      function VerifiedComponent() {
+        _classCallCheck(this, VerifiedComponent);
+      }
+
+      _createClass(VerifiedComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return VerifiedComponent;
+    }();
+
+    VerifiedComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-verified',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./verified.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/verified/verified.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./verified.component.css */
+      "./src/app/verified/verified.component.css")).default]
+    })], VerifiedComponent);
     /***/
   },
 

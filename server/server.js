@@ -38,6 +38,8 @@ boot(app, __dirname, function(err) {
   //  app.start();
   app.io = require('socket.io')(app.start());
   const Device  = app.models.Device;
+  const Board  = app.models.Board;
+
   /*require('socketio-auth')(app.io, {
     authenticate: function (socket, value, callback) {
 
@@ -61,12 +63,14 @@ boot(app, __dirname, function(err) {
 
     app.io.on('connection', function(socket){
       log.info('a user connected');
-
       socket.on('disconnect', function(){
         log.info('user disconnected');
         if(socket.handshake.query.device){
-          console.log(11111111111111)
-          app.io.to(socket.handshake.query.device).emit('deviceDisconnected',socket.handshake.query.device);
+          socket.leave(socket.handshake.query.device,function(){
+            console.log('socket left room')
+            app.io.to(socket.handshake.query.device).emit('deviceDisconnected',socket.handshake.query.device);
+
+          });
 
         }
       });
@@ -215,6 +219,45 @@ boot(app, __dirname, function(err) {
       socket.on('locations', response => {
         if(response.socketId) {
             app.io.to(response.socketId).emit('locations', response);
+        }
+      })
+
+
+      socket.on('addBoard',function(msg, callback){
+        log.info(`add location request`)
+        if(!msg || !msg.boardId || !msg.deviceId||!msg.token ){
+          return callback({error: "no token or board or device in request"})
+        }
+        let payload = null;
+        Board.register(msg.deviceId,msg.boardId,msg.token,function(err,board){
+          if(err){
+            callback({"error":err});
+            console.log(err)
+            log.debug("error while registering board")
+          }else{
+            log.debug("board registered in db sending to device")
+            Device.findOne({"where":{"deviceId":msg.deviceId},"include":["boards"]},(err,device)=>{
+              console.log(device)
+              if(device){
+                app.io.to(msg.deviceId).emit('addBoard', {deviceInfo:device,deviceId:msg.deviceId, boardId: msg.boardId, socketId: socket.id})
+
+                log.info(`device info sent to ${msg.deviceId}`);
+              }else{
+                log.error(`device ${msg.deviceId} not found`);
+              }
+            })
+          }
+        })
+      });
+
+
+      socket.on('board_added',function(msg){
+        log.info(` added board confirmation from device`)
+        if(msg.socketId){
+            let socket = msg.socketId;
+            delete msg.socketId;
+            app.io.to(socket).emit('board_added',msg)
+
         }
       })
 

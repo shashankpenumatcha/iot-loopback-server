@@ -13,5 +13,24 @@
     "user": "",
     "useNewUrlParser": true,
     "connector": "mongodb"
+  },
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "shashankpenumatcha@gmail.com",
+          "pass": "ap9bs2545"
+        }
+      }
+    ]
   }
 }

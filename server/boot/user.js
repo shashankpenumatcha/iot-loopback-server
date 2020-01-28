@@ -2,7 +2,7 @@
 
 module.exports = function(app) {
   let debug = console.log;
-  const User = app.models.User;
+  const User = app.models.Customer;
   const Role = app.models.Role;
   const RoleMapping = app.models.RoleMapping;
   User.findOne({"where": {"username":'admin'}},function(e , user) {

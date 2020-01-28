@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div style="box-shadow: 0px 0px 4px 0px #6d696929;" class="col-12">
+      <h4 style="color: #3d5af1;opacity: 0.8;margin:15px 0px 25px 0px">Add Boards</h4>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div style="padding:15px;" *ngIf="onlineDevicesLength" class="col-6 col-md-4 col-lg-3">
+      <ng-container *ngFor="let device of devices|keyvalue">
+        <div style="padding:15px;margin-bottom:15px;    border: 1px solid #00000017;
+        box-shadow: 0px 4px 4px 0px #6d696929;">
+          <div style="margin-bottom:5px;">
+            <span style="font-weight: bold;">
+              Device Id:
+            </span>
+            <span>{{device.key}}</span>
+          </div>
+          <div style="opacity:0.5;margin-bottom:25px;font-size:10px;">
+            <i  style="font-size: 10px;" class="fas fa-microchip"></i>
+            {{object.keys(device.value).length}}
+          </div>
+          <div (click)="launchBoardAdder(device.key)" style="font-size:12px;color:#3d5af1;cursor:pointer;">
+            <i  style="font-size: 10px;" class="fas fa-plus"></i>
+            Add Board
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <ng-container *ngIf="!onlineDevicesLength">
+      <p>No online devices</p>
+    </ng-container>
+  </div>
+</div>
+
+

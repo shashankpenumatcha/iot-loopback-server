@@ -48,6 +48,6 @@ export class Chowkidaar implements CanActivate {
     logout() {
       this.fetchData.logout().subscribe(r => {});
       localStorage.removeItem('token');
-      this.router.navigate(['/login']);
+      this.router.navigate(['/welcome']);
     }
 }

@@ -19,7 +19,6 @@
         <div *ngFor="let device of devices | keyvalue ; let ix=index">
             <ng-container *ngIf="device.value">
               <div *ngFor="let board of device.value | keyvalue; let ixx = index">
-                {{setSwitchCount(ix,ixx, board)}}
 
                 <ng-container *ngIf="board.value && board.value.switches; ">
 
@@ -34,20 +33,18 @@
                           <button style="outline:none;border:none;background:none;" *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)"><i class="far fa-square"></i></button>
                          <button style="outline:none;border:none;background:none;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square"></i></button>
                         </td>
-                        <td>
-                          <tr>
-                            <td>
+
+                            <td style="font-size:25px;">
                               <button style="outline:none;padding:0px;margin:0px;border:none;background:none;"  *ngIf="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-on"></i></button>
                               <button style="outline:none;padding:0px;margin: 0px;border:none;background:none;"  *ngIf="!devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-off"></i></button>
                             </td>
-                          </tr>
-                          <tr>
-                            <td style="height:35px;">
+
+                            <td style="height:35px;padding-left:25px">
                               <input style="outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" placeholder="label" [(ngModel)]="selectedSwitches[device.key][board.key][i].label">
 
                             </td>
-                          </tr>
-                        </td>
+
+
                       </tr>
                     </table>
 

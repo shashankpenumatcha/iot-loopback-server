@@ -1,6 +1,9 @@
 
-<div *ngIf="!devices|| !devices.length">
-  <h3 style="text-align: center;margin: 25px;">Register your device</h3>
+
+
+
+<div *ngIf="!step && (!devices|| !devices.length)" class="step2-root">
+  <div class="step2-head">Register your Device</div>
   <p style="text-align: center;text-align: center;
   width: 400px;
   max-width: 90vw;
@@ -12,7 +15,39 @@
   margin: 0 auto;
   display: block;
   margin-top: 20px;text-align:center;" type="text" placeholder="Enter device ID" [(ngModel)]="deviceId">
-  <button  [disabled]="!deviceId || !deviceId.length" (click)="register(deviceId)">Register</button>
+  <div style="margin-top:90px;" class="step2-btn"><button [disabled]="!deviceId || !deviceId.length" (click)="register(deviceId)" class="step2-btnn">Next</button></div>
 </div>
 
 
+<div *ngIf="step==4" class="step4-root">
+  <div class="step4-head">Setup Complete</div>
+  <div class="step4-text">STEP 4</div>
+  <div class="step4-text"><img height="100px" src="content/images/check.png" /></div>
+  <div class="step4-txt">
+    Your hub should be setup now. Time to add boards
+  </div>
+  <div (click)="step=5" class="step4-btn"><button class="step4-btnn">Next</button></div>
+</div>
+
+
+
+<div *ngIf="step==5" class="step5-root">
+  <div class="step5-head">Adding boards</div>
+  <div class="step5-text">STEP 5</div>
+  <div class="step5-text"><img height="100px" src="content/images/switch.png" /></div>
+  <div class="step5-txt">
+    Boards contain multiple switches that you can use to control appliances
+  </div>
+  <div (click)="step=6"  class="step5-btn"><button class="step5-btnn">Next</button></div>
+</div>
+
+
+<div *ngIf="step==6" class="step6-root">
+  <div class="step6-head">Add Locations</div>
+  <div class="step6-text">STEP 6</div>
+  <div class="step6-text"><img height="200px" src="content/images/loc.jpeg" /></div>
+  <div class="step6-txt">
+    Boards can be added to various locations such as bedroom,toilet
+  </div>
+  <div [routerLink]="['/']" class="step6-btn"><button class="step6-btnn">Next</button></div>
+</div>

@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
+
+.register-root {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 10% auto auto auto;
+}
+
+.register-head {
+  background-color: #282c34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0.5rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.reginp {
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  height: 2rem;
+  width: 18rem;
+  border-radius: 4px;
+  margin: 1rem auto;
+  padding: 0.2rem;
+  padding-left: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  border:none;
+}
+
+.regbdy-up {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.register-btn {
+  background-color: #01b600;
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.register-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.regbdy-up2 {
+  display: flex;
+  justify-content: center;
+  color: #282c34;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.lheadtext {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  color: #282c34;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+
+.message{
+  color:green;
+  text-align:center;
+  font-weight: 14px;
+}
+
+.error{
+  color:red;
+  text-align: center;
+  font-size: 14px;
+}

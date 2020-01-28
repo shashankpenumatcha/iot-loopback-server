@@ -1,20 +1,29 @@
-<div style="display:flex;height: 100vh;width:100vw; align-items: center;
-justify-content: center;">
 
-  <div style="    width: 370px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  padding: 25px;
-  box-shadow: 0px 7px 19px 0px #6d696961;
-">
 
-    <form style="width:80%">
-      <input style="width:100%;display:block;margin:25px 0px;" placeholder="username" type="text" name="username" id="username" [(ngModel)]="username">
-      <input style="width:100%;display:block" placeholder="password" type="password" name="password" id="password" [(ngModel)]="password">
-      <button [disabled]="!username||!password" (click)="login()">Login</button>
-    </form>
+
+<div class="login-root">
+  <div class="login-head">Login</div>
+  <div class="login-body">
+
+    <div class="loginbdy-up1"></div>
+
+    <div class="loginbdy-up">
+    <div class="loginimg"><img height="150px" src="content/images/login.png"/></div>
+
+    <input [(ngModel)]="username" class="logininp" placeholder="Username" name="username" id="username">
+
+    <input [(ngModel)]="password" class="logininp" placeholder="Password" type="password" name="password" id="password">
+
+
+
+    </div>
+    <div class="loginbdy-down"></div>
+  </div>
+  <div class="loginister-buttons">
+    <button  [disabled]="!username||!password" (click)="login()" class="loginister-btn">Login</button>
+
   </div>
 
-</div>
+<p *ngIf="error" class="error">{{error}}</p>
 
+</div>

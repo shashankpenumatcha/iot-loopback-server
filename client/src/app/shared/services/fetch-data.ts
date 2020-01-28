@@ -8,6 +8,9 @@ import { ServiceEndpoints } from './service-endpoints';
 })
 export class FetchData {
     constructor(private serviceEndpoints: ServiceEndpoints) {}
+    signup(payload) {
+      return this.serviceEndpoints.init().signup.makeRequest(payload);
+    }
     login(payload) {
       return this.serviceEndpoints.init().login.makeRequest(payload);
     }

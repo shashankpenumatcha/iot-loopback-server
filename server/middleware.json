@@ -53,6 +53,12 @@
           "/node_modules"
         ],
         "params": "$!../node_modules"
+      },
+      {
+        "paths": [
+          "/content"
+        ],
+        "params": "$!../client/content"
       }
     ]
   },

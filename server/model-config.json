@@ -58,5 +58,15 @@
   "Board": {
     "dataSource": "loopback",
     "public": true
+  },
+  "Customer": {
+    "dataSource": "loopback",
+    "public": true,
+    "options": {},
+    "emailVerificationRequired": true
+
+  },
+  "Email": {
+    "dataSource": "emailDs"
   }
 }

@@ -1,4 +1,4 @@
-button {
+/* button {
   margin: 0 auto;
         display: block;
         margin-top: 40px;
@@ -7,4 +7,188 @@ button {
         border: 1px solid #3d5af1;
         border-radius: 200px;
         color: #fff;
+}
+
+ */
+
+
+.step2-head {
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  padding: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  align-items: center;
+}
+
+.step2-text {
+  padding-top: 3rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.step2-txt {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+.step2-btnn {
+  background-color: #01b600;
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.step2-btn {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.step4-head {
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  padding: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  align-items: center;
+}
+
+.step4-text {
+  padding-top: 3rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.step4-txt {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+.step4-btnn {
+  background-color: #01b600;
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.step4-btn {
+  display: flex;
+  justify-content: center;
+}
+
+
+.step5-head {
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  padding: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  align-items: center;
+}
+
+.step5-text {
+  padding-top: 3rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.step5-txt {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+.step5-btnn {
+  background-color: #01b600;
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.step5-btn {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.step6-head {
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+  padding: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  align-items: center;
+}
+
+.step6-text {
+  padding-top: 3rem;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.step6-txt {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+.step6-btnn {
+  background-color: #01b600;
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.step6-btn {
+  display: flex;
+  justify-content: center;
 }

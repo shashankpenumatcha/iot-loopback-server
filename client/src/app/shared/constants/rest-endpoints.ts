@@ -2,13 +2,18 @@ export class RestEndpointConstants {
   public static RestEndpoints = {
       endpoints: [
           {
+              name: 'signup',
+              url: '/api/Customers',
+              method: 'post'
+          },
+          {
               name: 'login',
-              url: '/api/Users/login',
+              url: '/api/Customers/login',
               method: 'post'
           },
           {
             name: 'logout',
-            url: '/api/Users/logout',
+            url: '/api/Customers/logout',
             method: 'post'
           },
           {

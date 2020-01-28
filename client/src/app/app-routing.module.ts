@@ -4,14 +4,26 @@ import {LoginComponent} from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import {Chowkidaar} from './blocks/chowkidaar';
 import { CarouselComponent } from './carousel/carousel.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { DeviceListComponent } from './device-list/device-list.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { VerifiedComponent } from './verified/verified.component';
+
 
 const routes: Routes = [
+  {path: 'verified', component: VerifiedComponent},
+
+{path: 'signup', component: SignUpComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'welcome', component: LandingPageComponent},
   {path: 'carousel', component: CarouselComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: 'device-list', component: DeviceListComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: '', component: HomeComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'devices', loadChildren: () => import('./device/device.module').then(m => m.DeviceModule) },
-  {path: '**', component: LoginComponent}
+  {path: 'schedules', component: ScheduleComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: '**', component: LandingPageComponent}
 
 
 ];

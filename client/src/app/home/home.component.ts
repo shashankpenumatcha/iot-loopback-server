@@ -13,7 +13,7 @@ import { DataService } from '../shared/services/data.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [ConnectSocket, NgbModalConfig, NgbModal]
+  providers: [NgbModalConfig, NgbModal]
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   onlineDevicesLength = 0;
   subscriptions = new Subscription();
   locationsLength = 0;
+  boards = [];
 
   constructor(
     private fetchData: FetchData,
@@ -70,6 +71,10 @@ export class HomeComponent implements OnInit, OnDestroy {
           }
         }));
 
+        this.subscriptions.add(this.connect.boards$.subscribe((response) => {
+         this.boards = response;
+        }));
+
         this.devices = {...res}.devices;
 
         this.devices.map(m => {
@@ -82,7 +87,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
-    this.connect.leaveAll(Object.keys(this.joinedRooms));
+    // this.connect.leaveAll(Object.keys(this.joinedRooms));
   }
 
   logout() {

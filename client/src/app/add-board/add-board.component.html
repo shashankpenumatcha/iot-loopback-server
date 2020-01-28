@@ -1,0 +1,22 @@
+<div style="padding:25px;">
+  <h3>Add Board - {{deviceId}}</h3>
+  <i *ngIf="!adding" (click)="activeModal.dismiss()" style="cursor:pointer;position: absolute;right:27px;top:20px" class="fas fa-times"></i>
+  <div style="margin-top:20px" id="add-location-form">
+    <input style="width: 100%;height: 36px;font-size: 100%;border: none;border-bottom: 1px solid #0000001a;outline:none;"
+    [disabled]="adding" [(ngModel)]="boardId" type="text" placeholder="Enter Board ID"/>
+  </div>
+
+   <div id="scan-section">
+     <button style="margin: 0 auto;
+        display: block;
+        margin-top: 40px;
+        padding: 10px 35px;
+        background: #3d5af1;
+        border: 1px solid #3d5af1;
+        border-radius: 200px;
+        color: #fff;"  [disabled]="adding||!deviceId||!boardId" (click)="addBoard()">Add Board</button>
+
+   </div>
+
+
+</div>

@@ -103,7 +103,15 @@ export class AddLocationComponent implements OnInit, OnDestroy {
           this.socket.removeListener('assignedSwitches');
         }
         this.devices = this.allDevices;
-
+        const dk = Object.keys(this.devices);
+        dk.map((d, ix) => {
+          const bk = Object.keys(this.devices[d]);
+          bk.map((b, ixx) => {
+            this.setSwitchCount(ix, ixx, this.devices[d][b]);
+            return b;
+          });
+          return d;
+        });
       });
 
     }
@@ -164,8 +172,8 @@ export class AddLocationComponent implements OnInit, OnDestroy {
       if (ix === 0 && ixx === 0) {
         this.switchCount = 0;
       }
-      if (board && board.value && board.value.switches) {
-        this.switchCount += board.value.switches.length;
+      if (board && board.switches) {
+        this.switchCount += board.switches.length;
       }
 
     }

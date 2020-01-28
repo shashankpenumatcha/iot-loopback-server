@@ -11,7 +11,7 @@ import { FetchData } from '../shared/services/fetch-data';
   styleUrls: ['./device.component.css']
 })
 export class DeviceComponent implements OnInit, OnDestroy {
-
+  step = null;
   subscriptions = new Subscription();
   devices: any[];
   deviceId;
@@ -36,8 +36,9 @@ export class DeviceComponent implements OnInit, OnDestroy {
         if (res && res.devices && res.devices.length) {
           this.dataService.setDevices(res.devices);
         }
-        this.router.navigate['/'];
+        //this.router.navigate['/'];
         //TODO navigate to on-boarding
+        this.step = 4;
       });
     }
   }

@@ -1,2 +1,31 @@
-<p>carousel works!</p>
-<button [routerLink]="['/devices/']">Skip</button>
+<div *ngIf="step==1" class="step1-root">
+  <div class="step1-head">Setup your hub</div>
+  <div class="step1-text">STEP 1</div>
+  <div class="step1-text"><img height="250px" src="content/images/connect.gif" /></div>
+  <div class="step1-txt">
+    Plug the Bluebox hub into the socket and switch it on
+  </div>
+  <div (click)="step=2" class="step1-btn"><button class="step1-btnn">Next</button></div>
+</div>
+
+<div *ngIf="step==2" class="step2-root">
+  <div class="step2-head">Setup your hub</div>
+  <div class="step2-text">STEP 2</div>
+  <div class="step2-text"><img height="250px" src="content/images/wifi.gif" /></div>
+  <div class="step2-txt">
+    Using your browser or phone connect to wireless network called
+    AP_BlueBox
+  </div>
+  <div (click)='step=3' class="step2-btn"><button class="step2-btnn">Next</button></div>
+</div>
+
+
+<div *ngIf="step==3" class="step2-root">
+  <div class="step2-head">Setup your hub</div>
+  <div class="step2-text">STEP 3</div>
+  <div class="step2-text"><img height="250px" src="content/images/wifi.gif" /></div>
+  <div class="step2-txt">
+    Select to your home WiFi Network, enter password and click on connect
+  </div>
+  <div [routerLink]="['/devices']" class="step2-btn"><button class="step2-btnn">Next</button></div>
+</div>
