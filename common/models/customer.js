@@ -26,7 +26,10 @@ module.exports = function(Customer) {
     };
 
     userInstance.verify(verifyOptions, function(err, response, next) {
-      if (err) return next(err);
+      if (err) {
+        console.log(err)
+       return context.res.status(500).send({"message":`Verification email has not been sent to ${userInstance.email}`})
+      }
 
       console.log('> verification email sent:', response);
 

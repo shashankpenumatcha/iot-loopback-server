@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
       username: this.username,
       email: this.email,
       password: this.password,
-      emailVerified: false
+      emailVerified: true
     };
 
     this.fetchData.signup(payload).subscribe(res => {
