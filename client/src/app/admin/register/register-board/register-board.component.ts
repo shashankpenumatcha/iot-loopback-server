@@ -19,7 +19,7 @@ export class RegisterBoardComponent implements OnInit {
 
   register() {
     this.message = null;
-    this.fetchData.registerBoard({ deviceId : this.device.id}).subscribe(res => {
+    this.fetchData.registerBoard({}).subscribe(res => {
       if (res && res.id) {
         this.message = `board added - ${res.id}`;
       }

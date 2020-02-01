@@ -396,9 +396,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           this.message = null;
-          this.fetchData.registerBoard({
-            deviceId: this.device.id
-          }).subscribe(function (res) {
+          this.fetchData.registerBoard({}).subscribe(function (res) {
             if (res && res.id) {
               _this.message = "board added - ".concat(res.id);
             }
