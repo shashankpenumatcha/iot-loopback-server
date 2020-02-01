@@ -48,14 +48,14 @@ module.exports = function(Board) {
                 console.log("get board error "  + err)
               }
               if(!board){
-                sendError("board not found", 404, cb);
+               return sendError("board not found", 404, cb);
               }
               if(board.deviceId&&board.deviceId.toString()!=deviceId.toString()){
                 sendError("board registered to another device", 500, cb);
               }
               if(!board.deviceId_fk){
                 board.deviceId_fk = device.id;
-                board.deviceId = device.id;
+                board.deviceId = deviceId;
                 Board.updateAll({id:board.id},board,function(err,brd){
 
                     return cb(null,board);

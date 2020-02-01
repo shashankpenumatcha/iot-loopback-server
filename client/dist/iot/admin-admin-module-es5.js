@@ -41,7 +41,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>Register Board</p>\n\n<form>\n  <div>Device Id</div>\n  <input type=\"text\" name=\"deviceId\" [(ngModel)]=\"deviceId\" />\n  <button [disabled]=\"!deviceId || !deviceId.length\" type=\"submit\" (click)=\"verify()\">Verify Device</button>\n</form><br/>\n<button (click)=\"register()\" *ngIf=\"device\">Add Board</button><br/>\n{{message}}<br/>\n<pre>{{device|json}}</pre><br/>\n\n\n";
+    __webpack_exports__["default"] = "<p>Register Board</p>\n\n<button (click)=\"register()\">Add Board</button><br/>\n{{message}}<br/>\n\n\n";
     /***/
   },
 
@@ -396,43 +396,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           this.message = null;
-
-          if (this.device && this.device.id) {
-            this.fetchData.registerBoard({
-              deviceId: this.device.id
-            }).subscribe(function (res) {
-              if (res && res.id) {
-                _this.message = "board added - ".concat(res.id);
-              }
-
-              if (!_this.device.boards) {
-                _this.device.baords = [];
-              }
-
-              _this.device.boards.unshift(res);
-            }, function (e) {
-              _this.message = "Error while adding board";
-            });
-          }
-        }
-      }, {
-        key: "verify",
-        value: function verify() {
-          var _this2 = this;
-
-          this.message = null;
-
-          if (this.deviceId) {
-            this.fetchData.getDeviceByDeviceId(this.deviceId).subscribe(function (res) {
-              if (res && res.id) {
-                _this2.deviceId = null;
-                _this2.device = res;
-              }
-            }, function (e) {
-              _this2.message = 'error while fetching device';
-              _this2.device = null;
-            });
-          }
+          this.fetchData.registerBoard({
+            deviceId: this.device.id
+          }).subscribe(function (res) {
+            if (res && res.id) {
+              _this.message = "board added - ".concat(res.id);
+            }
+          }, function (e) {
+            _this.message = "Error while adding board";
+          });
         }
       }]);
 
@@ -532,7 +504,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "register",
         value: function register() {
-          var _this3 = this;
+          var _this2 = this;
 
           this.message = null;
 
@@ -542,10 +514,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               boards: this.boards
             }).subscribe(function (res) {
               console.log(res);
-              _this3.deviceId = null;
-              _this3.message = "device added succesfully - " + res.deviceId;
+              _this2.deviceId = null;
+              _this2.message = "device added succesfully - " + res.deviceId;
             }, function (e) {
-              _this3.message = e && e.error && e.error.error && e.error.error.message ? e.error.error.message : 'error while adding device';
+              _this2.message = e && e.error && e.error.error && e.error.error.message ? e.error.error.message : 'error while adding device';
             });
           }
         }

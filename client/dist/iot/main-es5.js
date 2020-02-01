@@ -927,7 +927,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }, function (res) {
             if (!res || res.error) {
               _this2.adding = false;
-              alert(res.error);
+              console.log("add-board-error");
+              console.log(res.error);
             }
           });
         }

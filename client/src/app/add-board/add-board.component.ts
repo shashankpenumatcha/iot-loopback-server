@@ -37,7 +37,8 @@ export class AddBoardComponent implements OnInit, OnDestroy {
     this.socket.emit('addBoard', {boardId: this.boardId, deviceId: this.deviceId, token: localStorage.getItem('token')}, res => {
       if (!res || res.error) {
         this.adding = false;
-        alert(res.error);
+        console.log(`add-board-error`);
+        console.log(res.error);
       }
     });
   }

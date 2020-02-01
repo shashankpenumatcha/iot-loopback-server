@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>Register Board</p>\n\n<form>\n  <div>Device Id</div>\n  <input type=\"text\" name=\"deviceId\" [(ngModel)]=\"deviceId\" />\n  <button [disabled]=\"!deviceId || !deviceId.length\" type=\"submit\" (click)=\"verify()\">Verify Device</button>\n</form><br/>\n<button (click)=\"register()\" *ngIf=\"device\">Add Board</button><br/>\n{{message}}<br/>\n<pre>{{device|json}}</pre><br/>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>Register Board</p>\n\n<button (click)=\"register()\">Add Board</button><br/>\n{{message}}<br/>\n\n\n");
 
 /***/ }),
 
@@ -219,33 +219,13 @@ let RegisterBoardComponent = class RegisterBoardComponent {
     }
     register() {
         this.message = null;
-        if (this.device && this.device.id) {
-            this.fetchData.registerBoard({ deviceId: this.device.id }).subscribe(res => {
-                if (res && res.id) {
-                    this.message = `board added - ${res.id}`;
-                }
-                if (!this.device.boards) {
-                    this.device.baords = [];
-                }
-                this.device.boards.unshift(res);
-            }, e => {
-                this.message = `Error while adding board`;
-            });
-        }
-    }
-    verify() {
-        this.message = null;
-        if (this.deviceId) {
-            this.fetchData.getDeviceByDeviceId(this.deviceId).subscribe(res => {
-                if (res && res.id) {
-                    this.deviceId = null;
-                    this.device = res;
-                }
-            }, e => {
-                this.message = 'error while fetching device';
-                this.device = null;
-            });
-        }
+        this.fetchData.registerBoard({ deviceId: this.device.id }).subscribe(res => {
+            if (res && res.id) {
+                this.message = `board added - ${res.id}`;
+            }
+        }, e => {
+            this.message = `Error while adding board`;
+        });
     }
 };
 RegisterBoardComponent.ctorParameters = () => [

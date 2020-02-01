@@ -454,7 +454,8 @@ let AddBoardComponent = class AddBoardComponent {
         this.socket.emit('addBoard', { boardId: this.boardId, deviceId: this.deviceId, token: localStorage.getItem('token') }, res => {
             if (!res || res.error) {
                 this.adding = false;
-                alert(res.error);
+                console.log(`add-board-error`);
+                console.log(res.error);
             }
         });
     }
@@ -809,6 +810,7 @@ __webpack_require__.r(__webpack_exports__);
 let Config = {
     server: 'http://134.209.155.230:3001'
 }
+
 
 /***/ }),
 

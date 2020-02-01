@@ -1,12 +1,6 @@
 <p>Register Board</p>
 
-<form>
-  <div>Device Id</div>
-  <input type="text" name="deviceId" [(ngModel)]="deviceId" />
-  <button [disabled]="!deviceId || !deviceId.length" type="submit" (click)="verify()">Verify Device</button>
-</form><br/>
-<button (click)="register()" *ngIf="device">Add Board</button><br/>
+<button (click)="register()">Add Board</button><br/>
 {{message}}<br/>
-<pre>{{device|json}}</pre><br/>
 
 

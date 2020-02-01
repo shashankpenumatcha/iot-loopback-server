@@ -253,9 +253,12 @@ boot(app, __dirname, function(err) {
 
       socket.on('board_added',function(msg){
         log.info(` added board confirmation from device`)
+        console.log('message')
+        console.log(msg)
         if(msg.socketId){
             let socket = msg.socketId;
             delete msg.socketId;
+            console.log('socket',socket);
             app.io.to(socket).emit('board_added',msg)
 
         }
