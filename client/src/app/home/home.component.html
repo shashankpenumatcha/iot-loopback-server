@@ -2,25 +2,24 @@
   {{onlineDevices|json}}
 </pre>
 boards - {{boards.length}} -->
-<div style="margin:0px;margin-top: 90px;" class="container">
-  <div class="row">
-    <div class="12">
-      <div class="h-head">
-        <div class="h-header">Home</div>
+<div class="h-head">
+  <div class="h-header">Home</div>
 
-        <div ngbDropdown #myDrop="ngbDropdown">
-          <img id="dropdownManual" ngbDropdownAnchor (click)="myDrop.open()" class="h-back" src="content/images/add.png" />
-          <div ngbDropdownMenu aria-labelledby="dropdownManual">
-            <button ngbDropdownItem  [routerLink]="['/devices/']">Add Device</button>
-            <button ngbDropdownItem [routerLink]="['/device-list']">Add Board</button>
-            <button (click)="launchDeviceAdder()" ngbDropdownItem>Add Location</button>
-            <button [routerLink]="['/schedules']" ngbDropdownItem>Add Schedule</button>
+  <div ngbDropdown #myDrop="ngbDropdown">
+    <img id="dropdownManual" ngbDropdownAnchor (click)="myDrop.open()" class="h-back" src="content/images/add.png" />
+    <div ngbDropdownMenu aria-labelledby="dropdownManual">
+      <button ngbDropdownItem  [routerLink]="['/devices/']">Add Device</button>
+      <button ngbDropdownItem [routerLink]="['/device-list']">Add Board</button>
+      <button (click)="launchDeviceAdder()" ngbDropdownItem>Add Location</button>
+      <button [routerLink]="['/schedules']" ngbDropdownItem>Add Schedule</button>
 
-          </div>
-        </div>
-
-      </div>
     </div>
+  </div>
+
+</div>
+<div style="margin-top: 90px;" class="container">
+  <div class="row">
+
     <div class="col-12">
       <div style="display: flex;">
 
