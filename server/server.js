@@ -238,7 +238,7 @@ boot(app, __dirname, function(err) {
             log.debug("board registered in db sending to device")
             Device.findOne({"where":{"deviceId":msg.deviceId},"include":["boards"]},(err,device)=>{
               if(device){
-                device = JSON.parse(device)
+                device = device.toJSON();
                 Board.findOne({"where":{"id":msg.boardId}},function(err,board){
                     if(board){
                       if(!device.boards){
