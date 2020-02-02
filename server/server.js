@@ -105,9 +105,19 @@ boot(app, __dirname, function(err) {
         Device.findOne({"where":{"deviceId":deviceId},"include":["boards"]},(err,device)=>{
           console.log(device)
           if(device){
-            app.io.to(socket.id).emit('deviceInfo',device);
 
-            log.info(`device info sent to ${deviceId}`);
+            Board.find({"where" : {"deviceId":deviceId}},(err,boards)=>{
+              if(boards){
+                device=device.toJSON();
+                device.boards=boards;
+              }
+              app.io.to(socket.id).emit('deviceInfo',device);
+
+              log.info(`device info sent to ${deviceId}`);
+
+            })
+
+
           }else{
             log.error(`device ${deviceId} not found`);
           }
