@@ -224,7 +224,7 @@ boot(app, __dirname, function(err) {
 
 
       socket.on('addBoard',function(msg, callback){
-        log.info(`add location request`)
+        log.info(`add board request`)
         if(!msg || !msg.boardId || !msg.deviceId||!msg.token ){
           return callback({error: "no token or board or device in request"})
         }
@@ -237,11 +237,17 @@ boot(app, __dirname, function(err) {
           }else{
             log.debug("board registered in db sending to device")
             Device.findOne({"where":{"deviceId":msg.deviceId},"include":["boards"]},(err,device)=>{
-              console.log(device)
               if(device){
-                app.io.to(msg.deviceId).emit('addBoard', {deviceInfo:device,deviceId:msg.deviceId, boardId: msg.boardId, socketId: socket.id})
-
-                log.info(`device info sent to ${msg.deviceId}`);
+                Board.findOne({"where":{"id":msg.boardId}},function(err,board){
+                    if(board){
+                      if(!device.boards){
+                        device.boards = [];
+                      }
+                      device.boards.push(board);
+                      app.io.to(msg.deviceId).emit('addBoard', {deviceInfo:device,deviceId:msg.deviceId, boardId: msg.boardId, socketId: socket.id})
+                      log.info(`device info with board sent to ${msg.deviceId}`);
+                    }
+                })
               }else{
                 log.error(`device ${msg.deviceId} not found`);
               }
