@@ -1,6 +1,6 @@
 .panel {
   padding: 12px 30px;
-  background: #3d5af1;
+  background: #282c34;
   color: #fff;
 display: inline-block;
   margin: 0 auto;
@@ -24,4 +24,34 @@ display: inline-block;
 
 .green {
   color: #2cb978!important;
+}
+
+
+.h-head {
+  background-color: #282c34;
+  color: white;
+  font-size: 2rem;
+  padding: 0.8rem;
+  font-family: "Roboto", sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.h-back {
+  filter: invert(1);
+}
+
+.h-header {
+  display: flex;
+  justify-content: left;
 }

@@ -1,0 +1,76 @@
+.auto-head {
+  background-color: #282c34;
+  color: white;
+  font-size: 2rem;
+  padding: 0.8rem;
+  font-family: "Roboto", sans-serif;
+  width: 100%;;
+}
+
+
+.auto-header {
+  display: flex;
+  justify-content: left;
+}
+
+.auto-back {
+  filter: invert(1);
+}
+
+.auto-spacer {
+  padding-top: 4rem;
+}
+
+.auto-footer {
+  background-color: #282c34;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  width: 100%;
+}
+
+.auto-homeico {
+  filter: invert(1);
+  padding: 0.5rem;
+  float: left;
+  padding-left: 1rem;
+}
+
+.auto-homeico2 {
+  filter: invert(1);
+  padding: 0.5rem;
+  float: left;
+  padding-left: 3rem;
+}
+
+.auto0-bodyhead {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.auto0-bodyhead1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.addautobtn {
+  background-color: white;
+  width: 150px;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: #282c34;
+  font-weight: bold;
+  border: 2px solid #282c34;
+  font-family: "Roboto Condensed", sans-serif;
+}

@@ -49,6 +49,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/add-schedule/add-schedule.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/add-schedule/add-schedule.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"auto-head\">\n  <div class=\"auto-header\">Create Automation</div>\n  <div (click)=\"activeModal.dismiss()\" style=\"display: inline-block;    position: absolute;right: 27px;top: 8px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div>\n<div *ngIf=\"!showLocations\" class=\"auto-spacer\"></div>\n\n<ng-container *ngIf=\"!showLocations\">\n\n  <div class=\"auto-inp\">\n    <label class=\"auto-lbl\">Scene Name</label\n    ><input [(ngModel)]=\"name\" value=\"Bedroom Light 1\" class=\"auto-inpp\" />\n  </div>\n  <div class=\"auto-help\">\n    <label class=\"auto-helpp\">\n      Automate your switch by selecting an appropriate start time, stop time &\n      days of the week</label\n    >\n  </div>\n  <div class=\"auto-times\">\n    <label [(ngModel)]=\"start\" class=\"auto-startt\">Start Time</label>\n    <ngb-timepicker [(ngModel)]=\"start\" [seconds]=\"true\"></ngb-timepicker>\n    <label class=\"auto-startt\">Stop Time</label>\n    <ngb-timepicker [(ngModel)]=\"stop\" [seconds]=\"true\"></ngb-timepicker>\n  </div>\n  <div style=\"display:flex;justify-content: center;\">\n    <div  *ngFor=\"let day of days\" class=\"auto-days\">\n      <div (click)=\"selectDay(day)\" [ngClass]=\"{'selected-day' : day.selected}\" class=\"auto-day\">{{day.v}}</div>\n\n    </div>\n  </div>\n</ng-container>\n\n\n<ng-container *ngIf=\"showLocations\">\n  <app-location-list (valueChange)='displayCounter($event)' [selectedSwitches]=\"selectedForSchedule\"></app-location-list>\n</ng-container>\n\n\n\n\n<div class=\"auto-savebtn\" style=\"margin-bottom:65px;\">\n  <button style=\"margin-right:15px;\" *ngIf=\"!showLocations\"  (click)=\"showLocations=true\" class=\"auto-savebtnn\">Select Switches</button>\n  <button *ngIf=\"showLocations\"  (click)=\"showLocations=false\" class=\"auto-savebtnn\">Done</button>\n\n  <button  *ngIf=\"!showLocations\" (click)=\"addSchedule()\" [disabled]=\"!name||!selectedDaysLength\" class=\"auto-savebtnn\">Create</button>\n</div>\n\n<!--\n<pre>\n  {{selectedForSchedule|json}}\n</pre> -->\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html":
 /*!**************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html ***!
@@ -88,6 +101,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home-toolbar/home-toolbar.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home-toolbar/home-toolbar.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>home-toolbar works!</p>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html":
 /*!********************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html ***!
@@ -97,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <div style=\"display: flex;\">\n\n        <span class=\"panel\">\n\n\n          <table style=\"display:inline-block;border-right: 2px solid #ffffff61;\">\n            <tr>\n              <td>\n                <i *ngIf=\"onlineDevicesLength\" style=\"font-size: 18px;\" class=\"far fa-hdd\"></i>\n                <i *ngIf=\"!onlineDevicesLength\" style=\"font-size: 18px;\" class=\"fas fa-exclamation\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\"><span>{{onlineDevicesLength}}</span><span> Online</span></span>\n\n                </td></tr>\n                <tr><td style=\"opacity: 0.5;\">\n                  <span style=\"display:block\">Hub<span *ngIf=\"onlineDevicesLength>1||!onlineDevicesLength\">s</span></span>\n\n                </td></tr>\n              </td>\n            </tr>\n          </table>\n\n          <table [ngClass]=\"{'disabled': !onlineDevicesLength}\" style=\"padding:6px;display:inline-block\">\n            <tr  (click)=\"launchDeviceAdder()\" style=\"cursor:pointer\">\n              <td>\n                <i  style=\"font-size: 18px; margin-left: 18px;\" class=\"fas fa-plus\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 0px 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\">Add Location</span>\n\n                </td></tr>\n\n              </td>\n            </tr>\n          </table>\n\n        </span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"padding:45px 0px\"  *ngIf=\"locations\" class=\"row\">\n    <div class=\"col-12\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <span *ngIf=\"location.key\" [ngClass]=\"{'selected' : location.key == selectedLocation}\"  (click)=\"selectedLocation = location.key\" style=\"cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;\" >\n         {{location.value.name}}\n         <i [ngClass]=\"{'green': location.value.active}\" style=\"font-weight: 900;font-size: 8px;position: relative;\n         top: -2px;margin-left: 5px;color: #8080806e;\" class=\"fas fa-circle\" >\n         </i>\n        </span>\n      </ng-container>\n    </div>\n  </div>\n  <div style=\"padding-bottom:45px\"  *ngIf=\"locations\" class=\"row\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <ng-container *ngIf=\"location.value.switches && location.value.switches.length\">\n          <ng-container  *ngFor=\"let switch of location.value.switches\">\n            <div *ngIf=\"onlineDevices&&onlineDevices[switch.deviceId]&&\n            onlineDevices[switch.deviceId][switch.board]&&\n            onlineDevices[switch.deviceId][switch.board].switches&&\n            onlineDevices[switch.deviceId][switch.board].switches.length&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null&&\n            switch.locationId == selectedLocation\" class=\"col-6 col-md-4 col-lg-3\">\n\n            <div style=\"text-align:center;height:150px;background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;\">\n              <i style=\"margin-top:30px;font-size:34px;opacity:0.5\" class=\"fas fa-tv\"></i>\n              <p style=\"margin-bottom:0px\" *ngIf=\"switch.name\"> {{switch.name}} </p>\n\n                <p style=\"margin-bottom:0px;margin-top:10px;\">\n                <span style=\"cursor:pointer;font-size:12px;font-weight:bold;position: absolute;top:5px;right:27px\" (click)=\"toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)\">\n                  <span style=\"color:#2cb978\" *ngIf=\"onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">ON</span>\n                  <span style=\"color:#00000040\" *ngIf=\"!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">OFF</span>\n                </span>\n                </p>\n                <i style=\" position: absolute;\n                bottom: 7px;\n                right: 27px;\n                opacity: 0.5;\" class=\"fas fa-arrow-right\"></i >\n            </div>\n            </div>\n          </ng-container>\n\n        </ng-container>\n      </ng-container>\n\n\n  </div>\n  <div *ngIf=\"onlineDevicesLength&&!locationsLength \"class=\"row\">\n    <div [routerLink]=\"['/device-list']\" *ngIf=\"!boards||!boards.length\" style=\"cursor:pointer;text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-microchip\"></i>\n      <p style=\"opacity:0.4\">No boards found. Click here to add a board.</p>\n    </div>\n    <div *ngIf=\"boards&&boards.length\" style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-map-marker-alt\"></i>\n      <p style=\"opacity:0.4\">Looks like you haven't added any locations yet. Please add Locations to continue.</p>\n    </div>\n  </div>\n\n  <div *ngIf=\"devices && devices.length&&!onlineDevicesLength\"class=\"row\">\n    <div style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-wifi\"></i>\n      <p style=\"opacity:0.4\">Please make sure your device is connected to WiFi.</p>\n    </div>\n  </div>\n\n  <div  *ngIf=\"!devices || !devices.length\"class=\"row\">\n    <div [routerLink]=\"['/devices/']\" style=\"text-align:center;cursor:pointer\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"far fa-hdd\"></i>\n      <p style=\"opacity:0.4\">No Devices registered. Click here to register your device</p>\n    </div>\n  </div >\n\n  <div style=\"cursor:pointer;padding:12px;text-align: center;position:fixed;width:100%;height:50px;bottom:0px;left:0px;color:#fff;background:#3d5af1 ;\">\n     <p (click)=\"logout()\" style=\"text-align:center;margin:0px\">Logout</p>\n  </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<div style=\"margin-top: 90px;\" class=\"container\">\n  <div class=\"row\">\n    <div class=\"12\">\n      <div class=\"h-head\">\n        <div class=\"h-header\">Home</div>\n\n        <div ngbDropdown #myDrop=\"ngbDropdown\">\n          <img id=\"dropdownManual\" ngbDropdownAnchor (click)=\"myDrop.open()\" class=\"h-back\" src=\"content/images/add.png\" />\n          <div ngbDropdownMenu aria-labelledby=\"dropdownManual\">\n            <button ngbDropdownItem  [routerLink]=\"['/devices/']\">Add Device</button>\n            <button ngbDropdownItem [routerLink]=\"['/device-list']\">Add Board</button>\n            <button (click)=\"launchDeviceAdder()\" ngbDropdownItem>Add Location</button>\n            <button [routerLink]=\"['/schedules']\" ngbDropdownItem>Add Schedule</button>\n\n          </div>\n        </div>\n\n      </div>\n    </div>\n    <div class=\"col-12\">\n      <div style=\"display: flex;\">\n\n        <span class=\"panel\">\n\n\n          <table style=\"display:inline-block;border-right: 2px solid #ffffff61;\">\n            <tr>\n              <td>\n                <i *ngIf=\"onlineDevicesLength\" style=\"font-size: 18px;\" class=\"far fa-hdd\"></i>\n                <i *ngIf=\"!onlineDevicesLength\" style=\"font-size: 18px;\" class=\"fas fa-exclamation\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\"><span>{{onlineDevicesLength}}</span><span> Online</span></span>\n\n                </td></tr>\n                <tr><td style=\"opacity: 0.5;\">\n                  <span style=\"display:block\">Hub<span *ngIf=\"onlineDevicesLength>1||!onlineDevicesLength\">s</span></span>\n\n                </td></tr>\n              </td>\n            </tr>\n          </table>\n\n          <table [ngClass]=\"{'disabled': !onlineDevicesLength}\" style=\"padding:6px;display:inline-block\">\n            <tr  (click)=\"launchDeviceAdder()\" style=\"cursor:pointer\">\n              <td>\n                <i  style=\"font-size: 18px; margin-left: 18px;\" class=\"fas fa-plus\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 0px 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\">Add Location</span>\n\n                </td></tr>\n\n              </td>\n            </tr>\n          </table>\n\n        </span>\n      </div>\n    </div>\n  </div>\n\n\n<app-location-list></app-location-list>\n\n\n</div>\n\n<div style=\"cursor:pointer;padding:12px;text-align: center;position:fixed;width:100%;height:50px;bottom:0px;left:0px;color:#fff;background:#282c34 ;\">\n  <p (click)=\"logout()\" style=\"text-align:center;margin:0px\">Logout</p>\n</div>\n");
 
 /***/ }),
 
@@ -111,6 +137,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"land-root\">\n  <div class=\"land-help\"><img src=\"content/images/help.png\" class=\"landhelp\"></div>\n  <div class=\"land-top\">\n    <img src=\"content/images/logo.png\" height=\"200px\" class=\"land-logo\" />\n    <div class=\"appname\">BlueBox IoT</div>\n  </div>\n  <div class=\"land-buttons\">\n    <button [routerLink]=\"['/login']\" class=\"land-loginbtn\">Login</button>\n    <button [routerLink]=\"['/signup']\" class=\"land-regbtn\">Signup</button>\n  </div>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/location-list/location-list.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/location-list/location-list.component.html ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<div class=\"container\">\n\n\n  <div style=\"padding:45px 0px\"  *ngIf=\"locations\" class=\"row\">\n    <div class=\"col-12\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <span *ngIf=\"location.key\" [ngClass]=\"{'selected' : location.key == selectedLocation}\"  (click)=\"selectedLocation = location.key\" style=\"cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;\" >\n         {{location.value.name}}\n         <i [ngClass]=\"{'green': location.value.active}\" style=\"font-weight: 900;font-size: 8px;position: relative;\n         top: -2px;margin-left: 5px;color: #8080806e;\" class=\"fas fa-circle\" >\n         </i>\n        </span>\n      </ng-container>\n    </div>\n  </div>\n  <div style=\"padding-bottom:45px\"  *ngIf=\"locations\" class=\"row\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <ng-container *ngIf=\"location.value.switches && location.value.switches.length\">\n          <ng-container  *ngFor=\"let switch of location.value.switches\">\n            <div *ngIf=\"onlineDevices&&onlineDevices[switch.deviceId]&&\n            onlineDevices[switch.deviceId][switch.board]&&\n            onlineDevices[switch.deviceId][switch.board].switches&&\n            onlineDevices[switch.deviceId][switch.board].switches.length&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null&&\n            switch.locationId == selectedLocation\" class=\"col-6 col-md-4 col-lg-3\">\n\n            <div style=\"text-align:center;height:150px;background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;\">\n              <i style=\"margin-top:30px;font-size:34px;opacity:0.5\" class=\"fas fa-tv\"></i>\n              <p style=\"margin-bottom:0px\" *ngIf=\"switch.name\"> {{switch.name}} </p>\n\n                <p style=\"margin-bottom:0px;margin-top:10px;\">\n                <span style=\"cursor:pointer;font-size:12px;font-weight:bold;position: absolute;top:5px;right:27px\" (click)=\"toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)\">\n                  <span style=\"color:#2cb978\" *ngIf=\"onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">ON</span>\n                  <span style=\"color:#00000040\" *ngIf=\"!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">OFF</span>\n                </span>\n                </p>\n              <!--   <i style=\" position: absolute;\n                bottom: 7px;\n                right: 27px;\n                opacity: 0.5;\" class=\"fas fa-arrow-right\"></i > -->\n                <ng-container *ngIf=\"selectedSwitches\">\n                  <button  *ngIf=\"!selectedForSchedule!||!selectedForSchedule[switch.deviceId]||\n                  !selectedForSchedule[switch.deviceId][switch.board]||\n                  !selectedForSchedule[switch.deviceId][switch.board][switch.switch]\"  (click)=\"addSchedule(switch)\" style=\"outline:none;border:none;background:none;\"><i class=\"far fa-square\"></i></button>\n                  <button *ngIf=\"selectedForSchedule[switch.deviceId]&&\n                  selectedForSchedule[switch.deviceId][switch.board]&&\n                  selectedForSchedule[switch.deviceId][switch.board][switch.switch]\" (click)=\"removeSchedule(switch)\" style=\"outline:none;border:none;background:none;\" ><i class=\"far fa-check-square\"></i></button>\n                </ng-container>\n            </div>\n            </div>\n          </ng-container>\n\n        </ng-container>\n      </ng-container>\n\n\n  </div>\n  <div *ngIf=\"onlineDevicesLength&&!locationsLength \"class=\"row\">\n    <div [routerLink]=\"['/device-list']\" *ngIf=\"!boards||!boards.length\" style=\"cursor:pointer;text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-microchip\"></i>\n      <p style=\"opacity:0.4\">No boards found. Click here to add a board.</p>\n    </div>\n    <div *ngIf=\"boards&&boards.length\" style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-map-marker-alt\"></i>\n      <p style=\"opacity:0.4\">Looks like you haven't added any locations yet. Please add Locations to continue.</p>\n    </div>\n  </div>\n\n  <div *ngIf=\"devices && devices.length&&!onlineDevicesLength\"class=\"row\">\n    <div style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-wifi\"></i>\n      <p style=\"opacity:0.4\">Please make sure your device is connected to WiFi.</p>\n    </div>\n  </div>\n\n  <div  *ngIf=\"!devices || !devices.length\"class=\"row\">\n    <div [routerLink]=\"['/devices/']\" style=\"text-align:center;cursor:pointer\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"far fa-hdd\"></i>\n      <p style=\"opacity:0.4\">No Devices registered. Click here to register your device</p>\n    </div>\n  </div >\n\n\n</div>\n\n<!-- <pre>\n  {{selectedForSchedule | json}}\n</pre>\n -->\n");
 
 /***/ }),
 
@@ -136,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>schedule works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <p>schedule works!</p>\n{{deviceLength}}\n<pre>\n  {{allDevices|json}}\n</pre> -->\n<div [routerLink]=\"['/']\" style=\"position: relative;\" class=\"auto-head\">\n  <div class=\"auto-header\">Automation</div>\n  <div style=\"position: absolute;\n  right: 25px;\n  top: 10px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div>\n<div class=\"auto-spacer\"></div>\n<div class=\"auto0-bodyhead\">\n  Easily Automate your smart switches\n</div>\n<div class=\"auto0-bodyhead1\">\n  <button  (click)=\"launch()\" class=\"addautobtn\">ADD</button>\n</div>`\n");
 
 /***/ }),
 
@@ -693,6 +732,158 @@ AddLocationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/add-schedule/add-schedule.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/add-schedule/add-schedule.component.css ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto&display=swap\");\r\n\r\n.auto-head {\r\n  background-color: #282c34;\r\n  color: white;\r\n  font-size: 2rem;\r\n  padding: 0.8rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n\r\n  width: 100%;\r\n\r\n}\r\n\r\n.auto-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n.auto-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n.auto-spacer {\r\n  padding-top: 4rem;\r\n}\r\n\r\n.auto-footer {\r\n  background-color: #282c34;\r\n  position: fixed;\r\n  bottom: 0;\r\n  width: 100%;\r\n  position: fixed;\r\n  width: 100%;\r\n}\r\n\r\n.auto-homeico {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 1rem;\r\n}\r\n\r\n.auto-homeico2 {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 3rem;\r\n}\r\n\r\n.auto-inp {\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-inpp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  border-radius: 8px;\r\n  height: 2rem;\r\n  padding: 0.5rem;\r\n  font-size: 1rem;\r\n  width: 15rem;\r\n  outline: none;\r\n  border: 1px solid rgba(0, 0, 0, 0.15);\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-lbl {\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-help {\r\n  text-align: center;\r\n  display: flex;\r\n  justify-content: center;\r\n  padding: 1rem;\r\n  padding-top: 2rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n  color: #282c34;\r\n}\r\n\r\n.auto-times {\r\n  display: grid;\r\n  grid-template-columns: 1fr 2fr;\r\n  grid-gap: 2rem;\r\n  padding-top: 2rem;\r\n  padding-left: 4rem;\r\n}\r\n\r\n.auto-startt {\r\n  display: grid;\r\n  font-size: 1.5rem;\r\n  justify-content: end;\r\n  padding-right: 1rem;\r\n  padding-left: 1rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\n.auto-timei {\r\n  border-radius: 8px;\r\n  width: 30%;\r\n  font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\n.auto-day {\r\n  border: 1px solid #282c34;\r\n  border-radius: 50%;\r\n  width: 42px;\r\n  color: #282c34;\r\n  font-weight: bold;\r\n  padding: 0.5rem;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-days {\r\n  padding: 0.5rem;\r\n  padding-top: 3rem;\r\n  display: flex;\r\n  justify-content: space-evenly;\r\n  cursor: pointer;\r\n}\r\n\r\n.auto-savebtn {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 3rem;\r\n}\r\n\r\n.auto-savebtnn {\r\n  background-color: white;\r\n  width: 150px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #282c34;\r\n  font-weight: bold;\r\n  border: 2px solid #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.selected-day{\r\n  background: black!important;\r\n  color:#fff!important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLXNjaGVkdWxlL2FkZC1zY2hlZHVsZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDBFQUEwRTs7QUFFMUU7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGVBQWU7RUFDZixlQUFlO0VBQ2YsaUNBQWlDOztFQUVqQyxXQUFXOztBQUViOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsZUFBZTtFQUNmLFNBQVM7RUFDVCxXQUFXO0VBQ1gsZUFBZTtFQUNmLFdBQVc7QUFDYjs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsZUFBZTtFQUNmLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSx5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixXQUFXO0VBQ1gsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGdEQUFnRDtFQUNoRCxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGVBQWU7RUFDZixlQUFlO0VBQ2YsWUFBWTtFQUNaLGFBQWE7RUFDYixxQ0FBcUM7RUFDckMsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsaUNBQWlDO0VBQ2pDLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsOEJBQThCO0VBQzlCLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQixvQkFBb0I7RUFDcEIsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixpQ0FBaUM7QUFDbkM7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLGlDQUFpQztBQUNuQzs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGFBQWE7RUFDYix1QkFBdUI7QUFDekI7O0FBRUE7RUFDRSxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYiw2QkFBNkI7RUFDN0IsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsdUJBQXVCO0VBQ3ZCLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixZQUFZO0VBQ1osY0FBYztFQUNkLGlCQUFpQjtFQUNqQix5QkFBeUI7RUFDekIsMkNBQTJDO0FBQzdDOztBQUVBO0VBQ0UsMkJBQTJCO0VBQzNCLG9CQUFvQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL2FkZC1zY2hlZHVsZS9hZGQtc2NoZWR1bGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90byZkaXNwbGF5PXN3YXBcIik7XHJcblxyXG4uYXV0by1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgcGFkZGluZzogMC44cmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG5cclxuICB3aWR0aDogMTAwJTtcclxuXHJcbn1cclxuXHJcbi5hdXRvLWhlYWRlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGxlZnQ7XHJcbn1cclxuXHJcbi5hdXRvLWJhY2sge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG59XHJcblxyXG4uYXV0by1zcGFjZXIge1xyXG4gIHBhZGRpbmctdG9wOiA0cmVtO1xyXG59XHJcblxyXG4uYXV0by1mb290ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIGJvdHRvbTogMDtcclxuICB3aWR0aDogMTAwJTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5hdXRvLWhvbWVpY28ge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmbG9hdDogbGVmdDtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbn1cclxuXHJcbi5hdXRvLWhvbWVpY28yIHtcclxuICBmaWx0ZXI6IGludmVydCgxKTtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgcGFkZGluZy1sZWZ0OiAzcmVtO1xyXG59XHJcblxyXG4uYXV0by1pbnAge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hdXRvLWlucHAge1xyXG4gIGJveC1zaGFkb3c6IDBweCA4cHggMjBweCAwcHggcmdiYSgwLCAwLCAwLCAwLjE1KTtcclxuICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgaGVpZ2h0OiAycmVtO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmb250LXNpemU6IDFyZW07XHJcbiAgd2lkdGg6IDE1cmVtO1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjE1KTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG4uYXV0by1sYmwge1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIHBhZGRpbmc6IDFyZW07XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLmF1dG8taGVscCB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnJlbTtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBjb2xvcjogIzI4MmMzNDtcclxufVxyXG5cclxuLmF1dG8tdGltZXMge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnIgMmZyO1xyXG4gIGdyaWQtZ2FwOiAycmVtO1xyXG4gIHBhZGRpbmctdG9wOiAycmVtO1xyXG4gIHBhZGRpbmctbGVmdDogNHJlbTtcclxufVxyXG5cclxuLmF1dG8tc3RhcnR0IHtcclxuICBkaXNwbGF5OiBncmlkO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGp1c3RpZnktY29udGVudDogZW5kO1xyXG4gIHBhZGRpbmctcmlnaHQ6IDFyZW07XHJcbiAgcGFkZGluZy1sZWZ0OiAxcmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4uYXV0by10aW1laSB7XHJcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG4gIHdpZHRoOiAzMCU7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5hdXRvLWRheSB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgIzI4MmMzNDtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgd2lkdGg6IDQycHg7XHJcbiAgY29sb3I6ICMyODJjMzQ7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hdXRvLWRheXMge1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBwYWRkaW5nLXRvcDogM3JlbTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtZXZlbmx5O1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmF1dG8tc2F2ZWJ0biB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBwYWRkaW5nLXRvcDogM3JlbTtcclxufVxyXG5cclxuLmF1dG8tc2F2ZWJ0bm4ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiAjMjgyYzM0O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICMyODJjMzQ7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4uc2VsZWN0ZWQtZGF5e1xyXG4gIGJhY2tncm91bmQ6IGJsYWNrIWltcG9ydGFudDtcclxuICBjb2xvcjojZmZmIWltcG9ydGFudDtcclxufVxyXG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/add-schedule/add-schedule.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/add-schedule/add-schedule.component.ts ***!
+  \********************************************************/
+/*! exports provided: AddScheduleComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddScheduleComponent", function() { return AddScheduleComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+
+
+
+
+
+
+let AddScheduleComponent = class AddScheduleComponent {
+    constructor(activeModal, connect, socket) {
+        this.activeModal = activeModal;
+        this.connect = connect;
+        this.socket = socket;
+        this.deviceLength = null;
+        this.devices = {};
+        this.allDevices = {};
+        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
+        this.boards = [];
+        this.selectedSwitches = {};
+        this.assignedSwitches = {};
+        this.activeRequests = [];
+        this.switchCount = 0;
+        this.selectedSwitchCount = 0;
+        this.start = { hour: 0, minute: 0, second: 0 };
+        this.stop = { hour: 0, minute: 0, second: 0 };
+        this.selectedDaysLength = 0;
+        this.selectedForSchedule = {};
+        this.days = [
+            { i: 0, v: 'S', selected: false },
+            { i: 1, v: 'M', selected: false },
+            { i: 2, v: 'T', selected: false },
+            { i: 3, v: 'W', selected: false },
+            { i: 4, v: 'T', selected: false },
+            { i: 5, v: 'F', selected: false },
+            { i: 6, v: 'S', selected: false },
+        ];
+    }
+    displayCounter(selected) {
+        this.selectedForSchedule = selected;
+    }
+    ngOnInit() {
+        this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
+            if (res) {
+                this.allDevices = JSON.parse(JSON.stringify(res));
+            }
+            if (this.allDevices) {
+                this.deviceLength = Object.keys(this.allDevices).length;
+            }
+            else {
+                this.deviceLength = 0;
+            }
+            if (!this.deviceLength) {
+                this.activeModal.dismiss();
+            }
+        }));
+        this.socket.on('scheduleAdded', (res) => {
+            if (!res.error) {
+                if (res.name && res.deviceId) {
+                    this.activeRequests.splice(this.activeRequests.indexOf(res.deviceId), 1);
+                }
+                if (!this.activeRequests.length && res.name) {
+                    this.adding = false;
+                    this.connect.getSchedules();
+                    this.activeModal.dismiss();
+                }
+            }
+            else {
+                this.adding = false;
+                this.activeRequests = [];
+                alert(res.error);
+            }
+        });
+    }
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
+        this.socket.removeListener('scheduleAdded');
+    }
+    addSchedule() {
+        let payload = {};
+        if (this.name && this.start && this.stop) {
+            let schedule = {};
+            let start = ([this.start.hour < 10 ? String('0' + this.start.hour).slice(-2) : this.start.hour,
+                this.start.minute < 10 ? String('0' + this.start.minute).slice(-2) : this.start.minute,
+                this.start.second < 10 ? String('0' + this.start.second).slice(-2) : this.start.second]).join(':').toString();
+            let stop = ([this.stop.hour < 10 ? String('0' + this.stop.hour).slice(-2) : this.stop.hour,
+                this.stop.minute < 10 ? String('0' + this.stop.minute).slice(-2) : this.stop.minute,
+                this.stop.second < 10 ? String('0' + this.stop.second).slice(-2) : this.stop.second]).join(':').toString();
+            payload.name = this.name;
+            schedule.start = start;
+            schedule.end = stop;
+            schedule.days = this.days.filter(f => f.selected).map(m => m.i);
+            payload.devices = this.selectedForSchedule;
+            payload.schedule = schedule;
+            this.adding = true;
+            this.activeRequests = Object.keys(this.selectedForSchedule) || [];
+            this.socket.emit('addSchedule', payload, res => {
+                if (!res || res.error) {
+                    this.adding = false;
+                    alert(res.error);
+                }
+            });
+        }
+    }
+    selectDay(day) {
+        day.selected = !day.selected;
+        this.selectedDaysLength = (this.days.filter(f => f.selected)).length;
+    }
+};
+AddScheduleComponent.ctorParameters = () => [
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"] },
+    { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_3__["ConnectSocket"] },
+    { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_5__["Socket"] }
+];
+AddScheduleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-add-schedule',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./add-schedule.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/add-schedule/add-schedule.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./add-schedule.component.css */ "./src/app/add-schedule/add-schedule.component.css")).default]
+    })
+], AddScheduleComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -808,7 +999,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
 let Config = {
-    server: 'http://134.209.155.230:3001'
+    server: 'http://localhost:3001'
 }
 
 
@@ -845,6 +1036,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./sign-up/sign-up.component */ "./src/app/sign-up/sign-up.component.ts");
 /* harmony import */ var _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./verified/verified.component */ "./src/app/verified/verified.component.ts");
 /* harmony import */ var _app_config_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./app.config.js */ "./src/app/app.config.js");
+/* harmony import */ var _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./location-list/location-list.component */ "./src/app/location-list/location-list.component.ts");
+/* harmony import */ var _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./home-toolbar/home-toolbar.component */ "./src/app/home-toolbar/home-toolbar.component.ts");
+/* harmony import */ var _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./add-schedule/add-schedule.component */ "./src/app/add-schedule/add-schedule.component.ts");
+
+
+
 
 
 
@@ -890,9 +1087,12 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"],
             _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__["LandingPageComponent"],
             _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__["SignUpComponent"],
-            _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"]
+            _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"],
+            _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__["LocationListComponent"],
+            _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__["HomeToolbarComponent"],
+            _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]
         ],
-        entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"]],
+        entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]],
         providers: [
             { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HTTP_INTERCEPTORS"], useClass: _blocks_auth_interceptor__WEBPACK_IMPORTED_MODULE_9__["AuthInterceptor"], multi: true }
         ],
@@ -1148,6 +1348,50 @@ DeviceListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/home-toolbar/home-toolbar.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/home-toolbar/home-toolbar.component.css ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUtdG9vbGJhci9ob21lLXRvb2xiYXIuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/home-toolbar/home-toolbar.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/home-toolbar/home-toolbar.component.ts ***!
+  \********************************************************/
+/*! exports provided: HomeToolbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeToolbarComponent", function() { return HomeToolbarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let HomeToolbarComponent = class HomeToolbarComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+HomeToolbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-home-toolbar',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./home-toolbar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home-toolbar/home-toolbar.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./home-toolbar.component.css */ "./src/app/home-toolbar/home-toolbar.component.css")).default]
+    })
+], HomeToolbarComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/home.component.css":
 /*!*****************************************!*\
   !*** ./src/app/home/home.component.css ***!
@@ -1157,7 +1401,7 @@ DeviceListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".panel {\r\n  padding: 12px 30px;\r\n  background: #3d5af1;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #3d5af1;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYixxQkFBcUI7RUFDbkIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0NBQXNDO0FBQ3hDOzs7QUFHQTtFQUNFLGdDQUFnQztBQUNsQzs7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCOzs7QUFLQTtFQUNFLHdCQUF3QjtBQUMxQiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbmVsIHtcclxuICBwYWRkaW5nOiAxMnB4IDMwcHg7XHJcbiAgYmFja2dyb3VuZDogIzNkNWFmMTtcclxuICBjb2xvcjogI2ZmZjtcclxuZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICBib3gtc2hhZG93OiAwcHggN3B4IDE5cHggMHB4ICM2ZDY5Njk2MTtcclxufVxyXG5cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICMzZDVhZjE7XHJcbn1cclxuXHJcbi5kaXNhYmxlZHtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLmdyZWVuIHtcclxuICBjb2xvcjogIzJjYjk3OCFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".panel {\r\n  padding: 12px 30px;\r\n  background: #282c34;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #3d5af1;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n\r\n.h-head {\r\n  background-color: #282c34;\r\n  color: white;\r\n  font-size: 2rem;\r\n  padding: 0.8rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n  position: fixed;\r\n  top: 0;\r\n  width: 100%;\r\n  z-index: 999;\r\n  display: grid;\r\n  grid-template-columns: 5fr 1fr;\r\n}\r\n\r\n\r\nbody {\r\n  padding: 0;\r\n  margin: 0;\r\n  height: 100%;\r\n}\r\n\r\n\r\n.h-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n\r\n.h-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYixxQkFBcUI7RUFDbkIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0NBQXNDO0FBQ3hDOzs7QUFHQTtFQUNFLGdDQUFnQztBQUNsQzs7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCOzs7QUFLQTtFQUNFLHdCQUF3QjtBQUMxQjs7O0FBR0E7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGVBQWU7RUFDZixlQUFlO0VBQ2YsaUNBQWlDO0VBQ2pDLGVBQWU7RUFDZixNQUFNO0VBQ04sV0FBVztFQUNYLFlBQVk7RUFDWixhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDOzs7QUFFQTtFQUNFLFVBQVU7RUFDVixTQUFTO0VBQ1QsWUFBWTtBQUNkOzs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7QUFDbkI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtBQUN2QiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbmVsIHtcclxuICBwYWRkaW5nOiAxMnB4IDMwcHg7XHJcbiAgYmFja2dyb3VuZDogIzI4MmMzNDtcclxuICBjb2xvcjogI2ZmZjtcclxuZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICBib3gtc2hhZG93OiAwcHggN3B4IDE5cHggMHB4ICM2ZDY5Njk2MTtcclxufVxyXG5cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICMzZDVhZjE7XHJcbn1cclxuXHJcbi5kaXNhYmxlZHtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLmdyZWVuIHtcclxuICBjb2xvcjogIzJjYjk3OCFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG4uaC1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgcGFkZGluZzogMC44cmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB0b3A6IDA7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgei1pbmRleDogOTk5O1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiA1ZnIgMWZyO1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbjogMDtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi5oLWJhY2sge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG59XHJcblxyXG4uaC1oZWFkZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBsZWZ0O1xyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -1190,40 +1434,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HomeComponent = class HomeComponent {
+    /*   locationsLength = 0;
+      boards = []; */
     constructor(fetchData, chowkidaar, connect, dataservice, config, modalService) {
         this.fetchData = fetchData;
         this.chowkidaar = chowkidaar;
         this.connect = connect;
         this.dataservice = dataservice;
         this.modalService = modalService;
-        this.joinedRooms = {};
-        this.locations = {};
-        this.roomsCount = 0;
+        /*   selectedLocation: any;
+          devices: any[];
+          joinedRooms: any = {};
+          locations: any = {};
+          roomsCount = 0; */
         this.onlineDevices = null;
         this.onlineDevicesLength = 0;
         this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subscription"]();
-        this.locationsLength = 0;
-        this.boards = [];
         config.backdrop = 'static';
         config.keyboard = false;
     }
     ngOnInit() {
         this.fetchData.registeredDevices().subscribe((res) => {
             if (res && res.devices && res.devices.length) {
-                this.subscriptions.add(this.connect.locations$.subscribe(res => {
-                    this.locations = Object.assign({}, res);
-                    this.locationsLength = Object.keys(this.locations).length;
-                    if (!this.selectedLocation && this.locations && Object.keys(this.locations)[0]) {
-                        this.selectedLocation = Object.keys(res)[0];
-                    }
-                }));
-                this.subscriptions.add(this.connect.roomsMap.subscribe((roomsMap) => {
-                    if (roomsMap) {
-                        console.log(roomsMap);
-                        this.joinedRooms = Object.assign({}, roomsMap);
-                        this.roomsCount = Object.keys(roomsMap).length;
-                    }
-                }));
+                /*  this.subscriptions.add(this.connect.locations$.subscribe(res => {
+                   this.locations = {...res};
+                   this.locationsLength = Object.keys(this.locations).length;
+                   if (!this.selectedLocation && this.locations &&  Object.keys(this.locations)[0]) {
+                     this.selectedLocation = Object.keys(res)[0];
+                   }
+         
+                 })); */
+                /*  this.subscriptions.add(this.connect.roomsMap.subscribe((roomsMap) => {
+                   if (roomsMap) {
+                     console.log(roomsMap);
+                     this.joinedRooms = {...roomsMap};
+                     this.roomsCount = Object.keys(roomsMap).length;
+                   }
+                 })); */
                 this.subscriptions.add(this.connect.onlineDevices$.subscribe((response) => {
                     if (response) {
                         this.onlineDevices = Object.assign({}, response);
@@ -1234,14 +1481,15 @@ let HomeComponent = class HomeComponent {
                         this.onlineDevicesLength = 0;
                     }
                 }));
-                this.subscriptions.add(this.connect.boards$.subscribe((response) => {
-                    this.boards = response;
-                }));
-                this.devices = Object.assign({}, res).devices;
-                this.devices.map(m => {
+                /*   this.subscriptions.add(this.connect.boards$.subscribe((response) => {
+                   this.boards = response;
+                  })); */
+                /*   this.devices = {...res}.devices;
+          
+                  this.devices.map(m => {
                     this.connect.join(m.deviceId, m);
                     return m;
-                });
+                  }); */
             }
         });
     }
@@ -1252,24 +1500,25 @@ let HomeComponent = class HomeComponent {
     logout() {
         this.chowkidaar.logout();
     }
-    inRoom(deviceId) {
-        if (this.roomsCount && this.joinedRooms[deviceId]) {
-            return true;
-        }
-        return false;
-    }
-    toggle(device, value, board, swtch) {
+    /*  inRoom(deviceId: string) {
+       if (this.roomsCount && this.joinedRooms[deviceId]) {
+         return true;
+       }
+       return false;
+     } */
+    /*   toggle(device: any, value: any, board: any, swtch: any) {
         if (board && swtch != null && swtch !== undefined && device &&
-            this.inRoom(device) &&
-            this.onlineDevices &&
-            this.onlineDevices[device] &&
-            this.onlineDevices[device][board] &&
-            this.onlineDevices[device][board].switches &&
-            this.onlineDevices[device][board].switches[swtch] != null &&
-            this.onlineDevices[device][board].switches[swtch] !== undefined) {
+          this.inRoom(device) &&
+          this.onlineDevices &&
+          this.onlineDevices[device] &&
+          this.onlineDevices[device][board] &&
+          this.onlineDevices[device][board].switches &&
+          this.onlineDevices[device][board].switches[swtch] != null &&
+          this.onlineDevices[device][board].switches[swtch] !== undefined) {
             this.connect.toggle(device, !value, board, swtch);
         }
-    }
+      }
+     */
     launchDeviceAdder() {
         if (this.onlineDevicesLength) {
             const modalRef = this.modalService.open(_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_7__["AddLocationComponent"]);
@@ -1343,6 +1592,184 @@ LandingPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./landing-page.component.css */ "./src/app/landing-page/landing-page.component.css")).default]
     })
 ], LandingPageComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/location-list/location-list.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/location-list/location-list.component.css ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".panel {\r\n  padding: 12px 30px;\r\n  background: #3d5af1;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #3d5af1;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9jYXRpb24tbGlzdC9sb2NhdGlvbi1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYixxQkFBcUI7RUFDbkIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0NBQXNDO0FBQ3hDOzs7QUFHQTtFQUNFLGdDQUFnQztBQUNsQzs7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCOzs7QUFLQTtFQUNFLHdCQUF3QjtBQUMxQiIsImZpbGUiOiJzcmMvYXBwL2xvY2F0aW9uLWxpc3QvbG9jYXRpb24tbGlzdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbmVsIHtcclxuICBwYWRkaW5nOiAxMnB4IDMwcHg7XHJcbiAgYmFja2dyb3VuZDogIzNkNWFmMTtcclxuICBjb2xvcjogI2ZmZjtcclxuZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICBib3gtc2hhZG93OiAwcHggN3B4IDE5cHggMHB4ICM2ZDY5Njk2MTtcclxufVxyXG5cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICMzZDVhZjE7XHJcbn1cclxuXHJcbi5kaXNhYmxlZHtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLmdyZWVuIHtcclxuICBjb2xvcjogIzJjYjk3OCFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/app/location-list/location-list.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/location-list/location-list.component.ts ***!
+  \**********************************************************/
+/*! exports provided: LocationListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LocationListComponent", function() { return LocationListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/services/fetch-data */ "./src/app/shared/services/fetch-data.ts");
+/* harmony import */ var _blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../blocks/chowkidaar */ "./src/app/blocks/chowkidaar.ts");
+/* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
+/* harmony import */ var _shared_services_data_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../shared/services/data.service */ "./src/app/shared/services/data.service.ts");
+
+
+
+
+
+
+
+
+
+let LocationListComponent = class LocationListComponent {
+    constructor(fetchData, chowkidaar, connect, dataservice, config, modalService) {
+        this.fetchData = fetchData;
+        this.chowkidaar = chowkidaar;
+        this.connect = connect;
+        this.dataservice = dataservice;
+        this.modalService = modalService;
+        this.valueChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.joinedRooms = {};
+        this.locations = {};
+        this.roomsCount = 0;
+        this.onlineDevices = null;
+        this.onlineDevicesLength = 0;
+        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subscription"]();
+        this.locationsLength = 0;
+        this.boards = [];
+        this.selectedForSchedule = null;
+        config.backdrop = 'static';
+        config.keyboard = false;
+    }
+    addSchedule(s) {
+        if (!this.selectedForSchedule[s.deviceId]) {
+            this.selectedForSchedule[s.deviceId] = {};
+        }
+        if (!this.selectedForSchedule[s.deviceId][s.board]) {
+            this.selectedForSchedule[s.deviceId][s.board] = {};
+        }
+        if (!this.selectedForSchedule[s.deviceId][s.board][s.switch]) {
+            this.selectedForSchedule[s.deviceId][s.board][s.switch] = s;
+        }
+        this.valueChange.emit(this.selectedForSchedule);
+    }
+    removeSchedule(s) {
+        if (this.selectedForSchedule[s.deviceId] && this.selectedForSchedule[s.deviceId][s.board]
+            && this.selectedForSchedule[s.deviceId][s.board][s.switch]) {
+            delete this.selectedForSchedule[s.deviceId][s.board][s.switch];
+        }
+        this.valueChange.emit(this.selectedForSchedule);
+    }
+    ngOnInit() {
+        if (this.selectedSwitches) {
+            this.selectedForSchedule = this.selectedSwitches;
+        }
+        this.fetchData.registeredDevices().subscribe((res) => {
+            if (res && res.devices && res.devices.length) {
+                this.subscriptions.add(this.connect.locations$.subscribe(res => {
+                    this.locations = Object.assign({}, res);
+                    this.locationsLength = Object.keys(this.locations).length;
+                    if (!this.selectedLocation && this.locations && Object.keys(this.locations)[0]) {
+                        this.selectedLocation = Object.keys(res)[0];
+                    }
+                }));
+                this.subscriptions.add(this.connect.roomsMap.subscribe((roomsMap) => {
+                    if (roomsMap) {
+                        console.log(roomsMap);
+                        this.joinedRooms = Object.assign({}, roomsMap);
+                        this.roomsCount = Object.keys(roomsMap).length;
+                    }
+                }));
+                this.subscriptions.add(this.connect.onlineDevices$.subscribe((response) => {
+                    if (response) {
+                        this.onlineDevices = Object.assign({}, response);
+                        this.onlineDevicesLength = Object.keys(this.onlineDevices).length;
+                    }
+                    else {
+                        this.onlineDevices = null;
+                        this.onlineDevicesLength = 0;
+                    }
+                }));
+                this.subscriptions.add(this.connect.boards$.subscribe((response) => {
+                    this.boards = response;
+                }));
+                this.devices = Object.assign({}, res).devices;
+                this.devices.map(m => {
+                    this.connect.join(m.deviceId, m);
+                    return m;
+                });
+            }
+        });
+    }
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
+        // this.connect.leaveAll(Object.keys(this.joinedRooms));
+    }
+    logout() {
+        this.chowkidaar.logout();
+    }
+    inRoom(deviceId) {
+        if (this.roomsCount && this.joinedRooms[deviceId]) {
+            return true;
+        }
+        return false;
+    }
+    toggle(device, value, board, swtch) {
+        if (board && swtch != null && swtch !== undefined && device &&
+            this.inRoom(device) &&
+            this.onlineDevices &&
+            this.onlineDevices[device] &&
+            this.onlineDevices[device][board] &&
+            this.onlineDevices[device][board].switches &&
+            this.onlineDevices[device][board].switches[swtch] != null &&
+            this.onlineDevices[device][board].switches[swtch] !== undefined) {
+            this.connect.toggle(device, !value, board, swtch);
+        }
+    }
+    launchDeviceAdder() {
+        if (this.onlineDevicesLength) {
+            const modalRef = this.modalService.open(_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_7__["AddLocationComponent"]);
+        }
+    }
+};
+LocationListComponent.ctorParameters = () => [
+    { type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__["FetchData"] },
+    { type: _blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_3__["Chowkidaar"] },
+    { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_4__["ConnectSocket"] },
+    { type: _shared_services_data_service__WEBPACK_IMPORTED_MODULE_8__["DataService"] },
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModalConfig"] },
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModal"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], LocationListComponent.prototype, "selectedSwitches", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], LocationListComponent.prototype, "valueChange", void 0);
+LocationListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-location-list',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./location-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/location-list/location-list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./location-list.component.css */ "./src/app/location-list/location-list.component.css")).default]
+    })
+], LocationListComponent);
 
 
 
@@ -1457,7 +1884,7 @@ LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NjaGVkdWxlL3NjaGVkdWxlLmNvbXBvbmVudC5jc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".auto-head {\r\n  background-color: #282c34;\r\n  color: white;\r\n  font-size: 2rem;\r\n  padding: 0.8rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n  width: 100%;;\r\n}\r\n\r\n\r\n.auto-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n\r\n.auto-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n\r\n.auto-spacer {\r\n  padding-top: 4rem;\r\n}\r\n\r\n\r\n.auto-footer {\r\n  background-color: #282c34;\r\n  position: fixed;\r\n  bottom: 0;\r\n  width: 100%;\r\n  position: fixed;\r\n  width: 100%;\r\n}\r\n\r\n\r\n.auto-homeico {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 1rem;\r\n}\r\n\r\n\r\n.auto-homeico2 {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 3rem;\r\n}\r\n\r\n\r\n.auto0-bodyhead {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2rem;\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  text-align: center;\r\n}\r\n\r\n\r\n.auto0-bodyhead1 {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2rem;\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  text-align: center;\r\n}\r\n\r\n\r\n.addautobtn {\r\n  background-color: white;\r\n  width: 150px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #282c34;\r\n  font-weight: bold;\r\n  border: 2px solid #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2NoZWR1bGUvc2NoZWR1bGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osZUFBZTtFQUNmLGVBQWU7RUFDZixpQ0FBaUM7RUFDakMsV0FBVztBQUNiOzs7QUFHQTtFQUNFLGFBQWE7RUFDYixxQkFBcUI7QUFDdkI7OztBQUVBO0VBQ0UseUJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjs7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7OztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGVBQWU7RUFDZixTQUFTO0VBQ1QsV0FBVztFQUNYLGVBQWU7RUFDZixXQUFXO0FBQ2I7OztBQUVBO0VBQ0UseUJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsV0FBVztFQUNYLGtCQUFrQjtBQUNwQjs7O0FBRUE7RUFDRSx5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixXQUFXO0VBQ1gsa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsWUFBWTtFQUNaLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLDJDQUEyQztBQUM3QyIsImZpbGUiOiJzcmMvYXBwL3NjaGVkdWxlL3NjaGVkdWxlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXV0by1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgcGFkZGluZzogMC44cmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHdpZHRoOiAxMDAlOztcclxufVxyXG5cclxuXHJcbi5hdXRvLWhlYWRlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGxlZnQ7XHJcbn1cclxuXHJcbi5hdXRvLWJhY2sge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG59XHJcblxyXG4uYXV0by1zcGFjZXIge1xyXG4gIHBhZGRpbmctdG9wOiA0cmVtO1xyXG59XHJcblxyXG4uYXV0by1mb290ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIGJvdHRvbTogMDtcclxuICB3aWR0aDogMTAwJTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5hdXRvLWhvbWVpY28ge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmbG9hdDogbGVmdDtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbn1cclxuXHJcbi5hdXRvLWhvbWVpY28yIHtcclxuICBmaWx0ZXI6IGludmVydCgxKTtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgcGFkZGluZy1sZWZ0OiAzcmVtO1xyXG59XHJcblxyXG4uYXV0bzAtYm9keWhlYWQge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDJyZW07XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hdXRvMC1ib2R5aGVhZDEge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDJyZW07XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hZGRhdXRvYnRuIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICB3aWR0aDogMTUwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogIzI4MmMzNDtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBib3JkZXI6IDJweCBzb2xpZCAjMjgyYzM0O1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90byBDb25kZW5zZWRcIiwgc2Fucy1zZXJpZjtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -1473,17 +1900,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScheduleComponent", function() { return ScheduleComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../add-schedule/add-schedule.component */ "./src/app/add-schedule/add-schedule.component.ts");
+
+
+
+
+
+
 
 
 let ScheduleComponent = class ScheduleComponent {
-    constructor() { }
+    constructor(router, connect, socket, config, modalService) {
+        this.router = router;
+        this.connect = connect;
+        this.socket = socket;
+        this.modalService = modalService;
+        this.deviceLength = null;
+        this.devices = {};
+        this.allDevices = {};
+        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subscription"]();
+        config.backdrop = 'static';
+        config.keyboard = false;
+        config.size = 'lg';
+    }
     ngOnInit() {
+        this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
+            if (res) {
+                this.allDevices = JSON.parse(JSON.stringify(res));
+            }
+            if (this.allDevices) {
+                this.deviceLength = Object.keys(this.allDevices).length;
+            }
+            else {
+                this.deviceLength = 0;
+            }
+            if (!this.deviceLength) {
+                this.router.navigate(['/']);
+            }
+        }));
+    }
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
+    }
+    launch() {
+        if (this.deviceLength) {
+            const modalRef = this.modalService.open(_add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_7__["AddScheduleComponent"]);
+        }
     }
 };
+ScheduleComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_2__["ConnectSocket"] },
+    { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__["Socket"] },
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModalConfig"] },
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModal"] }
+];
 ScheduleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-schedule',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./schedule.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/schedule/schedule.component.html")).default,
+        providers: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModalConfig"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModal"]],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./schedule.component.css */ "./src/app/schedule/schedule.component.css")).default]
     })
 ], ScheduleComponent);
@@ -1938,7 +2419,7 @@ let ConnectSocket = class ConnectSocket {
             if (id) {
                 if (this.onlineDevices && this.onlineDevices[id]) {
                     delete this.onlineDevices[id];
-                    if (Object.keys(this.onlineDevices).length) {
+                    if (!Object.keys(this.onlineDevices).length) {
                         this.onlineDevices = null;
                     }
                     this.getLocations();
@@ -1996,6 +2477,8 @@ let ConnectSocket = class ConnectSocket {
     toggle(device, value, board, swtch) {
         const msg = { d: device, v: value, b: board, s: swtch };
         this.socket.emit('toggle', msg);
+    }
+    getSchedules() {
     }
 };
 ConnectSocket.ctorParameters = () => [

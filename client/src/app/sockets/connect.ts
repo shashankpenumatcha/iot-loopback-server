@@ -106,7 +106,7 @@ export class ConnectSocket implements OnDestroy {
       if (id) {
         if (this.onlineDevices && this.onlineDevices[id]) {
           delete this.onlineDevices[id];
-          if (Object.keys(this.onlineDevices).length) {
+          if (!Object.keys(this.onlineDevices).length) {
             this.onlineDevices = null;
           }
           this.getLocations();
@@ -170,6 +170,10 @@ export class ConnectSocket implements OnDestroy {
   toggle(device: string, value: boolean, board: string, swtch: number){
     const msg = {d: device, v: value, b: board, s: swtch};
     this.socket.emit('toggle', msg);
+  }
+
+  getSchedules() {
+
   }
 
 }

@@ -13,8 +13,7 @@ import { VerifiedComponent } from './verified/verified.component';
 
 const routes: Routes = [
   {path: 'verified', component: VerifiedComponent},
-
-{path: 'signup', component: SignUpComponent},
+  {path: 'signup', component: SignUpComponent},
   {path: 'login', component: LoginComponent},
   {path: 'welcome', component: LandingPageComponent},
   {path: 'carousel', component: CarouselComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},

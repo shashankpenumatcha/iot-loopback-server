@@ -282,6 +282,44 @@ boot(app, __dirname, function(err) {
         }
       })
 
+      socket.on('addSchedule',function(msg, callback){
+        log.info(`add schedule request`)
+        if(!msg || !msg.name || !msg.devices || !Object.keys(msg.devices).length ){
+          return callback({error: "no devices in request"})
+        }
+        if(!msg.schedule){
+          return callback({error: "no schedule in request"})
+
+        }
+        let devices = Object.keys(msg.devices);
+
+        let payload = null;
+        devices.some(d => {
+          let boards = Object.keys(msg.devices[d]);
+          if(!boards.length){
+            payload = {error: 'no borad with device in request'}
+            return
+          }
+          boards.some(b => {
+            let switches = Object.keys(msg.devices[d][b]);
+            if(!switches.length){
+              payload = {error: 'no switches with board in request'}
+              return
+            }
+
+          });
+        });
+        if(payload && payload.error){
+          callback(payload);
+        }else{
+          const locationId = uuid();
+          devices.map(m => {
+            app.io.to(m).emit('addSchedule', {schedule:msg.schedule,devices:devices,locationId:locationId, name: msg.name, boards: msg.devices[m], socketId: socket.id})
+            return m
+          })
+        }
+      });
+
 
     });
   }

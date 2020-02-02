@@ -19,6 +19,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifiedComponent } from './verified/verified.component';
 
 import {Config} from './app.config.js';
+import { LocationListComponent } from './location-list/location-list.component';
+import { HomeToolbarComponent } from './home-toolbar/home-toolbar.component';
+import { AddScheduleComponent } from './add-schedule/add-schedule.component';
 const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
@@ -41,9 +44,12 @@ const config: SocketIoConfig = { url: Config.server, options: {} };
     AddBoardComponent,
     LandingPageComponent,
     SignUpComponent,
-    VerifiedComponent
+    VerifiedComponent,
+    LocationListComponent,
+    HomeToolbarComponent,
+    AddScheduleComponent
   ],
-  entryComponents:[AddLocationComponent, AddBoardComponent],
+  entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
