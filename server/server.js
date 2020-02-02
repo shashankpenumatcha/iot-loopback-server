@@ -144,7 +144,7 @@ boot(app, __dirname, function(err) {
 
       socket.on('toggle',function(msg){
         log.info(`toggle switch on ${msg.b} - device ${msg.d}`)
-        console.log(message)
+        console.log(msg)
         app.io.to(msg.d).emit('toggle',msg)
       });
 
