@@ -91,7 +91,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"auto-head\">\n  <div class=\"auto-header\">Create Automation</div>\n  <div (click)=\"activeModal.dismiss()\" style=\"display: inline-block;    position: absolute;right: 27px;top: 8px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div>\n<div *ngIf=\"!showLocations\" class=\"auto-spacer\"></div>\n\n<ng-container *ngIf=\"!showLocations\">\n\n  <div class=\"auto-inp\">\n    <label class=\"auto-lbl\">Scene Name</label\n    ><input [(ngModel)]=\"name\" value=\"Bedroom Light 1\" class=\"auto-inpp\" />\n  </div>\n  <div class=\"auto-help\">\n    <label class=\"auto-helpp\">\n      Automate your switch by selecting an appropriate start time, stop time &\n      days of the week</label\n    >\n  </div>\n  <div class=\"auto-times\">\n    <label [(ngModel)]=\"start\" class=\"auto-startt\">Start Time</label>\n    <ngb-timepicker [(ngModel)]=\"start\" [seconds]=\"true\"></ngb-timepicker>\n    <label class=\"auto-startt\">Stop Time</label>\n    <ngb-timepicker [(ngModel)]=\"stop\" [seconds]=\"true\"></ngb-timepicker>\n  </div>\n  <div style=\"display:flex;justify-content: center;\">\n    <div  *ngFor=\"let day of days\" class=\"auto-days\">\n      <div (click)=\"selectDay(day)\" [ngClass]=\"{'selected-day' : day.selected}\" class=\"auto-day\">{{day.v}}</div>\n\n    </div>\n  </div>\n</ng-container>\n\n\n<ng-container *ngIf=\"showLocations\">\n  <app-location-list (valueChange)='displayCounter($event)' [selectedSwitches]=\"selectedForSchedule\"></app-location-list>\n</ng-container>\n\n\n\n\n<div class=\"auto-savebtn\" style=\"margin-bottom:65px;\">\n  <button style=\"margin-right:15px;\" *ngIf=\"!showLocations\"  (click)=\"showLocations=true\" class=\"auto-savebtnn\">Select Switches</button>\n  <button *ngIf=\"showLocations\"  (click)=\"showLocations=false\" class=\"auto-savebtnn\">Done</button>\n\n  <button  *ngIf=\"!showLocations\" (click)=\"addSchedule()\" [disabled]=\"!name||!selectedDaysLength\" class=\"auto-savebtnn\">Create</button>\n</div>\n\n<!--\n<pre>\n  {{selectedForSchedule|json}}\n</pre> -->\n";
+    __webpack_exports__["default"] = "<div class=\"auto-head\">\n  <div class=\"auto-header\">Create Automation</div>\n  <div (click)=\"activeModal.dismiss()\" style=\"display: inline-block;    position: absolute;right: 27px;top: 8px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div>\n<div *ngIf=\"!showLocations\" class=\"auto-spacer\"></div>\n\n<ng-container *ngIf=\"!showLocations\">\n\n  <div class=\"auto-inp\">\n    <label class=\"auto-lbl\">Scene Name</label\n    ><input [(ngModel)]=\"name\" value=\"Bedroom Light 1\" class=\"auto-inpp\" />\n  </div>\n  <div class=\"auto-help\">\n    <label class=\"auto-helpp\">\n      Automate your switch by selecting an appropriate start time, stop time &\n      days of the week</label\n    >\n  </div>\n  <div class=\"auto-times\">\n    <label [(ngModel)]=\"start\" class=\"auto-startt\">Start Time</label>\n    <ngb-timepicker [(ngModel)]=\"start\" [seconds]=\"true\"></ngb-timepicker>\n    <label class=\"auto-startt\">Stop Time</label>\n    <ngb-timepicker [(ngModel)]=\"stop\" [seconds]=\"true\"></ngb-timepicker>\n  </div>\n  <div style=\"display:flex;justify-content: center;\">\n    <div  *ngFor=\"let day of days\" class=\"auto-days\">\n      <div (click)=\"selectDay(day)\" [ngClass]=\"{'selected-day' : day.selected}\" class=\"auto-day\">{{day.v}}</div>\n\n    </div>\n  </div>\n</ng-container>\n\n\n<ng-container *ngIf=\"showLocations\">\n  <app-location-list (valueChange)='displayCounter($event)' [selectedSwitches]=\"selectedForSchedule\"></app-location-list>\n</ng-container>\n\n\n\n\n<div class=\"auto-savebtn\" style=\"margin-bottom:65px;\">\n  <button style=\"margin-right:15px;\" *ngIf=\"!showLocations\"  (click)=\"showLocations=true\" class=\"auto-savebtnn\">Select Switches</button>\n  <button *ngIf=\"showLocations\"  (click)=\"showLocations=false\" class=\"auto-savebtnn\">Done</button>\n\n  <button  *ngIf=\"!showLocations\" (click)=\"addSchedule()\" [disabled]=\"!name||!selectedDaysLength\" class=\"auto-savebtnn\">Create</button>\n</div>\n\n<!--\n<pre>\n  {{selectedForSchedule|json}}\n</pre> -->\n{{name}}\n{{selectedDaysLength}}\n{{activeRequests|json}}\n";
     /***/
   },
 
@@ -271,7 +271,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <p>schedule works!</p>\n{{deviceLength}}\n<pre>\n  {{allDevices|json}}\n</pre> -->\n<div [routerLink]=\"['/']\" style=\"position: relative;\" class=\"auto-head\">\n  <div class=\"auto-header\">Automation</div>\n  <div style=\"position: absolute;\n  right: 25px;\n  top: 10px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div>\n<div class=\"auto-spacer\"></div>\n<div class=\"auto0-bodyhead\">\n  Easily Automate your smart switches\n</div>\n<div class=\"auto0-bodyhead1\">\n  <button  (click)=\"launch()\" class=\"addautobtn\">ADD</button>\n</div>`\n";
+    __webpack_exports__["default"] = "<!-- <p>schedule works!</p>\n{{deviceLength}}\n<pre>\n  {{allDevices|json}}\n</pre> -->\n<div [routerLink]=\"['/']\" style=\"position: relative;\" class=\"auto-head\">\n  <div class=\"auto-header\">Automation</div>\n  <div style=\"position: absolute;\n  right: 25px;\n  top: 10px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div>\n<div class=\"auto-spacer\"></div>\n<div style=\"background:beige;\" class=\"auto0-bodyhead\">\n  Easily Automate your smart switches\n</div>\n<div style=\"background-color: beige;\" class=\"auto0-bodyhead1\">\n  <button style=\"background:transparent;\"  (click)=\"launch()\" class=\"addautobtn\">ADD</button>\n</div>\n\n\n\n<div class=\"container\">\n  <div class=\"row\">\n    <ng-container *ngFor=\"let schedule of schedules | keyvalue\">\n        <div style=\"padding:10px;margin:15px 0px;\" class=\"col-lg-3 col-md-4 col-6\">\n          <div style=\"border: 1px solid beige;\" *ngIf=\"schedule.value&&schedule.value.schedule\">\n           <div style=\"color:#fff;padding:5px 10px;background:#282c34\">\n             <p style=\"margin: 0px;\" *ngIf=\"schedule.value.schedule.name\">{{schedule.value.schedule.name}}</p>\n           </div>\n           <div style=\"padding:10px\">\n            <table>\n              <tr *ngIf=\"schedule.value.switchSize\">\n                <td><p style=\"font-weight:bold\">Switches: </p></td>\n                <td><p>{{schedule.value.switchSize}}</p></td>\n              </tr>\n              <tr *ngIf=\"schedule.value.schedule.start\">\n                <td><p style=\"font-weight:bold\">Start: </p></td>\n                <td><p >{{schedule.value.schedule.start}}</p></td>\n              </tr>\n              <tr  *ngIf=\"schedule.value.schedule.end\">\n                <td>   <p style=\"font-weight:bold\">Stop: </p>\n                </td>\n                <td>\n                  <p>{{schedule.value.schedule.end}}</p>\n\n                </td>\n              </tr>\n            </table>\n\n\n\n             <div *ngIf=\"schedule.value.daysList\" style=\"width: 100%;display: flex;justify-content: center;\">\n\n                <span style=\"flex-grow:1;flex-basis:0;opacity: 0.8;\" [ngClass]=\"{'bold':schedule.value.daysList.indexOf(day.i.toString())>=0}\" *ngFor=\"let day of days\">\n                  {{day.v}}\n                </span>\n            </div>\n            <div style=\"padding-top:10px;margin-top:10px;display: flex; border-top: 1px solid beige\">\n              <i (click)=\"toggleActive(schedule.value.schedule,schedule.value.devices)\" [ngClass]=\"{'active':schedule.value.schedule.active}\" style=\"cursor:pointer;text-align:center;flex-grow:1;flex-basis:0\" class=\"fas fa-power-off\"></i>\n              <i (click)=\"deleteSchedule(schedule.value.schedule,schedule.value.devices)\" style=\"cursor:pointer;text-align:center;flex-grow:1;flex-basis:0\" class=\"far fa-trash-alt\"></i>\n            </div>\n           </div>\n          </div>\n        </div>\n    </ng-container>\n  </div>\n</div>\n<!-- <pre>\n  {{schedules|json}}\n</pre> -->\n";
     /***/
   },
 
@@ -1486,6 +1486,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
           }));
           this.socket.on('scheduleAdded', function (res) {
+            console.log(res);
+
             if (!res.error) {
               if (res.name && res.deviceId) {
                 _this6.activeRequests.splice(_this6.activeRequests.indexOf(res.deviceId), 1);
@@ -1840,7 +1842,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     });
 
     var Config = {
-      server: 'http://134.209.155.230:3001'
+      server: 'http://localhost:3001'
     };
     /***/
   },
@@ -3313,7 +3315,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".auto-head {\r\n  background-color: #282c34;\r\n  color: white;\r\n  font-size: 2rem;\r\n  padding: 0.8rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n  width: 100%;;\r\n}\r\n\r\n\r\n.auto-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n\r\n.auto-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n\r\n.auto-spacer {\r\n  padding-top: 4rem;\r\n}\r\n\r\n\r\n.auto-footer {\r\n  background-color: #282c34;\r\n  position: fixed;\r\n  bottom: 0;\r\n  width: 100%;\r\n  position: fixed;\r\n  width: 100%;\r\n}\r\n\r\n\r\n.auto-homeico {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 1rem;\r\n}\r\n\r\n\r\n.auto-homeico2 {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 3rem;\r\n}\r\n\r\n\r\n.auto0-bodyhead {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2rem;\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  text-align: center;\r\n}\r\n\r\n\r\n.auto0-bodyhead1 {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2rem;\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  text-align: center;\r\n}\r\n\r\n\r\n.addautobtn {\r\n  background-color: white;\r\n  width: 150px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #282c34;\r\n  font-weight: bold;\r\n  border: 2px solid #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2NoZWR1bGUvc2NoZWR1bGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osZUFBZTtFQUNmLGVBQWU7RUFDZixpQ0FBaUM7RUFDakMsV0FBVztBQUNiOzs7QUFHQTtFQUNFLGFBQWE7RUFDYixxQkFBcUI7QUFDdkI7OztBQUVBO0VBQ0UseUJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjs7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7OztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGVBQWU7RUFDZixTQUFTO0VBQ1QsV0FBVztFQUNYLGVBQWU7RUFDZixXQUFXO0FBQ2I7OztBQUVBO0VBQ0UseUJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsV0FBVztFQUNYLGtCQUFrQjtBQUNwQjs7O0FBRUE7RUFDRSx5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixXQUFXO0VBQ1gsa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsWUFBWTtFQUNaLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLDJDQUEyQztBQUM3QyIsImZpbGUiOiJzcmMvYXBwL3NjaGVkdWxlL3NjaGVkdWxlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXV0by1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgcGFkZGluZzogMC44cmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHdpZHRoOiAxMDAlOztcclxufVxyXG5cclxuXHJcbi5hdXRvLWhlYWRlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGxlZnQ7XHJcbn1cclxuXHJcbi5hdXRvLWJhY2sge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG59XHJcblxyXG4uYXV0by1zcGFjZXIge1xyXG4gIHBhZGRpbmctdG9wOiA0cmVtO1xyXG59XHJcblxyXG4uYXV0by1mb290ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIGJvdHRvbTogMDtcclxuICB3aWR0aDogMTAwJTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5hdXRvLWhvbWVpY28ge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmbG9hdDogbGVmdDtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbn1cclxuXHJcbi5hdXRvLWhvbWVpY28yIHtcclxuICBmaWx0ZXI6IGludmVydCgxKTtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgcGFkZGluZy1sZWZ0OiAzcmVtO1xyXG59XHJcblxyXG4uYXV0bzAtYm9keWhlYWQge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDJyZW07XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hdXRvMC1ib2R5aGVhZDEge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDJyZW07XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hZGRhdXRvYnRuIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICB3aWR0aDogMTUwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogIzI4MmMzNDtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBib3JkZXI6IDJweCBzb2xpZCAjMjgyYzM0O1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90byBDb25kZW5zZWRcIiwgc2Fucy1zZXJpZjtcclxufVxyXG4iXX0= */";
+    __webpack_exports__["default"] = ".auto-head {\r\n  background-color: #282c34;\r\n  color: white;\r\n  font-size: 2rem;\r\n  padding: 0.8rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n  width: 100%;;\r\n}\r\n\r\n\r\n.auto-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n\r\n.auto-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n\r\n.auto-spacer {\r\n  padding-top: 0px;\r\n}\r\n\r\n\r\n.auto-footer {\r\n  background-color: #282c34;\r\n  position: fixed;\r\n  bottom: 0;\r\n  width: 100%;\r\n  position: fixed;\r\n  width: 100%;\r\n}\r\n\r\n\r\n.auto-homeico {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 1rem;\r\n}\r\n\r\n\r\n.auto-homeico2 {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 3rem;\r\n}\r\n\r\n\r\n.auto0-bodyhead {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2rem;\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  text-align: center;\r\n}\r\n\r\n\r\n.auto0-bodyhead1 {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2rem;\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  text-align: center;\r\n}\r\n\r\n\r\n.addautobtn {\r\n  background-color: white;\r\n  width: 150px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #282c34;\r\n  font-weight: bold;\r\n  border: 2px solid #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n\r\n.bold{\r\n  font-weight: bold;\r\n  opacity: 1;\r\n}\r\n\r\n\r\n.active{\r\n  color:green;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2NoZWR1bGUvc2NoZWR1bGUuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osZUFBZTtFQUNmLGVBQWU7RUFDZixpQ0FBaUM7RUFDakMsV0FBVztBQUNiOzs7QUFHQTtFQUNFLGFBQWE7RUFDYixxQkFBcUI7QUFDdkI7OztBQUVBO0VBQ0UseUJBQWlCO1VBQWpCLGlCQUFpQjtBQUNuQjs7O0FBRUE7RUFDRSxnQkFBZ0I7QUFDbEI7OztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGVBQWU7RUFDZixTQUFTO0VBQ1QsV0FBVztFQUNYLGVBQWU7RUFDZixXQUFXO0FBQ2I7OztBQUVBO0VBQ0UseUJBQWlCO1VBQWpCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsV0FBVztFQUNYLGtCQUFrQjtBQUNwQjs7O0FBRUE7RUFDRSx5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixXQUFXO0VBQ1gsa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2Isa0JBQWtCO0FBQ3BCOzs7QUFFQTtFQUNFLHVCQUF1QjtFQUN2QixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsWUFBWTtFQUNaLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLDJDQUEyQztBQUM3Qzs7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsVUFBVTtBQUNaOzs7QUFFQTtFQUNFLFdBQVc7QUFDYiIsImZpbGUiOiJzcmMvYXBwL3NjaGVkdWxlL3NjaGVkdWxlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXV0by1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgcGFkZGluZzogMC44cmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHdpZHRoOiAxMDAlOztcclxufVxyXG5cclxuXHJcbi5hdXRvLWhlYWRlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGxlZnQ7XHJcbn1cclxuXHJcbi5hdXRvLWJhY2sge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG59XHJcblxyXG4uYXV0by1zcGFjZXIge1xyXG4gIHBhZGRpbmctdG9wOiAwcHg7XHJcbn1cclxuXHJcbi5hdXRvLWZvb3RlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgYm90dG9tOiAwO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLmF1dG8taG9tZWljbyB7XHJcbiAgZmlsdGVyOiBpbnZlcnQoMSk7XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIGZsb2F0OiBsZWZ0O1xyXG4gIHBhZGRpbmctbGVmdDogMXJlbTtcclxufVxyXG5cclxuLmF1dG8taG9tZWljbzIge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmbG9hdDogbGVmdDtcclxuICBwYWRkaW5nLWxlZnQ6IDNyZW07XHJcbn1cclxuXHJcbi5hdXRvMC1ib2R5aGVhZCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBwYWRkaW5nLXRvcDogMnJlbTtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxuICBwYWRkaW5nOiAxcmVtO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuLmF1dG8wLWJvZHloZWFkMSB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBwYWRkaW5nLXRvcDogMnJlbTtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxuICBwYWRkaW5nOiAxcmVtO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuLmFkZGF1dG9idG4ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiAjMjgyYzM0O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGJvcmRlcjogMnB4IHNvbGlkICMyODJjMzQ7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4uYm9sZHtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBvcGFjaXR5OiAxO1xyXG59XHJcblxyXG4uYWN0aXZle1xyXG4gIGNvbG9yOmdyZWVuO1xyXG59XHJcbiJdfQ== */";
     /***/
   },
 
@@ -3395,10 +3397,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.connect = connect;
         this.socket = socket;
         this.modalService = modalService;
+        this.activeRequests = {};
+        this.deleteRequests = {};
         this.deviceLength = null;
-        this.devices = {};
-        this.allDevices = {};
+        this.onlineDevices = {};
         this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subscription"]();
+        this.schedules = {};
+        this.object = Object;
+        this.days = [{
+          i: 0,
+          v: 'S',
+          selected: false
+        }, {
+          i: 1,
+          v: 'M',
+          selected: false
+        }, {
+          i: 2,
+          v: 'T',
+          selected: false
+        }, {
+          i: 3,
+          v: 'W',
+          selected: false
+        }, {
+          i: 4,
+          v: 'T',
+          selected: false
+        }, {
+          i: 5,
+          v: 'F',
+          selected: false
+        }, {
+          i: 6,
+          v: 'S',
+          selected: false
+        }];
         config.backdrop = 'static';
         config.keyboard = false;
         config.size = 'lg';
@@ -3411,30 +3445,192 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.subscriptions.add(this.connect.onlineDevices$.subscribe(function (res) {
             if (res) {
-              _this13.allDevices = JSON.parse(JSON.stringify(res));
+              _this13.onlineDevices = JSON.parse(JSON.stringify(res));
             }
 
-            if (_this13.allDevices) {
-              _this13.deviceLength = Object.keys(_this13.allDevices).length;
+            if (_this13.onlineDevices) {
+              _this13.deviceLength = Object.keys(_this13.onlineDevices).length;
             } else {
               _this13.deviceLength = 0;
             }
 
             if (!_this13.deviceLength) {
               _this13.router.navigate(['/']);
+            } else {
+              var devices = Object.keys(_this13.onlineDevices);
+              devices.map(function (m) {
+                _this13.socket.emit('getSchedules', m);
+
+                return m;
+              });
             }
           }));
+          this.socket.on('scheduleToggled', function (msg) {
+            if (msg.err && !msg.deviceId) {
+              _this13.activeRequests[msg.scheduleId] = null;
+            }
+
+            if (msg.deviceId && _this13.activeRequests[msg.scheduleId] && _this13.activeRequests[msg.scheduleId].length && _this13.activeRequests[msg.scheduleId].indexOf(msg.deviceId) >= 0) {
+              _this13.activeRequests[msg.scheduleId].splice(_this13.activeRequests[msg.scheduleId].indexOf(msg.deviceId), 1);
+            }
+
+            if (_this13.activeRequests[msg.scheduleId] && !_this13.activeRequests[msg.scheduleId].length) {
+              _this13.activeRequests[msg.scheduleId] = null;
+            }
+
+            var d = Object.keys(_this13.onlineDevices);
+            d.map(function (m) {
+              _this13.socket.emit('getSchedules', m);
+
+              return m;
+            });
+          });
+          this.socket.on('scheduleDeleted', function (msg) {
+            if (msg.err && !msg.deviceId) {
+              _this13.deleteRequests[msg.scheduleId] = null;
+            }
+
+            if (msg.deviceId && _this13.deleteRequests[msg.scheduleId] && _this13.deleteRequests[msg.scheduleId].length && _this13.deleteRequests[msg.scheduleId].indexOf(msg.deviceId) >= 0) {
+              _this13.deleteRequests[msg.scheduleId].splice(_this13.deleteRequests[msg.scheduleId].indexOf(msg.deviceId), 1);
+            }
+
+            if (_this13.deleteRequests[msg.scheduleId] && !_this13.deleteRequests[msg.scheduleId].length) {
+              _this13.deleteRequests[msg.scheduleId] = null;
+            }
+
+            var d = Object.keys(_this13.onlineDevices);
+            d.map(function (m) {
+              _this13.socket.emit('getSchedules', m);
+
+              return m;
+            });
+          });
+          this.getSchedules();
+        }
+      }, {
+        key: "getSchedules",
+        value: function getSchedules() {
+          var _this14 = this;
+
+          this.socket.on('schedules', function (msg) {
+            if (!msg.error) {
+              // this.schedules = msg;
+              if (msg.schedules && msg.schedules.length) {
+                msg.schedules.map(function (m) {
+                  if (!_this14.schedules[m.scheduleId]) {
+                    _this14.schedules[m.scheduleId] = {};
+                  }
+
+                  _this14.schedules[m.scheduleId].schedule = m;
+
+                  if (_this14.schedules[m.scheduleId].schedule && _this14.schedules[m.scheduleId].schedule.days) {
+                    _this14.schedules[m.scheduleId].daysList = _this14.schedules[m.scheduleId].schedule.days.split(',');
+                  }
+
+                  if (!_this14.schedules[m.scheduleId].devices) {
+                    _this14.schedules[m.scheduleId].devices = {};
+                  }
+
+                  if (!_this14.schedules[m.scheduleId].devices[msg.deviceId]) {
+                    _this14.schedules[m.scheduleId].devices[msg.deviceId] = {};
+                  }
+
+                  if (!_this14.schedules[m.scheduleId].devices[msg.deviceId][m.sw_id]) {
+                    _this14.schedules[m.scheduleId].devices[msg.deviceId][m.sw_id] = m;
+
+                    if (!_this14.schedules[m.scheduleId].switchSize) {
+                      _this14.schedules[m.scheduleId].switchSize = 0;
+                    }
+
+                    _this14.schedules[m.scheduleId].switchSize += 1;
+                  }
+
+                  return m;
+                });
+              }
+            }
+          });
         }
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
           this.subscriptions.unsubscribe();
+          this.socket.removeListener('schedules');
         }
       }, {
         key: "launch",
         value: function launch() {
+          var _this15 = this;
+
           if (this.deviceLength) {
             var modalRef = this.modalService.open(_add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_7__["AddScheduleComponent"]);
+            modalRef.result.then(function (res) {
+              var devices = Object.keys(_this15.onlineDevices);
+              devices.map(function (m) {
+                _this15.socket.emit('getSchedules', m);
+
+                return m;
+              });
+            }, function (err) {
+              var devices = Object.keys(_this15.onlineDevices);
+              devices.map(function (m) {
+                _this15.socket.emit('getSchedules', m);
+
+                return m;
+              });
+            });
+          }
+        }
+      }, {
+        key: "toggleActive",
+        value: function toggleActive(schedule, devices) {
+          var _this16 = this;
+
+          if (!this.activeRequests[schedule.scheduleId]) {
+            this.activeRequests[schedule.scheduleId] = [];
+          }
+
+          var deviceKeys = Object.keys(devices);
+
+          if (deviceKeys && deviceKeys.length) {
+            deviceKeys.map(function (device) {
+              _this16.activeRequests[schedule.scheduleId].push(device);
+
+              var payload = {};
+              payload.scheduleId = schedule.scheduleId;
+              payload.deviceId = device;
+              payload.active = schedule.active;
+
+              _this16.socket.emit('toggleSchedule', payload);
+
+              return device;
+            });
+          }
+        }
+      }, {
+        key: "deleteSchedule",
+        value: function deleteSchedule(schedule, devices) {
+          var _this17 = this;
+
+          if (!this.deleteRequests[schedule.scheduleId]) {
+            this.deleteRequests[schedule.scheduleId] = [];
+          }
+
+          var deviceKeys = Object.keys(devices);
+
+          if (deviceKeys && deviceKeys.length) {
+            this.schedules = {};
+            deviceKeys.map(function (device) {
+              _this17.deleteRequests[schedule.scheduleId].push(device);
+
+              var payload = {};
+              payload.scheduleId = schedule.scheduleId;
+              payload.deviceId = device;
+
+              _this17.socket.emit('deleteSchedule', payload);
+
+              return device;
+            });
           }
         }
       }]);
@@ -3923,7 +4119,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "signup",
         value: function signup() {
-          var _this14 = this;
+          var _this18 = this;
 
           this.success = false;
           this.error = null;
@@ -3935,11 +4131,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.fetchData.signup(payload).subscribe(function (res) {
             console.log(res);
-            _this14.username = null;
-            _this14.email = null;
-            _this14.password = null;
-            _this14.terms = true;
-            _this14.success = true;
+            _this18.username = null;
+            _this18.email = null;
+            _this18.password = null;
+            _this18.terms = true;
+            _this18.success = true;
           }, function (err) {
             var e = null;
 
@@ -3951,12 +4147,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var m = Object.keys(e.details.messages);
 
               if (m.length) {
-                return _this14.error = e.details.messages[m[0]];
+                return _this18.error = e.details.messages[m[0]];
               }
             }
 
             console.log(err);
-            return _this14.error = 'signup failed';
+            return _this18.error = 'signup failed';
           });
         }
       }]);
@@ -4054,28 +4250,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initLocations",
         value: function initLocations() {
-          var _this15 = this;
+          var _this19 = this;
 
           this.socket.on('locations', function (res) {
             console.log(res);
 
             if (!res.error) {
               if (res.deviceId && res.switches && res.switches.length) {
-                _this15.locations = {};
+                _this19.locations = {};
                 res.switches.some(function (s) {
-                  if (!_this15.locations[s.locationId]) {
-                    _this15.locations[s.locationId] = {};
+                  if (!_this19.locations[s.locationId]) {
+                    _this19.locations[s.locationId] = {};
                   }
 
-                  _this15.locations[s.locationId].name = s.locationName;
+                  _this19.locations[s.locationId].name = s.locationName;
 
-                  if (!_this15.locations[s.locationId].switches) {
-                    _this15.locations[s.locationId].switches = [];
+                  if (!_this19.locations[s.locationId].switches) {
+                    _this19.locations[s.locationId].switches = [];
                   }
 
                   s.deviceId = res.deviceId;
 
-                  _this15.locations[s.locationId].switches.push(s);
+                  _this19.locations[s.locationId].switches.push(s);
                   /*  if (!this.locations[s.locationId].devices) {
                      this.locations[s.locationId].devices = {};
                    }
@@ -4092,9 +4288,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                 });
 
-                _this15.calculateActiveLocations();
+                _this19.calculateActiveLocations();
 
-                _this15.locations$.next(_this15.locations);
+                _this19.locations$.next(_this19.locations);
               }
             }
           });
@@ -4102,19 +4298,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "calculateActiveLocations",
         value: function calculateActiveLocations() {
-          var _this16 = this;
+          var _this20 = this;
 
           if (this.locations) {
             var locations = Object.keys(this.locations);
 
             if (locations.length) {
               locations.some(function (l) {
-                _this16.locations[l].active = false;
+                _this20.locations[l].active = false;
 
-                if (_this16.locations[l].switches) {
-                  _this16.locations[l].switches.some(function (s) {
-                    if (_this16.onlineDevices && _this16.onlineDevices[s.deviceId] && _this16.onlineDevices[s.deviceId][s.board] && _this16.onlineDevices[s.deviceId][s.board].switches && _this16.onlineDevices[s.deviceId][s.board].switches.length && _this16.onlineDevices[s.deviceId][s.board].switches[s.switch]) {
-                      _this16.locations[l].active = true;
+                if (_this20.locations[l].switches) {
+                  _this20.locations[l].switches.some(function (s) {
+                    if (_this20.onlineDevices && _this20.onlineDevices[s.deviceId] && _this20.onlineDevices[s.deviceId][s.board] && _this20.onlineDevices[s.deviceId][s.board].switches && _this20.onlineDevices[s.deviceId][s.board].switches.length && _this20.onlineDevices[s.deviceId][s.board].switches[s.switch]) {
+                      _this20.locations[l].active = true;
                       return;
                     }
                   });
@@ -4142,20 +4338,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDeviceDisconnect",
         value: function onDeviceDisconnect() {
-          var _this17 = this;
+          var _this21 = this;
 
           this.socket.on('deviceDisconnected', function (id) {
             if (id) {
-              if (_this17.onlineDevices && _this17.onlineDevices[id]) {
-                delete _this17.onlineDevices[id];
+              if (_this21.onlineDevices && _this21.onlineDevices[id]) {
+                delete _this21.onlineDevices[id];
 
-                if (!Object.keys(_this17.onlineDevices).length) {
-                  _this17.onlineDevices = null;
+                if (!Object.keys(_this21.onlineDevices).length) {
+                  _this21.onlineDevices = null;
                 }
 
-                _this17.getLocations();
+                _this21.getLocations();
 
-                _this17.onlineDevices$.next(_this17.onlineDevices);
+                _this21.onlineDevices$.next(_this21.onlineDevices);
               }
             }
           });
@@ -4163,32 +4359,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "join",
         value: function join(msg, device) {
-          this.joined(device);
-          this.socket.emit('join', msg);
+          if (!this.rooms[msg]) {
+            this.joined(device);
+            this.socket.emit('join', msg);
+          }
         }
       }, {
         key: "joined",
         value: function joined(device) {
-          var _this18 = this;
+          var _this22 = this;
 
           return this.socket.fromEvent('joined').subscribe(function (m) {
             if (m != null && typeof m === 'string') {
-              _this18.rooms[m] = device;
+              _this22.rooms[m] = device;
 
-              _this18.roomsMap.next(_this18.rooms);
+              _this22.roomsMap.next(_this22.rooms);
 
-              _this18.socket.emit('getBoards', m);
+              _this22.socket.emit('getBoards', m);
             }
           });
         }
       }, {
         key: "leaveAll",
         value: function leaveAll(ids) {
-          var _this19 = this;
+          var _this23 = this;
 
           if (ids && ids.length) {
             ids.map(function (id) {
-              _this19.socket.emit('leave', id);
+              _this23.socket.emit('leave', id);
 
               return id;
             });
@@ -4197,35 +4395,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSwitches",
         value: function getSwitches() {
-          var _this20 = this;
+          var _this24 = this;
 
           this.socket.on('boards', function (response) {
-            if (_this20.rooms && response && response.deviceId && response.boards) {
-              if (!_this20.onlineDevices) {
-                _this20.onlineDevices = {};
+            if (_this24.rooms && response && response.deviceId && response.boards) {
+              if (!_this24.onlineDevices) {
+                _this24.onlineDevices = {};
               }
 
-              _this20.onlineDevices[response.deviceId] = response.boards;
+              _this24.onlineDevices[response.deviceId] = response.boards;
 
-              _this20.getLocations();
+              _this24.getLocations();
 
-              _this20.onlineDevices$.next(_this20.onlineDevices);
+              _this24.onlineDevices$.next(_this24.onlineDevices);
 
-              _this20.calculateBoards();
+              _this24.calculateBoards();
             }
           });
         }
       }, {
         key: "calculateBoards",
         value: function calculateBoards() {
-          var _this21 = this;
+          var _this25 = this;
 
           var boards = [];
           var dk = Object.keys(this.onlineDevices);
           dk.some(function (d) {
-            var bk = Object.keys(_this21.onlineDevices[d]);
+            var bk = Object.keys(_this25.onlineDevices[d]);
             bk.some(function (b) {
-              boards.push(_this21.onlineDevices[d][b]);
+              boards.push(_this25.onlineDevices[d][b]);
             });
           });
           this.boards = boards;

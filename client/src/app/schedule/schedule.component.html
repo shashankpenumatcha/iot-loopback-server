@@ -10,9 +10,61 @@
   top: 10px;"><img class="auto-back" src="content/images/back.svg" /></div>
 </div>
 <div class="auto-spacer"></div>
-<div class="auto0-bodyhead">
+<div style="background:beige;" class="auto0-bodyhead">
   Easily Automate your smart switches
 </div>
-<div class="auto0-bodyhead1">
-  <button  (click)="launch()" class="addautobtn">ADD</button>
-</div>`
+<div style="background-color: beige;" class="auto0-bodyhead1">
+  <button style="background:transparent;"  (click)="launch()" class="addautobtn">ADD</button>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let schedule of schedules | keyvalue">
+        <div style="padding:10px;margin:15px 0px;" class="col-lg-3 col-md-4 col-6">
+          <div style="border: 1px solid beige;" *ngIf="schedule.value&&schedule.value.schedule">
+           <div style="color:#fff;padding:5px 10px;background:#282c34">
+             <p style="margin: 0px;" *ngIf="schedule.value.schedule.name">{{schedule.value.schedule.name}}</p>
+           </div>
+           <div style="padding:10px">
+            <table>
+              <tr *ngIf="schedule.value.switchSize">
+                <td><p style="font-weight:bold">Switches: </p></td>
+                <td><p>{{schedule.value.switchSize}}</p></td>
+              </tr>
+              <tr *ngIf="schedule.value.schedule.start">
+                <td><p style="font-weight:bold">Start: </p></td>
+                <td><p >{{schedule.value.schedule.start}}</p></td>
+              </tr>
+              <tr  *ngIf="schedule.value.schedule.end">
+                <td>   <p style="font-weight:bold">Stop: </p>
+                </td>
+                <td>
+                  <p>{{schedule.value.schedule.end}}</p>
+
+                </td>
+              </tr>
+            </table>
+
+
+
+             <div *ngIf="schedule.value.daysList" style="width: 100%;display: flex;justify-content: center;">
+
+                <span style="flex-grow:1;flex-basis:0;opacity: 0.8;" [ngClass]="{'bold':schedule.value.daysList.indexOf(day.i.toString())>=0}" *ngFor="let day of days">
+                  {{day.v}}
+                </span>
+            </div>
+            <div style="padding-top:10px;margin-top:10px;display: flex; border-top: 1px solid beige">
+              <i (click)="toggleActive(schedule.value.schedule,schedule.value.devices)" [ngClass]="{'active':schedule.value.schedule.active}" style="cursor:pointer;text-align:center;flex-grow:1;flex-basis:0" class="fas fa-power-off"></i>
+              <i (click)="deleteSchedule(schedule.value.schedule,schedule.value.devices)" style="cursor:pointer;text-align:center;flex-grow:1;flex-basis:0" class="far fa-trash-alt"></i>
+            </div>
+           </div>
+          </div>
+        </div>
+    </ng-container>
+  </div>
+</div>
+<!-- <pre>
+  {{schedules|json}}
+</pre> -->

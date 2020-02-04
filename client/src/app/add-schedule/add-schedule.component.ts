@@ -63,6 +63,7 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
       })
     );
     this.socket.on('scheduleAdded', (res) => {
+      console.log(res)
       if (!res.error) {
         if (res.name && res.deviceId) {
           this.activeRequests.splice(this.activeRequests.indexOf(res.deviceId), 1);

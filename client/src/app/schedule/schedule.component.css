@@ -18,7 +18,7 @@
 }
 
 .auto-spacer {
-  padding-top: 4rem;
+  padding-top: 0px;
 }
 
 .auto-footer {
@@ -73,4 +73,13 @@
   font-weight: bold;
   border: 2px solid #282c34;
   font-family: "Roboto Condensed", sans-serif;
+}
+
+.bold{
+  font-weight: bold;
+  opacity: 1;
+}
+
+.active{
+  color:green;
 }

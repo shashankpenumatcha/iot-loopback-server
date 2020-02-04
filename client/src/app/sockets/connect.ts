@@ -117,8 +117,11 @@ export class ConnectSocket implements OnDestroy {
   }
 
   join(msg: string, device: any) {
+
+    if (!this.rooms[msg]) {
       this.joined(device);
       this.socket.emit('join', msg);
+    }
   }
 
   joined(device) {

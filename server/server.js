@@ -100,6 +100,15 @@ boot(app, __dirname, function(err) {
         });
       });
 
+      socket.on('getSchedules', function(deviceId){
+        console.log("get schedules for "+ deviceId);
+        app.io.to(deviceId).emit('getSchedules',{socketId:socket.id, deviceId:deviceId});
+      });
+
+      socket.on('schedules',function(msg){
+        app.io.to(msg.socketId).emit('schedules',msg);
+      })
+
       socket.on('getDeviceInfo',function(deviceId){
         log.info(`request to get device info from device ${deviceId}`);
         Device.findOne({"where":{"deviceId":deviceId},"include":["boards"]},(err,device)=>{
@@ -281,7 +290,22 @@ boot(app, __dirname, function(err) {
 
         }
       })
+      socket.on('scheduleAdded',function(msg){
+        log.info(` schedule added confirmation from device`)
+        if(msg.socketId){
+          if(!msg.error){
+            let socket = msg.socketId;
+            delete msg.socketId;
+            app.io.to(socket).emit('scheduleAdded',msg)
+          } else if (msg.devices){
+            msg.devices.some(s => {
+              app.io.to(s).emit('deleteSchedule', msg.scheduleId);
+            })
+            app.io.to(socket).emit('scheduleAdded',{error : 'error while creating schedule'})
 
+          }
+        }
+      })
       socket.on('addSchedule',function(msg, callback){
         log.info(`add schedule request`)
         if(!msg || !msg.name || !msg.devices || !Object.keys(msg.devices).length ){
@@ -312,12 +336,37 @@ boot(app, __dirname, function(err) {
         if(payload && payload.error){
           callback(payload);
         }else{
-          const locationId = uuid();
+          const scheduleId = uuid();
           devices.map(m => {
-            app.io.to(m).emit('addSchedule', {schedule:msg.schedule,devices:devices,locationId:locationId, name: msg.name, boards: msg.devices[m], socketId: socket.id})
+            console.log(`add schedule request sent to device ${m}`)
+            app.io.to(m).emit('addSchedule', {schedule:msg.schedule,devices:devices,scheduleId:scheduleId, name: msg.name, boards: msg.devices[m], socketId: socket.id})
             return m
           })
         }
+      });
+
+      socket.on('toggleSchedule', payload => {
+        console.log('request to toggle schedule')
+        console.log(payload)
+        payload.socketId=socket.id;
+        app.io.to(payload.deviceId).emit('toggleSchedule', payload);
+      })
+
+      socket.on('scheduleToggled', msg => {
+        app.io.to(msg.socketId).emit('scheduleToggled', msg);
+      });
+
+
+
+      socket.on('deleteSchedule', payload => {
+        console.log('request to delete schedule')
+        console.log(payload)
+        payload.socketId=socket.id;
+        app.io.to(payload.deviceId).emit('deleteSchedule', payload);
+      })
+
+      socket.on('scheduleDeleted', msg => {
+        app.io.to(msg.socketId).emit('scheduleDeleted', msg);
       });
 
 
