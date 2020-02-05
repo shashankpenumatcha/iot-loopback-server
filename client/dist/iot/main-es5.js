@@ -1842,7 +1842,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     });
 
     var Config = {
-      server: 'http://localhost:3001'
+      server: 'http://134.209.155.230:3001'
     };
     /***/
   },
