@@ -45,8 +45,8 @@ margin: 30px auto;">
                     <table style="width:100px;height:70px;">
                       <tr>
                         <td style="width:50px;padding:24px">
-                          <button style="outline:none;border:none;background:none;" *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)"><i class="far fa-square"></i></button>
-                         <button style="outline:none;border:none;background:none;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square"></i></button>
+                          <button style="outline:none;border:none;background:none;color:#ff5722;" *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)"><i class="far fa-square"></i></button>
+                         <button style="outline:none;border:none;background:none;color:#ff5722;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square"></i></button>
                         </td>
 
                             <td style="font-size:25px;">

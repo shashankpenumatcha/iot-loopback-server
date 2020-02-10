@@ -10,11 +10,11 @@
   top: 10px;"><img class="auto-back" src="content/images/back.svg" /></div>
 </div> -->
 <div class="auto-spacer"></div>
-<div  class="auto0-bodyhead">
+<div style="font-size:21px;" class="auto0-bodyhead">
   Easily Automate your smart switches
 </div>
 <div  class="auto0-bodyhead1" style="padding:0px">
-  <button style="background-color: white; */
+  <button style="background-color: white;
   width: 150px;
   height: 40px;
   border-radius: 4px;
@@ -34,8 +34,8 @@
   <div class="row">
     <ng-container *ngFor="let schedule of schedules | keyvalue">
         <div style="padding:10px;margin:15px 0px;" class="col-lg-3 col-md-4 col-6">
-          <div style="border: 1px solid beige;" *ngIf="schedule.value&&schedule.value.schedule">
-           <div style="color:#fff;padding:5px 10px;background:#282c34">
+          <div style="border: 1px solid #2d4059;" *ngIf="schedule.value&&schedule.value.schedule">
+           <div style="color:#fff;padding:5px 10px;background:#2d4059">
              <p style="margin: 0px;" *ngIf="schedule.value.schedule.name">{{schedule.value.schedule.name}}</p>
            </div>
            <div style="padding:10px">

@@ -1,11 +1,43 @@
 <div *ngIf="selected" style="position:fixed;bottom:0px;right:0px;background:#222831;height: 80px;width:100%;">
   <div class="container">
     <div style="color: #fff;
-    padding-top: 20px;" class="row">
-      <div [routerLink]="['/']" [ngClass]="{'selected':selected=='Home'}" class="col-3">Home</div>
-      <div [ngClass]="{'selected':selected=='Usage'}" class="col-3">Usage</div>
-      <div [routerLink]="['/schedules']" [ngClass]="{'selected':selected=='Schedules'}" class="col-3">Schedules</div>
-      <div [ngClass]="{'selected':selected=='Settings'}" class="col-3">Settings</div>
+    padding-top: 20px;text-align: center;" class="row">
+      <div [routerLink]="['/']" [ngClass]="{'selected':selected=='Home'}" class="col-3">
+       <div>
+        <i class="fas fa-home"></i>
+       </div>
+        <div>
+
+          Home
+        </div>
+      </div>
+      <div [ngClass]="{'selected':selected=='Usage'}" class="col-3">
+        <div>
+          <i class="fas fa-chart-line"></i>
+                 </div>
+          <div>
+
+            Usage
+          </div>
+      </div>
+      <div [routerLink]="['/schedules']" [ngClass]="{'selected':selected=='Schedules'}" class="col-3">
+        <div>
+          <i class="far fa-calendar-alt"></i>
+         </div>
+          <div>
+
+            Schedules
+          </div>
+      </div>
+      <div  [routerLink]="['/settings']"  [ngClass]="{'selected':selected=='Settings'}" class="col-3">
+        <div>
+          <i class="fas fa-cog"></i>
+                 </div>
+          <div>
+
+            Settings
+          </div>
+      </div>
     </div>
   </div>
 </div>

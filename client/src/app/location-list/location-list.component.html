@@ -57,6 +57,14 @@ boards - {{boards.length}} -->
             border-bottom: 1px solid #393e4630;
             align-items: center;
             ">
+              <ng-container *ngIf="selectedSwitches">
+                <button  *ngIf="!selectedForSchedule!||!selectedForSchedule[switch.deviceId]||
+                !selectedForSchedule[switch.deviceId][switch.board]||
+                !selectedForSchedule[switch.deviceId][switch.board][switch.switch]"  (click)="addSchedule(switch)" style="outline:none;border:none;background:none;margin-right: 15px;color:#ff5722;"><i class="far fa-square"></i></button>
+                <button *ngIf="selectedForSchedule[switch.deviceId]&&
+                selectedForSchedule[switch.deviceId][switch.board]&&
+                selectedForSchedule[switch.deviceId][switch.board][switch.switch]" (click)="removeSchedule(switch)" style="outline:none;border:none;background:none;margin-right: 15px;color:#ff5722;" ><i class="far fa-check-square"></i></button>
+              </ng-container>
               <p style="margin-bottom:0px" *ngIf="switch.name"> {{switch.name}} </p>
 
               <label class="switch">

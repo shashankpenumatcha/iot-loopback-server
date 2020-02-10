@@ -10,6 +10,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifiedComponent } from './verified/verified.component';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent, data: {nav: true, toolbar: false, back: '/welcome' }},
   {path: 'welcome', component: LandingPageComponent},
   {path: 'add-location', component: AddLocationComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: 'settings', component: SettingsComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
 
   {path: 'carousel', component: CarouselComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'device-list', component: DeviceListComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
