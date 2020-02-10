@@ -1,10 +1,10 @@
 <div class="register-root">
-  <div class="register-head">Signup</div>
+
   <div class="register-body">
 
     <div class="regbdy-up1"></div>
     <div class="lheadtext"><p>Dont have an account yet?</p></div>
-    <div class="lheadtext"><img src="content/images/singup.png" height="100px"></div>
+    <div style="margin-top: 0px;" class="lheadtext"><img src="content/images/singup.png" height="100px"></div>
 
 
     <div class="regbdy-up">
@@ -13,15 +13,23 @@
 
     <input [(ngModel)]="email" class="reginp" placeholder="Email">
 
-    <input [(ngModel)]="password" class="reginp" placeholder="password" type="password">
+    <input [(ngModel)]="password" class="reginp" placeholder="Password" type="password">
 
     </div>
-    <div class=regbdy-up2><input [(ngModel)]="terms" type="checkbox"></div>
+    <div  style="margin-top:15px;" class=regbdy-up2><input [(ngModel)]="terms" type="checkbox"></div>
     <div class=regbdy-up2> <br/><p> I Agree to terms & conditions</p></div>
     <div class="regbdy-down"></div>
   </div>
   <div class="register-buttons">
-    <button (click)="signup()" [disabled]="!username||!email||!password||!terms" class="register-btn">Register</button>
+    <button (click)="signup()" [disabled]="!username||!email||!password||!terms" class="register-btn">
+     <div *ngIf="!loading">
+
+       Register
+     </div>
+     <div *ngIf="loading" class="spinner-border text-light" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    </button>
   </div>
   <p class="error" *ngIf="error"> {{error}}</p>
   <p class="message" *ngIf="success">Sign up success. A verification email has been sent to your email account. <span style="cursor:pointer" [routerLink]="['/login']">Proceed to login</span></p>

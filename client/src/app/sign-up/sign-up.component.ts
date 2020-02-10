@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchData } from '../shared/services/fetch-data';
+import { LayoutServiceService } from '../layout-service.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,9 +14,15 @@ export class SignUpComponent implements OnInit {
   error: string;
   terms: boolean;
   success: boolean;
-  constructor(private fetchData: FetchData) { }
+  loading = false;
+  constructor(private fetchData: FetchData, private layoutService: LayoutServiceService) { }
 
   ngOnInit() {
+    this.layoutService.title.next('Register');
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(['/welcome']);
+    this.layoutService.toolbar.next(null);
+
   }
 
   signup() {
@@ -28,7 +35,10 @@ export class SignUpComponent implements OnInit {
       emailVerified: true
     };
 
+    this.loading = true;
     this.fetchData.signup(payload).subscribe(res => {
+      this.loading = false;
+
       console.log(res);
       this.username = null;
       this.email = null;
@@ -36,6 +46,8 @@ export class SignUpComponent implements OnInit {
       this.terms = true;
       this.success = true;
     }, err => {
+      this.loading = false;
+
       let e = null;
       if( err.error && err.error.error) {
         e = err.error.error;

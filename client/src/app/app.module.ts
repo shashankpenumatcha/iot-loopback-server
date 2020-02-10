@@ -17,11 +17,12 @@ import { AddBoardComponent } from './add-board/add-board.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifiedComponent } from './verified/verified.component';
-
 import {Config} from './app.config.js';
 import { LocationListComponent } from './location-list/location-list.component';
 import { HomeToolbarComponent } from './home-toolbar/home-toolbar.component';
 import { AddScheduleComponent } from './add-schedule/add-schedule.component';
+import { HeaderComponent } from './header/header.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
@@ -47,7 +48,9 @@ const config: SocketIoConfig = { url: Config.server, options: {} };
     VerifiedComponent,
     LocationListComponent,
     HomeToolbarComponent,
-    AddScheduleComponent
+    AddScheduleComponent,
+    HeaderComponent,
+    ToolbarComponent
   ],
   entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent],
   providers: [

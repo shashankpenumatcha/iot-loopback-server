@@ -5,16 +5,29 @@
     <input style="width: 100%;height: 36px;font-size: 100%;border: none;border-bottom: 1px solid #0000001a;outline:none;"
     [disabled]="adding" [(ngModel)]="boardId" type="text" placeholder="Enter Board ID"/>
   </div>
-
+<p *ngIf="error" style="color: red;
+font-size: 12px;
+text-align: center;
+position: relative;
+top: 22px;
+">Error adding board, please try again</p>
    <div id="scan-section">
      <button style="margin: 0 auto;
         display: block;
         margin-top: 40px;
         padding: 10px 35px;
-        background: #3d5af1;
-        border: 1px solid #3d5af1;
-        border-radius: 200px;
-        color: #fff;"  [disabled]="adding||!deviceId||!boardId" (click)="addBoard()">Add Board</button>
+        background: #ff5722;
+        border: 1px solid #ff5722;
+        border-radius: 4px;
+        color: #fff;"  [disabled]="adding||!deviceId||!boardId" (click)="addBoard()">
+        <div *ngIf="!adding">
+          Add Board
+
+        </div>
+        <div *ngIf="adding" class="spinner-border text-light" role="status">
+          <span class="sr-only">Adding...</span>
+        </div>
+      </button>
 
    </div>
 

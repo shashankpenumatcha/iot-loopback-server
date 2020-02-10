@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LayoutServiceService } from '../layout-service.service';
 
 @Component({
   selector: 'app-carousel',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
   step = 1;
-  constructor() { }
+  constructor(private layoutService: LayoutServiceService) { }
 
   ngOnInit() {
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(null);
+    this.layoutService.title.next('Setup your Hub');
+
+  }
+  changeStep(title) {
+    this.layoutService.title.next(title);
+
   }
 
 }

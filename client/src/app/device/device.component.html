@@ -2,52 +2,66 @@
 
 
 
-<div *ngIf="!step && (!devices|| !devices.length)" class="step2-root">
-  <div class="step2-head">Register your Device</div>
-  <p style="text-align: center;text-align: center;
-  width: 400px;
+<div *ngIf="!step && (!devices|| !devices.length)" class="step1-root">
+  <p style="text-align: center;
+  text-align: center;
+  width: 700px;
   max-width: 90vw;
   margin: 0 auto;
-  opacity: 0.5;
-  margin-top: 50px;">Enter the device ID to register your device. Your device ID can be found printed on the device.</p>
+  /* opacity: 0.5; */
+  margin-top: 50px;
+  font-size: 21px;
+  color: #393e46;
+  margin-bottom: 35px;
+">Enter the device ID to register your device. Your device ID can be found printed on the device.</p>
   <input style="width: 300px;
   max-width: 90vw;
   margin: 0 auto;
   display: block;
-  margin-top: 20px;text-align:center;" type="text" placeholder="Enter device ID" [(ngModel)]="deviceId">
-  <div style="margin-top:90px;" class="step2-btn"><button [disabled]="!deviceId || !deviceId.length" (click)="register(deviceId)" class="step2-btnn">Next</button></div>
+  margin-top: 20px;text-align:center;    background: transparent;
+    width: 500px;
+    height: 40px;
+    border: none;
+    border: 1px solid #ff5722;
+    border-radius: 4px;
+    margin: 10px auto;" type="text" placeholder="Enter device ID" [(ngModel)]="deviceId">
+  <div style="margin-top:40px;" class="step1-btn"><button [disabled]="!deviceId || !deviceId.length" (click)="register(deviceId)" class="step1-btnn">Next</button></div>
+
+  <p (click)="step=4;changeStep('Setup complete')" style="text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #ff5722;
+  margin-top: 25px;
+  text-decoration: underline;
+  cursor: pointer;">Skip</p>
 </div>
 
 
-<div *ngIf="step==4" class="step4-root">
-  <div class="step4-head">Setup Complete</div>
-  <div class="step4-text">STEP 4</div>
-  <div class="step4-text"><img height="100px" src="content/images/check.png" /></div>
-  <div class="step4-txt">
+<div *ngIf="step==4" class="step1-root">
+  <div class="step1-text">STEP 4</div>
+  <div class="step1-text"><img height="100px" src="content/images/check.png" /></div>
+  <div class="step1-txt">
     Your hub should be setup now. Time to add boards
   </div>
-  <div (click)="step=5" class="step4-btn"><button class="step4-btnn">Next</button></div>
+  <div (click)="step=5;changeStep('Adding Boards')" class="step1-btn"><button class="step1-btnn">Next</button></div>
 </div>
 
 
 
-<div *ngIf="step==5" class="step5-root">
-  <div class="step5-head">Adding boards</div>
-  <div class="step5-text">STEP 5</div>
-  <div class="step5-text"><img height="100px" src="content/images/switch.png" /></div>
-  <div class="step5-txt">
+<div *ngIf="step==5" class="step1-root">
+  <div class="step1-text">STEP 5</div>
+  <div class="step1-text"><img height="100px" src="content/images/switch.png" /></div>
+  <div class="step1-txt">
     Boards contain multiple switches that you can use to control appliances
   </div>
-  <div (click)="step=6"  class="step5-btn"><button class="step5-btnn">Next</button></div>
+  <div (click)="step=6;changeStep('Adding Locations')"  class="step1-btn"><button class="step1-btnn">Next</button></div>
 </div>
 
 
-<div *ngIf="step==6" class="step6-root">
-  <div class="step6-head">Add Locations</div>
-  <div class="step6-text">STEP 6</div>
-  <div class="step6-text"><img height="200px" src="content/images/loc.jpeg" /></div>
-  <div class="step6-txt">
+<div *ngIf="step==6" class="step1-root">
+  <div class="step1-text">STEP 6</div>
+  <div class="step1-text"><img height="200px" src="content/images/loc.jpeg" /></div>
+  <div class="step1-txt">
     Boards can be added to various locations such as bedroom,toilet
   </div>
-  <div [routerLink]="['/']" class="step6-btn"><button class="step6-btnn">Next</button></div>
+  <div [routerLink]="['/']" class="step1-btn"><button class="step1-btnn">Next</button></div>
 </div>

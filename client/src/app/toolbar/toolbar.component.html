@@ -1,0 +1,11 @@
+<div *ngIf="selected" style="position:fixed;bottom:0px;right:0px;background:#222831;height: 80px;width:100%;">
+  <div class="container">
+    <div style="color: #fff;
+    padding-top: 20px;" class="row">
+      <div [routerLink]="['/']" [ngClass]="{'selected':selected=='Home'}" class="col-3">Home</div>
+      <div [ngClass]="{'selected':selected=='Usage'}" class="col-3">Usage</div>
+      <div [routerLink]="['/schedules']" [ngClass]="{'selected':selected=='Schedules'}" class="col-3">Schedules</div>
+      <div [ngClass]="{'selected':selected=='Settings'}" class="col-3">Settings</div>
+    </div>
+  </div>
+</div>

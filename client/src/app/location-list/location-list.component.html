@@ -5,8 +5,8 @@ boards - {{boards.length}} -->
 <div class="container">
 
 
-  <div style="padding:45px 0px"  *ngIf="locations" class="row">
-    <div class="col-12">
+  <div style="padding:45px 0px 25px 0px"  *ngIf="locations" class="row">
+    <div class="col-12" style="padding: 0px;">
       <ng-container *ngFor="let location of locations | keyvalue">
         <span *ngIf="location.key" [ngClass]="{'selected' : location.key == selectedLocation}"  (click)="selectedLocation = location.key" style="cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;" >
          {{location.value.name}}
@@ -27,9 +27,9 @@ boards - {{boards.length}} -->
             onlineDevices[switch.deviceId][switch.board].switches.length&&
             onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&
             onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null&&
-            switch.locationId == selectedLocation" class="col-6 col-md-4 col-lg-3">
+            switch.locationId == selectedLocation" class="col-12" style="padding:0px">
 
-            <div style="text-align:center;height:150px;background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;">
+            <!-- <div style="text-align:center;height:150px;background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;">
               <i style="margin-top:30px;font-size:34px;opacity:0.5" class="fas fa-tv"></i>
               <p style="margin-bottom:0px" *ngIf="switch.name"> {{switch.name}} </p>
 
@@ -39,10 +39,7 @@ boards - {{boards.length}} -->
                   <span style="color:#00000040" *ngIf="!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]">OFF</span>
                 </span>
                 </p>
-              <!--   <i style=" position: absolute;
-                bottom: 7px;
-                right: 27px;
-                opacity: 0.5;" class="fas fa-arrow-right"></i > -->
+
                 <ng-container *ngIf="selectedSwitches">
                   <button  *ngIf="!selectedForSchedule!||!selectedForSchedule[switch.deviceId]||
                   !selectedForSchedule[switch.deviceId][switch.board]||
@@ -51,6 +48,21 @@ boards - {{boards.length}} -->
                   selectedForSchedule[switch.deviceId][switch.board]&&
                   selectedForSchedule[switch.deviceId][switch.board][switch.switch]" (click)="removeSchedule(switch)" style="outline:none;border:none;background:none;" ><i class="far fa-check-square"></i></button>
                 </ng-container>
+            </div> -->
+            <div style="display: flex;
+            /* background: #393e46; */
+            color: #393e46;
+            padding: 15px 15px;
+            font-size: 18px;
+            border-bottom: 1px solid #393e4630;
+            align-items: center;
+            ">
+              <p style="margin-bottom:0px" *ngIf="switch.name"> {{switch.name}} </p>
+
+              <label class="switch">
+                <input (click)="toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)" [(ngModel)]="onlineDevices[switch.deviceId][switch.board].switches[switch.switch]" type="checkbox">
+                <span class="slider round"></span>
+              </label>
             </div>
             </div>
           </ng-container>

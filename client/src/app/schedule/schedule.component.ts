@@ -6,6 +6,7 @@ import { Socket } from 'ngx-socket-io';
 import {Router} from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddScheduleComponent } from '../add-schedule/add-schedule.component';
+import { LayoutServiceService } from '../layout-service.service';
 
 @Component({
   selector: 'app-schedule',
@@ -33,7 +34,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     {i: 6, v: 'S', selected: false},
   ];
 
-  constructor(private router: Router, private connect: ConnectSocket, private socket: Socket, config: NgbModalConfig, private modalService: NgbModal
+  constructor(private layoutService:LayoutServiceService, private router: Router, private connect: ConnectSocket, private socket: Socket, config: NgbModalConfig, private modalService: NgbModal
   ) {
      config.backdrop = 'static';
      config.keyboard = false;
@@ -41,6 +42,11 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     }
 
   ngOnInit() {
+    this.layoutService.toolbar.next("Schedules");
+
+    this.layoutService.title.next("Schedules");
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(['/']);
     this.subscriptions.add(
       this.connect.onlineDevices$.subscribe(res => {
         if (res) {

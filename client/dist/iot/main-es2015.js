@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"padding:25px;\">\n  <h3>Add Board - {{deviceId}}</h3>\n  <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;height: 36px;font-size: 100%;border: none;border-bottom: 1px solid #0000001a;outline:none;\"\n    [disabled]=\"adding\" [(ngModel)]=\"boardId\" type=\"text\" placeholder=\"Enter Board ID\"/>\n  </div>\n\n   <div id=\"scan-section\">\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #3d5af1;\n        border: 1px solid #3d5af1;\n        border-radius: 200px;\n        color: #fff;\"  [disabled]=\"adding||!deviceId||!boardId\" (click)=\"addBoard()\">Add Board</button>\n\n   </div>\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"padding:25px;\">\n  <h3>Add Board - {{deviceId}}</h3>\n  <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;height: 36px;font-size: 100%;border: none;border-bottom: 1px solid #0000001a;outline:none;\"\n    [disabled]=\"adding\" [(ngModel)]=\"boardId\" type=\"text\" placeholder=\"Enter Board ID\"/>\n  </div>\n<p *ngIf=\"error\" style=\"color: red;\nfont-size: 12px;\ntext-align: center;\nposition: relative;\ntop: 22px;\n\">Error adding board, please try again</p>\n   <div id=\"scan-section\">\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #ff5722;\n        border: 1px solid #ff5722;\n        border-radius: 4px;\n        color: #fff;\"  [disabled]=\"adding||!deviceId||!boardId\" (click)=\"addBoard()\">\n        <div *ngIf=\"!adding\">\n          Add Board\n\n        </div>\n        <div *ngIf=\"adding\" class=\"spinner-border text-light\" role=\"status\">\n          <span class=\"sr-only\">Adding...</span>\n        </div>\n      </button>\n\n   </div>\n\n\n</div>\n");
 
 /***/ }),
 
@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"padding:25px;\">\n\n\n  <h3>Add Location</h3>\n  <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;\n    height: 36px;\n    font-size: 100%;\n    border: none;\n    border-bottom: 1px solid #0000001a;outline:none;\" [disabled]=\"adding\" [(ngModel)]=\"name\" type=\"text\" placeholder=\"Location Name\"/>\n  </div>\n  <button style=\"border:none;background:none;position: absolute;\n  right: 29px;\n  opacity: 0.5;margin-top:20px\"  id=\"scan-btn\" (click)=\"scan(true)\"><i class=\"fas fa-sync-alt\"></i></button>\n   <div id=\"scan-section\">\n\n     <div style=\"    margin-top: 50px;padding: 15px;border-radius: 5px;background: #107a8b08;\" id=\"switches\" *ngIf=\"deviceLength&&!adding&&showSwitches\">\n        <div *ngFor=\"let device of devices | keyvalue ; let ix=index\">\n            <ng-container *ngIf=\"device.value\">\n              <div *ngFor=\"let board of device.value | keyvalue; let ixx = index\">\n\n                <ng-container *ngIf=\"board.value && board.value.switches; \">\n\n\n\n                  <div style=\"margin-bottom:20px;background:white;\" *ngFor=\"let switch of board.value.switches; let i = index\">\n\n\n                    <table style=\"width:100px;height:70px;\">\n                      <tr>\n                        <td style=\"width:50px;padding:24px\">\n                          <button style=\"outline:none;border:none;background:none;\" *ngIf=\"(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])\" (click)=\"select(device.key,board.key, i)\"><i class=\"far fa-square\"></i></button>\n                         <button style=\"outline:none;border:none;background:none;\"  *ngIf=\"selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]\" (click)=\"deselect(device.key,board.key, i)\"><i class=\"far fa-check-square\"></i></button>\n                        </td>\n\n                            <td style=\"font-size:25px;\">\n                              <button style=\"outline:none;padding:0px;margin:0px;border:none;background:none;\"  *ngIf=\"devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\"><i class=\"fas fa-toggle-on\"></i></button>\n                              <button style=\"outline:none;padding:0px;margin: 0px;border:none;background:none;\"  *ngIf=\"!devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\"><i class=\"fas fa-toggle-off\"></i></button>\n                            </td>\n\n                            <td style=\"height:35px;padding-left:25px\">\n                              <input style=\"outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;\"  *ngIf=\"selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]\" placeholder=\"label\" [(ngModel)]=\"selectedSwitches[device.key][board.key][i].label\">\n\n                            </td>\n\n\n                      </tr>\n                    </table>\n\n                  </div>\n                </ng-container>\n              </div>\n            </ng-container>\n        </div>\n\n        <div *ngIf=\"!switchCount\">\n          <p style=\"text-align:center\">No free switches available</p>\n        </div>\n     </div>\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #3d5af1;\n        border: 1px solid #3d5af1;\n        border-radius: 200px;\n        color: #fff;\"  [disabled]=\"!name||adding||!switchCount\" (click)=\"addLocation()\">Add Location</button>\n     <div *ngIf=\"!deviceLength\">\n       No devices found\n     </div>\n   </div>\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"border: none;\nbackground: none;\nposition: relative;\nright: 0px;\nopacity: 1;\nmargin-top: 20px;\nwidth: 500px;\nmax-width: 90vw;\nmargin: 30px auto;\">\n\n\n<!--   <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n -->  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;\n    height: 45px;\n    font-size: 100%;\n    border: none;\n    border-bottom: 1px solid #0000001a;\n    outline: none;\n    padding-left: 10px;\n    border: 1px solid #ff5722;\n    border-radius: 4px;\" [disabled]=\"adding\" [(ngModel)]=\"name\" type=\"text\" placeholder=\"Location Name\"/>\n  </div>\n  <button style=\"border:none;background:none;position: absolute;\n  right: 29px;\n  opacity: 0.5;margin-top:20px\"  id=\"scan-btn\" (click)=\"scan(true)\"><i class=\"fas fa-sync-alt\"></i></button>\n   <div id=\"scan-section\">\n\n     <div style=\"     margin-top: 50px;\n     padding: 15px;\n     border-radius: 5px;\n     background: #222831;\n     color: #eeeeee;\" id=\"switches\" *ngIf=\"deviceLength&&!adding&&showSwitches\">\n        <div *ngFor=\"let device of devices | keyvalue ; let ix=index\">\n            <ng-container *ngIf=\"device.value\">\n              <div *ngFor=\"let board of device.value | keyvalue; let ixx = index\">\n\n                <ng-container *ngIf=\"board.value && board.value.switches; \">\n\n\n\n                  <div style=\"margin-bottom:20px;background:white;position: relative;\" *ngFor=\"let switch of board.value.switches; let i = index\">\n\n\n                    <table style=\"width:100px;height:70px;\">\n                      <tr>\n                        <td style=\"width:50px;padding:24px\">\n                          <button style=\"outline:none;border:none;background:none;\" *ngIf=\"(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])\" (click)=\"select(device.key,board.key, i)\"><i class=\"far fa-square\"></i></button>\n                         <button style=\"outline:none;border:none;background:none;\"  *ngIf=\"selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]\" (click)=\"deselect(device.key,board.key, i)\"><i class=\"far fa-check-square\"></i></button>\n                        </td>\n\n                            <td style=\"font-size:25px;\">\n                            <!--   <button style=\"outline:none;padding:0px;margin:0px;border:none;background:none;\"  *ngIf=\"devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\"><i class=\"fas fa-toggle-on\"></i></button>\n                              <button style=\"outline:none;padding:0px;margin: 0px;border:none;background:none;\"  *ngIf=\"!devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\"><i class=\"fas fa-toggle-off\"></i></button>\n                            -->\n                            <label style=\"right: 23px;bottom:13px\" class=\"switch\">\n                              <input [(ngModel)]=\"devices[device.key][board.key].switches[i]\" (click)=\"toggle(device.key,switch,board.key,i)\" type=\"checkbox\">\n                              <span class=\"slider round\"></span>\n                            </label>\n                            </td>\n\n                            <td style=\"height:35px;padding-left:25px\">\n                              <input style=\"outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;\"  *ngIf=\"selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]\" placeholder=\"label\" [(ngModel)]=\"selectedSwitches[device.key][board.key][i].label\">\n\n                            </td>\n\n\n                      </tr>\n                    </table>\n\n                  </div>\n                </ng-container>\n              </div>\n            </ng-container>\n        </div>\n\n        <div *ngIf=\"!switchCount\">\n          <p style=\"text-align:center\">No free switches available</p>\n        </div>\n     </div>\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #ff5722;\n        border: 1px solid #ff5722;\n        border-radius: 4px;\n        color: #fff;\"  [disabled]=\"!name||adding||!switchCount\" (click)=\"addLocation()\">Add Location</button>\n     <div *ngIf=\"!deviceLength\">\n       No devices found\n     </div>\n   </div>\n\n\n</div>\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\n  <app-header></app-header>\n</div>\n<div>\n  <router-outlet></router-outlet>\n</div>\n<div>\n  <app-toolbar></app-toolbar>\n</div>\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"step==1\" class=\"step1-root\">\r\n  <div class=\"step1-head\">Setup your hub</div>\r\n  <div class=\"step1-text\">STEP 1</div>\r\n  <div class=\"step1-text\"><img height=\"250px\" src=\"content/images/connect.gif\" /></div>\r\n  <div class=\"step1-txt\">\r\n    Plug the Bluebox hub into the socket and switch it on\r\n  </div>\r\n  <div (click)=\"step=2\" class=\"step1-btn\"><button class=\"step1-btnn\">Next</button></div>\r\n</div>\r\n\r\n<div *ngIf=\"step==2\" class=\"step2-root\">\r\n  <div class=\"step2-head\">Setup your hub</div>\r\n  <div class=\"step2-text\">STEP 2</div>\r\n  <div class=\"step2-text\"><img height=\"250px\" src=\"content/images/wifi.gif\" /></div>\r\n  <div class=\"step2-txt\">\r\n    Using your browser or phone connect to wireless network called\r\n    AP_BlueBox\r\n  </div>\r\n  <div (click)='step=3' class=\"step2-btn\"><button class=\"step2-btnn\">Next</button></div>\r\n</div>\r\n\r\n\r\n<div *ngIf=\"step==3\" class=\"step2-root\">\r\n  <div class=\"step2-head\">Setup your hub</div>\r\n  <div class=\"step2-text\">STEP 3</div>\r\n  <div class=\"step2-text\"><img height=\"250px\" src=\"content/images/wifi.gif\" /></div>\r\n  <div class=\"step2-txt\">\r\n    Select to your home WiFi Network, enter password and click on connect\r\n  </div>\r\n  <div [routerLink]=\"['/devices']\" class=\"step2-btn\"><button class=\"step2-btnn\">Next</button></div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"step==1\" class=\"step1-root\">\r\n  <div class=\"step1-text\">STEP 1</div>\r\n  <div class=\"step1-text\"><img height=\"250px\" src=\"content/images/connect.gif\" /></div>\r\n  <div class=\"step1-txt\">\r\n    Plug the Bluebox hub into the socket and switch it on\r\n  </div>\r\n  <div (click)=\"step=2;changeStep('Setup your Hub')\" class=\"step1-btn\"><button class=\"step1-btnn\">Next</button></div>\r\n</div>\r\n\r\n<div *ngIf=\"step==2\" class=\"step1-root\">\r\n  <div class=\"step1-text\">STEP 2</div>\r\n  <div class=\"step1-text\"><img height=\"250px\" src=\"content/images/wifi.gif\" /></div>\r\n  <div class=\"step1-txt\">\r\n    Using your browser or phone connect to wireless network called\r\n    AP_BlueBox\r\n  </div>\r\n  <div (click)=\"step=3;changeStep('Setup your Hub')\" class=\"step1-btn\"><button class=\"step1-btnn\">Next</button></div>\r\n</div>\r\n\r\n\r\n<div *ngIf=\"step==3\" class=\"step1-root\">\r\n  <div class=\"step1-text\">STEP 3</div>\r\n  <div class=\"step1-text\"><img height=\"250px\" src=\"content/images/wifi.gif\" /></div>\r\n  <div class=\"step1-txt\">\r\n    Select to your home WiFi Network, enter password and click on connect\r\n  </div>\r\n  <div [routerLink]=\"['/devices']\" class=\"step1-btn\"><button class=\"step1-btnn\">Next</button></div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -97,7 +97,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div style=\"box-shadow: 0px 0px 4px 0px #6d696929;\" class=\"col-12\">\n      <h4 style=\"color: #3d5af1;opacity: 0.8;margin:15px 0px 25px 0px\">Add Boards</h4>\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div style=\"padding:15px;\" *ngIf=\"onlineDevicesLength\" class=\"col-6 col-md-4 col-lg-3\">\n      <ng-container *ngFor=\"let device of devices|keyvalue\">\n        <div style=\"padding:15px;margin-bottom:15px;    border: 1px solid #00000017;\n        box-shadow: 0px 4px 4px 0px #6d696929;\">\n          <div style=\"margin-bottom:5px;\">\n            <span style=\"font-weight: bold;\">\n              Device Id:\n            </span>\n            <span>{{device.key}}</span>\n          </div>\n          <div style=\"opacity:0.5;margin-bottom:25px;font-size:10px;\">\n            <i  style=\"font-size: 10px;\" class=\"fas fa-microchip\"></i>\n            {{object.keys(device.value).length}}\n          </div>\n          <div (click)=\"launchBoardAdder(device.key)\" style=\"font-size:12px;color:#3d5af1;cursor:pointer;\">\n            <i  style=\"font-size: 10px;\" class=\"fas fa-plus\"></i>\n            Add Board\n          </div>\n        </div>\n      </ng-container>\n    </div>\n    <ng-container *ngIf=\"!onlineDevicesLength\">\n      <p>No online devices</p>\n    </ng-container>\n  </div>\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\">\n  <!-- <div class=\"row\">\n    <div style=\"box-shadow: 0px 0px 4px 0px #6d696929;\" class=\"col-12\">\n      <h4 style=\"color: #3d5af1;opacity: 0.8;margin:15px 0px 25px 0px\">Add Boards</h4>\n    </div>\n  </div> -->\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div style=\"padding:15px;\" *ngIf=\"onlineDevicesLength\" class=\"col-6 col-md-4 col-lg-3\">\n      <ng-container *ngFor=\"let device of devices|keyvalue\">\n        <div style=\"padding: 15px;\n        margin-bottom: 15px;\n        border: 1px solid #222831;\n        box-shadow: 0px 4px 4px 0px #6d696929;\n        background: #222831;\n        color: #fff;\">\n          <div style=\"margin-bottom:5px;\">\n            <span style=\"font-weight: bold;\">\n              Device Id:\n            </span>\n            <span>{{device.key}}</span>\n          </div>\n          <div style=\"opacity:0.5;margin-bottom:25px;font-size:10px;\">\n            <i  style=\"font-size: 10px;\" class=\"fas fa-microchip\"></i>\n            {{object.keys(device.value).length}}\n          </div>\n\n          <div (click)=\"launchBoardAdder(device.key)\" style=\"font-size:12px;color:#ff5722;cursor:pointer;\">\n            <i  style=\"font-size: 10px;color:#ff5722\" class=\"fas fa-plus\"></i>\n            Add Board\n          </div>\n        </div>\n      </ng-container>\n    </div>\n    <ng-container *ngIf=\"!onlineDevicesLength\">\n      <p>No online devices</p>\n    </ng-container>\n  </div>\n</div>\n\n\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/header/header.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/header/header.component.html ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"show\" style=\"background:#222831;position:relative;height: 100px;width:100%;\">\n  <div style=\"width:100%;padding-bottom:10px;text-align:center; position:  absolute;bottom:0px;\">\n    <span style=\"color:#fff;font-family: 'Roboto';font-size: 21px;\">{{title}}</span>\n    <span style=\"color: #fff;\n    position: absolute;\n    right: 20px;\n    bottom: 13px;\" *ngIf=\"back\" [routerLink]=\"back\">Back</span>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -123,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<div class=\"h-head\">\n  <div class=\"h-header\">Home</div>\n\n  <div ngbDropdown #myDrop=\"ngbDropdown\">\n    <img id=\"dropdownManual\" ngbDropdownAnchor (click)=\"myDrop.open()\" class=\"h-back\" src=\"content/images/add.png\" />\n    <div ngbDropdownMenu aria-labelledby=\"dropdownManual\">\n      <button ngbDropdownItem  [routerLink]=\"['/devices/']\">Add Device</button>\n      <button ngbDropdownItem [routerLink]=\"['/device-list']\">Add Board</button>\n      <button (click)=\"launchDeviceAdder()\" ngbDropdownItem>Add Location</button>\n      <button [routerLink]=\"['/schedules']\" ngbDropdownItem>Add Schedule</button>\n\n    </div>\n  </div>\n\n</div>\n<div style=\"margin-top: 90px;\" class=\"container\">\n  <div class=\"row\">\n\n    <div class=\"col-12\">\n      <div style=\"display: flex;\">\n\n        <span class=\"panel\">\n\n\n          <table style=\"display:inline-block;border-right: 2px solid #ffffff61;\">\n            <tr>\n              <td>\n                <i *ngIf=\"onlineDevicesLength\" style=\"font-size: 18px;\" class=\"far fa-hdd\"></i>\n                <i *ngIf=\"!onlineDevicesLength\" style=\"font-size: 18px;\" class=\"fas fa-exclamation\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\"><span>{{onlineDevicesLength}}</span><span> Online</span></span>\n\n                </td></tr>\n                <tr><td style=\"opacity: 0.5;\">\n                  <span style=\"display:block\">Hub<span *ngIf=\"onlineDevicesLength>1||!onlineDevicesLength\">s</span></span>\n\n                </td></tr>\n              </td>\n            </tr>\n          </table>\n\n          <table [ngClass]=\"{'disabled': !onlineDevicesLength}\" style=\"padding:6px;display:inline-block\">\n            <tr  (click)=\"launchDeviceAdder()\" style=\"cursor:pointer\">\n              <td>\n                <i  style=\"font-size: 18px; margin-left: 18px;\" class=\"fas fa-plus\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 0px 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\">Add Location</span>\n\n                </td></tr>\n\n              </td>\n            </tr>\n          </table>\n\n        </span>\n      </div>\n    </div>\n  </div>\n\n\n<app-location-list></app-location-list>\n\n\n</div>\n\n<div style=\"cursor:pointer;padding:12px;text-align: center;position:fixed;width:100%;height:50px;bottom:0px;left:0px;color:#fff;background:#282c34 ;\">\n  <p (click)=\"logout()\" style=\"text-align:center;margin:0px\">Logout</p>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<!-- <div class=\"h-head\">\n  <div class=\"h-header\">Home</div> -->\n\n  <div style=\"display: inline;\n  position: absolute;\n  right: 15px;\n  top: 57px;\" ngbDropdown #myDrop=\"ngbDropdown\">\n    <img id=\"dropdownManual\" ngbDropdownAnchor (click)=\"myDrop.open()\" class=\"h-back\" src=\"content/images/add.png\" />\n    <div ngbDropdownMenu aria-labelledby=\"dropdownManual\">\n      <button ngbDropdownItem  [routerLink]=\"['/devices/']\">Add Device</button>\n      <button ngbDropdownItem [routerLink]=\"['/device-list']\">Add Board</button>\n      <button (click)=\"launchDeviceAdder()\" ngbDropdownItem>Add Location</button>\n      <button [routerLink]=\"['/schedules']\" ngbDropdownItem>Add Schedule</button>\n\n    </div>\n   </div><!--\n\n</div> -->\n<div style=\"margin-top: 10px;\" class=\"container\">\n  <div class=\"row\">\n\n    <div class=\"col-12\">\n      <div style=\"display: flex;\">\n\n        <span class=\"panel\">\n\n\n          <table style=\"display:inline-block;border-right: 2px solid #2d4059;\">\n            <tr>\n              <td>\n                <i *ngIf=\"onlineDevicesLength\" style=\"font-size: 18px;\" class=\"far fa-hdd\"></i>\n                <i *ngIf=\"!onlineDevicesLength\" style=\"font-size: 18px;\" class=\"fas fa-exclamation\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\"><span>{{onlineDevicesLength}}</span><span> Online</span></span>\n\n                </td></tr>\n                <tr><td style=\"opacity: 0.5;\">\n                  <span style=\"display:block\">Hub<span *ngIf=\"onlineDevicesLength>1||!onlineDevicesLength\">s</span></span>\n\n                </td></tr>\n              </td>\n            </tr>\n          </table>\n\n          <table [ngClass]=\"{'disabled': !onlineDevicesLength}\" style=\"padding:6px;display:inline-block\">\n            <tr  (click)=\"launchDeviceAdder()\" style=\"cursor:pointer\">\n              <td>\n                <i  style=\"font-size: 18px; margin-left: 18px;\" class=\"fas fa-plus\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 0px 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\">Add Location</span>\n\n                </td></tr>\n\n              </td>\n            </tr>\n          </table>\n\n        </span>\n      </div>\n    </div>\n  </div>\n\n\n<app-location-list></app-location-list>\n\n\n</div>\n\n<div style=\"cursor:pointer;padding:12px;text-align: center;position:fixed;width:100%;height:50px;bottom:0px;left:0px;color:#fff;background:#282c34 ;\">\n  <p (click)=\"logout()\" style=\"text-align:center;margin:0px\">Logout</p>\n</div>\n");
 
 /***/ }),
 
@@ -136,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"land-root\">\n  <div class=\"land-help\"><img src=\"content/images/help.png\" class=\"landhelp\"></div>\n  <div class=\"land-top\">\n    <img src=\"content/images/logo.png\" height=\"200px\" class=\"land-logo\" />\n    <div class=\"appname\">BlueBox IoT</div>\n  </div>\n  <div class=\"land-buttons\">\n    <button [routerLink]=\"['/login']\" class=\"land-loginbtn\">Login</button>\n    <button [routerLink]=\"['/signup']\" class=\"land-regbtn\">Signup</button>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"land-root\">\n  <div class=\"land-help\"><img src=\"content/images/help.png\" class=\"landhelp\"></div>\n  <div class=\"land-top\">\n    <img src=\"content/images/logo.png\" height=\"200px\" class=\"land-logo\" />\n    <div style=\"color:#222831\" class=\"appname\">BlueBox IoT</div>\n  </div>\n  <div class=\"land-buttons\">;\n    <button style=\"background-color: #222831;color:#f2f2f2;border:none;\" [routerLink]=\"['/login']\" class=\"land-loginbtn\">Login</button>\n    <button style=\"color: #f2f2f2;background:#ff5722;border:none\" [routerLink]=\"['/signup']\" class=\"land-regbtn\">Signup</button>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -149,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<div class=\"container\">\n\n\n  <div style=\"padding:45px 0px\"  *ngIf=\"locations\" class=\"row\">\n    <div class=\"col-12\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <span *ngIf=\"location.key\" [ngClass]=\"{'selected' : location.key == selectedLocation}\"  (click)=\"selectedLocation = location.key\" style=\"cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;\" >\n         {{location.value.name}}\n         <i [ngClass]=\"{'green': location.value.active}\" style=\"font-weight: 900;font-size: 8px;position: relative;\n         top: -2px;margin-left: 5px;color: #8080806e;\" class=\"fas fa-circle\" >\n         </i>\n        </span>\n      </ng-container>\n    </div>\n  </div>\n  <div style=\"padding-bottom:45px\"  *ngIf=\"locations\" class=\"row\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <ng-container *ngIf=\"location.value.switches && location.value.switches.length\">\n          <ng-container  *ngFor=\"let switch of location.value.switches\">\n            <div *ngIf=\"onlineDevices&&onlineDevices[switch.deviceId]&&\n            onlineDevices[switch.deviceId][switch.board]&&\n            onlineDevices[switch.deviceId][switch.board].switches&&\n            onlineDevices[switch.deviceId][switch.board].switches.length&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null&&\n            switch.locationId == selectedLocation\" class=\"col-6 col-md-4 col-lg-3\">\n\n            <div style=\"text-align:center;height:150px;background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;\">\n              <i style=\"margin-top:30px;font-size:34px;opacity:0.5\" class=\"fas fa-tv\"></i>\n              <p style=\"margin-bottom:0px\" *ngIf=\"switch.name\"> {{switch.name}} </p>\n\n                <p style=\"margin-bottom:0px;margin-top:10px;\">\n                <span style=\"cursor:pointer;font-size:12px;font-weight:bold;position: absolute;top:5px;right:27px\" (click)=\"toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)\">\n                  <span style=\"color:#2cb978\" *ngIf=\"onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">ON</span>\n                  <span style=\"color:#00000040\" *ngIf=\"!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">OFF</span>\n                </span>\n                </p>\n              <!--   <i style=\" position: absolute;\n                bottom: 7px;\n                right: 27px;\n                opacity: 0.5;\" class=\"fas fa-arrow-right\"></i > -->\n                <ng-container *ngIf=\"selectedSwitches\">\n                  <button  *ngIf=\"!selectedForSchedule!||!selectedForSchedule[switch.deviceId]||\n                  !selectedForSchedule[switch.deviceId][switch.board]||\n                  !selectedForSchedule[switch.deviceId][switch.board][switch.switch]\"  (click)=\"addSchedule(switch)\" style=\"outline:none;border:none;background:none;\"><i class=\"far fa-square\"></i></button>\n                  <button *ngIf=\"selectedForSchedule[switch.deviceId]&&\n                  selectedForSchedule[switch.deviceId][switch.board]&&\n                  selectedForSchedule[switch.deviceId][switch.board][switch.switch]\" (click)=\"removeSchedule(switch)\" style=\"outline:none;border:none;background:none;\" ><i class=\"far fa-check-square\"></i></button>\n                </ng-container>\n            </div>\n            </div>\n          </ng-container>\n\n        </ng-container>\n      </ng-container>\n\n\n  </div>\n  <div *ngIf=\"onlineDevicesLength&&!locationsLength \"class=\"row\">\n    <div [routerLink]=\"['/device-list']\" *ngIf=\"!boards||!boards.length\" style=\"cursor:pointer;text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-microchip\"></i>\n      <p style=\"opacity:0.4\">No boards found. Click here to add a board.</p>\n    </div>\n    <div *ngIf=\"boards&&boards.length\" style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-map-marker-alt\"></i>\n      <p style=\"opacity:0.4\">Looks like you haven't added any locations yet. Please add Locations to continue.</p>\n    </div>\n  </div>\n\n  <div *ngIf=\"devices && devices.length&&!onlineDevicesLength\"class=\"row\">\n    <div style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-wifi\"></i>\n      <p style=\"opacity:0.4\">Please make sure your device is connected to WiFi.</p>\n    </div>\n  </div>\n\n  <div  *ngIf=\"!devices || !devices.length\"class=\"row\">\n    <div [routerLink]=\"['/devices/']\" style=\"text-align:center;cursor:pointer\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"far fa-hdd\"></i>\n      <p style=\"opacity:0.4\">No Devices registered. Click here to register your device</p>\n    </div>\n  </div >\n\n\n</div>\n\n<!-- <pre>\n  {{selectedForSchedule | json}}\n</pre>\n -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<div class=\"container\">\n\n\n  <div style=\"padding:45px 0px 25px 0px\"  *ngIf=\"locations\" class=\"row\">\n    <div class=\"col-12\" style=\"padding: 0px;\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <span *ngIf=\"location.key\" [ngClass]=\"{'selected' : location.key == selectedLocation}\"  (click)=\"selectedLocation = location.key\" style=\"cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;\" >\n         {{location.value.name}}\n         <i [ngClass]=\"{'green': location.value.active}\" style=\"font-weight: 900;font-size: 8px;position: relative;\n         top: -2px;margin-left: 5px;color: #8080806e;\" class=\"fas fa-circle\" >\n         </i>\n        </span>\n      </ng-container>\n    </div>\n  </div>\n  <div style=\"padding-bottom:45px\"  *ngIf=\"locations\" class=\"row\">\n      <ng-container *ngFor=\"let location of locations | keyvalue\">\n        <ng-container *ngIf=\"location.value.switches && location.value.switches.length\">\n          <ng-container  *ngFor=\"let switch of location.value.switches\">\n            <div *ngIf=\"onlineDevices&&onlineDevices[switch.deviceId]&&\n            onlineDevices[switch.deviceId][switch.board]&&\n            onlineDevices[switch.deviceId][switch.board].switches&&\n            onlineDevices[switch.deviceId][switch.board].switches.length&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&\n            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null&&\n            switch.locationId == selectedLocation\" class=\"col-12\" style=\"padding:0px\">\n\n            <!-- <div style=\"text-align:center;height:150px;background:#fff;width: 100%;border-radius: 3px;padding: 15px;box-shadow: 0px 5px 7px 0px #cac9c921;\">\n              <i style=\"margin-top:30px;font-size:34px;opacity:0.5\" class=\"fas fa-tv\"></i>\n              <p style=\"margin-bottom:0px\" *ngIf=\"switch.name\"> {{switch.name}} </p>\n\n                <p style=\"margin-bottom:0px;margin-top:10px;\">\n                <span style=\"cursor:pointer;font-size:12px;font-weight:bold;position: absolute;top:5px;right:27px\" (click)=\"toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)\">\n                  <span style=\"color:#2cb978\" *ngIf=\"onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">ON</span>\n                  <span style=\"color:#00000040\" *ngIf=\"!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\">OFF</span>\n                </span>\n                </p>\n\n                <ng-container *ngIf=\"selectedSwitches\">\n                  <button  *ngIf=\"!selectedForSchedule!||!selectedForSchedule[switch.deviceId]||\n                  !selectedForSchedule[switch.deviceId][switch.board]||\n                  !selectedForSchedule[switch.deviceId][switch.board][switch.switch]\"  (click)=\"addSchedule(switch)\" style=\"outline:none;border:none;background:none;\"><i class=\"far fa-square\"></i></button>\n                  <button *ngIf=\"selectedForSchedule[switch.deviceId]&&\n                  selectedForSchedule[switch.deviceId][switch.board]&&\n                  selectedForSchedule[switch.deviceId][switch.board][switch.switch]\" (click)=\"removeSchedule(switch)\" style=\"outline:none;border:none;background:none;\" ><i class=\"far fa-check-square\"></i></button>\n                </ng-container>\n            </div> -->\n            <div style=\"display: flex;\n            /* background: #393e46; */\n            color: #393e46;\n            padding: 15px 15px;\n            font-size: 18px;\n            border-bottom: 1px solid #393e4630;\n            align-items: center;\n            \">\n              <p style=\"margin-bottom:0px\" *ngIf=\"switch.name\"> {{switch.name}} </p>\n\n              <label class=\"switch\">\n                <input (click)=\"toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)\" [(ngModel)]=\"onlineDevices[switch.deviceId][switch.board].switches[switch.switch]\" type=\"checkbox\">\n                <span class=\"slider round\"></span>\n              </label>\n            </div>\n            </div>\n          </ng-container>\n\n        </ng-container>\n      </ng-container>\n\n\n  </div>\n  <div *ngIf=\"onlineDevicesLength&&!locationsLength \"class=\"row\">\n    <div [routerLink]=\"['/device-list']\" *ngIf=\"!boards||!boards.length\" style=\"cursor:pointer;text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-microchip\"></i>\n      <p style=\"opacity:0.4\">No boards found. Click here to add a board.</p>\n    </div>\n    <div *ngIf=\"boards&&boards.length\" style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-map-marker-alt\"></i>\n      <p style=\"opacity:0.4\">Looks like you haven't added any locations yet. Please add Locations to continue.</p>\n    </div>\n  </div>\n\n  <div *ngIf=\"devices && devices.length&&!onlineDevicesLength\"class=\"row\">\n    <div style=\"text-align:center\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"fas fa-wifi\"></i>\n      <p style=\"opacity:0.4\">Please make sure your device is connected to WiFi.</p>\n    </div>\n  </div>\n\n  <div  *ngIf=\"!devices || !devices.length\"class=\"row\">\n    <div [routerLink]=\"['/devices/']\" style=\"text-align:center;cursor:pointer\" class=\"col-12\">\n      <i style=\"font-size:70px;opacity:0.2;margin-bottom:15px;\" class=\"far fa-hdd\"></i>\n      <p style=\"opacity:0.4\">No Devices registered. Click here to register your device</p>\n    </div>\n  </div >\n\n\n</div>\n\n<!-- <pre>\n  {{selectedForSchedule | json}}\n</pre>\n -->\n");
 
 /***/ }),
 
@@ -162,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n\n<div class=\"login-root\">\n  <div class=\"login-head\">Login</div>\n  <div class=\"login-body\">\n\n    <div class=\"loginbdy-up1\"></div>\n\n    <div class=\"loginbdy-up\">\n    <div class=\"loginimg\"><img height=\"150px\" src=\"content/images/login.png\"/></div>\n\n    <input [(ngModel)]=\"username\" class=\"logininp\" placeholder=\"Username\" name=\"username\" id=\"username\">\n\n    <input [(ngModel)]=\"password\" class=\"logininp\" placeholder=\"Password\" type=\"password\" name=\"password\" id=\"password\">\n\n\n\n    </div>\n    <div class=\"loginbdy-down\"></div>\n  </div>\n  <div class=\"loginister-buttons\">\n    <button  [disabled]=\"!username||!password\" (click)=\"login()\" class=\"loginister-btn\">Login</button>\n\n  </div>\n\n<p *ngIf=\"error\" class=\"error\">{{error}}</p>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"l-text-top\">Get Started !</div>\n<div class=\"l-image\"><img src=\"content/images/singup.png\" height=\"150px\" /></div>\n<div class=\"l-inpbox\">\n  <div><input class=\"text-input\" placeholder=\"Username\" [(ngModel)]=\"username\"  name=\"username\"/></div>\n  <div><input placeholder=\"Password\" class=\"text-input\"  [(ngModel)]=\"password\" name=\"password\"   type=\"password\"/></div>\n</div>\n<div class=\"l-btnbox\"><button [disabled]=\"!username||!password\" (click)=\"login()\" class=\"l-btn\"  >\n<div *ngIf=\"!loading\">\n\n  Login\n</div>\n  <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</button></div>\n<div class=\"forgotpass\">Forgot Password?</div>\n\n\n");
 
 /***/ }),
 
@@ -175,7 +188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <p>schedule works!</p>\n{{deviceLength}}\n<pre>\n  {{allDevices|json}}\n</pre> -->\n<div [routerLink]=\"['/']\" style=\"position: relative;\" class=\"auto-head\">\n  <div class=\"auto-header\">Automation</div>\n  <div style=\"position: absolute;\n  right: 25px;\n  top: 10px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div>\n<div class=\"auto-spacer\"></div>\n<div style=\"background:beige;\" class=\"auto0-bodyhead\">\n  Easily Automate your smart switches\n</div>\n<div style=\"background-color: beige;\" class=\"auto0-bodyhead1\">\n  <button style=\"background:transparent;\"  (click)=\"launch()\" class=\"addautobtn\">ADD</button>\n</div>\n\n\n\n<div class=\"container\">\n  <div class=\"row\">\n    <ng-container *ngFor=\"let schedule of schedules | keyvalue\">\n        <div style=\"padding:10px;margin:15px 0px;\" class=\"col-lg-3 col-md-4 col-6\">\n          <div style=\"border: 1px solid beige;\" *ngIf=\"schedule.value&&schedule.value.schedule\">\n           <div style=\"color:#fff;padding:5px 10px;background:#282c34\">\n             <p style=\"margin: 0px;\" *ngIf=\"schedule.value.schedule.name\">{{schedule.value.schedule.name}}</p>\n           </div>\n           <div style=\"padding:10px\">\n            <table>\n              <tr *ngIf=\"schedule.value.switchSize\">\n                <td><p style=\"font-weight:bold\">Switches: </p></td>\n                <td><p>{{schedule.value.switchSize}}</p></td>\n              </tr>\n              <tr *ngIf=\"schedule.value.schedule.start\">\n                <td><p style=\"font-weight:bold\">Start: </p></td>\n                <td><p >{{schedule.value.schedule.start}}</p></td>\n              </tr>\n              <tr  *ngIf=\"schedule.value.schedule.end\">\n                <td>   <p style=\"font-weight:bold\">Stop: </p>\n                </td>\n                <td>\n                  <p>{{schedule.value.schedule.end}}</p>\n\n                </td>\n              </tr>\n            </table>\n\n\n\n             <div *ngIf=\"schedule.value.daysList\" style=\"width: 100%;display: flex;justify-content: center;\">\n\n                <span style=\"flex-grow:1;flex-basis:0;opacity: 0.8;\" [ngClass]=\"{'bold':schedule.value.daysList.indexOf(day.i.toString())>=0}\" *ngFor=\"let day of days\">\n                  {{day.v}}\n                </span>\n            </div>\n            <div style=\"padding-top:10px;margin-top:10px;display: flex; border-top: 1px solid beige\">\n              <i (click)=\"toggleActive(schedule.value.schedule,schedule.value.devices)\" [ngClass]=\"{'active':schedule.value.schedule.active}\" style=\"cursor:pointer;text-align:center;flex-grow:1;flex-basis:0\" class=\"fas fa-power-off\"></i>\n              <i (click)=\"deleteSchedule(schedule.value.schedule,schedule.value.devices)\" style=\"cursor:pointer;text-align:center;flex-grow:1;flex-basis:0\" class=\"far fa-trash-alt\"></i>\n            </div>\n           </div>\n          </div>\n        </div>\n    </ng-container>\n  </div>\n</div>\n<!-- <pre>\n  {{schedules|json}}\n</pre> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <p>schedule works!</p>\n{{deviceLength}}\n<pre>\n  {{allDevices|json}}\n</pre> -->\n<!-- <div [routerLink]=\"['/']\" style=\"position: relative;\" class=\"auto-head\">\n  <div class=\"auto-header\">Automation</div>\n  <div style=\"position: absolute;\n  right: 25px;\n  top: 10px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div> -->\n<div class=\"auto-spacer\"></div>\n<div  class=\"auto0-bodyhead\">\n  Easily Automate your smart switches\n</div>\n<div  class=\"auto0-bodyhead1\" style=\"padding:0px\">\n  <button style=\"background-color: white; */\n  width: 150px;\n  height: 40px;\n  border-radius: 4px;\n  outline: none;\n  border: none;\n  color: #282c34;\n  font-size: 14px!important;\n  border: 2px solid #ff5722;\n  font-family: 'Roboto', sans-serif;\n  background: #ff5722!important;\n  color: #fff;\"  (click)=\"launch()\" class=\"addautobtn\">Add</button>\n</div>\n\n\n\n<div class=\"container\">\n  <div class=\"row\">\n    <ng-container *ngFor=\"let schedule of schedules | keyvalue\">\n        <div style=\"padding:10px;margin:15px 0px;\" class=\"col-lg-3 col-md-4 col-6\">\n          <div style=\"border: 1px solid beige;\" *ngIf=\"schedule.value&&schedule.value.schedule\">\n           <div style=\"color:#fff;padding:5px 10px;background:#282c34\">\n             <p style=\"margin: 0px;\" *ngIf=\"schedule.value.schedule.name\">{{schedule.value.schedule.name}}</p>\n           </div>\n           <div style=\"padding:10px\">\n            <table>\n              <tr *ngIf=\"schedule.value.switchSize\">\n                <td><p style=\"font-weight:bold\">Switches: </p></td>\n                <td><p>{{schedule.value.switchSize}}</p></td>\n              </tr>\n              <tr *ngIf=\"schedule.value.schedule.start\">\n                <td><p style=\"font-weight:bold\">Start: </p></td>\n                <td><p >{{schedule.value.schedule.start}}</p></td>\n              </tr>\n              <tr  *ngIf=\"schedule.value.schedule.end\">\n                <td>   <p style=\"font-weight:bold\">Stop: </p>\n                </td>\n                <td>\n                  <p>{{schedule.value.schedule.end}}</p>\n\n                </td>\n              </tr>\n            </table>\n\n\n\n             <div *ngIf=\"schedule.value.daysList\" style=\"width: 100%;display: flex;justify-content: center;\">\n\n                <span style=\"flex-grow:1;flex-basis:0;opacity: 0.8;\" [ngClass]=\"{'bold':schedule.value.daysList.indexOf(day.i.toString())>=0}\" *ngFor=\"let day of days\">\n                  {{day.v}}\n                </span>\n            </div>\n            <div style=\"padding-top:10px;margin-top:10px;display: flex; border-top: 1px solid beige\">\n              <i (click)=\"toggleActive(schedule.value.schedule,schedule.value.devices)\" [ngClass]=\"{'active':schedule.value.schedule.active}\" style=\"cursor:pointer;text-align:center;flex-grow:1;flex-basis:0\" class=\"fas fa-power-off\"></i>\n              <i (click)=\"deleteSchedule(schedule.value.schedule,schedule.value.devices)\" style=\"cursor:pointer;text-align:center;flex-grow:1;flex-basis:0\" class=\"far fa-trash-alt\"></i>\n            </div>\n           </div>\n          </div>\n        </div>\n    </ng-container>\n  </div>\n</div>\n<!-- <pre>\n  {{schedules|json}}\n</pre> -->\n");
 
 /***/ }),
 
@@ -188,7 +201,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"register-root\">\n  <div class=\"register-head\">Signup</div>\n  <div class=\"register-body\">\n\n    <div class=\"regbdy-up1\"></div>\n    <div class=\"lheadtext\"><p>Dont have an account yet?</p></div>\n    <div class=\"lheadtext\"><img src=\"content/images/singup.png\" height=\"100px\"></div>\n\n\n    <div class=\"regbdy-up\">\n\n    <input [(ngModel)]=\"username\" class=\"reginp\" placeholder=\"Username\">\n\n    <input [(ngModel)]=\"email\" class=\"reginp\" placeholder=\"Email\">\n\n    <input [(ngModel)]=\"password\" class=\"reginp\" placeholder=\"password\" type=\"password\">\n\n    </div>\n    <div class=regbdy-up2><input [(ngModel)]=\"terms\" type=\"checkbox\"></div>\n    <div class=regbdy-up2> <br/><p> I Agree to terms & conditions</p></div>\n    <div class=\"regbdy-down\"></div>\n  </div>\n  <div class=\"register-buttons\">\n    <button (click)=\"signup()\" [disabled]=\"!username||!email||!password||!terms\" class=\"register-btn\">Register</button>\n  </div>\n  <p class=\"error\" *ngIf=\"error\"> {{error}}</p>\n  <p class=\"message\" *ngIf=\"success\">Sign up success. A verification email has been sent to your email account. <span style=\"cursor:pointer\" [routerLink]=\"['/login']\">Proceed to login</span></p>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"register-root\">\n\n  <div class=\"register-body\">\n\n    <div class=\"regbdy-up1\"></div>\n    <div class=\"lheadtext\"><p>Dont have an account yet?</p></div>\n    <div style=\"margin-top: 0px;\" class=\"lheadtext\"><img src=\"content/images/singup.png\" height=\"100px\"></div>\n\n\n    <div class=\"regbdy-up\">\n\n    <input [(ngModel)]=\"username\" class=\"reginp\" placeholder=\"Username\">\n\n    <input [(ngModel)]=\"email\" class=\"reginp\" placeholder=\"Email\">\n\n    <input [(ngModel)]=\"password\" class=\"reginp\" placeholder=\"Password\" type=\"password\">\n\n    </div>\n    <div  style=\"margin-top:15px;\" class=regbdy-up2><input [(ngModel)]=\"terms\" type=\"checkbox\"></div>\n    <div class=regbdy-up2> <br/><p> I Agree to terms & conditions</p></div>\n    <div class=\"regbdy-down\"></div>\n  </div>\n  <div class=\"register-buttons\">\n    <button (click)=\"signup()\" [disabled]=\"!username||!email||!password||!terms\" class=\"register-btn\">\n     <div *ngIf=\"!loading\">\n\n       Register\n     </div>\n     <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n      <span class=\"sr-only\">Loading...</span>\n    </div>\n    </button>\n  </div>\n  <p class=\"error\" *ngIf=\"error\"> {{error}}</p>\n  <p class=\"message\" *ngIf=\"success\">Sign up success. A verification email has been sent to your email account. <span style=\"cursor:pointer\" [routerLink]=\"['/login']\">Proceed to login</span></p>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/toolbar/toolbar.component.html":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/toolbar/toolbar.component.html ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"selected\" style=\"position:fixed;bottom:0px;right:0px;background:#222831;height: 80px;width:100%;\">\n  <div class=\"container\">\n    <div style=\"color: #fff;\n    padding-top: 20px;\" class=\"row\">\n      <div [routerLink]=\"['/']\" [ngClass]=\"{'selected':selected=='Home'}\" class=\"col-3\">Home</div>\n      <div [ngClass]=\"{'selected':selected=='Usage'}\" class=\"col-3\">Usage</div>\n      <div [routerLink]=\"['/schedules']\" [ngClass]=\"{'selected':selected=='Schedules'}\" class=\"col-3\">Schedules</div>\n      <div [ngClass]=\"{'selected':selected=='Settings'}\" class=\"col-3\">Settings</div>\n    </div>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -472,6 +498,7 @@ let AddBoardComponent = class AddBoardComponent {
         this.activeModal = activeModal;
         this.socket = socket;
         this.connect = connect;
+        this.error = false;
     }
     ngOnInit() {
         this.socket.on('board_added', (res) => {
@@ -484,12 +511,13 @@ let AddBoardComponent = class AddBoardComponent {
             }
             else {
                 this.adding = false;
-                alert(res.error);
+                this.error = true;
             }
         });
     }
     addBoard() {
         this.adding = true;
+        this.error = false;
         this.socket.emit('addBoard', { boardId: this.boardId, deviceId: this.deviceId, token: localStorage.getItem('token') }, res => {
             if (!res || res.error) {
                 this.adding = false;
@@ -547,10 +575,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddLocationComponent", function() { return AddLocationComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
-/* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+/* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
 
 
 
@@ -560,14 +590,15 @@ __webpack_require__.r(__webpack_exports__);
 //TODO multiple device per location
 let AddLocationComponent = class AddLocationComponent {
     // get available switches
-    constructor(activeModal, connect, socket) {
-        this.activeModal = activeModal;
+    constructor(connect, socket, router, layoutService) {
         this.connect = connect;
         this.socket = socket;
+        this.router = router;
+        this.layoutService = layoutService;
         this.deviceLength = null;
         this.devices = {};
         this.allDevices = {};
-        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
+        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subscription"]();
         this.boards = [];
         this.selectedSwitches = {};
         this.assignedSwitches = {};
@@ -577,6 +608,10 @@ let AddLocationComponent = class AddLocationComponent {
         this.selectedSwitchCount = 0;
     }
     ngOnInit() {
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/']);
+        this.layoutService.title.next('Add Location');
+        this.layoutService.toolbar.next(null);
         this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
             if (res) {
                 this.allDevices = JSON.parse(JSON.stringify(res));
@@ -588,7 +623,8 @@ let AddLocationComponent = class AddLocationComponent {
                 this.deviceLength = 0;
             }
             if (!this.deviceLength) {
-                this.activeModal.dismiss();
+                // this.activeModal.dismiss();
+                this.router.navigate(['/']);
             }
             this.scan(true);
         }));
@@ -600,7 +636,8 @@ let AddLocationComponent = class AddLocationComponent {
                 if (!this.activeRequests.length && res.name) {
                     this.adding = false;
                     this.connect.getLocations();
-                    this.activeModal.dismiss();
+                    // this.activeModal.dismiss();
+                    this.router.navigate(['/']);
                 }
             }
             else {
@@ -716,9 +753,10 @@ let AddLocationComponent = class AddLocationComponent {
     }
 };
 AddLocationComponent.ctorParameters = () => [
-    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"] },
-    { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_3__["ConnectSocket"] },
-    { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_5__["Socket"] }
+    { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_2__["ConnectSocket"] },
+    { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__["Socket"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_6__["LayoutServiceService"] }
 ];
 AddLocationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -907,6 +945,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./landing-page/landing-page.component */ "./src/app/landing-page/landing-page.component.ts");
 /* harmony import */ var _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./sign-up/sign-up.component */ "./src/app/sign-up/sign-up.component.ts");
 /* harmony import */ var _verified_verified_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./verified/verified.component */ "./src/app/verified/verified.component.ts");
+/* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
+
 
 
 
@@ -922,8 +962,9 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: 'verified', component: _verified_verified_component__WEBPACK_IMPORTED_MODULE_11__["VerifiedComponent"] },
     { path: 'signup', component: _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_10__["SignUpComponent"] },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"], data: { nav: true, toolbar: false, back: '/welcome' } },
     { path: 'welcome', component: _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__["LandingPageComponent"] },
+    { path: 'add-location', component: _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_12__["AddLocationComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: 'carousel', component: _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_6__["CarouselComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: 'device-list', component: _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_8__["DeviceListComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
@@ -1000,7 +1041,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
 let Config = {
-    server: 'http://134.209.155.230:3001'
+    server: 'http://localhost:3001'
 }
 
 
@@ -1040,6 +1081,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./location-list/location-list.component */ "./src/app/location-list/location-list.component.ts");
 /* harmony import */ var _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./home-toolbar/home-toolbar.component */ "./src/app/home-toolbar/home-toolbar.component.ts");
 /* harmony import */ var _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./add-schedule/add-schedule.component */ "./src/app/add-schedule/add-schedule.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./toolbar/toolbar.component */ "./src/app/toolbar/toolbar.component.ts");
+
+
 
 
 
@@ -1091,7 +1136,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"],
             _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__["LocationListComponent"],
             _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__["HomeToolbarComponent"],
-            _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]
+            _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"],
+            _header_header_component__WEBPACK_IMPORTED_MODULE_24__["HeaderComponent"],
+            _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__["ToolbarComponent"]
         ],
         entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]],
         providers: [
@@ -1227,7 +1274,7 @@ Chowkidaar = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n.step1-head {\r\n  background-color: #282c34;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 1rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n  align-items: center;\r\n}\r\n\r\n.step1-text {\r\n  padding-top: 3rem;\r\n  font-size: 2rem;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.step1-txt {\r\n  display: flex;\r\n  justify-content: center;\r\n  text-align: center;\r\n  padding: 2rem;\r\n  font-size: 1.5rem;\r\n}\r\n\r\n.step1-btn {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.step1-btnn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.step2-head {\r\n  background-color: #282c34;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 1rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n  align-items: center;\r\n}\r\n\r\n.step2-text {\r\n  padding-top: 3rem;\r\n  font-size: 2rem;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.step2-txt {\r\n  display: flex;\r\n  justify-content: center;\r\n  text-align: center;\r\n  padding: 2rem;\r\n  font-size: 1.5rem;\r\n}\r\n\r\n.step2-btnn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.step2-btn {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2Fyb3VzZWwvY2Fyb3VzZWwuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxvRkFBb0Y7O0FBRXBGO0VBQ0UseUJBQXlCO0VBQ3pCLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osYUFBYTtFQUNiLDJDQUEyQztFQUMzQyxtQkFBbUI7QUFDckI7O0FBSUE7RUFDRSxpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsMkNBQTJDO0FBQzdDOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7QUFDekI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixZQUFZO0VBQ1osaUJBQWlCO0FBQ25COztBQUtBO0VBQ0UseUJBQXlCO0VBQ3pCLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osYUFBYTtFQUNiLDJDQUEyQztFQUMzQyxtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsMkNBQTJDO0FBQzdDOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsWUFBWTtFQUNaLFlBQVk7RUFDWixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCIiwiZmlsZSI6InNyYy9hcHAvY2Fyb3VzZWwvY2Fyb3VzZWwuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90bytDb25kZW5zZWQmZGlzcGxheT1zd2FwXCIpO1xyXG5cclxuLnN0ZXAxLWhlYWQge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuXHJcblxyXG4uc3RlcDEtdGV4dCB7XHJcbiAgcGFkZGluZy10b3A6IDNyZW07XHJcbiAgZm9udC1zaXplOiAycmVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4uc3RlcDEtdHh0IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiAycmVtO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG59XHJcblxyXG4uc3RlcDEtYnRuIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG4uc3RlcDEtYnRubiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAxYjYwMDtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcbi5zdGVwMi1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIHBhZGRpbmc6IDFyZW07XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5zdGVwMi10ZXh0IHtcclxuICBwYWRkaW5nLXRvcDogM3JlbTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5zdGVwMi10eHQge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDJyZW07XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbn1cclxuXHJcbi5zdGVwMi1idG5uIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDFiNjAwO1xyXG4gIHdpZHRoOiAyMDBweDtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLnN0ZXAyLWJ0biB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n.step1-head {\r\n  background-color: #222831;\r\n    display: flex;\r\n    justify-content: center;\r\n    /* font-weight: bold; */\r\n    font-size: 21px;\r\n    color: white;\r\n    padding: 15px;\r\n    font-family: \"Roboto\", sans-serif;\r\n    /* align-items: center; */\r\n\r\n}\r\n\r\n.step1-text {\r\n  padding: 28px;\r\n  font-size: 24px;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-family: \"Roboto\", sans-serif;\r\n  padding-bottom: 0px;\r\n}\r\n\r\n.step1-txt {\r\n  display: flex;\r\n  justify-content: center;\r\n  text-align: center;\r\n  padding: 43px 81px;\r\n  font-size: 21px;\r\n}\r\n\r\n.step1-btn {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.step1-btnn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n.step2-head {\r\n  background-color: #282c34;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 1rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n  align-items: center;\r\n}\r\n\r\n.step2-text {\r\n  padding-top: 3rem;\r\n  font-size: 2rem;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.step2-txt {\r\n  display: flex;\r\n  justify-content: center;\r\n  text-align: center;\r\n  padding: 2rem;\r\n  font-size: 1.5rem;\r\n}\r\n\r\n.step2-btnn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n.step2-btn {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2Fyb3VzZWwvY2Fyb3VzZWwuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxvRkFBb0Y7O0FBRXBGO0VBQ0UseUJBQXlCO0lBQ3ZCLGFBQWE7SUFDYix1QkFBdUI7SUFDdkIsdUJBQXVCO0lBQ3ZCLGVBQWU7SUFDZixZQUFZO0lBQ1osYUFBYTtJQUNiLGlDQUFpQztJQUNqQyx5QkFBeUI7O0FBRTdCOztBQUlBO0VBQ0UsYUFBYTtFQUNiLGVBQWU7RUFDZixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGlDQUFpQztFQUNqQyxtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7QUFDekI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0VBQ2QsaUNBQWlDO0VBQ2pDLGVBQWU7QUFDakI7O0FBS0E7RUFDRSx5QkFBeUI7RUFDekIsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLFlBQVk7RUFDWixhQUFhO0VBQ2IsMkNBQTJDO0VBQzNDLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QiwyQ0FBMkM7QUFDN0M7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixZQUFZO0VBQ1osWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7QUFDekIiLCJmaWxlIjoic3JjL2FwcC9jYXJvdXNlbC9jYXJvdXNlbC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvK0NvbmRlbnNlZCZkaXNwbGF5PXN3YXBcIik7XHJcblxyXG4uc3RlcDEtaGVhZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzIyMjgzMTtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIC8qIGZvbnQtd2VpZ2h0OiBib2xkOyAqL1xyXG4gICAgZm9udC1zaXplOiAyMXB4O1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgcGFkZGluZzogMTVweDtcclxuICAgIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gICAgLyogYWxpZ24taXRlbXM6IGNlbnRlcjsgKi9cclxuXHJcbn1cclxuXHJcblxyXG5cclxuLnN0ZXAxLXRleHQge1xyXG4gIHBhZGRpbmc6IDI4cHg7XHJcbiAgZm9udC1zaXplOiAyNHB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbiAgcGFkZGluZy1ib3R0b206IDBweDtcclxufVxyXG5cclxuLnN0ZXAxLXR4dCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogNDNweCA4MXB4O1xyXG4gIGZvbnQtc2l6ZTogMjFweDtcclxufVxyXG5cclxuLnN0ZXAxLWJ0biB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLnN0ZXAxLWJ0bm4ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNmZjU3MjI7XHJcbiAgd2lkdGg6IDI1MHB4O1xyXG4gIGhlaWdodDogNDVweDtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgY29sb3I6ICNmMmYyZjI7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbiAgYm9yZGVyOiAjZjJmMmYyO1xyXG59XHJcblxyXG5cclxuXHJcblxyXG4uc3RlcDItaGVhZCB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAxcmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90byBDb25kZW5zZWRcIiwgc2Fucy1zZXJpZjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG4uc3RlcDItdGV4dCB7XHJcbiAgcGFkZGluZy10b3A6IDNyZW07XHJcbiAgZm9udC1zaXplOiAycmVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4uc3RlcDItdHh0IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBwYWRkaW5nOiAycmVtO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG59XHJcblxyXG4uc3RlcDItYnRubiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAxYjYwMDtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5zdGVwMi1idG4ge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -1243,15 +1290,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CarouselComponent", function() { return CarouselComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
 
 
 let CarouselComponent = class CarouselComponent {
-    constructor() {
+    constructor(layoutService) {
+        this.layoutService = layoutService;
         this.step = 1;
     }
     ngOnInit() {
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(null);
+        this.layoutService.title.next('Setup your Hub');
+    }
+    changeStep(title) {
+        this.layoutService.title.next(title);
     }
 };
+CarouselComponent.ctorParameters = () => [
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"] }
+];
 CarouselComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-carousel',
@@ -1294,6 +1353,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
 /* harmony import */ var _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../add-board/add-board.component */ "./src/app/add-board/add-board.component.ts");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
 
 
 
@@ -1302,7 +1363,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DeviceListComponent = class DeviceListComponent {
-    constructor(connect, router, config, modalService) {
+    constructor(layoutService, connect, router, config, modalService) {
+        this.layoutService = layoutService;
         this.connect = connect;
         this.router = router;
         this.modalService = modalService;
@@ -1310,6 +1372,10 @@ let DeviceListComponent = class DeviceListComponent {
         this.object = Object;
     }
     ngOnInit() {
+        this.layoutService.toolbar.next(null);
+        this.layoutService.title.next("Home");
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/']);
         this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
             if (res) {
                 console.log(res);
@@ -1332,6 +1398,7 @@ let DeviceListComponent = class DeviceListComponent {
     }
 };
 DeviceListComponent.ctorParameters = () => [
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_7__["LayoutServiceService"] },
     { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_2__["ConnectSocket"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModalConfig"] },
@@ -1344,6 +1411,72 @@ DeviceListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./device-list.component.css */ "./src/app/device-list/device-list.component.css")).default]
     })
 ], DeviceListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/header/header.component.css ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto&display=swap\");\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDBFQUEwRSIsImZpbGUiOiJzcmMvYXBwL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90byZkaXNwbGF5PXN3YXBcIik7XHJcbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/header/header.component.ts ***!
+  \********************************************/
+/*! exports provided: HeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+let HeaderComponent = class HeaderComponent {
+    constructor(layoutService) {
+        this.layoutService = layoutService;
+        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subscription"]();
+    }
+    ngOnInit() {
+        this.subscriptions.add(this.layoutService.header.subscribe(header => {
+            this.show = header;
+        }));
+        this.subscriptions.add(this.layoutService.title.subscribe(title => {
+            this.title = title;
+        }));
+        this.subscriptions.add(this.layoutService.back.subscribe(back => {
+            this.back = back;
+        }));
+    }
+    ngOnDestroy() {
+        this.subscriptions.unsubscribe();
+    }
+};
+HeaderComponent.ctorParameters = () => [
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"] }
+];
+HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-header',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./header.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/header/header.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./header.component.css */ "./src/app/header/header.component.css")).default]
+    })
+], HeaderComponent);
 
 
 
@@ -1402,7 +1535,7 @@ HomeToolbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".panel {\r\n  padding: 12px 30px;\r\n  background: #282c34;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #3d5af1;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n\r\n.h-head {\r\n  background-color: #282c34;\r\n  color: white;\r\n  font-size: 2rem;\r\n  padding: 0.8rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n  position: fixed;\r\n  top: 0;\r\n  width: 100%;\r\n  z-index: 999;\r\n  display: grid;\r\n  grid-template-columns: 5fr 1fr;\r\n}\r\n\r\n\r\nbody {\r\n  padding: 0;\r\n  margin: 0;\r\n  height: 100%;\r\n}\r\n\r\n\r\n.h-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n\r\n.h-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYixxQkFBcUI7RUFDbkIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0NBQXNDO0FBQ3hDOzs7QUFHQTtFQUNFLGdDQUFnQztBQUNsQzs7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCOzs7QUFLQTtFQUNFLHdCQUF3QjtBQUMxQjs7O0FBR0E7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGVBQWU7RUFDZixlQUFlO0VBQ2YsaUNBQWlDO0VBQ2pDLGVBQWU7RUFDZixNQUFNO0VBQ04sV0FBVztFQUNYLFlBQVk7RUFDWixhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDOzs7QUFFQTtFQUNFLFVBQVU7RUFDVixTQUFTO0VBQ1QsWUFBWTtBQUNkOzs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7QUFDbkI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtBQUN2QiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbmVsIHtcclxuICBwYWRkaW5nOiAxMnB4IDMwcHg7XHJcbiAgYmFja2dyb3VuZDogIzI4MmMzNDtcclxuICBjb2xvcjogI2ZmZjtcclxuZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICBib3gtc2hhZG93OiAwcHggN3B4IDE5cHggMHB4ICM2ZDY5Njk2MTtcclxufVxyXG5cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICMzZDVhZjE7XHJcbn1cclxuXHJcbi5kaXNhYmxlZHtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLmdyZWVuIHtcclxuICBjb2xvcjogIzJjYjk3OCFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG4uaC1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgcGFkZGluZzogMC44cmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB0b3A6IDA7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgei1pbmRleDogOTk5O1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiA1ZnIgMWZyO1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBwYWRkaW5nOiAwO1xyXG4gIG1hcmdpbjogMDtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbi5oLWJhY2sge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG59XHJcblxyXG4uaC1oZWFkZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBsZWZ0O1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".panel {\r\n  padding: 12px 30px;\r\n  background: #222831;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #ff5722;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n\r\n.h-head {\r\n  background-color: #222831;\r\n  color: white;\r\n  font-size: 21px;\r\n  padding: 15px;\r\n  font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\n\r\nbody {\r\n  padding: 0;\r\n  margin: 0;\r\n  height: 100%;\r\n}\r\n\r\n\r\n.h-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n\r\n.h-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYixxQkFBcUI7RUFDbkIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0NBQXNDO0FBQ3hDOzs7QUFHQTtFQUNFLGdDQUFnQztBQUNsQzs7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCOzs7QUFLQTtFQUNFLHdCQUF3QjtBQUMxQjs7O0FBR0E7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGVBQWU7RUFDZixhQUFhO0VBQ2IsaUNBQWlDO0FBQ25DOzs7QUFFQTtFQUNFLFVBQVU7RUFDVixTQUFTO0VBQ1QsWUFBWTtBQUNkOzs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7QUFDbkI7OztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtBQUN2QiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbmVsIHtcclxuICBwYWRkaW5nOiAxMnB4IDMwcHg7XHJcbiAgYmFja2dyb3VuZDogIzIyMjgzMTtcclxuICBjb2xvcjogI2ZmZjtcclxuZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICBib3gtc2hhZG93OiAwcHggN3B4IDE5cHggMHB4ICM2ZDY5Njk2MTtcclxufVxyXG5cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICNmZjU3MjI7XHJcbn1cclxuXHJcbi5kaXNhYmxlZHtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLmdyZWVuIHtcclxuICBjb2xvcjogIzJjYjk3OCFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG4uaC1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjIyODMxO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXNpemU6IDIxcHg7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuYm9keSB7XHJcbiAgcGFkZGluZzogMDtcclxuICBtYXJnaW46IDA7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG4uaC1iYWNrIHtcclxuICBmaWx0ZXI6IGludmVydCgxKTtcclxufVxyXG5cclxuLmgtaGVhZGVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogbGVmdDtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -1423,8 +1556,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
-/* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
-/* harmony import */ var _shared_services_data_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../shared/services/data.service */ "./src/app/shared/services/data.service.ts");
+/* harmony import */ var _shared_services_data_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/services/data.service */ "./src/app/shared/services/data.service.ts");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
@@ -1437,7 +1572,9 @@ __webpack_require__.r(__webpack_exports__);
 let HomeComponent = class HomeComponent {
     /*   locationsLength = 0;
       boards = []; */
-    constructor(fetchData, chowkidaar, connect, dataservice, config, modalService) {
+    constructor(router, layoutService, fetchData, chowkidaar, connect, dataservice, config, modalService) {
+        this.router = router;
+        this.layoutService = layoutService;
         this.fetchData = fetchData;
         this.chowkidaar = chowkidaar;
         this.connect = connect;
@@ -1455,6 +1592,10 @@ let HomeComponent = class HomeComponent {
         config.keyboard = false;
     }
     ngOnInit() {
+        this.layoutService.toolbar.next('Home');
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(null);
+        this.layoutService.title.next('Home');
         this.fetchData.registeredDevices().subscribe((res) => {
             if (res && res.devices && res.devices.length) {
                 /*  this.subscriptions.add(this.connect.locations$.subscribe(res => {
@@ -1521,16 +1662,20 @@ let HomeComponent = class HomeComponent {
       }
      */
     launchDeviceAdder() {
-        if (this.onlineDevicesLength) {
-            const modalRef = this.modalService.open(_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_7__["AddLocationComponent"]);
-        }
+        this.router.navigate(['add-location']);
+        /* if (this.onlineDevicesLength) {
+          const modalRef = this.modalService.open(AddLocationComponent);
+    
+        } */
     }
 };
 HomeComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_8__["LayoutServiceService"] },
     { type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__["FetchData"] },
     { type: _blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_3__["Chowkidaar"] },
     { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_4__["ConnectSocket"] },
-    { type: _shared_services_data_service__WEBPACK_IMPORTED_MODULE_8__["DataService"] },
+    { type: _shared_services_data_service__WEBPACK_IMPORTED_MODULE_7__["DataService"] },
     { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModalConfig"] },
     { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModal"] }
 ];
@@ -1573,18 +1718,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
 
 
 
 let LandingPageComponent = class LandingPageComponent {
-    constructor(router) {
+    constructor(router, layoutService) {
         this.router = router;
+        this.layoutService = layoutService;
     }
     ngOnInit() {
+        this.layoutService.header.next(false);
+        this.layoutService.toolbar.next(null);
     }
 };
 LandingPageComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_3__["LayoutServiceService"] }
 ];
 LandingPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1593,6 +1744,40 @@ LandingPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./landing-page.component.css */ "./src/app/landing-page/landing-page.component.css")).default]
     })
 ], LandingPageComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/layout-service.service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/layout-service.service.ts ***!
+  \*******************************************/
+/*! exports provided: LayoutServiceService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutServiceService", function() { return LayoutServiceService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+let LayoutServiceService = class LayoutServiceService {
+    constructor() {
+        this.title = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        this.back = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        this.header = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        this.toolbar = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+    }
+};
+LayoutServiceService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], LayoutServiceService);
 
 
 
@@ -1607,7 +1792,7 @@ LandingPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".panel {\r\n  padding: 12px 30px;\r\n  background: #3d5af1;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #3d5af1;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9jYXRpb24tbGlzdC9sb2NhdGlvbi1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYixxQkFBcUI7RUFDbkIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0NBQXNDO0FBQ3hDOzs7QUFHQTtFQUNFLGdDQUFnQztBQUNsQzs7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCOzs7QUFLQTtFQUNFLHdCQUF3QjtBQUMxQiIsImZpbGUiOiJzcmMvYXBwL2xvY2F0aW9uLWxpc3QvbG9jYXRpb24tbGlzdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbmVsIHtcclxuICBwYWRkaW5nOiAxMnB4IDMwcHg7XHJcbiAgYmFja2dyb3VuZDogIzNkNWFmMTtcclxuICBjb2xvcjogI2ZmZjtcclxuZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICBib3gtc2hhZG93OiAwcHggN3B4IDE5cHggMHB4ICM2ZDY5Njk2MTtcclxufVxyXG5cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICMzZDVhZjE7XHJcbn1cclxuXHJcbi5kaXNhYmxlZHtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLmdyZWVuIHtcclxuICBjb2xvcjogIzJjYjk3OCFpbXBvcnRhbnQ7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".panel {\r\n  padding: 12px 30px;\r\n  background: #3d5af1;\r\n  color: #fff;\r\ndisplay: inline-block;\r\n  margin: 0 auto;\r\n  margin-top: 15px;\r\n  border-radius: 10px;\r\n  box-shadow: 0px 7px 19px 0px #6d696961;\r\n}\r\n\r\n\r\n.selected {\r\n  border-bottom: 2px solid #f96d00;\r\n}\r\n\r\n\r\n.disabled{\r\n  opacity: 0.5;\r\n  cursor: not-allowed;\r\n}\r\n\r\n\r\n.green {\r\n  color: #2cb978!important;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9jYXRpb24tbGlzdC9sb2NhdGlvbi1saXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLFdBQVc7QUFDYixxQkFBcUI7RUFDbkIsY0FBYztFQUNkLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0NBQXNDO0FBQ3hDOzs7QUFHQTtFQUNFLGdDQUFnQztBQUNsQzs7O0FBRUE7RUFDRSxZQUFZO0VBQ1osbUJBQW1CO0FBQ3JCOzs7QUFLQTtFQUNFLHdCQUF3QjtBQUMxQiIsImZpbGUiOiJzcmMvYXBwL2xvY2F0aW9uLWxpc3QvbG9jYXRpb24tbGlzdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbmVsIHtcclxuICBwYWRkaW5nOiAxMnB4IDMwcHg7XHJcbiAgYmFja2dyb3VuZDogIzNkNWFmMTtcclxuICBjb2xvcjogI2ZmZjtcclxuZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIG1hcmdpbjogMCBhdXRvO1xyXG4gIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICBib3gtc2hhZG93OiAwcHggN3B4IDE5cHggMHB4ICM2ZDY5Njk2MTtcclxufVxyXG5cclxuXHJcbi5zZWxlY3RlZCB7XHJcbiAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICNmOTZkMDA7XHJcbn1cclxuXHJcbi5kaXNhYmxlZHtcclxuICBvcGFjaXR5OiAwLjU7XHJcbiAgY3Vyc29yOiBub3QtYWxsb3dlZDtcclxufVxyXG5cclxuXHJcblxyXG5cclxuLmdyZWVuIHtcclxuICBjb2xvcjogIzJjYjk3OCFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -1785,7 +1970,7 @@ LocationListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n\r\n.login-root {\r\n  height: 100vh;\r\n  display: grid;\r\n  grid-template-rows: 10% auto auto auto;\r\n}\r\n\r\n\r\n.login-head {\r\n  display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n  background-color: #282c34;\r\n  display: flex;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 0.5rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n\r\nbody {\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n\r\n.logininp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  height: 2rem;\r\n  width: 18rem;\r\n  border-radius: 4px;\r\n  margin: 1rem;\r\n  padding: 0.2rem;\r\n  padding-left: 1rem;\r\n  margin: 1rem auto;\r\n  border:none;\r\n}\r\n\r\n\r\n.loginbdy-up {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-left: 1rem;\r\n  padding-top: 4rem;\r\n}\r\n\r\n\r\n.loginister-btn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n}\r\n\r\n\r\n.loginister-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 2.5rem;\r\n}\r\n\r\n\r\n.loginimg {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-bottom: 1.5rem;\r\n}\r\n\r\n\r\n.fpasssi {\r\n  display: grid;\r\n  grid-template-columns: 1fr 1fr;\r\n  grid-gap: 1rem;\r\n}\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxvRkFBb0Y7OztBQUdwRjtFQUNFLGFBQWE7RUFDYixhQUFhO0VBQ2Isc0NBQXNDO0FBQ3hDOzs7QUFFQTtFQUNFLGFBQWE7SUFDWCx1QkFBdUI7SUFDdkIsbUJBQW1CO0VBQ3JCLHlCQUF5QjtFQUN6QixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7RUFDZiwyQ0FBMkM7QUFDN0M7OztBQUVBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7QUFDYjs7O0FBRUE7RUFDRSxnREFBZ0Q7RUFDaEQsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLFdBQVc7QUFDYjs7O0FBRUE7RUFDRSxhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7OztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixZQUFZO0VBQ1osWUFBWTtFQUNaLGlCQUFpQjtBQUNuQjs7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtBQUNyQjs7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLHNCQUFzQjtBQUN4Qjs7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsOEJBQThCO0VBQzlCLGNBQWM7QUFDaEI7OztBQUdBO0VBQ0UsU0FBUztFQUNULGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90bytDb25kZW5zZWQmZGlzcGxheT1zd2FwXCIpO1xyXG5cclxuXHJcbi5sb2dpbi1yb290IHtcclxuICBoZWlnaHQ6IDEwMHZoO1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1yb3dzOiAxMCUgYXV0byBhdXRvIGF1dG87XHJcbn1cclxuXHJcbi5sb2dpbi1oZWFkIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBmb250LXNpemU6IDEuNXJlbTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90byBDb25kZW5zZWRcIiwgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuYm9keSB7XHJcbiAgcGFkZGluZzogMHB4O1xyXG4gIG1hcmdpbjogMHB4O1xyXG59XHJcblxyXG4ubG9naW5pbnAge1xyXG4gIGJveC1zaGFkb3c6IDBweCA4cHggMjBweCAwcHggcmdiYSgwLCAwLCAwLCAwLjE1KTtcclxuICBoZWlnaHQ6IDJyZW07XHJcbiAgd2lkdGg6IDE4cmVtO1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBtYXJnaW46IDFyZW07XHJcbiAgcGFkZGluZzogMC4ycmVtO1xyXG4gIHBhZGRpbmctbGVmdDogMXJlbTtcclxuICBtYXJnaW46IDFyZW0gYXV0bztcclxuICBib3JkZXI6bm9uZTtcclxufVxyXG5cclxuLmxvZ2luYmR5LXVwIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgcGFkZGluZy1sZWZ0OiAxcmVtO1xyXG4gIHBhZGRpbmctdG9wOiA0cmVtO1xyXG59XHJcblxyXG4ubG9naW5pc3Rlci1idG4ge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMwMWI2MDA7XHJcbiAgd2lkdGg6IDIwMHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG4ubG9naW5pc3Rlci1idXR0b25zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHBhZGRpbmctdG9wOiAyLjVyZW07XHJcbn1cclxuXHJcbi5sb2dpbmltZyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBwYWRkaW5nLWJvdHRvbTogMS41cmVtO1xyXG59XHJcblxyXG4uZnBhc3NzaSB7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAxZnI7XHJcbiAgZ3JpZC1nYXA6IDFyZW07XHJcbn1cclxuXHJcblxyXG4uZXJyb3J7XHJcbiAgY29sb3I6cmVkO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto&display=swap\");\r\n\r\n.l-head {\r\n  background-color: #222831;\r\n  color: white;\r\n  font-size: 21px;\r\n  padding: 15px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  position: fixed;\r\n  top: 0;\r\n  width: 100%;\r\n  z-index: 999;\r\n  display: grid;\r\n  grid-template-columns: 5fr 1fr;\r\n  height:100px;\r\n}\r\n\r\n.l-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  position: absolute;\r\n    right: 15px;\r\n    top: 18px;\r\n}\r\n\r\n.l-signup {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n.l-image {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 1rem;\r\n}\r\n\r\n.l-text-top {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 15px;\r\n  text-align: center;\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 24px;\r\n}\r\n\r\n.l-inpbox {\r\n  display: grid;\r\n  justify-content: center;\r\n  padding-top: 1rem;\r\n}\r\n\r\n.l-inp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  border-radius: 8px;\r\n  height: 2rem;\r\n  padding: 0.5rem;\r\n  font-size: 1rem;\r\n  width: 15rem;\r\n  outline: none;\r\n  border: 1px solid rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.l-lab {\r\n  font-family: \"Roboto\", sans-serif;\r\n  color: #ff5722;\r\n  padding-bottom: 0px;\r\n}\r\n\r\n.l-lab2 {\r\n  font-family: \"Roboto\", sans-serif;\r\n  color: #ff5722;\r\n  padding-bottom: 0px;\r\n}\r\n\r\n.l-btn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n.l-btnbox {\r\n  padding-top: 3rem;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.forgotpass {\r\n  padding-top: 1rem;\r\n  display: flex;\r\n  justify-content: center;\r\n\r\n  color: #ff5722;\r\n\r\n}\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n.text-input{\r\nbackground: transparent;\r\n  width: 250px;\r\n  height: 40px;\r\n  border: none;\r\n  border: 1px solid #ff5722;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  margin: 10px auto;\r\n\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSwwRUFBMEU7O0FBRTFFO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixlQUFlO0VBQ2YsYUFBYTtFQUNiLGlDQUFpQztFQUNqQyxlQUFlO0VBQ2YsTUFBTTtFQUNOLFdBQVc7RUFDWCxZQUFZO0VBQ1osYUFBYTtFQUNiLDhCQUE4QjtFQUM5QixZQUFZO0FBQ2Q7O0FBRUE7RUFDRSx5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtJQUNoQixXQUFXO0lBQ1gsU0FBUztBQUNiOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLGlDQUFpQztFQUNqQyxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxnREFBZ0Q7RUFDaEQsa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixlQUFlO0VBQ2YsZUFBZTtFQUNmLFlBQVk7RUFDWixhQUFhO0VBQ2IscUNBQXFDO0FBQ3ZDOztBQUVBO0VBQ0UsaUNBQWlDO0VBQ2pDLGNBQWM7RUFDZCxtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSxpQ0FBaUM7RUFDakMsY0FBYztFQUNkLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixZQUFZO0VBQ1osWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsWUFBWTtFQUNaLGNBQWM7RUFDZCxpQ0FBaUM7RUFDakMsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYix1QkFBdUI7O0VBRXZCLGNBQWM7O0FBRWhCOztBQUlBO0VBQ0UsU0FBUztFQUNULGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCOztBQUVBO0FBQ0EsdUJBQXVCO0VBQ3JCLFlBQVk7RUFDWixZQUFZO0VBQ1osWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjs7QUFFbkIiLCJmaWxlIjoic3JjL2FwcC9sb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvJmRpc3BsYXk9c3dhcFwiKTtcclxuXHJcbi5sLWhlYWQge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyMjI4MzE7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtc2l6ZTogMjFweDtcclxuICBwYWRkaW5nOiAxNXB4O1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB0b3A6IDA7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgei1pbmRleDogOTk5O1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiA1ZnIgMWZyO1xyXG4gIGhlaWdodDoxMDBweDtcclxufVxyXG5cclxuLmwtYmFjayB7XHJcbiAgZmlsdGVyOiBpbnZlcnQoMSk7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgcmlnaHQ6IDE1cHg7XHJcbiAgICB0b3A6IDE4cHg7XHJcbn1cclxuXHJcbi5sLXNpZ251cCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGxlZnQ7XHJcbn1cclxuXHJcbi5sLWltYWdlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHBhZGRpbmctdG9wOiAxcmVtO1xyXG59XHJcblxyXG4ubC10ZXh0LXRvcCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBwYWRkaW5nLXRvcDogMTVweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbiAgZm9udC1zaXplOiAyNHB4O1xyXG59XHJcblxyXG4ubC1pbnBib3gge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZy10b3A6IDFyZW07XHJcbn1cclxuXHJcbi5sLWlucCB7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAyMHB4IDBweCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG4gIGJvcmRlci1yYWRpdXM6IDhweDtcclxuICBoZWlnaHQ6IDJyZW07XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIGZvbnQtc2l6ZTogMXJlbTtcclxuICB3aWR0aDogMTVyZW07XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG59XHJcblxyXG4ubC1sYWIge1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIGNvbG9yOiAjZmY1NzIyO1xyXG4gIHBhZGRpbmctYm90dG9tOiAwcHg7XHJcbn1cclxuXHJcbi5sLWxhYjIge1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIGNvbG9yOiAjZmY1NzIyO1xyXG4gIHBhZGRpbmctYm90dG9tOiAwcHg7XHJcbn1cclxuXHJcbi5sLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmNTcyMjtcclxuICB3aWR0aDogMjUwcHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogI2YyZjJmMjtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBib3JkZXI6ICNmMmYyZjI7XHJcbn1cclxuXHJcbi5sLWJ0bmJveCB7XHJcbiAgcGFkZGluZy10b3A6IDNyZW07XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLmZvcmdvdHBhc3Mge1xyXG4gIHBhZGRpbmctdG9wOiAxcmVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcblxyXG4gIGNvbG9yOiAjZmY1NzIyO1xyXG5cclxufVxyXG5cclxuXHJcblxyXG4uZXJyb3J7XHJcbiAgY29sb3I6cmVkO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbn1cclxuXHJcbi50ZXh0LWlucHV0e1xyXG5iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICB3aWR0aDogMjUwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjZmY1NzIyO1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgbWFyZ2luOiAxMHB4IGF1dG87XHJcblxyXG59XHJcbiJdfQ== */");
 
 /***/ }),
 
@@ -1804,25 +1989,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/services/fetch-data */ "./src/app/shared/services/fetch-data.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/services/data.service */ "./src/app/shared/services/data.service.ts");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
 
 
 
 
 
 let LoginComponent = class LoginComponent {
-    constructor(fetchData, router, dataService) {
+    constructor(fetchData, router, dataService, layoutService) {
         this.fetchData = fetchData;
         this.router = router;
         this.dataService = dataService;
+        this.layoutService = layoutService;
+        this.loading = false;
     }
     ngOnInit() {
+        this.layoutService.title.next('Login');
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/welcome']);
+        this.layoutService.toolbar.next(null);
     }
     login() {
+        this.loading = true;
         this.error = null;
         this.fetchData.login({ username: this.username, password: this.password }).subscribe((res) => {
             if (res.id && res.userId) {
                 localStorage.setItem('token', res.id);
                 this.fetchData.account().subscribe(res => {
+                    this.loading = false;
                     if (!res.emailVerified) {
                         this.error = "Email not verified, please check your email";
                     }
@@ -1843,10 +2038,12 @@ let LoginComponent = class LoginComponent {
                                 this.router.navigate(['carousel']);
                             }
                         }, err => {
+                            this.loading = false;
                             console.log(err);
                         });
                     }
                 }, err => {
+                    this.loading = false;
                     this.error = "Account not found";
                 });
             }
@@ -1862,7 +2059,8 @@ let LoginComponent = class LoginComponent {
 LoginComponent.ctorParameters = () => [
     { type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__["FetchData"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"] }
+    { type: _shared_services_data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"] },
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_5__["LayoutServiceService"] }
 ];
 LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1907,6 +2105,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
 /* harmony import */ var _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../add-schedule/add-schedule.component */ "./src/app/add-schedule/add-schedule.component.ts");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
 
 
 
@@ -1916,7 +2116,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ScheduleComponent = class ScheduleComponent {
-    constructor(router, connect, socket, config, modalService) {
+    constructor(layoutService, router, connect, socket, config, modalService) {
+        this.layoutService = layoutService;
         this.router = router;
         this.connect = connect;
         this.socket = socket;
@@ -1942,6 +2143,10 @@ let ScheduleComponent = class ScheduleComponent {
         config.size = 'lg';
     }
     ngOnInit() {
+        this.layoutService.toolbar.next("Schedules");
+        this.layoutService.title.next("Schedules");
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/home']);
         this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
             if (res) {
                 this.onlineDevices = JSON.parse(JSON.stringify(res));
@@ -2089,6 +2294,7 @@ let ScheduleComponent = class ScheduleComponent {
     }
 };
 ScheduleComponent.ctorParameters = () => [
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_8__["LayoutServiceService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
     { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_2__["ConnectSocket"] },
     { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__["Socket"] },
@@ -2368,7 +2574,7 @@ ServiceEndpoints = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n.register-root {\r\n  height: 100vh;\r\n  display: grid;\r\n  grid-template-rows: 10% auto auto auto;\r\n}\r\n\r\n.register-head {\r\n  background-color: #282c34;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-weight: bold;\r\n  font-size: 1.5rem;\r\n  color: white;\r\n  padding: 0.5rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\nbody {\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.reginp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  height: 2rem;\r\n  width: 18rem;\r\n  border-radius: 4px;\r\n  margin: 1rem auto;\r\n  padding: 0.2rem;\r\n  padding-left: 1rem;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n  border:none;\r\n}\r\n\r\n.regbdy-up {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-left: 1rem;\r\n  padding-top: 1rem;\r\n}\r\n\r\n.register-btn {\r\n  background-color: #01b600;\r\n  width: 200px;\r\n  height: 40px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: white;\r\n  font-weight: bold;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.register-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.regbdy-up2 {\r\n  display: flex;\r\n  justify-content: center;\r\n  color: #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.lheadtext {\r\n  font-size: 2rem;\r\n  display: flex;\r\n  justify-content: center;\r\n  color: #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.message{\r\n  color:green;\r\n  text-align:center;\r\n  font-weight: 14px;\r\n}\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lnbi11cC9zaWduLXVwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsb0ZBQW9GOztBQUVwRjtFQUNFLGFBQWE7RUFDYixhQUFhO0VBQ2Isc0NBQXNDO0FBQ3hDOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQixpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGVBQWU7RUFDZiwyQ0FBMkM7QUFDN0M7O0FBRUE7RUFDRSxZQUFZO0VBQ1osV0FBVztBQUNiOztBQUVBO0VBQ0UsZ0RBQWdEO0VBQ2hELFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLDJDQUEyQztFQUMzQyxXQUFXO0FBQ2I7O0FBRUE7RUFDRSxhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLDJDQUEyQztBQUM3Qzs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7QUFDekI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGNBQWM7RUFDZCwyQ0FBMkM7QUFDN0M7O0FBRUE7RUFDRSxlQUFlO0VBQ2YsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QsMkNBQTJDO0FBQzdDOztBQUdBO0VBQ0UsV0FBVztFQUNYLGlCQUFpQjtFQUNqQixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxTQUFTO0VBQ1Qsa0JBQWtCO0VBQ2xCLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9zaWduLXVwL3NpZ24tdXAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90bytDb25kZW5zZWQmZGlzcGxheT1zd2FwXCIpO1xyXG5cclxuLnJlZ2lzdGVyLXJvb3Qge1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLXJvd3M6IDEwJSBhdXRvIGF1dG8gYXV0bztcclxufVxyXG5cclxuLnJlZ2lzdGVyLWhlYWQge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG5ib2R5IHtcclxuICBwYWRkaW5nOiAwcHg7XHJcbiAgbWFyZ2luOiAwcHg7XHJcbn1cclxuXHJcbi5yZWdpbnAge1xyXG4gIGJveC1zaGFkb3c6IDBweCA4cHggMjBweCAwcHggcmdiYSgwLCAwLCAwLCAwLjE1KTtcclxuICBoZWlnaHQ6IDJyZW07XHJcbiAgd2lkdGg6IDE4cmVtO1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBtYXJnaW46IDFyZW0gYXV0bztcclxuICBwYWRkaW5nOiAwLjJyZW07XHJcbiAgcGFkZGluZy1sZWZ0OiAxcmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90byBDb25kZW5zZWRcIiwgc2Fucy1zZXJpZjtcclxuICBib3JkZXI6bm9uZTtcclxufVxyXG5cclxuLnJlZ2JkeS11cCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIHBhZGRpbmctbGVmdDogMXJlbTtcclxuICBwYWRkaW5nLXRvcDogMXJlbTtcclxufVxyXG5cclxuLnJlZ2lzdGVyLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzAxYjYwMDtcclxuICB3aWR0aDogMjAwcHg7XHJcbiAgaGVpZ2h0OiA0MHB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4ucmVnaXN0ZXItYnV0dG9ucyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLnJlZ2JkeS11cDIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgY29sb3I6ICMyODJjMzQ7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4ubGhlYWR0ZXh0IHtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBjb2xvcjogIzI4MmMzNDtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcblxyXG4ubWVzc2FnZXtcclxuICBjb2xvcjpncmVlbjtcclxuICB0ZXh0LWFsaWduOmNlbnRlcjtcclxuICBmb250LXdlaWdodDogMTRweDtcclxufVxyXG5cclxuLmVycm9ye1xyXG4gIGNvbG9yOnJlZDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG59XHJcbiJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap\");\r\n\r\n.register-root {\r\n  height: 100vh;\r\n  display: grid;\r\n  grid-template-rows: auto auto auto auto;\r\n}\r\n\r\n.register-head {\r\n  background-color: #222831;\r\n    display: flex;\r\n    align-items: center;\r\n    font-size: 21px;\r\n    color: white;\r\n    padding: 15px;\r\n    font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\nbody {\r\n  padding: 0px;\r\n  margin: 0px;\r\n}\r\n\r\n.reginp {\r\n  width: 250px;\r\n  height: 40px;\r\n  border: none;\r\n  border: 1px solid #ff5722;\r\n  border-radius: 4px;\r\n  padding-left: 10px;\r\n  background: none;\r\n  margin:10px auto;\r\n}\r\n\r\n.regbdy-up {\r\n  display: flex;\r\n  flex-direction: column;\r\n  padding-left: 1rem;\r\n  padding-top: 1rem;\r\n}\r\n\r\n.register-btn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n.register-buttons {\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.regbdy-up2 {\r\n  display: flex;\r\n  justify-content: center;\r\n  color: #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.lheadtext {\r\n  font-size: 24px;\r\n  margin-top: 40px;\r\n  display: flex;\r\n  justify-content: center;\r\n  color: #282c34;\r\n  font-family: \"Roboto Condensed\", sans-serif;\r\n}\r\n\r\n.message{\r\n  color:green;\r\n  text-align:center;\r\n  font-weight: 14px;\r\n}\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n.l-back {\r\n  position: absolute;\r\n    right: 15px;\r\n    top: 18px;\r\n    -webkit-filter: invert(1);\r\n            filter: invert(1);\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lnbi11cC9zaWduLXVwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsb0ZBQW9GOztBQUVwRjtFQUNFLGFBQWE7RUFDYixhQUFhO0VBQ2IsdUNBQXVDO0FBQ3pDOztBQUVBO0VBQ0UseUJBQXlCO0lBQ3ZCLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsZUFBZTtJQUNmLFlBQVk7SUFDWixhQUFhO0lBQ2IsaUNBQWlDO0FBQ3JDOztBQUVBO0VBQ0UsWUFBWTtFQUNaLFdBQVc7QUFDYjs7QUFFQTtFQUNFLFlBQVk7RUFDWixZQUFZO0VBQ1osWUFBWTtFQUNaLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSxhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0VBQ2QsaUNBQWlDO0VBQ2pDLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0FBQ3pCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtFQUN2QixjQUFjO0VBQ2QsMkNBQTJDO0FBQzdDOztBQUVBO0VBQ0UsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGNBQWM7RUFDZCwyQ0FBMkM7QUFDN0M7O0FBR0E7RUFDRSxXQUFXO0VBQ1gsaUJBQWlCO0VBQ2pCLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLFNBQVM7RUFDVCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGtCQUFrQjtJQUNoQixXQUFXO0lBQ1gsU0FBUztJQUNULHlCQUFpQjtZQUFqQixpQkFBaUI7QUFDckIiLCJmaWxlIjoic3JjL2FwcC9zaWduLXVwL3NpZ24tdXAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90bytDb25kZW5zZWQmZGlzcGxheT1zd2FwXCIpO1xyXG5cclxuLnJlZ2lzdGVyLXJvb3Qge1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLXJvd3M6IGF1dG8gYXV0byBhdXRvIGF1dG87XHJcbn1cclxuXHJcbi5yZWdpc3Rlci1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjIyODMxO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBmb250LXNpemU6IDIxcHg7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxNXB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbmJvZHkge1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBtYXJnaW46IDBweDtcclxufVxyXG5cclxuLnJlZ2lucCB7XHJcbiAgd2lkdGg6IDI1MHB4O1xyXG4gIGhlaWdodDogNDBweDtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmNTcyMjtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG4gIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgbWFyZ2luOjEwcHggYXV0bztcclxufVxyXG5cclxuLnJlZ2JkeS11cCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIHBhZGRpbmctbGVmdDogMXJlbTtcclxuICBwYWRkaW5nLXRvcDogMXJlbTtcclxufVxyXG5cclxuLnJlZ2lzdGVyLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmNTcyMjtcclxuICB3aWR0aDogMjUwcHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogI2YyZjJmMjtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBib3JkZXI6ICNmMmYyZjI7XHJcbn1cclxuXHJcbi5yZWdpc3Rlci1idXR0b25zIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG4ucmVnYmR5LXVwMiB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBjb2xvcjogIzI4MmMzNDtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG8gQ29uZGVuc2VkXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5saGVhZHRleHQge1xyXG4gIGZvbnQtc2l6ZTogMjRweDtcclxuICBtYXJnaW4tdG9wOiA0MHB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgY29sb3I6ICMyODJjMzQ7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvIENvbmRlbnNlZFwiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG5cclxuLm1lc3NhZ2V7XHJcbiAgY29sb3I6Z3JlZW47XHJcbiAgdGV4dC1hbGlnbjpjZW50ZXI7XHJcbiAgZm9udC13ZWlnaHQ6IDE0cHg7XHJcbn1cclxuXHJcbi5lcnJvcntcclxuICBjb2xvcjpyZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuLmwtYmFjayB7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgcmlnaHQ6IDE1cHg7XHJcbiAgICB0b3A6IDE4cHg7XHJcbiAgICBmaWx0ZXI6IGludmVydCgxKTtcclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -2385,14 +2591,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/services/fetch-data */ "./src/app/shared/services/fetch-data.ts");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
 
 
 
 let SignUpComponent = class SignUpComponent {
-    constructor(fetchData) {
+    constructor(fetchData, layoutService) {
         this.fetchData = fetchData;
+        this.layoutService = layoutService;
+        this.loading = false;
     }
     ngOnInit() {
+        this.layoutService.title.next('Register');
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/welcome']);
+        this.layoutService.toolbar.next(null);
     }
     signup() {
         this.success = false;
@@ -2403,7 +2617,9 @@ let SignUpComponent = class SignUpComponent {
             password: this.password,
             emailVerified: true
         };
+        this.loading = true;
         this.fetchData.signup(payload).subscribe(res => {
+            this.loading = false;
             console.log(res);
             this.username = null;
             this.email = null;
@@ -2411,6 +2627,7 @@ let SignUpComponent = class SignUpComponent {
             this.terms = true;
             this.success = true;
         }, err => {
+            this.loading = false;
             let e = null;
             if (err.error && err.error.error) {
                 e = err.error.error;
@@ -2427,7 +2644,8 @@ let SignUpComponent = class SignUpComponent {
     }
 };
 SignUpComponent.ctorParameters = () => [
-    { type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__["FetchData"] }
+    { type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_2__["FetchData"] },
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_3__["LayoutServiceService"] }
 ];
 SignUpComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2626,6 +2844,64 @@ ConnectSocket = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root',
     })
 ], ConnectSocket);
+
+
+
+/***/ }),
+
+/***/ "./src/app/toolbar/toolbar.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/toolbar/toolbar.component.css ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".selected{\r\n  color:#ff5722;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdG9vbGJhci90b29sYmFyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC90b29sYmFyL3Rvb2xiYXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zZWxlY3RlZHtcclxuICBjb2xvcjojZmY1NzIyO1xyXG59XHJcbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/toolbar/toolbar.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/toolbar/toolbar.component.ts ***!
+  \**********************************************/
+/*! exports provided: ToolbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ToolbarComponent", function() { return ToolbarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
+
+
+
+let ToolbarComponent = class ToolbarComponent {
+    constructor(layoutService) {
+        this.layoutService = layoutService;
+        this.selected = null;
+        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
+    }
+    ngOnInit() {
+        this.subscriptions.add(this.layoutService.toolbar.subscribe(t => {
+            this.selected = t;
+        }));
+    }
+};
+ToolbarComponent.ctorParameters = () => [
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_3__["LayoutServiceService"] }
+];
+ToolbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-toolbar',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./toolbar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/toolbar/toolbar.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./toolbar.component.css */ "./src/app/toolbar/toolbar.component.css")).default]
+    })
+], ToolbarComponent);
 
 
 

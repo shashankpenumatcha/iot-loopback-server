@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddBoardComponent } from '../add-board/add-board.component';
+import { LayoutServiceService } from '../layout-service.service';
 
 
 @Component({
@@ -16,9 +17,15 @@ export class DeviceListComponent implements OnInit, OnDestroy {
   devices: any;
   onlineDevicesLength: number;
   public object = Object;
-  constructor(private connect: ConnectSocket, private router: Router,config: NgbModalConfig, private modalService: NgbModal) { }
+  constructor(private layoutService: LayoutServiceService,private connect: ConnectSocket, private router: Router,config: NgbModalConfig, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.layoutService.toolbar.next(null);
+
+    this.layoutService.title.next("Home");
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(['/']);
+
     this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
       if (res) {
         console.log(res);

@@ -14,12 +14,13 @@ export class AddBoardComponent implements OnInit, OnDestroy {
   @Input() deviceId: string;
   adding: boolean;
   boardId: string;
-
+  error = false;
   constructor(public activeModal: NgbActiveModal, private socket: Socket, private connect: ConnectSocket) { }
 
   ngOnInit() {
     this.socket.on('board_added', (res) => {
       if (!res.error) {
+
         this.adding = false;
         if (!this.adding && res.boardId) {
           this.connect.getSwitches();
@@ -27,13 +28,15 @@ export class AddBoardComponent implements OnInit, OnDestroy {
         }
       } else {
         this.adding = false;
-        alert(res.error);
+        this.error = true;
       }
     });
   }
 
   addBoard() {
     this.adding = true;
+    this.error = false;
+
     this.socket.emit('addBoard', {boardId: this.boardId, deviceId: this.deviceId, token: localStorage.getItem('token')}, res => {
       if (!res || res.error) {
         this.adding = false;

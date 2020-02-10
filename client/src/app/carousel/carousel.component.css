@@ -1,33 +1,35 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
 
 .step1-head {
-  background-color: #282c34;
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: white;
-  padding: 1rem;
-  font-family: "Roboto Condensed", sans-serif;
-  align-items: center;
+  background-color: #222831;
+    display: flex;
+    justify-content: center;
+    /* font-weight: bold; */
+    font-size: 21px;
+    color: white;
+    padding: 15px;
+    font-family: "Roboto", sans-serif;
+    /* align-items: center; */
+
 }
 
 
 
 .step1-text {
-  padding-top: 3rem;
-  font-size: 2rem;
+  padding: 28px;
+  font-size: 24px;
   display: flex;
   justify-content: center;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 0px;
 }
 
 .step1-txt {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
-  font-size: 1.5rem;
+  padding: 43px 81px;
+  font-size: 21px;
 }
 
 .step1-btn {
@@ -36,14 +38,15 @@
 }
 
 .step1-btnn {
-  background-color: #01b600;
-  width: 200px;
-  height: 40px;
+  background-color: #ff5722;
+  width: 250px;
+  height: 45px;
   border-radius: 4px;
   outline: none;
   border: none;
-  color: white;
-  font-weight: bold;
+  color: #f2f2f2;
+  font-family: "Roboto", sans-serif;
+  border: #f2f2f2;
 }
 
 

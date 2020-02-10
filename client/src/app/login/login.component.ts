@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FetchData} from '../shared/services/fetch-data';
 import { Router } from '@angular/router';
 import { DataService } from '../shared/services/data.service';
+import { LayoutServiceService } from '../layout-service.service';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,17 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   error: string;
-  constructor(public fetchData: FetchData, public router: Router, private dataService: DataService) { }
+  loading = false;
+  constructor(public fetchData: FetchData, public router: Router, private dataService: DataService, private layoutService: LayoutServiceService) { }
   ngOnInit() {
+    this.layoutService.title.next('Login');
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(['/welcome']);
+    this.layoutService.toolbar.next(null);
+
   }
   login() {
+    this.loading = true;
     this.error = null;
     this.fetchData.login({username: this.username, password: this.password}).subscribe(
       (res) => {
@@ -23,6 +31,7 @@ export class LoginComponent implements OnInit {
         if (res.id && res.userId) {
           localStorage.setItem('token', res.id);
           this.fetchData.account().subscribe(res=>{
+              this.loading = false;
               if (!res.emailVerified) {
                 this.error = "Email not verified, please check your email";
               } else {
@@ -40,10 +49,14 @@ export class LoginComponent implements OnInit {
                     this.router.navigate(['carousel']);
                   }
               }, err => {
+                this.loading = false;
+
                 console.log(err);
               });
               }
           }, err => {
+            this.loading = false;
+
             this.error = "Account not found";
           });
         }

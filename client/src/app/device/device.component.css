@@ -12,6 +12,54 @@
  */
 
 
+ .step1-head {
+  background-color: #222831;
+    display: flex;
+    justify-content: center;
+    /* font-weight: bold; */
+    font-size: 21px;
+    color: white;
+    padding: 15px;
+    font-family: "Roboto", sans-serif;
+    /* align-items: center; */
+
+}
+
+
+
+.step1-text {
+  padding: 28px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  padding-bottom: 0px;
+}
+
+.step1-txt {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 43px 81px;
+  font-size: 21px;
+}
+
+.step1-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.step1-btnn {
+  background-color: #ff5722;
+  width: 250px;
+  height: 45px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  color: #f2f2f2;
+  font-family: "Roboto", sans-serif;
+  border: #f2f2f2;
+}
 .step2-head {
   background-color: #282c34;
   display: flex;

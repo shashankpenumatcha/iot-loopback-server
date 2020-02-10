@@ -1,82 +1,119 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
-
-.login-root {
-  height: 100vh;
+.l-head {
+  background-color: #222831;
+  color: white;
+  font-size: 21px;
+  padding: 15px;
+  font-family: "Roboto", sans-serif;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
   display: grid;
-  grid-template-rows: 10% auto auto auto;
+  grid-template-columns: 5fr 1fr;
+  height:100px;
 }
 
-.login-head {
+.l-back {
+  filter: invert(1);
+  position: absolute;
+    right: 15px;
+    top: 18px;
+}
+
+.l-signup {
   display: flex;
-    justify-content: center;
-    align-items: center;
-  background-color: #282c34;
+  justify-content: left;
+}
+
+.l-image {
   display: flex;
   justify-content: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: white;
-  padding: 0.5rem;
-  font-family: "Roboto Condensed", sans-serif;
+  padding-top: 1rem;
 }
 
-body {
-  padding: 0px;
-  margin: 0px;
-}
-
-.logininp {
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  height: 2rem;
-  width: 18rem;
-  border-radius: 4px;
-  margin: 1rem;
-  padding: 0.2rem;
-  padding-left: 1rem;
-  margin: 1rem auto;
-  border:none;
-}
-
-.loginbdy-up {
+.l-text-top {
   display: flex;
-  flex-direction: column;
-  padding-left: 1rem;
-  padding-top: 4rem;
+  justify-content: center;
+  padding-top: 15px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
 }
 
-.loginister-btn {
-  background-color: #01b600;
-  width: 200px;
-  height: 40px;
+.l-inpbox {
+  display: grid;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.l-inp {
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  height: 2rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 15rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.l-lab {
+  font-family: "Roboto", sans-serif;
+  color: #ff5722;
+  padding-bottom: 0px;
+}
+
+.l-lab2 {
+  font-family: "Roboto", sans-serif;
+  color: #ff5722;
+  padding-bottom: 0px;
+}
+
+.l-btn {
+  background-color: #ff5722;
+  width: 250px;
+  height: 45px;
   border-radius: 4px;
   outline: none;
   border: none;
-  color: white;
-  font-weight: bold;
+  color: #f2f2f2;
+  font-family: "Roboto", sans-serif;
+  border: #f2f2f2;
 }
 
-.loginister-buttons {
+.l-btnbox {
+  padding-top: 3rem;
   display: flex;
   justify-content: center;
-  padding-top: 2.5rem;
 }
 
-.loginimg {
+.forgotpass {
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
-  padding-bottom: 1.5rem;
+
+  color: #ff5722;
+
 }
 
-.fpasssi {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-}
 
 
 .error{
   color:red;
   text-align: center;
   font-size: 14px;
+}
+
+.text-input{
+background: transparent;
+  width: 250px;
+  height: 40px;
+  border: none;
+  border: 1px solid #ff5722;
+  border-radius: 4px;
+  padding-left: 10px;
+  margin: 10px auto;
+
 }

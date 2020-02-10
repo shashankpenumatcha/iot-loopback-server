@@ -1,21 +1,36 @@
-<div style="padding:25px;">
+<div style="border: none;
+background: none;
+position: relative;
+right: 0px;
+opacity: 1;
+margin-top: 20px;
+width: 500px;
+max-width: 90vw;
+margin: 30px auto;">
 
 
-  <h3>Add Location</h3>
-  <i *ngIf="!adding" (click)="activeModal.dismiss()" style="cursor:pointer;position: absolute;right:27px;top:20px" class="fas fa-times"></i>
-  <div style="margin-top:20px" id="add-location-form">
+<!--   <i *ngIf="!adding" (click)="activeModal.dismiss()" style="cursor:pointer;position: absolute;right:27px;top:20px" class="fas fa-times"></i>
+ -->  <div style="margin-top:20px" id="add-location-form">
     <input style="width: 100%;
-    height: 36px;
+    height: 45px;
     font-size: 100%;
     border: none;
-    border-bottom: 1px solid #0000001a;outline:none;" [disabled]="adding" [(ngModel)]="name" type="text" placeholder="Location Name"/>
+    border-bottom: 1px solid #0000001a;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid #ff5722;
+    border-radius: 4px;" [disabled]="adding" [(ngModel)]="name" type="text" placeholder="Location Name"/>
   </div>
   <button style="border:none;background:none;position: absolute;
   right: 29px;
   opacity: 0.5;margin-top:20px"  id="scan-btn" (click)="scan(true)"><i class="fas fa-sync-alt"></i></button>
    <div id="scan-section">
 
-     <div style="    margin-top: 50px;padding: 15px;border-radius: 5px;background: #107a8b08;" id="switches" *ngIf="deviceLength&&!adding&&showSwitches">
+     <div style="     margin-top: 50px;
+     padding: 15px;
+     border-radius: 5px;
+     background: #222831;
+     color: #eeeeee;" id="switches" *ngIf="deviceLength&&!adding&&showSwitches">
         <div *ngFor="let device of devices | keyvalue ; let ix=index">
             <ng-container *ngIf="device.value">
               <div *ngFor="let board of device.value | keyvalue; let ixx = index">
@@ -24,7 +39,7 @@
 
 
 
-                  <div style="margin-bottom:20px;background:white;" *ngFor="let switch of board.value.switches; let i = index">
+                  <div style="margin-bottom:20px;background:white;position: relative;" *ngFor="let switch of board.value.switches; let i = index">
 
 
                     <table style="width:100px;height:70px;">
@@ -35,8 +50,13 @@
                         </td>
 
                             <td style="font-size:25px;">
-                              <button style="outline:none;padding:0px;margin:0px;border:none;background:none;"  *ngIf="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-on"></i></button>
+                            <!--   <button style="outline:none;padding:0px;margin:0px;border:none;background:none;"  *ngIf="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-on"></i></button>
                               <button style="outline:none;padding:0px;margin: 0px;border:none;background:none;"  *ngIf="!devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-off"></i></button>
+                            -->
+                            <label style="right: 23px;bottom:13px" class="switch">
+                              <input [(ngModel)]="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)" type="checkbox">
+                              <span class="slider round"></span>
+                            </label>
                             </td>
 
                             <td style="height:35px;padding-left:25px">
@@ -62,9 +82,9 @@
         display: block;
         margin-top: 40px;
         padding: 10px 35px;
-        background: #3d5af1;
-        border: 1px solid #3d5af1;
-        border-radius: 200px;
+        background: #ff5722;
+        border: 1px solid #ff5722;
+        border-radius: 4px;
         color: #fff;"  [disabled]="!name||adding||!switchCount" (click)="addLocation()">Add Location</button>
      <div *ngIf="!deviceLength">
        No devices found

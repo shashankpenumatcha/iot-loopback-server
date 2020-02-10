@@ -1,29 +1,19 @@
 
-
-
-<div class="login-root">
-  <div class="login-head">Login</div>
-  <div class="login-body">
-
-    <div class="loginbdy-up1"></div>
-
-    <div class="loginbdy-up">
-    <div class="loginimg"><img height="150px" src="content/images/login.png"/></div>
-
-    <input [(ngModel)]="username" class="logininp" placeholder="Username" name="username" id="username">
-
-    <input [(ngModel)]="password" class="logininp" placeholder="Password" type="password" name="password" id="password">
-
-
-
-    </div>
-    <div class="loginbdy-down"></div>
-  </div>
-  <div class="loginister-buttons">
-    <button  [disabled]="!username||!password" (click)="login()" class="loginister-btn">Login</button>
-
-  </div>
-
-<p *ngIf="error" class="error">{{error}}</p>
-
+<div class="l-text-top">Get Started !</div>
+<div class="l-image"><img src="content/images/singup.png" height="150px" /></div>
+<div class="l-inpbox">
+  <div><input class="text-input" placeholder="Username" [(ngModel)]="username"  name="username"/></div>
+  <div><input placeholder="Password" class="text-input"  [(ngModel)]="password" name="password"   type="password"/></div>
 </div>
+<div class="l-btnbox"><button [disabled]="!username||!password" (click)="login()" class="l-btn"  >
+<div *ngIf="!loading">
+
+  Login
+</div>
+  <div *ngIf="loading" class="spinner-border text-light" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</button></div>
+<div class="forgotpass">Forgot Password?</div>
+
+

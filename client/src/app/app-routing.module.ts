@@ -9,13 +9,16 @@ import { DeviceListComponent } from './device-list/device-list.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifiedComponent } from './verified/verified.component';
+import { AddLocationComponent } from './add-location/add-location.component';
 
 
 const routes: Routes = [
   {path: 'verified', component: VerifiedComponent},
   {path: 'signup', component: SignUpComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, data: {nav: true, toolbar: false, back: '/welcome' }},
   {path: 'welcome', component: LandingPageComponent},
+  {path: 'add-location', component: AddLocationComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+
   {path: 'carousel', component: CarouselComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'device-list', component: DeviceListComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: '', component: HomeComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},

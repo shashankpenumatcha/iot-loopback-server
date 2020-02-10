@@ -3,6 +3,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {ConnectSocket} from '../sockets/connect';
 import { Subscription } from 'rxjs';
 import { Socket } from 'ngx-socket-io';
+import { Router } from '@angular/router';
+import { LayoutServiceService } from '../layout-service.service';
 
 //TODO multiple device per location
 @Component({
@@ -25,9 +27,15 @@ export class AddLocationComponent implements OnInit, OnDestroy {
   switchCount = 0;
   selectedSwitchCount = 0;
   // get available switches
-  constructor(public activeModal: NgbActiveModal, private connect: ConnectSocket, private socket: Socket) { }
+  constructor( private connect: ConnectSocket, private socket: Socket, private router: Router, private layoutService: LayoutServiceService) { }
 
   ngOnInit() {
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(['/']);
+    this.layoutService.title.next('Add Location');
+    this.layoutService.toolbar.next(null);
+
+
     this.subscriptions.add(
       this.connect.onlineDevices$.subscribe(res => {
         if (res) {
@@ -39,7 +47,8 @@ export class AddLocationComponent implements OnInit, OnDestroy {
           this.deviceLength = 0;
         }
         if (!this.deviceLength) {
-          this.activeModal.dismiss();
+         // this.activeModal.dismiss();
+         this.router.navigate(['/']);
         }
         this.scan(true);
       })
@@ -52,7 +61,8 @@ export class AddLocationComponent implements OnInit, OnDestroy {
         if (!this.activeRequests.length && res.name) {
           this.adding = false;
           this.connect.getLocations();
-          this.activeModal.dismiss();
+         // this.activeModal.dismiss();
+          this.router.navigate(['/']);
         }
       } else {
         this.adding = false;

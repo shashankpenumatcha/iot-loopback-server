@@ -7,6 +7,8 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddLocationComponent } from '../add-location/add-location.component';
 import { ThrowStmt } from '@angular/compiler';
 import { DataService } from '../shared/services/data.service';
+import { LayoutServiceService } from '../layout-service.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -29,6 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   boards = []; */
 
   constructor(
+    private router: Router,
+    private layoutService: LayoutServiceService,
     private fetchData: FetchData,
     private chowkidaar: Chowkidaar,
     private connect: ConnectSocket,
@@ -40,7 +44,12 @@ export class HomeComponent implements OnInit, OnDestroy {
      }
 
   ngOnInit() {
+    this.layoutService.toolbar.next('Home');
 
+
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(null);
+    this.layoutService.title.next('Home');
 
     this.fetchData.registeredDevices().subscribe((res) => {
       if (res && res.devices && res.devices.length) {
@@ -115,10 +124,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
  */
   launchDeviceAdder() {
-    if (this.onlineDevicesLength) {
+    this.router.navigate(['add-location']);
+    /* if (this.onlineDevicesLength) {
       const modalRef = this.modalService.open(AddLocationComponent);
 
-    }
+    } */
   }
 
 }
