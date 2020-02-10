@@ -1041,7 +1041,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
 let Config = {
-    server: 'http://localhost:3001'
+    server: 'http://134.209.155.230:3001'
 }
 
 
@@ -2146,7 +2146,7 @@ let ScheduleComponent = class ScheduleComponent {
         this.layoutService.toolbar.next("Schedules");
         this.layoutService.title.next("Schedules");
         this.layoutService.header.next(true);
-        this.layoutService.back.next(['/home']);
+        this.layoutService.back.next(['/']);
         this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
             if (res) {
                 this.onlineDevices = JSON.parse(JSON.stringify(res));

@@ -1917,7 +1917,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     });
 
     var Config = {
-      server: 'http://localhost:3001'
+      server: 'http://134.209.155.230:3001'
     };
     /***/
   },
@@ -3794,7 +3794,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.layoutService.toolbar.next("Schedules");
           this.layoutService.title.next("Schedules");
           this.layoutService.header.next(true);
-          this.layoutService.back.next(['/home']);
+          this.layoutService.back.next(['/']);
           this.subscriptions.add(this.connect.onlineDevices$.subscribe(function (res) {
             if (res) {
               _this14.onlineDevices = JSON.parse(JSON.stringify(res));
