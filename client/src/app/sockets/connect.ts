@@ -16,16 +16,43 @@ export class ConnectSocket implements OnDestroy {
   locations$ = new BehaviorSubject(this.locations);
   boards: any = [];
   boards$ = new BehaviorSubject(this.boards);
+  usage: any = null;
+  usage$ = new BehaviorSubject(this.usage);
+
   constructor(private socket: Socket) {
     this.getSwitches();
     this.onDeviceDisconnect();
     this.initLocations();
+    this.initUsage();
   }
 
   ngOnDestroy() {
     this.leaveAll(Object.keys(this.rooms));
   }
 
+  initUsage() {
+    this.socket.on('usage', res => {
+      console.log(res);
+      if (!res.error) {
+        if (res.deviceId && res.switches && res.switches.length) {
+          this.usage = {};
+          res.switches.some(s => {
+              if (!this.usage[s.locationId]) {
+                this.usage[s.locationId] = {};
+              }
+              this.usage[s.locationId].name = s.locationName;
+              if (!this.usage[s.locationId].switches) {
+                this.usage[s.locationId].switches = [];
+              }
+              s.deviceId = res.deviceId;
+              this.usage[s.locationId].switches.push(s);
+
+          });
+          this.usage$.next(this.usage);
+        }
+      }
+    });
+  }
   initLocations() {
     this.socket.on('locations', res => {
       console.log(res);
@@ -98,6 +125,19 @@ export class ConnectSocket implements OnDestroy {
     } else {
       this.locations = null;
       this.locations$.next(null);
+    }
+  }
+
+  getUsage() {
+    let devices = [];
+    if (this.onlineDevices) {
+      devices = Object.keys(this.onlineDevices);
+    }
+    if (devices.length) {
+      this.socket.emit('getUsage', devices);
+    } else {
+      this.usage = null;
+      this.usage$.next(null);
     }
   }
 

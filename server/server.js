@@ -11,8 +11,6 @@ var log4js = require('log4js');
 var log = log4js.getLogger();
 log.level = 'debug';
 var uuid = require('uuid-random');
-
-
 const app = module.exports = loopback();
 
 app.start = function() {
@@ -239,6 +237,25 @@ boot(app, __dirname, function(err) {
       socket.on('locations', response => {
         if(response.socketId) {
             app.io.to(response.socketId).emit('locations', response);
+        }
+      })
+
+      socket.on('getUsage', devices => {
+        console.log('get usage')
+        if(devices && devices.length){
+          devices.some(s=>{
+            app.io.to(s).emit('getUsage',{socketId:socket.id});
+          })
+        } else {
+          app.io.to(socket.id).emit('usage' , {error:'devices length is invalid'});
+        }
+      });
+
+      socket.on('usage', response => {
+        if(response.socketId) {
+          console.log('sending usage')
+          console.log(response)
+            app.io.to(response.socketId).emit('usage', response);
         }
       })
 

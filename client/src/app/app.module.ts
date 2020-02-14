@@ -24,6 +24,7 @@ import { AddScheduleComponent } from './add-schedule/add-schedule.component';
 import { HeaderComponent } from './header/header.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SettingsComponent } from './settings/settings.component';
+import { UsageComponent } from './usage/usage.component';
 const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
@@ -52,7 +53,8 @@ const config: SocketIoConfig = { url: Config.server, options: {} };
     AddScheduleComponent,
     HeaderComponent,
     ToolbarComponent,
-    SettingsComponent
+    SettingsComponent,
+    UsageComponent
   ],
   entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent],
   providers: [

@@ -227,7 +227,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"selected\" style=\"position:fixed;bottom:0px;right:0px;background:#222831;height: 80px;width:100%;\">\n  <div class=\"container\">\n    <div style=\"color: #fff;\n    padding-top: 20px;text-align: center;\" class=\"row\">\n      <div [routerLink]=\"['/']\" [ngClass]=\"{'selected':selected=='Home'}\" class=\"col-3\">\n       <div>\n        <i class=\"fas fa-home\"></i>\n       </div>\n        <div>\n\n          Home\n        </div>\n      </div>\n      <div [ngClass]=\"{'selected':selected=='Usage'}\" class=\"col-3\">\n        <div>\n          <i class=\"fas fa-chart-line\"></i>\n                 </div>\n          <div>\n\n            Usage\n          </div>\n      </div>\n      <div [routerLink]=\"['/schedules']\" [ngClass]=\"{'selected':selected=='Schedules'}\" class=\"col-3\">\n        <div>\n          <i class=\"far fa-calendar-alt\"></i>\n         </div>\n          <div>\n\n            Schedules\n          </div>\n      </div>\n      <div  [routerLink]=\"['/settings']\"  [ngClass]=\"{'selected':selected=='Settings'}\" class=\"col-3\">\n        <div>\n          <i class=\"fas fa-cog\"></i>\n                 </div>\n          <div>\n\n            Settings\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"selected\" style=\"position:fixed;bottom:0px;right:0px;background:#222831;height: 80px;width:100%;\">\n  <div class=\"container\">\n    <div style=\"color: #fff;\n    padding-top: 20px;text-align: center;\" class=\"row\">\n      <div [routerLink]=\"['/']\" [ngClass]=\"{'selected':selected=='Home'}\" class=\"col-3\">\n       <div>\n        <i class=\"fas fa-home\"></i>\n       </div>\n        <div>\n\n          Home\n        </div>\n      </div>\n      <div [routerLink]=\"['/usage']\"  [ngClass]=\"{'selected':selected=='Usage'}\" class=\"col-3\">\n        <div>\n          <i class=\"fas fa-chart-line\"></i>\n                 </div>\n          <div>\n\n            Usage\n          </div>\n      </div>\n      <div [routerLink]=\"['/schedules']\" [ngClass]=\"{'selected':selected=='Schedules'}\" class=\"col-3\">\n        <div>\n          <i class=\"far fa-calendar-alt\"></i>\n         </div>\n          <div>\n\n            Schedules\n          </div>\n      </div>\n      <div  [routerLink]=\"['/settings']\"  [ngClass]=\"{'selected':selected=='Settings'}\" class=\"col-3\">\n        <div>\n          <i class=\"fas fa-cog\"></i>\n                 </div>\n          <div>\n\n            Settings\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/usage/usage.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/usage/usage.component.html ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<pre style=\"    font-family: Roboto;\nmargin: 15px 15px;\ncolor: #ff5722;\nfont-weight: bold;\">\n  This week's usage\n</pre>\n<div class=\"container\">\n<div class=\"row\">\n  <div class=\"col-12\">\n\n    <ng-container *ngIf=\"usage\">\n      <ng-container *ngFor=\"let u of usage | keyvalue\">\n        <span [ngClass]=\"{'selected':location==u.key}\" style=\"padding: 15px;\n        margin-right: 15px;\n        display: inline-block;\n        text-transform: capitalize;\" (click)=\"location=u.key\" *ngIf=\"u.value\">{{u.value.name}}</span>\n      </ng-container>\n    </ng-container>\n  </div>\n  <div class=\"col-12\">\n\n\n    <div style=\"padding:40px 15px\">\n      <ng-container *ngIf=\"usage\">\n        <ng-container *ngFor=\"let u of usage | keyvalue\">\n          <ng-container *ngIf=\"u.key==location && u.value && u.value.switches && u.value.switches.length\">\n            <ng-container *ngFor=\"let switch of u.value.switches\">\n                  <div style=\"    display: flex;\n                  /* background: #393e46; */\n                  color: #393e46;\n                  padding: 15px 15px;\n                  font-size: 18px;\n                  border-bottom: 1px solid #393e4630;\n                  align-items: center;position:relative;\">\n                     <span style=\"text-transform: capitalize;\">{{switch.name}}</span> <span style=\"position:absolute;right:45px\">{{switch.duration}}</span>\n                  </div>\n            </ng-container>\n          </ng-container>\n        </ng-container>\n      </ng-container>\n    </div>\n  </div>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -960,6 +973,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _verified_verified_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./verified/verified.component */ "./src/app/verified/verified.component.ts");
 /* harmony import */ var _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./add-location/add-location.component */ "./src/app/add-location/add-location.component.ts");
 /* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
+/* harmony import */ var _usage_usage_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./usage/usage.component */ "./src/app/usage/usage.component.ts");
+
 
 
 
@@ -987,6 +1002,7 @@ const routes = [
     { path: 'admin', loadChildren: () => __webpack_require__.e(/*! import() | admin-admin-module */ "admin-admin-module").then(__webpack_require__.bind(null, /*! ./admin/admin.module */ "./src/app/admin/admin.module.ts")).then(m => m.AdminModule) },
     { path: 'devices', loadChildren: () => __webpack_require__.e(/*! import() | device-device-module */ "device-device-module").then(__webpack_require__.bind(null, /*! ./device/device.module */ "./src/app/device/device.module.ts")).then(m => m.DeviceModule) },
     { path: 'schedules', component: _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_7__["ScheduleComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
+    { path: 'usage', component: _usage_usage_component__WEBPACK_IMPORTED_MODULE_14__["UsageComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: '**', component: _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__["LandingPageComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -1100,6 +1116,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
 /* harmony import */ var _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./toolbar/toolbar.component */ "./src/app/toolbar/toolbar.component.ts");
 /* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
+/* harmony import */ var _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./usage/usage.component */ "./src/app/usage/usage.component.ts");
+
 
 
 
@@ -1157,7 +1175,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"],
             _header_header_component__WEBPACK_IMPORTED_MODULE_24__["HeaderComponent"],
             _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__["ToolbarComponent"],
-            _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__["SettingsComponent"]
+            _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__["SettingsComponent"],
+            _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__["UsageComponent"]
         ],
         entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]],
         providers: [
@@ -2769,12 +2788,37 @@ let ConnectSocket = class ConnectSocket {
         this.locations$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.locations);
         this.boards = [];
         this.boards$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.boards);
+        this.usage = null;
+        this.usage$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.usage);
         this.getSwitches();
         this.onDeviceDisconnect();
         this.initLocations();
+        this.initUsage();
     }
     ngOnDestroy() {
         this.leaveAll(Object.keys(this.rooms));
+    }
+    initUsage() {
+        this.socket.on('usage', res => {
+            console.log(res);
+            if (!res.error) {
+                if (res.deviceId && res.switches && res.switches.length) {
+                    this.usage = {};
+                    res.switches.some(s => {
+                        if (!this.usage[s.locationId]) {
+                            this.usage[s.locationId] = {};
+                        }
+                        this.usage[s.locationId].name = s.locationName;
+                        if (!this.usage[s.locationId].switches) {
+                            this.usage[s.locationId].switches = [];
+                        }
+                        s.deviceId = res.deviceId;
+                        this.usage[s.locationId].switches.push(s);
+                    });
+                    this.usage$.next(this.usage);
+                }
+            }
+        });
     }
     initLocations() {
         this.socket.on('locations', res => {
@@ -2846,6 +2890,19 @@ let ConnectSocket = class ConnectSocket {
         else {
             this.locations = null;
             this.locations$.next(null);
+        }
+    }
+    getUsage() {
+        let devices = [];
+        if (this.onlineDevices) {
+            devices = Object.keys(this.onlineDevices);
+        }
+        if (devices.length) {
+            this.socket.emit('getUsage', devices);
+        }
+        else {
+            this.usage = null;
+            this.usage$.next(null);
         }
     }
     onDeviceDisconnect() {
@@ -2983,6 +3040,82 @@ ToolbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./toolbar.component.css */ "./src/app/toolbar/toolbar.component.css")).default]
     })
 ], ToolbarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/usage/usage.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/usage/usage.component.css ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".selected{\r\n  border-bottom: 2px solid #ff5722;\r\n\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNhZ2UvdXNhZ2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdDQUFnQzs7QUFFbEMiLCJmaWxlIjoic3JjL2FwcC91c2FnZS91c2FnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNlbGVjdGVke1xyXG4gIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAjZmY1NzIyO1xyXG5cclxufVxyXG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/usage/usage.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/usage/usage.component.ts ***!
+  \******************************************/
+/*! exports provided: UsageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsageComponent", function() { return UsageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+/* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+
+let UsageComponent = class UsageComponent {
+    constructor(layoutService, connect) {
+        this.layoutService = layoutService;
+        this.connect = connect;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
+        this.location = null;
+    }
+    ngOnInit() {
+        this.layoutService.toolbar.next("Usage");
+        this.layoutService.title.next("Usage");
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(false);
+        this.connect.getUsage();
+        this.subscription.add(this.connect.usage$.subscribe(res => {
+            this.usage = res;
+            if (res) {
+                let keys = Object.keys(this.usage);
+                if (keys && keys.length) {
+                    this.location = keys[0];
+                }
+            }
+        }));
+    }
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+};
+UsageComponent.ctorParameters = () => [
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"] },
+    { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_3__["ConnectSocket"] }
+];
+UsageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-usage',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./usage.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/usage/usage.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./usage.component.css */ "./src/app/usage/usage.component.css")).default]
+    })
+], UsageComponent);
 
 
 

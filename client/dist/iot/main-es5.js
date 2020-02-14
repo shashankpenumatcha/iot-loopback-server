@@ -351,7 +351,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div *ngIf=\"selected\" style=\"position:fixed;bottom:0px;right:0px;background:#222831;height: 80px;width:100%;\">\n  <div class=\"container\">\n    <div style=\"color: #fff;\n    padding-top: 20px;text-align: center;\" class=\"row\">\n      <div [routerLink]=\"['/']\" [ngClass]=\"{'selected':selected=='Home'}\" class=\"col-3\">\n       <div>\n        <i class=\"fas fa-home\"></i>\n       </div>\n        <div>\n\n          Home\n        </div>\n      </div>\n      <div [ngClass]=\"{'selected':selected=='Usage'}\" class=\"col-3\">\n        <div>\n          <i class=\"fas fa-chart-line\"></i>\n                 </div>\n          <div>\n\n            Usage\n          </div>\n      </div>\n      <div [routerLink]=\"['/schedules']\" [ngClass]=\"{'selected':selected=='Schedules'}\" class=\"col-3\">\n        <div>\n          <i class=\"far fa-calendar-alt\"></i>\n         </div>\n          <div>\n\n            Schedules\n          </div>\n      </div>\n      <div  [routerLink]=\"['/settings']\"  [ngClass]=\"{'selected':selected=='Settings'}\" class=\"col-3\">\n        <div>\n          <i class=\"fas fa-cog\"></i>\n                 </div>\n          <div>\n\n            Settings\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div *ngIf=\"selected\" style=\"position:fixed;bottom:0px;right:0px;background:#222831;height: 80px;width:100%;\">\n  <div class=\"container\">\n    <div style=\"color: #fff;\n    padding-top: 20px;text-align: center;\" class=\"row\">\n      <div [routerLink]=\"['/']\" [ngClass]=\"{'selected':selected=='Home'}\" class=\"col-3\">\n       <div>\n        <i class=\"fas fa-home\"></i>\n       </div>\n        <div>\n\n          Home\n        </div>\n      </div>\n      <div [routerLink]=\"['/usage']\"  [ngClass]=\"{'selected':selected=='Usage'}\" class=\"col-3\">\n        <div>\n          <i class=\"fas fa-chart-line\"></i>\n                 </div>\n          <div>\n\n            Usage\n          </div>\n      </div>\n      <div [routerLink]=\"['/schedules']\" [ngClass]=\"{'selected':selected=='Schedules'}\" class=\"col-3\">\n        <div>\n          <i class=\"far fa-calendar-alt\"></i>\n         </div>\n          <div>\n\n            Schedules\n          </div>\n      </div>\n      <div  [routerLink]=\"['/settings']\"  [ngClass]=\"{'selected':selected=='Settings'}\" class=\"col-3\">\n        <div>\n          <i class=\"fas fa-cog\"></i>\n                 </div>\n          <div>\n\n            Settings\n          </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/usage/usage.component.html":
+  /*!**********************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/usage/usage.component.html ***!
+    \**********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppUsageUsageComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<pre style=\"    font-family: Roboto;\nmargin: 15px 15px;\ncolor: #ff5722;\nfont-weight: bold;\">\n  This week's usage\n</pre>\n<div class=\"container\">\n<div class=\"row\">\n  <div class=\"col-12\">\n\n    <ng-container *ngIf=\"usage\">\n      <ng-container *ngFor=\"let u of usage | keyvalue\">\n        <span [ngClass]=\"{'selected':location==u.key}\" style=\"padding: 15px;\n        margin-right: 15px;\n        display: inline-block;\n        text-transform: capitalize;\" (click)=\"location=u.key\" *ngIf=\"u.value\">{{u.value.name}}</span>\n      </ng-container>\n    </ng-container>\n  </div>\n  <div class=\"col-12\">\n\n\n    <div style=\"padding:40px 15px\">\n      <ng-container *ngIf=\"usage\">\n        <ng-container *ngFor=\"let u of usage | keyvalue\">\n          <ng-container *ngIf=\"u.key==location && u.value && u.value.switches && u.value.switches.length\">\n            <ng-container *ngFor=\"let switch of u.value.switches\">\n                  <div style=\"    display: flex;\n                  /* background: #393e46; */\n                  color: #393e46;\n                  padding: 15px 15px;\n                  font-size: 18px;\n                  border-bottom: 1px solid #393e4630;\n                  align-items: center;position:relative;\">\n                     <span style=\"text-transform: capitalize;\">{{switch.name}}</span> <span style=\"position:absolute;right:45px\">{{switch.duration}}</span>\n                  </div>\n            </ng-container>\n          </ng-container>\n        </ng-container>\n      </ng-container>\n    </div>\n  </div>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -1759,6 +1779,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _settings_settings_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./settings/settings.component */
     "./src/app/settings/settings.component.ts");
+    /* harmony import */
+
+
+    var _usage_usage_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    /*! ./usage/usage.component */
+    "./src/app/usage/usage.component.ts");
 
     var routes = [{
       path: 'verified',
@@ -1837,6 +1863,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'schedules',
       component: _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_7__["ScheduleComponent"],
+      canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
+      data: {
+        authorities: ['authenticated']
+      }
+    }, {
+      path: 'usage',
+      component: _usage_usage_component__WEBPACK_IMPORTED_MODULE_14__["UsageComponent"],
       canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
       data: {
         authorities: ['authenticated']
@@ -2136,6 +2169,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
     /*! ./settings/settings.component */
     "./src/app/settings/settings.component.ts");
+    /* harmony import */
+
+
+    var _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+    /*! ./usage/usage.component */
+    "./src/app/usage/usage.component.ts");
 
     var config = {
       url: _app_config_js__WEBPACK_IMPORTED_MODULE_20__["Config"].server,
@@ -2148,7 +2187,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       imports: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__["NgbModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_10__["SocketIoModule"].forRoot(config)],
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_11__["CarouselComponent"], _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__["ScheduleComponent"], _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_15__["DeviceListComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__["LandingPageComponent"], _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__["SignUpComponent"], _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"], _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__["LocationListComponent"], _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__["HomeToolbarComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_24__["HeaderComponent"], _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__["ToolbarComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__["SettingsComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_11__["CarouselComponent"], _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__["ScheduleComponent"], _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_15__["DeviceListComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__["LandingPageComponent"], _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__["SignUpComponent"], _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"], _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__["LocationListComponent"], _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__["HomeToolbarComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_24__["HeaderComponent"], _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__["ToolbarComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__["SettingsComponent"], _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__["UsageComponent"]],
       entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]],
       providers: [{
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HTTP_INTERCEPTORS"],
@@ -4760,9 +4799,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.locations$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.locations);
         this.boards = [];
         this.boards$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.boards);
+        this.usage = null;
+        this.usage$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](this.usage);
         this.getSwitches();
         this.onDeviceDisconnect();
         this.initLocations();
+        this.initUsage();
       }
 
       _createClass(ConnectSocket, [{
@@ -4771,30 +4813,62 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.leaveAll(Object.keys(this.rooms));
         }
       }, {
+        key: "initUsage",
+        value: function initUsage() {
+          var _this20 = this;
+
+          this.socket.on('usage', function (res) {
+            console.log(res);
+
+            if (!res.error) {
+              if (res.deviceId && res.switches && res.switches.length) {
+                _this20.usage = {};
+                res.switches.some(function (s) {
+                  if (!_this20.usage[s.locationId]) {
+                    _this20.usage[s.locationId] = {};
+                  }
+
+                  _this20.usage[s.locationId].name = s.locationName;
+
+                  if (!_this20.usage[s.locationId].switches) {
+                    _this20.usage[s.locationId].switches = [];
+                  }
+
+                  s.deviceId = res.deviceId;
+
+                  _this20.usage[s.locationId].switches.push(s);
+                });
+
+                _this20.usage$.next(_this20.usage);
+              }
+            }
+          });
+        }
+      }, {
         key: "initLocations",
         value: function initLocations() {
-          var _this20 = this;
+          var _this21 = this;
 
           this.socket.on('locations', function (res) {
             console.log(res);
 
             if (!res.error) {
               if (res.deviceId && res.switches && res.switches.length) {
-                _this20.locations = {};
+                _this21.locations = {};
                 res.switches.some(function (s) {
-                  if (!_this20.locations[s.locationId]) {
-                    _this20.locations[s.locationId] = {};
+                  if (!_this21.locations[s.locationId]) {
+                    _this21.locations[s.locationId] = {};
                   }
 
-                  _this20.locations[s.locationId].name = s.locationName;
+                  _this21.locations[s.locationId].name = s.locationName;
 
-                  if (!_this20.locations[s.locationId].switches) {
-                    _this20.locations[s.locationId].switches = [];
+                  if (!_this21.locations[s.locationId].switches) {
+                    _this21.locations[s.locationId].switches = [];
                   }
 
                   s.deviceId = res.deviceId;
 
-                  _this20.locations[s.locationId].switches.push(s);
+                  _this21.locations[s.locationId].switches.push(s);
                   /*  if (!this.locations[s.locationId].devices) {
                      this.locations[s.locationId].devices = {};
                    }
@@ -4811,9 +4885,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                 });
 
-                _this20.calculateActiveLocations();
+                _this21.calculateActiveLocations();
 
-                _this20.locations$.next(_this20.locations);
+                _this21.locations$.next(_this21.locations);
               }
             }
           });
@@ -4821,19 +4895,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "calculateActiveLocations",
         value: function calculateActiveLocations() {
-          var _this21 = this;
+          var _this22 = this;
 
           if (this.locations) {
             var locations = Object.keys(this.locations);
 
             if (locations.length) {
               locations.some(function (l) {
-                _this21.locations[l].active = false;
+                _this22.locations[l].active = false;
 
-                if (_this21.locations[l].switches) {
-                  _this21.locations[l].switches.some(function (s) {
-                    if (_this21.onlineDevices && _this21.onlineDevices[s.deviceId] && _this21.onlineDevices[s.deviceId][s.board] && _this21.onlineDevices[s.deviceId][s.board].switches && _this21.onlineDevices[s.deviceId][s.board].switches.length && _this21.onlineDevices[s.deviceId][s.board].switches[s.switch]) {
-                      _this21.locations[l].active = true;
+                if (_this22.locations[l].switches) {
+                  _this22.locations[l].switches.some(function (s) {
+                    if (_this22.onlineDevices && _this22.onlineDevices[s.deviceId] && _this22.onlineDevices[s.deviceId][s.board] && _this22.onlineDevices[s.deviceId][s.board].switches && _this22.onlineDevices[s.deviceId][s.board].switches.length && _this22.onlineDevices[s.deviceId][s.board].switches[s.switch]) {
+                      _this22.locations[l].active = true;
                       return;
                     }
                   });
@@ -4859,22 +4933,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "getUsage",
+        value: function getUsage() {
+          var devices = [];
+
+          if (this.onlineDevices) {
+            devices = Object.keys(this.onlineDevices);
+          }
+
+          if (devices.length) {
+            this.socket.emit('getUsage', devices);
+          } else {
+            this.usage = null;
+            this.usage$.next(null);
+          }
+        }
+      }, {
         key: "onDeviceDisconnect",
         value: function onDeviceDisconnect() {
-          var _this22 = this;
+          var _this23 = this;
 
           this.socket.on('deviceDisconnected', function (id) {
             if (id) {
-              if (_this22.onlineDevices && _this22.onlineDevices[id]) {
-                delete _this22.onlineDevices[id];
+              if (_this23.onlineDevices && _this23.onlineDevices[id]) {
+                delete _this23.onlineDevices[id];
 
-                if (!Object.keys(_this22.onlineDevices).length) {
-                  _this22.onlineDevices = null;
+                if (!Object.keys(_this23.onlineDevices).length) {
+                  _this23.onlineDevices = null;
                 }
 
-                _this22.getLocations();
+                _this23.getLocations();
 
-                _this22.onlineDevices$.next(_this22.onlineDevices);
+                _this23.onlineDevices$.next(_this23.onlineDevices);
               }
             }
           });
@@ -4890,26 +4980,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "joined",
         value: function joined(device) {
-          var _this23 = this;
+          var _this24 = this;
 
           return this.socket.fromEvent('joined').subscribe(function (m) {
             if (m != null && typeof m === 'string') {
-              _this23.rooms[m] = device;
+              _this24.rooms[m] = device;
 
-              _this23.roomsMap.next(_this23.rooms);
+              _this24.roomsMap.next(_this24.rooms);
 
-              _this23.socket.emit('getBoards', m);
+              _this24.socket.emit('getBoards', m);
             }
           });
         }
       }, {
         key: "leaveAll",
         value: function leaveAll(ids) {
-          var _this24 = this;
+          var _this25 = this;
 
           if (ids && ids.length) {
             ids.map(function (id) {
-              _this24.socket.emit('leave', id);
+              _this25.socket.emit('leave', id);
 
               return id;
             });
@@ -4918,35 +5008,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSwitches",
         value: function getSwitches() {
-          var _this25 = this;
+          var _this26 = this;
 
           this.socket.on('boards', function (response) {
-            if (_this25.rooms && response && response.deviceId && response.boards) {
-              if (!_this25.onlineDevices) {
-                _this25.onlineDevices = {};
+            if (_this26.rooms && response && response.deviceId && response.boards) {
+              if (!_this26.onlineDevices) {
+                _this26.onlineDevices = {};
               }
 
-              _this25.onlineDevices[response.deviceId] = response.boards;
+              _this26.onlineDevices[response.deviceId] = response.boards;
 
-              _this25.getLocations();
+              _this26.getLocations();
 
-              _this25.onlineDevices$.next(_this25.onlineDevices);
+              _this26.onlineDevices$.next(_this26.onlineDevices);
 
-              _this25.calculateBoards();
+              _this26.calculateBoards();
             }
           });
         }
       }, {
         key: "calculateBoards",
         value: function calculateBoards() {
-          var _this26 = this;
+          var _this27 = this;
 
           var boards = [];
           var dk = Object.keys(this.onlineDevices);
           dk.some(function (d) {
-            var bk = Object.keys(_this26.onlineDevices[d]);
+            var bk = Object.keys(_this27.onlineDevices[d]);
             bk.some(function (b) {
-              boards.push(_this26.onlineDevices[d][b]);
+              boards.push(_this27.onlineDevices[d][b]);
             });
           });
           this.boards = boards;
@@ -5061,10 +5151,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ToolbarComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this27 = this;
+          var _this28 = this;
 
           this.subscriptions.add(this.layoutService.toolbar.subscribe(function (t) {
-            _this27.selected = t;
+            _this28.selected = t;
           }));
         }
       }]);
@@ -5087,6 +5177,140 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./toolbar.component.css */
       "./src/app/toolbar/toolbar.component.css")).default]
     })], ToolbarComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/usage/usage.component.css":
+  /*!*******************************************!*\
+    !*** ./src/app/usage/usage.component.css ***!
+    \*******************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppUsageUsageComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".selected{\r\n  border-bottom: 2px solid #ff5722;\r\n\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNhZ2UvdXNhZ2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdDQUFnQzs7QUFFbEMiLCJmaWxlIjoic3JjL2FwcC91c2FnZS91c2FnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNlbGVjdGVke1xyXG4gIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAjZmY1NzIyO1xyXG5cclxufVxyXG4iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/usage/usage.component.ts":
+  /*!******************************************!*\
+    !*** ./src/app/usage/usage.component.ts ***!
+    \******************************************/
+
+  /*! exports provided: UsageComponent */
+
+  /***/
+  function srcAppUsageUsageComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "UsageComponent", function () {
+      return UsageComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../layout-service.service */
+    "./src/app/layout-service.service.ts");
+    /* harmony import */
+
+
+    var _sockets_connect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../sockets/connect */
+    "./src/app/sockets/connect.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+
+    var UsageComponent =
+    /*#__PURE__*/
+    function () {
+      function UsageComponent(layoutService, connect) {
+        _classCallCheck(this, UsageComponent);
+
+        this.layoutService = layoutService;
+        this.connect = connect;
+        this.subscription = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
+        this.location = null;
+      }
+
+      _createClass(UsageComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this29 = this;
+
+          this.layoutService.toolbar.next("Usage");
+          this.layoutService.title.next("Usage");
+          this.layoutService.header.next(true);
+          this.layoutService.back.next(false);
+          this.connect.getUsage();
+          this.subscription.add(this.connect.usage$.subscribe(function (res) {
+            _this29.usage = res;
+
+            if (res) {
+              var keys = Object.keys(_this29.usage);
+
+              if (keys && keys.length) {
+                _this29.location = keys[0];
+              }
+            }
+          }));
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.subscription.unsubscribe();
+        }
+      }]);
+
+      return UsageComponent;
+    }();
+
+    UsageComponent.ctorParameters = function () {
+      return [{
+        type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"]
+      }, {
+        type: _sockets_connect__WEBPACK_IMPORTED_MODULE_3__["ConnectSocket"]
+      }];
+    };
+
+    UsageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-usage',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./usage.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/usage/usage.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./usage.component.css */
+      "./src/app/usage/usage.component.css")).default]
+    })], UsageComponent);
     /***/
   },
 

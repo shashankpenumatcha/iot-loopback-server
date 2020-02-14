@@ -11,6 +11,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifiedComponent } from './verified/verified.component';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { SettingsComponent } from './settings/settings.component';
+import { UsageComponent } from './usage/usage.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,8 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'devices', loadChildren: () => import('./device/device.module').then(m => m.DeviceModule) },
   {path: 'schedules', component: ScheduleComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: 'usage', component: UsageComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+
   {path: '**', component: LandingPageComponent}
 
 
