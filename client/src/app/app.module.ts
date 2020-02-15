@@ -25,6 +25,11 @@ import { HeaderComponent } from './header/header.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsageComponent } from './usage/usage.component';
+import { AboutComponent } from './about/about.component';
+import { HelpComponent } from './help/help.component';
+import { ReferComponent } from './refer/refer.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ContactComponent } from './contact/contact.component';
 const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
@@ -54,7 +59,12 @@ const config: SocketIoConfig = { url: Config.server, options: {} };
     HeaderComponent,
     ToolbarComponent,
     SettingsComponent,
-    UsageComponent
+    UsageComponent,
+    AboutComponent,
+    HelpComponent,
+    ReferComponent,
+    ChangePasswordComponent,
+    ContactComponent
   ],
   entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent],
   providers: [

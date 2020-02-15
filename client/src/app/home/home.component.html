@@ -8,7 +8,7 @@ boards - {{boards.length}} -->
   <div style="display: inline;
   position: absolute;
   right: 15px;
-  top: 57px;" ngbDropdown #myDrop="ngbDropdown">
+  top: 57px;" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown">
     <img id="dropdownManual" ngbDropdownAnchor (click)="myDrop.open()" class="h-back" src="content/images/add.png" />
     <div ngbDropdownMenu aria-labelledby="dropdownManual">
       <button ngbDropdownItem  [routerLink]="['/devices/']">Add Device</button>

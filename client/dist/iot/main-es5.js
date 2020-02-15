@@ -36,6 +36,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/about/about.component.html":
+  /*!**********************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/about/about.component.html ***!
+    \**********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAboutAboutComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>about works!</p>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/add-board/add-board.component.html":
   /*!******************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/add-board/add-board.component.html ***!
@@ -136,6 +156,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/change-password/change-password.component.html":
+  /*!******************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/change-password/change-password.component.html ***!
+    \******************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppChangePasswordChangePasswordComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>change-password works!</p>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html":
+  /*!**************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html ***!
+    \**************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppContactContactComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>contact works!</p>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/device-list/device-list.component.html":
   /*!**********************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/device-list/device-list.component.html ***!
@@ -176,6 +236,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/help/help.component.html":
+  /*!********************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/help/help.component.html ***!
+    \********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppHelpHelpComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>help works!</p>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/home-toolbar/home-toolbar.component.html":
   /*!************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home-toolbar/home-toolbar.component.html ***!
@@ -211,7 +291,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<!-- <div class=\"h-head\">\n  <div class=\"h-header\">Home</div> -->\n\n  <div style=\"display: inline;\n  position: absolute;\n  right: 15px;\n  top: 57px;\" ngbDropdown #myDrop=\"ngbDropdown\">\n    <img id=\"dropdownManual\" ngbDropdownAnchor (click)=\"myDrop.open()\" class=\"h-back\" src=\"content/images/add.png\" />\n    <div ngbDropdownMenu aria-labelledby=\"dropdownManual\">\n      <button ngbDropdownItem  [routerLink]=\"['/devices/']\">Add Device</button>\n      <button ngbDropdownItem [routerLink]=\"['/device-list']\">Add Board</button>\n      <button (click)=\"launchDeviceAdder()\" ngbDropdownItem>Add Location</button>\n      <button [routerLink]=\"['/schedules']\" ngbDropdownItem>Add Schedule</button>\n\n    </div>\n   </div><!--\n\n</div> -->\n<div style=\"margin-top: 10px;\" class=\"container\">\n  <div class=\"row\">\n\n    <div class=\"col-12\">\n      <div style=\"display: flex;\">\n\n        <span class=\"panel\">\n\n\n          <table style=\"display:inline-block;border-right: 2px solid #2d4059;\">\n            <tr>\n              <td>\n                <i *ngIf=\"onlineDevicesLength\" style=\"font-size: 18px;\" class=\"far fa-hdd\"></i>\n                <i *ngIf=\"!onlineDevicesLength\" style=\"font-size: 18px;\" class=\"fas fa-exclamation\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\"><span>{{onlineDevicesLength}}</span><span> Online</span></span>\n\n                </td></tr>\n                <tr><td style=\"opacity: 0.5;\">\n                  <span style=\"display:block\">Hub<span *ngIf=\"onlineDevicesLength>1||!onlineDevicesLength\">s</span></span>\n\n                </td></tr>\n              </td>\n            </tr>\n          </table>\n\n          <table [ngClass]=\"{'disabled': !onlineDevicesLength}\" style=\"padding:6px;display:inline-block\">\n            <tr  (click)=\"launchDeviceAdder()\" style=\"cursor:pointer\">\n              <td>\n                <i  style=\"font-size: 18px; margin-left: 18px;\" class=\"fas fa-plus\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 0px 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\">Add Location</span>\n\n                </td></tr>\n\n              </td>\n            </tr>\n          </table>\n\n        </span>\n      </div>\n    </div>\n  </div>\n\n\n<app-location-list></app-location-list>\n\n\n</div>\n\n<div style=\"cursor:pointer;padding:12px;text-align: center;position:fixed;width:100%;height:50px;bottom:0px;left:0px;color:#fff;background:#282c34 ;\">\n  <p (click)=\"logout()\" style=\"text-align:center;margin:0px\">Logout</p>\n</div>\n";
+    __webpack_exports__["default"] = "<!--  <pre>\n  {{onlineDevices|json}}\n</pre>\nboards - {{boards.length}} -->\n<!-- <div class=\"h-head\">\n  <div class=\"h-header\">Home</div> -->\n\n  <div style=\"display: inline;\n  position: absolute;\n  right: 15px;\n  top: 57px;\" ngbDropdown placement=\"bottom-right\" #myDrop=\"ngbDropdown\">\n    <img id=\"dropdownManual\" ngbDropdownAnchor (click)=\"myDrop.open()\" class=\"h-back\" src=\"content/images/add.png\" />\n    <div ngbDropdownMenu aria-labelledby=\"dropdownManual\">\n      <button ngbDropdownItem  [routerLink]=\"['/devices/']\">Add Device</button>\n      <button ngbDropdownItem [routerLink]=\"['/device-list']\">Add Board</button>\n      <button (click)=\"launchDeviceAdder()\" ngbDropdownItem>Add Location</button>\n      <button [routerLink]=\"['/schedules']\" ngbDropdownItem>Add Schedule</button>\n\n    </div>\n   </div><!--\n\n</div> -->\n<div style=\"margin-top: 10px;\" class=\"container\">\n  <div class=\"row\">\n\n    <div class=\"col-12\">\n      <div style=\"display: flex;\">\n\n        <span class=\"panel\">\n\n\n          <table style=\"display:inline-block;border-right: 2px solid #2d4059;\">\n            <tr>\n              <td>\n                <i *ngIf=\"onlineDevicesLength\" style=\"font-size: 18px;\" class=\"far fa-hdd\"></i>\n                <i *ngIf=\"!onlineDevicesLength\" style=\"font-size: 18px;\" class=\"fas fa-exclamation\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\"><span>{{onlineDevicesLength}}</span><span> Online</span></span>\n\n                </td></tr>\n                <tr><td style=\"opacity: 0.5;\">\n                  <span style=\"display:block\">Hub<span *ngIf=\"onlineDevicesLength>1||!onlineDevicesLength\">s</span></span>\n\n                </td></tr>\n              </td>\n            </tr>\n          </table>\n\n          <table [ngClass]=\"{'disabled': !onlineDevicesLength}\" style=\"padding:6px;display:inline-block\">\n            <tr  (click)=\"launchDeviceAdder()\" style=\"cursor:pointer\">\n              <td>\n                <i  style=\"font-size: 18px; margin-left: 18px;\" class=\"fas fa-plus\"></i>\n              </td>\n              <td style=\"line-height: 18px;padding: 0px 0px 0px 18px;\">\n                <tr><td>\n                  <span style=\"display: block;\">Add Location</span>\n\n                </td></tr>\n\n              </td>\n            </tr>\n          </table>\n\n        </span>\n      </div>\n    </div>\n  </div>\n\n\n<app-location-list></app-location-list>\n\n\n</div>\n\n<div style=\"cursor:pointer;padding:12px;text-align: center;position:fixed;width:100%;height:50px;bottom:0px;left:0px;color:#fff;background:#282c34 ;\">\n  <p (click)=\"logout()\" style=\"text-align:center;margin:0px\">Logout</p>\n</div>\n";
     /***/
   },
 
@@ -276,6 +356,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/refer/refer.component.html":
+  /*!**********************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/refer/refer.component.html ***!
+    \**********************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppReferReferComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>refer works!</p>\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/schedule/schedule.component.html":
   /*!****************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/schedule/schedule.component.html ***!
@@ -311,7 +411,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div style=\"padding:15px;\">\n\n  <div class=\"container\">\n    <div  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-info-circle\"></i></div>\n      <div class=\"col-9\">About</div>\n    </div>\n    <div  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-key\"></i></div>\n      <div class=\"col-9\">Change Password</div>\n    </div>\n    <div  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-user-tag\"></i></div>\n      <div class=\"col-9\">Refer and Earn</div>\n    </div>\n    <div  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"far fa-question-circle\"></i></div>\n      <div class=\"col-9\">Help and FAQ</div>\n    </div>\n    <div  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-phone-volume\"></i></div>\n      <div class=\"col-9\">Contact Us</div>\n    </div>\n    <div (click)=\"logout()\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-power-off\"></i></div>\n      <div class=\"col-9\">Logout</div>\n    </div>\n  </div>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div style=\"padding:0px;\">\n\n  <div class=\"container\">\n    <div [routerLink]=\"['/about']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-info-circle\"></i></div>\n      <div class=\"col-9\">About</div>\n    </div>\n    <div  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-key\"></i></div>\n      <div class=\"col-9\">Change Password</div>\n    </div>\n    <div [routerLink]=\"['/refer']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-user-tag\"></i></div>\n      <div class=\"col-9\">Refer and Earn</div>\n    </div>\n    <div  [routerLink]=\"['/help']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"far fa-question-circle\"></i></div>\n      <div class=\"col-9\">Help and FAQ</div>\n    </div>\n    <div [routerLink]=\"['/contact']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-phone-volume\"></i></div>\n      <div class=\"col-9\">Contact Us</div>\n    </div>\n    <div (click)=\"logout()\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-power-off\"></i></div>\n      <div class=\"col-9\">Logout</div>\n    </div>\n  </div>\n\n</div>\n";
     /***/
   },
 
@@ -951,6 +1051,104 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }
     /***/
 
+  },
+
+  /***/
+  "./src/app/about/about.component.css":
+  /*!*******************************************!*\
+    !*** ./src/app/about/about.component.css ***!
+    \*******************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAboutAboutComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Fib3V0L2Fib3V0LmNvbXBvbmVudC5jc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/about/about.component.ts":
+  /*!******************************************!*\
+    !*** ./src/app/about/about.component.ts ***!
+    \******************************************/
+
+  /*! exports provided: AboutComponent */
+
+  /***/
+  function srcAppAboutAboutComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AboutComponent", function () {
+      return AboutComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../layout-service.service */
+    "./src/app/layout-service.service.ts");
+
+    var AboutComponent =
+    /*#__PURE__*/
+    function () {
+      function AboutComponent(layoutService) {
+        _classCallCheck(this, AboutComponent);
+
+        this.layoutService = layoutService;
+      }
+
+      _createClass(AboutComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.layoutService.header.next(true);
+          this.layoutService.title.next('About Us');
+          this.layoutService.back.next(['/settings']);
+          this.layoutService.toolbar.next(false);
+        }
+      }]);
+
+      return AboutComponent;
+    }();
+
+    AboutComponent.ctorParameters = function () {
+      return [{
+        type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"]
+      }];
+    };
+
+    AboutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-about',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./about.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/about/about.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./about.component.css */
+      "./src/app/about/about.component.css")).default]
+    })], AboutComponent);
+    /***/
   },
 
   /***/
@@ -1785,6 +1983,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _usage_usage_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ./usage/usage.component */
     "./src/app/usage/usage.component.ts");
+    /* harmony import */
+
+
+    var _help_help_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    /*! ./help/help.component */
+    "./src/app/help/help.component.ts");
+    /* harmony import */
+
+
+    var _refer_refer_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    /*! ./refer/refer.component */
+    "./src/app/refer/refer.component.ts");
+    /* harmony import */
+
+
+    var _about_about_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+    /*! ./about/about.component */
+    "./src/app/about/about.component.ts");
+    /* harmony import */
+
+
+    var _contact_contact_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! ./contact/contact.component */
+    "./src/app/contact/contact.component.ts");
 
     var routes = [{
       path: 'verified',
@@ -1813,6 +2035,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'settings',
       component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_13__["SettingsComponent"],
+      canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
+      data: {
+        authorities: ['authenticated']
+      }
+    }, {
+      path: 'help',
+      component: _help_help_component__WEBPACK_IMPORTED_MODULE_15__["HelpComponent"],
+      canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
+      data: {
+        authorities: ['authenticated']
+      }
+    }, {
+      path: 'refer',
+      component: _refer_refer_component__WEBPACK_IMPORTED_MODULE_16__["ReferComponent"],
+      canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
+      data: {
+        authorities: ['authenticated']
+      }
+    }, {
+      path: 'about',
+      component: _about_about_component__WEBPACK_IMPORTED_MODULE_17__["AboutComponent"],
+      canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
+      data: {
+        authorities: ['authenticated']
+      }
+    }, {
+      path: 'contact',
+      component: _contact_contact_component__WEBPACK_IMPORTED_MODULE_18__["ContactComponent"],
       canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
       data: {
         authorities: ['authenticated']
@@ -2175,6 +2425,36 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
     /*! ./usage/usage.component */
     "./src/app/usage/usage.component.ts");
+    /* harmony import */
+
+
+    var _about_about_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
+    /*! ./about/about.component */
+    "./src/app/about/about.component.ts");
+    /* harmony import */
+
+
+    var _help_help_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
+    /*! ./help/help.component */
+    "./src/app/help/help.component.ts");
+    /* harmony import */
+
+
+    var _refer_refer_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
+    /*! ./refer/refer.component */
+    "./src/app/refer/refer.component.ts");
+    /* harmony import */
+
+
+    var _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
+    /*! ./change-password/change-password.component */
+    "./src/app/change-password/change-password.component.ts");
+    /* harmony import */
+
+
+    var _contact_contact_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
+    /*! ./contact/contact.component */
+    "./src/app/contact/contact.component.ts");
 
     var config = {
       url: _app_config_js__WEBPACK_IMPORTED_MODULE_20__["Config"].server,
@@ -2187,7 +2467,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       imports: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__["NgbModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_10__["SocketIoModule"].forRoot(config)],
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_11__["CarouselComponent"], _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__["ScheduleComponent"], _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_15__["DeviceListComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__["LandingPageComponent"], _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__["SignUpComponent"], _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"], _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__["LocationListComponent"], _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__["HomeToolbarComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_24__["HeaderComponent"], _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__["ToolbarComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__["SettingsComponent"], _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__["UsageComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_11__["CarouselComponent"], _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__["ScheduleComponent"], _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_15__["DeviceListComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__["LandingPageComponent"], _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__["SignUpComponent"], _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"], _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__["LocationListComponent"], _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__["HomeToolbarComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_24__["HeaderComponent"], _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__["ToolbarComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__["SettingsComponent"], _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__["UsageComponent"], _about_about_component__WEBPACK_IMPORTED_MODULE_28__["AboutComponent"], _help_help_component__WEBPACK_IMPORTED_MODULE_29__["HelpComponent"], _refer_refer_component__WEBPACK_IMPORTED_MODULE_30__["ReferComponent"], _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_31__["ChangePasswordComponent"], _contact_contact_component__WEBPACK_IMPORTED_MODULE_32__["ContactComponent"]],
       entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]],
       providers: [{
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HTTP_INTERCEPTORS"],
@@ -2496,6 +2776,183 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/change-password/change-password.component.css":
+  /*!***************************************************************!*\
+    !*** ./src/app/change-password/change-password.component.css ***!
+    \***************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppChangePasswordChangePasswordComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYW5nZS1wYXNzd29yZC9jaGFuZ2UtcGFzc3dvcmQuY29tcG9uZW50LmNzcyJ9 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/change-password/change-password.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/change-password/change-password.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: ChangePasswordComponent */
+
+  /***/
+  function srcAppChangePasswordChangePasswordComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ChangePasswordComponent", function () {
+      return ChangePasswordComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var ChangePasswordComponent =
+    /*#__PURE__*/
+    function () {
+      function ChangePasswordComponent() {
+        _classCallCheck(this, ChangePasswordComponent);
+      }
+
+      _createClass(ChangePasswordComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return ChangePasswordComponent;
+    }();
+
+    ChangePasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-change-password',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./change-password.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/change-password/change-password.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./change-password.component.css */
+      "./src/app/change-password/change-password.component.css")).default]
+    })], ChangePasswordComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/contact/contact.component.css":
+  /*!***********************************************!*\
+    !*** ./src/app/contact/contact.component.css ***!
+    \***********************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppContactContactComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbnRhY3QvY29udGFjdC5jb21wb25lbnQuY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/contact/contact.component.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/contact/contact.component.ts ***!
+    \**********************************************/
+
+  /*! exports provided: ContactComponent */
+
+  /***/
+  function srcAppContactContactComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ContactComponent", function () {
+      return ContactComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../layout-service.service */
+    "./src/app/layout-service.service.ts");
+
+    var ContactComponent =
+    /*#__PURE__*/
+    function () {
+      function ContactComponent(layoutService) {
+        _classCallCheck(this, ContactComponent);
+
+        this.layoutService = layoutService;
+      }
+
+      _createClass(ContactComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.layoutService.header.next(true);
+          this.layoutService.title.next('Contact Us');
+          this.layoutService.back.next(['/settings']);
+          this.layoutService.toolbar.next(false);
+        }
+      }]);
+
+      return ContactComponent;
+    }();
+
+    ContactComponent.ctorParameters = function () {
+      return [{
+        type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"]
+      }];
+    };
+
+    ContactComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-contact',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./contact.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/contact/contact.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./contact.component.css */
+      "./src/app/contact/contact.component.css")).default]
+    })], ContactComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/device-list/device-list.component.css":
   /*!*******************************************************!*\
     !*** ./src/app/device-list/device-list.component.css ***!
@@ -2779,6 +3236,104 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./header.component.css */
       "./src/app/header/header.component.css")).default]
     })], HeaderComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/help/help.component.css":
+  /*!*****************************************!*\
+    !*** ./src/app/help/help.component.css ***!
+    \*****************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppHelpHelpComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hlbHAvaGVscC5jb21wb25lbnQuY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/help/help.component.ts":
+  /*!****************************************!*\
+    !*** ./src/app/help/help.component.ts ***!
+    \****************************************/
+
+  /*! exports provided: HelpComponent */
+
+  /***/
+  function srcAppHelpHelpComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "HelpComponent", function () {
+      return HelpComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../layout-service.service */
+    "./src/app/layout-service.service.ts");
+
+    var HelpComponent =
+    /*#__PURE__*/
+    function () {
+      function HelpComponent(layoutService) {
+        _classCallCheck(this, HelpComponent);
+
+        this.layoutService = layoutService;
+      }
+
+      _createClass(HelpComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.layoutService.header.next(true);
+          this.layoutService.title.next('Help and FAQ');
+          this.layoutService.back.next(['/settings']);
+          this.layoutService.toolbar.next(false);
+        }
+      }]);
+
+      return HelpComponent;
+    }();
+
+    HelpComponent.ctorParameters = function () {
+      return [{
+        type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"]
+      }];
+    };
+
+    HelpComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-help',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./help.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/help/help.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./help.component.css */
+      "./src/app/help/help.component.css")).default]
+    })], HelpComponent);
     /***/
   },
 
@@ -3715,6 +4270,104 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./login.component.css */
       "./src/app/login/login.component.css")).default]
     })], LoginComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/refer/refer.component.css":
+  /*!*******************************************!*\
+    !*** ./src/app/refer/refer.component.css ***!
+    \*******************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppReferReferComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3JlZmVyL3JlZmVyLmNvbXBvbmVudC5jc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/refer/refer.component.ts":
+  /*!******************************************!*\
+    !*** ./src/app/refer/refer.component.ts ***!
+    \******************************************/
+
+  /*! exports provided: ReferComponent */
+
+  /***/
+  function srcAppReferReferComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ReferComponent", function () {
+      return ReferComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../layout-service.service */
+    "./src/app/layout-service.service.ts");
+
+    var ReferComponent =
+    /*#__PURE__*/
+    function () {
+      function ReferComponent(layoutService) {
+        _classCallCheck(this, ReferComponent);
+
+        this.layoutService = layoutService;
+      }
+
+      _createClass(ReferComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.layoutService.header.next(true);
+          this.layoutService.title.next('Refer and Earn');
+          this.layoutService.back.next(['/settings']);
+          this.layoutService.toolbar.next(false);
+        }
+      }]);
+
+      return ReferComponent;
+    }();
+
+    ReferComponent.ctorParameters = function () {
+      return [{
+        type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"]
+      }];
+    };
+
+    ReferComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-refer',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./refer.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/refer/refer.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./refer.component.css */
+      "./src/app/refer/refer.component.css")).default]
+    })], ReferComponent);
     /***/
   },
 

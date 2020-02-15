@@ -12,6 +12,10 @@ import { VerifiedComponent } from './verified/verified.component';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsageComponent } from './usage/usage.component';
+import { HelpComponent } from './help/help.component';
+import { ReferComponent } from './refer/refer.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -21,7 +25,10 @@ const routes: Routes = [
   {path: 'welcome', component: LandingPageComponent},
   {path: 'add-location', component: AddLocationComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'settings', component: SettingsComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
-
+  {path: 'help', component: HelpComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: 'refer', component: ReferComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: 'about', component: AboutComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: 'contact', component: ContactComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'carousel', component: CarouselComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'device-list', component: DeviceListComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: '', component: HomeComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
