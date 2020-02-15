@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"auto-head\">\n  <div style=\"font-size:21px;\" class=\"auto-header\">Create Automation</div>\n  <div (click)=\"activeModal.dismiss()\" style=\"display: inline-block;    position: absolute;right: 27px;top: 8px;\"><img class=\"auto-back\" src=\"content/images/back.svg\" /></div>\n</div>\n<div *ngIf=\"!showLocations\" class=\"auto-spacer\"></div>\n<div style=\"padding:15px;\">\n  <ng-container *ngIf=\"!showLocations\">\n\n    <div style=\"width:500px;max-width: 90vw;margin: 0 auto;display: block;\" class=\"auto-inp\">\n      <input style=\"box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.15);\n      border-radius: 4px;\n      height: 40px;\n      padding: 0.5rem;\n      font-size: 1rem;\n      width: 100%;\n      outline: none;\n      border: 1px solid #ff5722;\n      display: flex;\n      justify-content: center;\" placeholder=\"Scene Name\" [(ngModel)]=\"name\" value=\"Bedroom Light 1\" class=\"auto-inpp\" />\n    </div>\n    <div class=\"auto-help\">\n      <label class=\"auto-helpp\">\n        Automate your switch by selecting an appropriate start time, stop time &\n        days of the week</label\n      >\n    </div>\n    <div class=\"auto-times\">\n      <label [(ngModel)]=\"start\" style=\"padding-top: 10px;\n      font-size: 100%;\" class=\"auto-startt\">Start Time</label>\n      <ngb-timepicker [(ngModel)]=\"start\" [seconds]=\"true\"></ngb-timepicker>\n      <label style=\"padding-top: 10px;\n      font-size: 100%;\" class=\"auto-startt\">Stop Time</label>\n      <ngb-timepicker [(ngModel)]=\"stop\" [seconds]=\"true\"></ngb-timepicker>\n    </div>\n    <div style=\"display:flex;justify-content: center;\">\n      <div  *ngFor=\"let day of days\" class=\"auto-days\">\n        <div (click)=\"selectDay(day)\" [ngClass]=\"{'selected-day' : day.selected}\" class=\"auto-day\">{{day.v}}</div>\n\n      </div>\n    </div>\n  </ng-container>\n\n\n  <ng-container *ngIf=\"showLocations\">\n    <app-location-list (valueChange)='displayCounter($event)' [selectedSwitches]=\"selectedForSchedule\"></app-location-list>\n  </ng-container>\n\n\n\n\n  <div class=\"auto-savebtn\" style=\"margin-bottom:65px;\">\n    <button style=\"margin-right:15px;background:#2d4059!important;border-color:#2d4059!important\" *ngIf=\"!showLocations\"  (click)=\"showLocations=true\" class=\"auto-savebtnn\">Select Switches</button>\n    <button *ngIf=\"showLocations\"  (click)=\"showLocations=false\" class=\"auto-savebtnn\">Done</button>\n\n    <button  *ngIf=\"!showLocations\" (click)=\"addSchedule()\" [disabled]=\"!name||!selectedDaysLength\" class=\"auto-savebtnn\">Create</button>\n  </div>\n\n</div>\n\n<!--\n<pre>\n  {{selectedForSchedule|json}}\n</pre> -->\n<!-- {{name}}\n{{selectedDaysLength}}\n{{activeRequests|json}} -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div *ngIf=\"!showLocations\" class=\"auto-spacer\"></div>\n<div style=\"padding:15px;\">\n  <ng-container *ngIf=\"!showLocations\">\n\n    <div style=\"max-width:500px;width:100%;margin: 0 auto;display: block;\" class=\"auto-inp\">\n      <input style=\"box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.15);\n      border-radius: 4px;\n      height: 40px;\n      padding: 0.5rem;\n      font-size: 1rem;\n      width: 100%;\n      outline: none;\n      border: 1px solid #ff5722;\n      display: flex;\n      justify-content: center;\" placeholder=\"Scene Name\" [(ngModel)]=\"name\" value=\"Bedroom Light 1\" class=\"auto-inpp\" />\n    </div>\n    <div class=\"auto-help\">\n      <label class=\"auto-helpp\">\n        Automate your switch by selecting an appropriate start time, stop time &\n        days of the week</label\n      >\n    </div>\n    <div style=\"max-width:500px;margin:20px auto;\" class=\"auto-times\">\n      <label [(ngModel)]=\"start\" style=\"padding-top: 10px;\n      font-size: 100%;\" class=\"auto-startt\">Start Time</label>\n      <ngb-timepicker [(ngModel)]=\"start\" [seconds]=\"true\"></ngb-timepicker>\n      <label style=\"padding-top: 10px;\n      font-size: 100%;\" class=\"auto-startt\">Stop Time</label>\n      <ngb-timepicker [(ngModel)]=\"stop\" [seconds]=\"true\"></ngb-timepicker>\n    </div>\n    <div style=\"display:flex;justify-content: center;flex-wrap: wrap;\">\n      <div  *ngFor=\"let day of days\" class=\"auto-days\">\n        <div (click)=\"selectDay(day)\" [ngClass]=\"{'selected-day' : day.selected}\" class=\"auto-day\">{{day.v}}</div>\n\n      </div>\n    </div>\n  </ng-container>\n\n\n  <ng-container *ngIf=\"showLocations\">\n    <app-location-list (valueChange)='displayCounter($event)' [selectedSwitches]=\"selectedForSchedule\"></app-location-list>\n  </ng-container>\n\n\n\n\n  <div class=\"auto-savebtn\" style=\"margin-bottom:65px;\">\n    <button style=\"margin-right:15px;background:#2d4059!important;border-color:#2d4059!important\" *ngIf=\"!showLocations;toggle\"  (click)=\"showLocations=true;disableBack()\" class=\"auto-savebtnn\">Select Switches</button>\n    <button *ngIf=\"showLocations\"  (click)=\"showLocations=false;enableBack()\" class=\"auto-savebtnn\">Done</button>\n\n    <button  *ngIf=\"!showLocations\" (click)=\"addSchedule()\" [disabled]=\"!name||!selectedDaysLength\" class=\"auto-savebtnn\">Create</button>\n  </div>\n\n</div>\n\n<!--\n<pre>\n  {{selectedForSchedule|json}}\n</pre> -->\n<!-- {{name}}\n{{selectedDaysLength}}\n{{activeRequests|json}} -->\n");
 
 /***/ }),
 
@@ -227,7 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"l-text-top\">Get Started !</div>\n<div class=\"l-image\"><img src=\"content/images/singup.png\" height=\"150px\" /></div>\n<div class=\"l-inpbox\">\n  <div><input class=\"text-input\" placeholder=\"Username\" [(ngModel)]=\"username\"  name=\"username\"/></div>\n  <div><input placeholder=\"Password\" class=\"text-input\"  [(ngModel)]=\"password\" name=\"password\"   type=\"password\"/></div>\n</div>\n<div class=\"l-btnbox\"><button [disabled]=\"!username||!password\" (click)=\"login()\" class=\"l-btn\"  >\n<div *ngIf=\"!loading\">\n\n  Login\n</div>\n  <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</button></div>\n<div class=\"forgotpass\">Forgot Password?</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"l-text-top\">Get Started !</div>\n<div class=\"l-image\"><img src=\"content/images/singup.png\" height=\"150px\" /></div>\n<div class=\"l-inpbox\">\n  <div><input class=\"text-input\" placeholder=\"Username\" [(ngModel)]=\"username\"  name=\"username\"/></div>\n  <div><input placeholder=\"Password\" class=\"text-input\"  [(ngModel)]=\"password\" name=\"password\"   type=\"password\"/></div>\n</div>\n<p *ngIf=\"error\" style=\"position:absolute;color:red;text-align: center;width:100%\">{{error}}</p>\n<div class=\"l-btnbox\"><button [disabled]=\"!username||!password\" (click)=\"login()\" class=\"l-btn\"  >\n<div *ngIf=\"!loading\">\n\n  Login\n</div>\n  <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</button></div>\n<div class=\"forgotpass\">Forgot Password?</div>\n\n\n");
 
 /***/ }),
 
@@ -925,7 +925,7 @@ AddLocationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto&display=swap\");\r\n\r\n.auto-head {\r\n  background-color: #282c34;\r\n  color: white;\r\n  font-size: 2rem;\r\n  padding: 0.8rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n\r\n  width: 100%;\r\n\r\n}\r\n\r\n.auto-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n.auto-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n.auto-spacer {\r\n  padding-top: 4rem;\r\n}\r\n\r\n.auto-footer {\r\n  background-color: #282c34;\r\n  position: fixed;\r\n  bottom: 0;\r\n  width: 100%;\r\n  position: fixed;\r\n  width: 100%;\r\n}\r\n\r\n.auto-homeico {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 1rem;\r\n}\r\n\r\n.auto-homeico2 {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 3rem;\r\n}\r\n\r\n.auto-inp {\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-inpp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  border-radius: 8px;\r\n  height: 2rem;\r\n  padding: 0.5rem;\r\n  font-size: 1rem;\r\n  width: 15rem;\r\n  outline: none;\r\n  border: 1px solid rgba(0, 0, 0, 0.15);\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-lbl {\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-help {\r\n  text-align: center;\r\n  display: flex;\r\n  justify-content: center;\r\n  padding: 1rem;\r\n  padding-top: 2rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n  color: #282c34;\r\n}\r\n\r\n.auto-times {\r\n  display: grid;\r\n  grid-template-columns: 1fr 2fr;\r\n  grid-gap: 2rem;\r\n  padding-top: 2rem;\r\n  padding-left: 4rem;\r\n}\r\n\r\n.auto-startt {\r\n  display: grid;\r\n  font-size: 1.5rem;\r\n  justify-content: end;\r\n  padding-right: 1rem;\r\n  padding-left: 1rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\n.auto-timei {\r\n  border-radius: 8px;\r\n  width: 30%;\r\n  font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\n.auto-day {\r\n  border: 1px solid #ff5722;\r\n  border-radius: 50%;\r\n  width: 42px;\r\n  color: #ff5722;\r\n  font-weight: bold;\r\n  padding: 0.5rem;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-days {\r\n  padding: 0.5rem;\r\n  padding-top: 3rem;\r\n  display: flex;\r\n  justify-content: space-evenly;\r\n  cursor: pointer;\r\n}\r\n\r\n.auto-savebtn {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 3rem;\r\n}\r\n\r\n.auto-savebtnn {\r\n  background-color: #ff5722;\r\n    width: 150px;\r\n    height: 40px;\r\n    border-radius: 4px;\r\n    outline: none;\r\n    border: none;\r\n    color: #fff;\r\n    font-weight: normal;\r\n    border: 2px solid #ff5722;\r\n    font-family: 'Roboto';\r\n    font-size: 14px;\r\n}\r\n\r\n.selected-day{\r\n  background: #ff5722!important;\r\n  color:#fff!important;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLXNjaGVkdWxlL2FkZC1zY2hlZHVsZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDBFQUEwRTs7QUFFMUU7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGVBQWU7RUFDZixlQUFlO0VBQ2YsaUNBQWlDOztFQUVqQyxXQUFXOztBQUViOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsZUFBZTtFQUNmLFNBQVM7RUFDVCxXQUFXO0VBQ1gsZUFBZTtFQUNmLFdBQVc7QUFDYjs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsZUFBZTtFQUNmLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSx5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixXQUFXO0VBQ1gsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGdEQUFnRDtFQUNoRCxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGVBQWU7RUFDZixlQUFlO0VBQ2YsWUFBWTtFQUNaLGFBQWE7RUFDYixxQ0FBcUM7RUFDckMsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsaUNBQWlDO0VBQ2pDLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsOEJBQThCO0VBQzlCLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLGlCQUFpQjtFQUNqQixvQkFBb0I7RUFDcEIsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixpQ0FBaUM7QUFDbkM7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLGlDQUFpQztBQUNuQzs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGFBQWE7RUFDYix1QkFBdUI7QUFDekI7O0FBRUE7RUFDRSxlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYiw2QkFBNkI7RUFDN0IsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UseUJBQXlCO0lBQ3ZCLFlBQVk7SUFDWixZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLGFBQWE7SUFDYixZQUFZO0lBQ1osV0FBVztJQUNYLG1CQUFtQjtJQUNuQix5QkFBeUI7SUFDekIscUJBQXFCO0lBQ3JCLGVBQWU7QUFDbkI7O0FBRUE7RUFDRSw2QkFBNkI7RUFDN0Isb0JBQW9CO0FBQ3RCIiwiZmlsZSI6InNyYy9hcHAvYWRkLXNjaGVkdWxlL2FkZC1zY2hlZHVsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Um9ib3RvJmRpc3BsYXk9c3dhcFwiKTtcclxuXHJcbi5hdXRvLWhlYWQge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtc2l6ZTogMnJlbTtcclxuICBwYWRkaW5nOiAwLjhyZW07XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcblxyXG4gIHdpZHRoOiAxMDAlO1xyXG5cclxufVxyXG5cclxuLmF1dG8taGVhZGVyIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogbGVmdDtcclxufVxyXG5cclxuLmF1dG8tYmFjayB7XHJcbiAgZmlsdGVyOiBpbnZlcnQoMSk7XHJcbn1cclxuXHJcbi5hdXRvLXNwYWNlciB7XHJcbiAgcGFkZGluZy10b3A6IDRyZW07XHJcbn1cclxuXHJcbi5hdXRvLWZvb3RlciB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgYm90dG9tOiAwO1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLmF1dG8taG9tZWljbyB7XHJcbiAgZmlsdGVyOiBpbnZlcnQoMSk7XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIGZsb2F0OiBsZWZ0O1xyXG4gIHBhZGRpbmctbGVmdDogMXJlbTtcclxufVxyXG5cclxuLmF1dG8taG9tZWljbzIge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmbG9hdDogbGVmdDtcclxuICBwYWRkaW5nLWxlZnQ6IDNyZW07XHJcbn1cclxuXHJcbi5hdXRvLWlucCB7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLmF1dG8taW5wcCB7XHJcbiAgYm94LXNoYWRvdzogMHB4IDhweCAyMHB4IDBweCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG4gIGJvcmRlci1yYWRpdXM6IDhweDtcclxuICBoZWlnaHQ6IDJyZW07XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIGZvbnQtc2l6ZTogMXJlbTtcclxuICB3aWR0aDogMTVyZW07XHJcbiAgb3V0bGluZTogbm9uZTtcclxuICBib3JkZXI6IDFweCBzb2xpZCByZ2JhKDAsIDAsIDAsIDAuMTUpO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hdXRvLWxibCB7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG4uYXV0by1oZWxwIHtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBwYWRkaW5nOiAxcmVtO1xyXG4gIHBhZGRpbmctdG9wOiAycmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIGNvbG9yOiAjMjgyYzM0O1xyXG59XHJcblxyXG4uYXV0by10aW1lcyB7XHJcbiAgZGlzcGxheTogZ3JpZDtcclxuICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAyZnI7XHJcbiAgZ3JpZC1nYXA6IDJyZW07XHJcbiAgcGFkZGluZy10b3A6IDJyZW07XHJcbiAgcGFkZGluZy1sZWZ0OiA0cmVtO1xyXG59XHJcblxyXG4uYXV0by1zdGFydHQge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAganVzdGlmeS1jb250ZW50OiBlbmQ7XHJcbiAgcGFkZGluZy1yaWdodDogMXJlbTtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5hdXRvLXRpbWVpIHtcclxuICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgd2lkdGg6IDMwJTtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuLmF1dG8tZGF5IHtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjZmY1NzIyO1xyXG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICB3aWR0aDogNDJweDtcclxuICBjb2xvcjogI2ZmNTcyMjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLmF1dG8tZGF5cyB7XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIHBhZGRpbmctdG9wOiAzcmVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1ldmVubHk7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uYXV0by1zYXZlYnRuIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHBhZGRpbmctdG9wOiAzcmVtO1xyXG59XHJcblxyXG4uYXV0by1zYXZlYnRubiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmNTcyMjtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICAgIG91dGxpbmU6IG5vbmU7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjZmY1NzIyO1xyXG4gICAgZm9udC1mYW1pbHk6ICdSb2JvdG8nO1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG59XHJcblxyXG4uc2VsZWN0ZWQtZGF5e1xyXG4gIGJhY2tncm91bmQ6ICNmZjU3MjIhaW1wb3J0YW50O1xyXG4gIGNvbG9yOiNmZmYhaW1wb3J0YW50O1xyXG59XHJcblxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("@import url(\"https://fonts.googleapis.com/css?family=Roboto&display=swap\");\r\n\r\n.auto-head {\r\n  background-color: #282c34;\r\n  color: white;\r\n  font-size: 2rem;\r\n  padding: 0.8rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n\r\n  width: 100%;\r\n\r\n}\r\n\r\n.auto-header {\r\n  display: flex;\r\n  justify-content: left;\r\n}\r\n\r\n.auto-back {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n}\r\n\r\n.auto-spacer {\r\n  padding-top: 4rem;\r\n}\r\n\r\n.auto-footer {\r\n  background-color: #282c34;\r\n  position: fixed;\r\n  bottom: 0;\r\n  width: 100%;\r\n  position: fixed;\r\n  width: 100%;\r\n}\r\n\r\n.auto-homeico {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 1rem;\r\n}\r\n\r\n.auto-homeico2 {\r\n  -webkit-filter: invert(1);\r\n          filter: invert(1);\r\n  padding: 0.5rem;\r\n  float: left;\r\n  padding-left: 3rem;\r\n}\r\n\r\n.auto-inp {\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-inpp {\r\n  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);\r\n  border-radius: 8px;\r\n  height: 2rem;\r\n  padding: 0.5rem;\r\n  font-size: 1rem;\r\n  width: 15rem;\r\n  outline: none;\r\n  border: 1px solid rgba(0, 0, 0, 0.15);\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-lbl {\r\n  font-size: 1.5rem;\r\n  padding: 1rem;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-help {\r\n  text-align: center;\r\n  display: flex;\r\n  justify-content: center;\r\n  padding: 1rem;\r\n  padding-top: 2rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n  color: #282c34;\r\n}\r\n\r\n.auto-times {\r\n  display: grid;\r\n  grid-template-columns: 1fr 2fr;\r\n/*   grid-gap: 2rem;\r\n  padding-top: 2rem;\r\n  padding-left: 4rem; */\r\n}\r\n\r\n.auto-startt {\r\n  display: grid;\r\n  font-size: 1.5rem;\r\n  justify-content: end;\r\n  padding-right: 1rem;\r\n  padding-left: 1rem;\r\n  font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\n.auto-timei {\r\n  border-radius: 8px;\r\n  width: 30%;\r\n  font-family: \"Roboto\", sans-serif;\r\n}\r\n\r\n.auto-day {\r\n  border: 1px solid #ff5722;\r\n  border-radius: 50%;\r\n  width: 42px;\r\n  color: #ff5722;\r\n  font-weight: bold;\r\n  padding: 0.5rem;\r\n  display: flex;\r\n  justify-content: center;\r\n}\r\n\r\n.auto-days {\r\n  padding: 0.5rem;\r\n/*  padding-top: 3rem;\r\n */  display: flex;\r\n  justify-content: space-evenly;\r\n  cursor: pointer;\r\n}\r\n\r\n.auto-savebtn {\r\n  display: flex;\r\n  justify-content: center;\r\n  padding-top: 3rem;\r\n}\r\n\r\n.auto-savebtnn {\r\n  background-color: #ff5722;\r\n    width: 150px;\r\n    height: 40px;\r\n    border-radius: 4px;\r\n    outline: none;\r\n    border: none;\r\n    color: #fff;\r\n    font-weight: normal;\r\n    border: 2px solid #ff5722;\r\n    font-family: 'Roboto';\r\n    font-size: 14px;\r\n}\r\n\r\n.selected-day{\r\n  background: #ff5722!important;\r\n  color:#fff!important;\r\n}\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLXNjaGVkdWxlL2FkZC1zY2hlZHVsZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDBFQUEwRTs7QUFFMUU7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLGVBQWU7RUFDZixlQUFlO0VBQ2YsaUNBQWlDOztFQUVqQyxXQUFXOztBQUViOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSxpQkFBaUI7QUFDbkI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsZUFBZTtFQUNmLFNBQVM7RUFDVCxXQUFXO0VBQ1gsZUFBZTtFQUNmLFdBQVc7QUFDYjs7QUFFQTtFQUNFLHlCQUFpQjtVQUFqQixpQkFBaUI7RUFDakIsZUFBZTtFQUNmLFdBQVc7RUFDWCxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSx5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixXQUFXO0VBQ1gsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGdEQUFnRDtFQUNoRCxrQkFBa0I7RUFDbEIsWUFBWTtFQUNaLGVBQWU7RUFDZixlQUFlO0VBQ2YsWUFBWTtFQUNaLGFBQWE7RUFDYixxQ0FBcUM7RUFDckMsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2IsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsaUNBQWlDO0VBQ2pDLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsOEJBQThCO0FBQ2hDOzt1QkFFdUI7QUFDdkI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsaUJBQWlCO0VBQ2pCLG9CQUFvQjtFQUNwQixtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLGlDQUFpQztBQUNuQzs7QUFFQTtFQUNFLGtCQUFrQjtFQUNsQixVQUFVO0VBQ1YsaUNBQWlDO0FBQ25DOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGtCQUFrQjtFQUNsQixXQUFXO0VBQ1gsY0FBYztFQUNkLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsYUFBYTtFQUNiLHVCQUF1QjtBQUN6Qjs7QUFFQTtFQUNFLGVBQWU7QUFDakI7RUFDRSxHQUFHLGFBQWE7RUFDaEIsNkJBQTZCO0VBQzdCLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtBQUNuQjs7QUFFQTtFQUNFLHlCQUF5QjtJQUN2QixZQUFZO0lBQ1osWUFBWTtJQUNaLGtCQUFrQjtJQUNsQixhQUFhO0lBQ2IsWUFBWTtJQUNaLFdBQVc7SUFDWCxtQkFBbUI7SUFDbkIseUJBQXlCO0lBQ3pCLHFCQUFxQjtJQUNyQixlQUFlO0FBQ25COztBQUVBO0VBQ0UsNkJBQTZCO0VBQzdCLG9CQUFvQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL2FkZC1zY2hlZHVsZS9hZGQtc2NoZWR1bGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgdXJsKFwiaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PVJvYm90byZkaXNwbGF5PXN3YXBcIik7XHJcblxyXG4uYXV0by1oZWFkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjgyYzM0O1xyXG4gIGNvbG9yOiB3aGl0ZTtcclxuICBmb250LXNpemU6IDJyZW07XHJcbiAgcGFkZGluZzogMC44cmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG5cclxuICB3aWR0aDogMTAwJTtcclxuXHJcbn1cclxuXHJcbi5hdXRvLWhlYWRlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGxlZnQ7XHJcbn1cclxuXHJcbi5hdXRvLWJhY2sge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG59XHJcblxyXG4uYXV0by1zcGFjZXIge1xyXG4gIHBhZGRpbmctdG9wOiA0cmVtO1xyXG59XHJcblxyXG4uYXV0by1mb290ZXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyODJjMzQ7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIGJvdHRvbTogMDtcclxuICB3aWR0aDogMTAwJTtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5hdXRvLWhvbWVpY28ge1xyXG4gIGZpbHRlcjogaW52ZXJ0KDEpO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmbG9hdDogbGVmdDtcclxuICBwYWRkaW5nLWxlZnQ6IDFyZW07XHJcbn1cclxuXHJcbi5hdXRvLWhvbWVpY28yIHtcclxuICBmaWx0ZXI6IGludmVydCgxKTtcclxuICBwYWRkaW5nOiAwLjVyZW07XHJcbiAgZmxvYXQ6IGxlZnQ7XHJcbiAgcGFkZGluZy1sZWZ0OiAzcmVtO1xyXG59XHJcblxyXG4uYXV0by1pbnAge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hdXRvLWlucHAge1xyXG4gIGJveC1zaGFkb3c6IDBweCA4cHggMjBweCAwcHggcmdiYSgwLCAwLCAwLCAwLjE1KTtcclxuICBib3JkZXItcmFkaXVzOiA4cHg7XHJcbiAgaGVpZ2h0OiAycmVtO1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuICBmb250LXNpemU6IDFyZW07XHJcbiAgd2lkdGg6IDE1cmVtO1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmdiYSgwLCAwLCAwLCAwLjE1KTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG59XHJcblxyXG4uYXV0by1sYmwge1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIHBhZGRpbmc6IDFyZW07XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG5cclxuLmF1dG8taGVscCB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgcGFkZGluZzogMXJlbTtcclxuICBwYWRkaW5nLXRvcDogMnJlbTtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBjb2xvcjogIzI4MmMzNDtcclxufVxyXG5cclxuLmF1dG8tdGltZXMge1xyXG4gIGRpc3BsYXk6IGdyaWQ7XHJcbiAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnIgMmZyO1xyXG4vKiAgIGdyaWQtZ2FwOiAycmVtO1xyXG4gIHBhZGRpbmctdG9wOiAycmVtO1xyXG4gIHBhZGRpbmctbGVmdDogNHJlbTsgKi9cclxufVxyXG5cclxuLmF1dG8tc3RhcnR0IHtcclxuICBkaXNwbGF5OiBncmlkO1xyXG4gIGZvbnQtc2l6ZTogMS41cmVtO1xyXG4gIGp1c3RpZnktY29udGVudDogZW5kO1xyXG4gIHBhZGRpbmctcmlnaHQ6IDFyZW07XHJcbiAgcGFkZGluZy1sZWZ0OiAxcmVtO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4uYXV0by10aW1laSB7XHJcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xyXG4gIHdpZHRoOiAzMCU7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5hdXRvLWRheSB7XHJcbiAgYm9yZGVyOiAxcHggc29saWQgI2ZmNTcyMjtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgd2lkdGg6IDQycHg7XHJcbiAgY29sb3I6ICNmZjU3MjI7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgcGFkZGluZzogMC41cmVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn1cclxuXHJcbi5hdXRvLWRheXMge1xyXG4gIHBhZGRpbmc6IDAuNXJlbTtcclxuLyogIHBhZGRpbmctdG9wOiAzcmVtO1xyXG4gKi8gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1ldmVubHk7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uYXV0by1zYXZlYnRuIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIHBhZGRpbmctdG9wOiAzcmVtO1xyXG59XHJcblxyXG4uYXV0by1zYXZlYnRubiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmNTcyMjtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICAgIG91dGxpbmU6IG5vbmU7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjZmY1NzIyO1xyXG4gICAgZm9udC1mYW1pbHk6ICdSb2JvdG8nO1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG59XHJcblxyXG4uc2VsZWN0ZWQtZGF5e1xyXG4gIGJhY2tncm91bmQ6ICNmZjU3MjIhaW1wb3J0YW50O1xyXG4gIGNvbG9yOiNmZmYhaW1wb3J0YW50O1xyXG59XHJcblxyXG4iXX0= */");
 
 /***/ }),
 
@@ -941,10 +941,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddScheduleComponent", function() { return AddScheduleComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
-/* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+/* harmony import */ var _sockets_connect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sockets/connect */ "./src/app/sockets/connect.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
 
 
 
@@ -952,14 +954,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddScheduleComponent = class AddScheduleComponent {
-    constructor(activeModal, connect, socket) {
-        this.activeModal = activeModal;
+    constructor(layoutService, router, connect, socket) {
+        this.layoutService = layoutService;
+        this.router = router;
         this.connect = connect;
         this.socket = socket;
         this.deviceLength = null;
         this.devices = {};
         this.allDevices = {};
-        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subscription"]();
+        this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subscription"]();
         this.boards = [];
         this.selectedSwitches = {};
         this.assignedSwitches = {};
@@ -984,6 +987,10 @@ let AddScheduleComponent = class AddScheduleComponent {
         this.selectedForSchedule = selected;
     }
     ngOnInit() {
+        this.layoutService.toolbar.next(false);
+        this.layoutService.title.next("Add Schedule");
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/schedules']);
         this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
             if (res) {
                 this.allDevices = JSON.parse(JSON.stringify(res));
@@ -995,7 +1002,7 @@ let AddScheduleComponent = class AddScheduleComponent {
                 this.deviceLength = 0;
             }
             if (!this.deviceLength) {
-                this.activeModal.dismiss();
+                this.router.navigate(['/schedules']);
             }
         }));
         this.socket.on('scheduleAdded', (res) => {
@@ -1007,7 +1014,7 @@ let AddScheduleComponent = class AddScheduleComponent {
                 if (!this.activeRequests.length && res.name) {
                     this.adding = false;
                     this.connect.getSchedules();
-                    this.activeModal.dismiss();
+                    this.router.navigate(['/schedules']);
                 }
             }
             else {
@@ -1051,11 +1058,18 @@ let AddScheduleComponent = class AddScheduleComponent {
         day.selected = !day.selected;
         this.selectedDaysLength = (this.days.filter(f => f.selected)).length;
     }
+    disableBack() {
+        this.layoutService.back.next(false);
+    }
+    enableBack() {
+        this.layoutService.back.next(['/schedules']);
+    }
 };
 AddScheduleComponent.ctorParameters = () => [
-    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbActiveModal"] },
-    { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_3__["ConnectSocket"] },
-    { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_5__["Socket"] }
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_6__["LayoutServiceService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_2__["ConnectSocket"] },
+    { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__["Socket"] }
 ];
 AddScheduleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1098,6 +1112,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _refer_refer_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./refer/refer.component */ "./src/app/refer/refer.component.ts");
 /* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
 /* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
+/* harmony import */ var _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./add-schedule/add-schedule.component */ "./src/app/add-schedule/add-schedule.component.ts");
+
 
 
 
@@ -1123,6 +1139,7 @@ const routes = [
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"], data: { nav: true, toolbar: false, back: '/welcome' } },
     { path: 'welcome', component: _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__["LandingPageComponent"] },
     { path: 'add-location', component: _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_12__["AddLocationComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
+    { path: 'add-schedule', component: _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_19__["AddScheduleComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: 'settings', component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_13__["SettingsComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: 'help', component: _help_help_component__WEBPACK_IMPORTED_MODULE_15__["HelpComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: 'refer', component: _refer_refer_component__WEBPACK_IMPORTED_MODULE_16__["ReferComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
@@ -1205,7 +1222,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
 let Config = {
-    server: 'http://134.209.155.230:3001'
+    server: 'http://localhost:3001'
 }
 
 
@@ -2389,6 +2406,7 @@ let LoginComponent = class LoginComponent {
         }, (err) => {
             console.log(err);
             console.log(err.error);
+            this.loading = false;
             if (err && err.error && err.error && err.error.error.message) {
                 this.error = err.error.error.message;
             }
@@ -2498,9 +2516,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-socket-io */ "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
-/* harmony import */ var _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../add-schedule/add-schedule.component */ "./src/app/add-schedule/add-schedule.component.ts");
-/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
-
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
 
 
 
@@ -2540,7 +2556,7 @@ let ScheduleComponent = class ScheduleComponent {
         this.layoutService.toolbar.next("Schedules");
         this.layoutService.title.next("Schedules");
         this.layoutService.header.next(true);
-        this.layoutService.back.next(['/']);
+        this.layoutService.back.next(false);
         this.subscriptions.add(this.connect.onlineDevices$.subscribe(res => {
             if (res) {
                 this.onlineDevices = JSON.parse(JSON.stringify(res));
@@ -2636,20 +2652,21 @@ let ScheduleComponent = class ScheduleComponent {
     }
     launch() {
         if (this.deviceLength) {
-            const modalRef = this.modalService.open(_add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_7__["AddScheduleComponent"]);
-            modalRef.result.then(res => {
-                const devices = Object.keys(this.onlineDevices);
-                devices.map(m => {
-                    this.socket.emit('getSchedules', m);
-                    return m;
-                });
-            }, err => {
-                const devices = Object.keys(this.onlineDevices);
-                devices.map(m => {
-                    this.socket.emit('getSchedules', m);
-                    return m;
-                });
-            });
+            this.router.navigate(['/add-schedule']);
+            /*      const modalRef = this.modalService.open(AddScheduleComponent);
+                 modalRef.result.then(res => {
+                   const devices = Object.keys(this.onlineDevices);
+                   devices.map(m => {
+                     this.socket.emit('getSchedules', m);
+                     return m;
+                   });
+                 }, err => {
+                   const devices = Object.keys(this.onlineDevices);
+                   devices.map(m => {
+                     this.socket.emit('getSchedules', m);
+                     return m;
+                   });
+                 }); */
         }
     }
     toggleActive(schedule, devices) {
@@ -2688,7 +2705,7 @@ let ScheduleComponent = class ScheduleComponent {
     }
 };
 ScheduleComponent.ctorParameters = () => [
-    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_8__["LayoutServiceService"] },
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_7__["LayoutServiceService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
     { type: _sockets_connect__WEBPACK_IMPORTED_MODULE_2__["ConnectSocket"] },
     { type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_4__["Socket"] },

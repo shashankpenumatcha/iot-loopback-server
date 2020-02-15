@@ -16,6 +16,7 @@ import { HelpComponent } from './help/help.component';
 import { ReferComponent } from './refer/refer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddScheduleComponent } from './add-schedule/add-schedule.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent, data: {nav: true, toolbar: false, back: '/welcome' }},
   {path: 'welcome', component: LandingPageComponent},
   {path: 'add-location', component: AddLocationComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: 'add-schedule', component: AddScheduleComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'settings', component: SettingsComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'help', component: HelpComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'refer', component: ReferComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},

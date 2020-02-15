@@ -4,6 +4,8 @@ import {ConnectSocket} from '../sockets/connect';
 import { Subscription } from 'rxjs';
 import { Socket } from 'ngx-socket-io';
 import {NgbTimeStruct} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+import { LayoutServiceService } from '../layout-service.service';
 
 @Component({
   selector: 'app-add-schedule',
@@ -41,12 +43,16 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
   ]
 
 
-  constructor(public activeModal: NgbActiveModal, private connect: ConnectSocket, private socket: Socket) { }
+  constructor(private layoutService: LayoutServiceService, private router: Router, private connect: ConnectSocket, private socket: Socket) { }
 
   displayCounter(selected) {
     this.selectedForSchedule = selected;
   }
   ngOnInit() {
+    this.layoutService.toolbar.next(false);
+    this.layoutService.title.next("Add Schedule");
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(['/schedules']);
     this.subscriptions.add(
       this.connect.onlineDevices$.subscribe(res => {
         if (res) {
@@ -58,7 +64,7 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
           this.deviceLength = 0;
         }
         if (!this.deviceLength) {
-          this.activeModal.dismiss();
+          this.router.navigate(['/schedules']);
         }
       })
     );
@@ -71,7 +77,7 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
         if (!this.activeRequests.length && res.name) {
           this.adding = false;
           this.connect.getSchedules();
-          this.activeModal.dismiss();
+          this.router.navigate(['/schedules']);
         }
       } else {
         this.adding = false;
@@ -124,5 +130,12 @@ export class AddScheduleComponent implements OnInit, OnDestroy {
     this.selectedDaysLength = (this.days.filter(f => f.selected)).length;
   }
 
+  disableBack() {
+    this.layoutService.back.next(false);
 
+  }
+  enableBack() {
+    this.layoutService.back.next(['/schedules']);
+
+  }
 }

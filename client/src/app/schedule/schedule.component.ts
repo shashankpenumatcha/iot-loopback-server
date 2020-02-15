@@ -46,7 +46,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
 
     this.layoutService.title.next("Schedules");
     this.layoutService.header.next(true);
-    this.layoutService.back.next(['/']);
+    this.layoutService.back.next(false);
     this.subscriptions.add(
       this.connect.onlineDevices$.subscribe(res => {
         if (res) {
@@ -147,7 +147,8 @@ export class ScheduleComponent implements OnInit, OnDestroy {
 
   launch() {
     if (this.deviceLength) {
-      const modalRef = this.modalService.open(AddScheduleComponent);
+      this.router.navigate(['/add-schedule']);
+ /*      const modalRef = this.modalService.open(AddScheduleComponent);
       modalRef.result.then(res => {
         const devices = Object.keys(this.onlineDevices);
         devices.map(m => {
@@ -160,7 +161,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
           this.socket.emit('getSchedules', m);
           return m;
         });
-      });
+      }); */
 
     }
   }

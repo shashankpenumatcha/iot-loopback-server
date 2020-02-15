@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
           this.fetchData.account().subscribe(res=>{
               this.loading = false;
               if (!res.emailVerified) {
+
                 this.error = "Email not verified, please check your email";
               } else {
                 this.fetchData.registeredDevices().subscribe(res => {
@@ -63,6 +64,8 @@ export class LoginComponent implements OnInit {
       }, (err) => {
         console.log(err);
         console.log(err.error)
+        this.loading = false;
+
         if (err && err.error && err.error    && err.error.error.message) {
           this.error = err.error.error.message;
         }

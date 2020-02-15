@@ -5,6 +5,7 @@
   <div><input class="text-input" placeholder="Username" [(ngModel)]="username"  name="username"/></div>
   <div><input placeholder="Password" class="text-input"  [(ngModel)]="password" name="password"   type="password"/></div>
 </div>
+<p *ngIf="error" style="position:absolute;color:red;text-align: center;width:100%">{{error}}</p>
 <div class="l-btnbox"><button [disabled]="!username||!password" (click)="login()" class="l-btn"  >
 <div *ngIf="!loading">
 

@@ -1,12 +1,9 @@
-<div class="auto-head">
-  <div style="font-size:21px;" class="auto-header">Create Automation</div>
-  <div (click)="activeModal.dismiss()" style="display: inline-block;    position: absolute;right: 27px;top: 8px;"><img class="auto-back" src="content/images/back.svg" /></div>
-</div>
+
 <div *ngIf="!showLocations" class="auto-spacer"></div>
 <div style="padding:15px;">
   <ng-container *ngIf="!showLocations">
 
-    <div style="width:500px;max-width: 90vw;margin: 0 auto;display: block;" class="auto-inp">
+    <div style="max-width:500px;width:100%;margin: 0 auto;display: block;" class="auto-inp">
       <input style="box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.15);
       border-radius: 4px;
       height: 40px;
@@ -24,7 +21,7 @@
         days of the week</label
       >
     </div>
-    <div class="auto-times">
+    <div style="max-width:500px;margin:20px auto;" class="auto-times">
       <label [(ngModel)]="start" style="padding-top: 10px;
       font-size: 100%;" class="auto-startt">Start Time</label>
       <ngb-timepicker [(ngModel)]="start" [seconds]="true"></ngb-timepicker>
@@ -32,7 +29,7 @@
       font-size: 100%;" class="auto-startt">Stop Time</label>
       <ngb-timepicker [(ngModel)]="stop" [seconds]="true"></ngb-timepicker>
     </div>
-    <div style="display:flex;justify-content: center;">
+    <div style="display:flex;justify-content: center;flex-wrap: wrap;">
       <div  *ngFor="let day of days" class="auto-days">
         <div (click)="selectDay(day)" [ngClass]="{'selected-day' : day.selected}" class="auto-day">{{day.v}}</div>
 
@@ -49,8 +46,8 @@
 
 
   <div class="auto-savebtn" style="margin-bottom:65px;">
-    <button style="margin-right:15px;background:#2d4059!important;border-color:#2d4059!important" *ngIf="!showLocations"  (click)="showLocations=true" class="auto-savebtnn">Select Switches</button>
-    <button *ngIf="showLocations"  (click)="showLocations=false" class="auto-savebtnn">Done</button>
+    <button style="margin-right:15px;background:#2d4059!important;border-color:#2d4059!important" *ngIf="!showLocations;toggle"  (click)="showLocations=true;disableBack()" class="auto-savebtnn">Select Switches</button>
+    <button *ngIf="showLocations"  (click)="showLocations=false;enableBack()" class="auto-savebtnn">Done</button>
 
     <button  *ngIf="!showLocations" (click)="addSchedule()" [disabled]="!name||!selectedDaysLength" class="auto-savebtnn">Create</button>
   </div>
