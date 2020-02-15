@@ -295,7 +295,10 @@ boot(app, __dirname, function(err) {
       });
 
 
+
       socket.on('board_added',function(msg){
+        console.log('rtjjjjjjjjjjjjjjjjjjjjjjjjj')
+
         log.info(` added board confirmation from device`)
         console.log('message')
         console.log(msg)
