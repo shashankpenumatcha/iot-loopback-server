@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>change-password works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"text-align: center;padding:50px\">\n\n  <p style=\"font-size:18px;font-family: 'Roboto';\">Change your password using the form below,</p>\n  <div class=\"l-inpbox\">\n    <div><input type=\"password\" class=\"text-input\" placeholder=\"Enter old password\" [(ngModel)]=\"oldPassword\"  name=\"oldPassword\"/></div>\n    <div><input type=\"password\" class=\"text-input\" placeholder=\"Enter new password\" [(ngModel)]=\"newPassword\"  name=\"newPassword\"/></div>\n\n  </div>\n  <p *ngIf=\"message\" class=\"message\">{{message}}</p>\n  <p *ngIf=\"error\" style=\"color:red;text-align: center;width:100%\">{{error}}</p>\n  <div class=\"l-btnbox\">\n    <button [disabled]=\"!oldPassword||!newPassword\" (click)=\"reset()\" class=\"l-btn\"  >\n  <div *ngIf=\"!loading\">\n\n    Submit\n  </div>\n    <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n      <span class=\"sr-only\">Loading...</span>\n    </div>\n  </button></div>\n</div>\n");
 
 /***/ }),
 
@@ -137,6 +137,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\">\n  <!-- <div class=\"row\">\n    <div style=\"box-shadow: 0px 0px 4px 0px #6d696929;\" class=\"col-12\">\n      <h4 style=\"color: #3d5af1;opacity: 0.8;margin:15px 0px 25px 0px\">Add Boards</h4>\n    </div>\n  </div> -->\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div style=\"padding:15px;\" *ngIf=\"onlineDevicesLength\" class=\"col-6 col-md-4 col-lg-3\">\n      <ng-container *ngFor=\"let device of devices|keyvalue\">\n        <div style=\"padding: 15px;\n        margin-bottom: 15px;\n        border: 1px solid #222831;\n        box-shadow: 0px 4px 4px 0px #6d696929;\n        background: #222831;\n        color: #fff;\">\n          <div style=\"margin-bottom:5px;\">\n            <span style=\"font-weight: bold;\">\n              Device Id:\n            </span>\n            <span>{{device.key}}</span>\n          </div>\n          <div style=\"opacity:0.5;margin-bottom:25px;font-size:10px;\">\n            <i  style=\"font-size: 10px;\" class=\"fas fa-microchip\"></i>\n            {{object.keys(device.value).length}}\n          </div>\n\n          <div (click)=\"launchBoardAdder(device.key)\" style=\"font-size:12px;color:#ff5722;cursor:pointer;\">\n            <i  style=\"font-size: 10px;color:#ff5722\" class=\"fas fa-plus\"></i>\n            Add Board\n          </div>\n        </div>\n      </ng-container>\n    </div>\n    <ng-container *ngIf=\"!onlineDevicesLength\">\n      <p>No online devices</p>\n    </ng-container>\n  </div>\n</div>\n\n\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/forgot-password/forgot-password.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/forgot-password/forgot-password.component.html ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"text-align: center;padding:50px\">\n\n  <p style=\"font-size:18px;font-family: 'Roboto';\">Please enter your registered email address below. A password rest link will be sent to your inbox</p>\n  <div class=\"l-inpbox\">\n    <div><input class=\"text-input\" placeholder=\"Enter your email\" [(ngModel)]=\"email\"  name=\"email\"/></div>\n  </div>\n  <p *ngIf=\"message\" class=\"message\">{{message}}</p>\n  <p *ngIf=\"error\" style=\"color:red;text-align: center;width:100%\">{{error}}</p>\n  <div class=\"l-btnbox\">\n    <button [disabled]=\"!email\" (click)=\"reset()\" class=\"l-btn\"  >\n  <div *ngIf=\"!loading\">\n\n    Submit\n  </div>\n    <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n      <span class=\"sr-only\">Loading...</span>\n    </div>\n  </button></div>\n</div>\n");
 
 /***/ }),
 
@@ -227,7 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"l-text-top\">Get Started !</div>\n<div class=\"l-image\"><img src=\"content/images/singup.png\" height=\"150px\" /></div>\n<div class=\"l-inpbox\">\n  <div><input class=\"text-input\" placeholder=\"Username\" [(ngModel)]=\"username\"  name=\"username\"/></div>\n  <div><input placeholder=\"Password\" class=\"text-input\"  [(ngModel)]=\"password\" name=\"password\"   type=\"password\"/></div>\n</div>\n<p *ngIf=\"error\" style=\"position:absolute;color:red;text-align: center;width:100%\">{{error}}</p>\n<div class=\"l-btnbox\"><button [disabled]=\"!username||!password\" (click)=\"login()\" class=\"l-btn\"  >\n<div *ngIf=\"!loading\">\n\n  Login\n</div>\n  <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</button></div>\n<div class=\"forgotpass\">Forgot Password?</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"l-text-top\">Get Started !</div>\n<div class=\"l-image\"><img src=\"content/images/singup.png\" height=\"150px\" /></div>\n<div class=\"l-inpbox\">\n  <div><input class=\"text-input\" placeholder=\"Username\" [(ngModel)]=\"username\"  name=\"username\"/></div>\n  <div><input placeholder=\"Password\" class=\"text-input\"  [(ngModel)]=\"password\" name=\"password\"   type=\"password\"/></div>\n</div>\n<p *ngIf=\"error\" style=\"position:absolute;color:red;text-align: center;width:100%\">{{error}}</p>\n<div class=\"l-btnbox\"><button [disabled]=\"!username||!password\" (click)=\"login()\" class=\"l-btn\"  >\n<div *ngIf=\"!loading\">\n\n  Login\n</div>\n  <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</button></div>\n<div [routerLink]=\"['/forgot-password']\" class=\"forgotpass\">Forgot Password?</div>\n\n\n");
 
 /***/ }),
 
@@ -241,6 +254,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<p>refer works!</p>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/reset-password/reset-password.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/reset-password/reset-password.component.html ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"text-align: center;padding:50px\">\n\n  <p style=\"font-size:18px;font-family: 'Roboto';\">Please enter your registered email address below. A password rest link will be sent to your inbox</p>\n  <div class=\"l-inpbox\">\n    <div><input type=\"password\" class=\"text-input\" placeholder=\"Enter new password\" [(ngModel)]=\"password\"  name=\"password\"/></div>\n  </div>\n  <p *ngIf=\"message\" class=\"message\">{{message}}</p>\n  <p *ngIf=\"error\" style=\"color:red;text-align: center;width:100%\">{{error}}</p>\n  <div class=\"l-btnbox\">\n    <button [disabled]=\"!password\" (click)=\"reset()\" class=\"l-btn\"  >\n  <div *ngIf=\"!loading\">\n\n    Submit\n  </div>\n    <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n      <span class=\"sr-only\">Loading...</span>\n    </div>\n  </button></div>\n</div>\n");
 
 /***/ }),
 
@@ -266,7 +292,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"padding:0px;\">\n\n  <div class=\"container\">\n    <div [routerLink]=\"['/about']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-info-circle\"></i></div>\n      <div class=\"col-9\">About</div>\n    </div>\n    <div  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-key\"></i></div>\n      <div class=\"col-9\">Change Password</div>\n    </div>\n    <div [routerLink]=\"['/refer']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-user-tag\"></i></div>\n      <div class=\"col-9\">Refer and Earn</div>\n    </div>\n    <div  [routerLink]=\"['/help']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"far fa-question-circle\"></i></div>\n      <div class=\"col-9\">Help and FAQ</div>\n    </div>\n    <div [routerLink]=\"['/contact']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-phone-volume\"></i></div>\n      <div class=\"col-9\">Contact Us</div>\n    </div>\n    <div (click)=\"logout()\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-power-off\"></i></div>\n      <div class=\"col-9\">Logout</div>\n    </div>\n  </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"padding:0px;\">\n\n  <div class=\"container\">\n    <div [routerLink]=\"['/about']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-info-circle\"></i></div>\n      <div class=\"col-9\">About</div>\n    </div>\n    <div [routerLink]=\"['/change-password']\"  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-key\"></i></div>\n      <div class=\"col-9\">Change Password</div>\n    </div>\n    <div [routerLink]=\"['/refer']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-user-tag\"></i></div>\n      <div class=\"col-9\">Refer and Earn</div>\n    </div>\n    <div  [routerLink]=\"['/help']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"far fa-question-circle\"></i></div>\n      <div class=\"col-9\">Help and FAQ</div>\n    </div>\n    <div [routerLink]=\"['/contact']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-phone-volume\"></i></div>\n      <div class=\"col-9\">Contact Us</div>\n    </div>\n    <div (click)=\"logout()\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-power-off\"></i></div>\n      <div class=\"col-9\">Logout</div>\n    </div>\n  </div>\n\n</div>\n");
 
 /***/ }),
 
@@ -1113,6 +1139,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about_about_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./about/about.component */ "./src/app/about/about.component.ts");
 /* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
 /* harmony import */ var _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./add-schedule/add-schedule.component */ "./src/app/add-schedule/add-schedule.component.ts");
+/* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/forgot-password/forgot-password.component.ts");
+/* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/reset-password/reset-password.component.ts");
+/* harmony import */ var _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./change-password/change-password.component */ "./src/app/change-password/change-password.component.ts");
+
+
+
 
 
 
@@ -1138,6 +1170,9 @@ const routes = [
     { path: 'signup', component: _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_10__["SignUpComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"], data: { nav: true, toolbar: false, back: '/welcome' } },
     { path: 'welcome', component: _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__["LandingPageComponent"] },
+    { path: 'change-password', component: _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_22__["ChangePasswordComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
+    { path: 'forgot-password', component: _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_20__["ForgotPasswordComponent"] },
+    { path: 'reset-password', component: _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_21__["ResetPasswordComponent"] },
     { path: 'add-location', component: _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_12__["AddLocationComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: 'add-schedule', component: _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_19__["AddScheduleComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
     { path: 'settings', component: _settings_settings_component__WEBPACK_IMPORTED_MODULE_13__["SettingsComponent"], canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]], data: { authorities: ['authenticated'] } },
@@ -1222,7 +1257,7 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Config", function() { return Config; });
 let Config = {
-    server: 'http://134.209.155.230:3001'
+    server: 'http://134.209.155.230/:3001'
 }
 
 
@@ -1271,6 +1306,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _refer_refer_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./refer/refer.component */ "./src/app/refer/refer.component.ts");
 /* harmony import */ var _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./change-password/change-password.component */ "./src/app/change-password/change-password.component.ts");
 /* harmony import */ var _contact_contact_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./contact/contact.component */ "./src/app/contact/contact.component.ts");
+/* harmony import */ var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./forgot-password/forgot-password.component */ "./src/app/forgot-password/forgot-password.component.ts");
+/* harmony import */ var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./reset-password/reset-password.component */ "./src/app/reset-password/reset-password.component.ts");
+
+
 
 
 
@@ -1340,7 +1379,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _help_help_component__WEBPACK_IMPORTED_MODULE_29__["HelpComponent"],
             _refer_refer_component__WEBPACK_IMPORTED_MODULE_30__["ReferComponent"],
             _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_31__["ChangePasswordComponent"],
-            _contact_contact_component__WEBPACK_IMPORTED_MODULE_32__["ContactComponent"]
+            _contact_contact_component__WEBPACK_IMPORTED_MODULE_32__["ContactComponent"],
+            _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_33__["ForgotPasswordComponent"],
+            _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_34__["ResetPasswordComponent"]
         ],
         entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]],
         providers: [
@@ -1534,7 +1575,7 @@ CarouselComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYW5nZS1wYXNzd29yZC9jaGFuZ2UtcGFzc3dvcmQuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".text-input{\r\n  background: transparent;\r\n    width: 250px;\r\n    height: 40px;\r\n    border: none;\r\n    border: 1px solid #ff5722;\r\n    border-radius: 4px;\r\n    padding-left: 10px;\r\n    margin: 10px auto;\r\n\r\n  }\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.message{\r\n  color:green;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.l-btn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhbmdlLXBhc3N3b3JkL2NoYW5nZS1wYXNzd29yZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQXVCO0lBQ3JCLFlBQVk7SUFDWixZQUFZO0lBQ1osWUFBWTtJQUNaLHlCQUF5QjtJQUN6QixrQkFBa0I7SUFDbEIsa0JBQWtCO0lBQ2xCLGlCQUFpQjs7RUFFbkI7OztBQUdGO0VBQ0UsU0FBUztFQUNULGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCOzs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7O0FBR0E7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0VBQ2QsaUNBQWlDO0VBQ2pDLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9jaGFuZ2UtcGFzc3dvcmQvY2hhbmdlLXBhc3N3b3JkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGV4dC1pbnB1dHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICAgIHdpZHRoOiAyNTBweDtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmZjU3MjI7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBtYXJnaW46IDEwcHggYXV0bztcclxuXHJcbiAgfVxyXG5cclxuXHJcbi5lcnJvcntcclxuICBjb2xvcjpyZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuLm1lc3NhZ2V7XHJcbiAgY29sb3I6Z3JlZW47XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuXHJcbi5sLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmNTcyMjtcclxuICB3aWR0aDogMjUwcHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogI2YyZjJmMjtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBib3JkZXI6ICNmMmYyZjI7XHJcbn1cclxuIl19 */");
 
 /***/ }),
 
@@ -1550,13 +1591,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangePasswordComponent", function() { return ChangePasswordComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+/* harmony import */ var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/fetch-data */ "./src/app/shared/services/fetch-data.ts");
+
+
 
 
 let ChangePasswordComponent = class ChangePasswordComponent {
-    constructor() { }
+    constructor(layoutService, fetchData) {
+        this.layoutService = layoutService;
+        this.fetchData = fetchData;
+        this.loading = false;
+    }
     ngOnInit() {
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/settings']);
+        this.layoutService.title.next('Change Password');
+        this.layoutService.toolbar.next(false);
+    }
+    reset() {
+        this.loading = true;
+        this.message = null;
+        this.error = null;
+        this.fetchData.changePassword({ oldPassword: this.oldPassword, newPassword: this.newPassword }).subscribe(res => {
+            this.loading = false;
+            this.message = "Password changed successfully";
+            this.oldPassword = null;
+            this.newPassword = null;
+        }, err => {
+            this.loading = false;
+            if (err && err.error && err.error.message) {
+                this.message = err.error.message;
+            }
+            else {
+                this.error = "Please try again";
+            }
+        });
     }
 };
+ChangePasswordComponent.ctorParameters = () => [
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"] },
+    { type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__["FetchData"] }
+];
 ChangePasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-change-password',
@@ -1712,6 +1788,84 @@ DeviceListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./device-list.component.css */ "./src/app/device-list/device-list.component.css")).default]
     })
 ], DeviceListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/forgot-password/forgot-password.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/forgot-password/forgot-password.component.css ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".text-input{\r\n  background: transparent;\r\n    width: 250px;\r\n    height: 40px;\r\n    border: none;\r\n    border: 1px solid #ff5722;\r\n    border-radius: 4px;\r\n    padding-left: 10px;\r\n    margin: 10px auto;\r\n\r\n  }\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.message{\r\n  color:green;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.l-btn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9yZ290LXBhc3N3b3JkL2ZvcmdvdC1wYXNzd29yZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQXVCO0lBQ3JCLFlBQVk7SUFDWixZQUFZO0lBQ1osWUFBWTtJQUNaLHlCQUF5QjtJQUN6QixrQkFBa0I7SUFDbEIsa0JBQWtCO0lBQ2xCLGlCQUFpQjs7RUFFbkI7OztBQUdGO0VBQ0UsU0FBUztFQUNULGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCOzs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7O0FBR0E7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0VBQ2QsaUNBQWlDO0VBQ2pDLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9mb3Jnb3QtcGFzc3dvcmQvZm9yZ290LXBhc3N3b3JkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGV4dC1pbnB1dHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICAgIHdpZHRoOiAyNTBweDtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmZjU3MjI7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBtYXJnaW46IDEwcHggYXV0bztcclxuXHJcbiAgfVxyXG5cclxuXHJcbi5lcnJvcntcclxuICBjb2xvcjpyZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuLm1lc3NhZ2V7XHJcbiAgY29sb3I6Z3JlZW47XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuXHJcbi5sLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmNTcyMjtcclxuICB3aWR0aDogMjUwcHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogI2YyZjJmMjtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBib3JkZXI6ICNmMmYyZjI7XHJcbn1cclxuIl19 */");
+
+/***/ }),
+
+/***/ "./src/app/forgot-password/forgot-password.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/forgot-password/forgot-password.component.ts ***!
+  \**************************************************************/
+/*! exports provided: ForgotPasswordComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordComponent", function() { return ForgotPasswordComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+/* harmony import */ var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/fetch-data */ "./src/app/shared/services/fetch-data.ts");
+
+
+
+
+let ForgotPasswordComponent = class ForgotPasswordComponent {
+    constructor(layoutService, fetchData) {
+        this.layoutService = layoutService;
+        this.fetchData = fetchData;
+        this.loading = false;
+    }
+    ngOnInit() {
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/login']);
+        this.layoutService.title.next('Forgot Password');
+        this.layoutService.toolbar.next(false);
+    }
+    reset() {
+        this.loading = true;
+        this.message = null;
+        this.error = null;
+        this.fetchData.forgotPassword({ email: this.email }).subscribe(res => {
+            this.loading = false;
+            this.message = "Reset link sent to " + this.email;
+            this.email = null;
+        }, err => {
+            this.loading = false;
+            if (err && err.error && err.error.message) {
+                this.message = err.error.message;
+            }
+            else {
+                this.error = "Please try again";
+            }
+        });
+    }
+};
+ForgotPasswordComponent.ctorParameters = () => [
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"] },
+    { type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__["FetchData"] }
+];
+ForgotPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-forgot-password',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./forgot-password.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/forgot-password/forgot-password.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./forgot-password.component.css */ "./src/app/forgot-password/forgot-password.component.css")).default]
+    })
+], ForgotPasswordComponent);
 
 
 
@@ -2486,6 +2640,102 @@ ReferComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/reset-password/reset-password.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/reset-password/reset-password.component.css ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".text-input{\r\n  background: transparent;\r\n    width: 250px;\r\n    height: 40px;\r\n    border: none;\r\n    border: 1px solid #ff5722;\r\n    border-radius: 4px;\r\n    padding-left: 10px;\r\n    margin: 10px auto;\r\n\r\n  }\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.message{\r\n  color:green;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.l-btn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVzZXQtcGFzc3dvcmQvcmVzZXQtcGFzc3dvcmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHVCQUF1QjtJQUNyQixZQUFZO0lBQ1osWUFBWTtJQUNaLFlBQVk7SUFDWix5QkFBeUI7SUFDekIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtJQUNsQixpQkFBaUI7O0VBRW5COzs7QUFHRjtFQUNFLFNBQVM7RUFDVCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGVBQWU7QUFDakI7OztBQUdBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixZQUFZO0VBQ1osY0FBYztFQUNkLGlDQUFpQztFQUNqQyxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9hcHAvcmVzZXQtcGFzc3dvcmQvcmVzZXQtcGFzc3dvcmQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi50ZXh0LWlucHV0e1xyXG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gICAgd2lkdGg6IDI1MHB4O1xyXG4gICAgaGVpZ2h0OiA0MHB4O1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2ZmNTcyMjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgIG1hcmdpbjogMTBweCBhdXRvO1xyXG5cclxuICB9XHJcblxyXG5cclxuLmVycm9ye1xyXG4gIGNvbG9yOnJlZDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG59XHJcblxyXG4ubWVzc2FnZXtcclxuICBjb2xvcjpncmVlbjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG59XHJcblxyXG5cclxuLmwtYnRuIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY1NzIyO1xyXG4gIHdpZHRoOiAyNTBweDtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiAjZjJmMmYyO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIGJvcmRlcjogI2YyZjJmMjtcclxufVxyXG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/reset-password/reset-password.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/reset-password/reset-password.component.ts ***!
+  \************************************************************/
+/*! exports provided: ResetPasswordComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordComponent", function() { return ResetPasswordComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/fetch-data */ "./src/app/shared/services/fetch-data.ts");
+/* harmony import */ var _layout_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layout-service.service */ "./src/app/layout-service.service.ts");
+
+
+
+
+
+let ResetPasswordComponent = class ResetPasswordComponent {
+    constructor(route, router, fetchData, layoutService) {
+        this.route = route;
+        this.router = router;
+        this.fetchData = fetchData;
+        this.layoutService = layoutService;
+        this.loading = false;
+    }
+    ngOnInit() {
+        this.layoutService.header.next(true);
+        this.layoutService.back.next(['/login']);
+        this.layoutService.title.next('Reset Password');
+        this.layoutService.toolbar.next(false);
+        this.sub = this.route
+            .queryParams
+            .subscribe(params => {
+            console.log(params);
+            if (params && params.access_token) {
+                localStorage.setItem('token', params.access_token);
+            }
+        });
+    }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+    reset() {
+        this.loading = true;
+        this.message = null;
+        this.error = null;
+        this.fetchData.resetPassword({ newPassword: this.password }).subscribe(res => {
+            this.loading = false;
+            this.message = "Password changed successfully";
+            this.password = null;
+            localStorage.delete('token');
+        }, err => {
+            this.loading = false;
+            if (err && err.error && err.error.message) {
+                this.message = err.error.message;
+            }
+            else {
+                this.error = "Please try again";
+            }
+        });
+    }
+};
+ResetPasswordComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__["FetchData"] },
+    { type: _layout_service_service__WEBPACK_IMPORTED_MODULE_4__["LayoutServiceService"] }
+];
+ResetPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-reset-password',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./reset-password.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/reset-password/reset-password.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./reset-password.component.css */ "./src/app/reset-password/reset-password.component.css")).default]
+    })
+], ResetPasswordComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/schedule/schedule.component.css":
 /*!*************************************************!*\
   !*** ./src/app/schedule/schedule.component.css ***!
@@ -2847,6 +3097,21 @@ RestEndpointConstants.RestEndpoints = {
             name: 'registerDevice',
             url: '/api/Devices/register?id={parameter}',
             method: 'patch'
+        },
+        {
+            name: 'forgotPassword',
+            url: '/api/Customers/reset',
+            method: 'post'
+        },
+        {
+            name: 'resetPassword',
+            url: '/api/Customers/reset-password',
+            method: 'post'
+        },
+        {
+            name: 'changePassword',
+            url: '/api/Customers/change-password',
+            method: 'post'
         }
     ]
 };
@@ -2935,6 +3200,15 @@ let FetchData = class FetchData {
     }
     registerDevice(param) {
         return this.serviceEndpoints.init().registerDevice.makeRequest({}, param);
+    }
+    forgotPassword(payload) {
+        return this.serviceEndpoints.init().forgotPassword.makeRequest(payload);
+    }
+    resetPassword(payload) {
+        return this.serviceEndpoints.init().resetPassword.makeRequest(payload);
+    }
+    changePassword(payload) {
+        return this.serviceEndpoints.init().changePassword.makeRequest(payload);
     }
 };
 FetchData.ctorParameters = () => [

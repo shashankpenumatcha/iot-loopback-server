@@ -3,14 +3,13 @@ import { LayoutServiceService } from '../layout-service.service';
 import { FetchData } from '../shared/services/fetch-data';
 
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.css']
 })
-export class ChangePasswordComponent implements OnInit {
+export class ForgotPasswordComponent implements OnInit {
 
-  oldPassword: string;
-  newPassword: string;
+  email: string;
   error: string;
   message: string;
   loading = false;
@@ -19,8 +18,8 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit() {
     this.layoutService.header.next(true);
-    this.layoutService.back.next(['/settings']);
-    this.layoutService.title.next('Change Password');
+    this.layoutService.back.next(['/login']);
+    this.layoutService.title.next('Forgot Password');
     this.layoutService.toolbar.next(false);
   }
 
@@ -28,12 +27,10 @@ export class ChangePasswordComponent implements OnInit {
     this.loading = true;
     this.message = null;
     this.error = null;
-    this.fetchData.changePassword({oldPassword: this.oldPassword, newPassword: this.newPassword}).subscribe(res => {
+    this.fetchData.forgotPassword({email: this.email}).subscribe(res => {
       this.loading = false;
-      this.message = "Password changed successfully";
-      this.oldPassword = null;
-      this.newPassword = null;
-
+      this.message = "Reset link sent to " + this.email;
+      this.email = null;
     }, err => {
       this.loading = false;
       if (err && err.error && err.error.message) {

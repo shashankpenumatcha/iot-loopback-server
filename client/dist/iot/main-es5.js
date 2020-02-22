@@ -171,7 +171,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>change-password works!</p>\n";
+    __webpack_exports__["default"] = "<div style=\"text-align: center;padding:50px\">\n\n  <p style=\"font-size:18px;font-family: 'Roboto';\">Change your password using the form below,</p>\n  <div class=\"l-inpbox\">\n    <div><input type=\"password\" class=\"text-input\" placeholder=\"Enter old password\" [(ngModel)]=\"oldPassword\"  name=\"oldPassword\"/></div>\n    <div><input type=\"password\" class=\"text-input\" placeholder=\"Enter new password\" [(ngModel)]=\"newPassword\"  name=\"newPassword\"/></div>\n\n  </div>\n  <p *ngIf=\"message\" class=\"message\">{{message}}</p>\n  <p *ngIf=\"error\" style=\"color:red;text-align: center;width:100%\">{{error}}</p>\n  <div class=\"l-btnbox\">\n    <button [disabled]=\"!oldPassword||!newPassword\" (click)=\"reset()\" class=\"l-btn\"  >\n  <div *ngIf=\"!loading\">\n\n    Submit\n  </div>\n    <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n      <span class=\"sr-only\">Loading...</span>\n    </div>\n  </button></div>\n</div>\n";
     /***/
   },
 
@@ -212,6 +212,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     __webpack_exports__["default"] = "<div class=\"container-fluid\">\n  <!-- <div class=\"row\">\n    <div style=\"box-shadow: 0px 0px 4px 0px #6d696929;\" class=\"col-12\">\n      <h4 style=\"color: #3d5af1;opacity: 0.8;margin:15px 0px 25px 0px\">Add Boards</h4>\n    </div>\n  </div> -->\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div style=\"padding:15px;\" *ngIf=\"onlineDevicesLength\" class=\"col-6 col-md-4 col-lg-3\">\n      <ng-container *ngFor=\"let device of devices|keyvalue\">\n        <div style=\"padding: 15px;\n        margin-bottom: 15px;\n        border: 1px solid #222831;\n        box-shadow: 0px 4px 4px 0px #6d696929;\n        background: #222831;\n        color: #fff;\">\n          <div style=\"margin-bottom:5px;\">\n            <span style=\"font-weight: bold;\">\n              Device Id:\n            </span>\n            <span>{{device.key}}</span>\n          </div>\n          <div style=\"opacity:0.5;margin-bottom:25px;font-size:10px;\">\n            <i  style=\"font-size: 10px;\" class=\"fas fa-microchip\"></i>\n            {{object.keys(device.value).length}}\n          </div>\n\n          <div (click)=\"launchBoardAdder(device.key)\" style=\"font-size:12px;color:#ff5722;cursor:pointer;\">\n            <i  style=\"font-size: 10px;color:#ff5722\" class=\"fas fa-plus\"></i>\n            Add Board\n          </div>\n        </div>\n      </ng-container>\n    </div>\n    <ng-container *ngIf=\"!onlineDevicesLength\">\n      <p>No online devices</p>\n    </ng-container>\n  </div>\n</div>\n\n\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/forgot-password/forgot-password.component.html":
+  /*!******************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/forgot-password/forgot-password.component.html ***!
+    \******************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppForgotPasswordForgotPasswordComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div style=\"text-align: center;padding:50px\">\n\n  <p style=\"font-size:18px;font-family: 'Roboto';\">Please enter your registered email address below. A password rest link will be sent to your inbox</p>\n  <div class=\"l-inpbox\">\n    <div><input class=\"text-input\" placeholder=\"Enter your email\" [(ngModel)]=\"email\"  name=\"email\"/></div>\n  </div>\n  <p *ngIf=\"message\" class=\"message\">{{message}}</p>\n  <p *ngIf=\"error\" style=\"color:red;text-align: center;width:100%\">{{error}}</p>\n  <div class=\"l-btnbox\">\n    <button [disabled]=\"!email\" (click)=\"reset()\" class=\"l-btn\"  >\n  <div *ngIf=\"!loading\">\n\n    Submit\n  </div>\n    <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n      <span class=\"sr-only\">Loading...</span>\n    </div>\n  </button></div>\n</div>\n";
     /***/
   },
 
@@ -351,7 +371,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n<div class=\"l-text-top\">Get Started !</div>\n<div class=\"l-image\"><img src=\"content/images/singup.png\" height=\"150px\" /></div>\n<div class=\"l-inpbox\">\n  <div><input class=\"text-input\" placeholder=\"Username\" [(ngModel)]=\"username\"  name=\"username\"/></div>\n  <div><input placeholder=\"Password\" class=\"text-input\"  [(ngModel)]=\"password\" name=\"password\"   type=\"password\"/></div>\n</div>\n<p *ngIf=\"error\" style=\"position:absolute;color:red;text-align: center;width:100%\">{{error}}</p>\n<div class=\"l-btnbox\"><button [disabled]=\"!username||!password\" (click)=\"login()\" class=\"l-btn\"  >\n<div *ngIf=\"!loading\">\n\n  Login\n</div>\n  <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</button></div>\n<div class=\"forgotpass\">Forgot Password?</div>\n\n\n";
+    __webpack_exports__["default"] = "\n<div class=\"l-text-top\">Get Started !</div>\n<div class=\"l-image\"><img src=\"content/images/singup.png\" height=\"150px\" /></div>\n<div class=\"l-inpbox\">\n  <div><input class=\"text-input\" placeholder=\"Username\" [(ngModel)]=\"username\"  name=\"username\"/></div>\n  <div><input placeholder=\"Password\" class=\"text-input\"  [(ngModel)]=\"password\" name=\"password\"   type=\"password\"/></div>\n</div>\n<p *ngIf=\"error\" style=\"position:absolute;color:red;text-align: center;width:100%\">{{error}}</p>\n<div class=\"l-btnbox\"><button [disabled]=\"!username||!password\" (click)=\"login()\" class=\"l-btn\"  >\n<div *ngIf=\"!loading\">\n\n  Login\n</div>\n  <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n    <span class=\"sr-only\">Loading...</span>\n  </div>\n</button></div>\n<div [routerLink]=\"['/forgot-password']\" class=\"forgotpass\">Forgot Password?</div>\n\n\n";
     /***/
   },
 
@@ -372,6 +392,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     __webpack_exports__["default"] = "<p>refer works!</p>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/reset-password/reset-password.component.html":
+  /*!****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/reset-password/reset-password.component.html ***!
+    \****************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppResetPasswordResetPasswordComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div style=\"text-align: center;padding:50px\">\n\n  <p style=\"font-size:18px;font-family: 'Roboto';\">Please enter your registered email address below. A password rest link will be sent to your inbox</p>\n  <div class=\"l-inpbox\">\n    <div><input type=\"password\" class=\"text-input\" placeholder=\"Enter new password\" [(ngModel)]=\"password\"  name=\"password\"/></div>\n  </div>\n  <p *ngIf=\"message\" class=\"message\">{{message}}</p>\n  <p *ngIf=\"error\" style=\"color:red;text-align: center;width:100%\">{{error}}</p>\n  <div class=\"l-btnbox\">\n    <button [disabled]=\"!password\" (click)=\"reset()\" class=\"l-btn\"  >\n  <div *ngIf=\"!loading\">\n\n    Submit\n  </div>\n    <div *ngIf=\"loading\" class=\"spinner-border text-light\" role=\"status\">\n      <span class=\"sr-only\">Loading...</span>\n    </div>\n  </button></div>\n</div>\n";
     /***/
   },
 
@@ -411,7 +451,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div style=\"padding:0px;\">\n\n  <div class=\"container\">\n    <div [routerLink]=\"['/about']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-info-circle\"></i></div>\n      <div class=\"col-9\">About</div>\n    </div>\n    <div  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-key\"></i></div>\n      <div class=\"col-9\">Change Password</div>\n    </div>\n    <div [routerLink]=\"['/refer']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-user-tag\"></i></div>\n      <div class=\"col-9\">Refer and Earn</div>\n    </div>\n    <div  [routerLink]=\"['/help']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"far fa-question-circle\"></i></div>\n      <div class=\"col-9\">Help and FAQ</div>\n    </div>\n    <div [routerLink]=\"['/contact']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-phone-volume\"></i></div>\n      <div class=\"col-9\">Contact Us</div>\n    </div>\n    <div (click)=\"logout()\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-power-off\"></i></div>\n      <div class=\"col-9\">Logout</div>\n    </div>\n  </div>\n\n</div>\n";
+    __webpack_exports__["default"] = "<div style=\"padding:0px;\">\n\n  <div class=\"container\">\n    <div [routerLink]=\"['/about']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-info-circle\"></i></div>\n      <div class=\"col-9\">About</div>\n    </div>\n    <div [routerLink]=\"['/change-password']\"  style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-key\"></i></div>\n      <div class=\"col-9\">Change Password</div>\n    </div>\n    <div [routerLink]=\"['/refer']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-user-tag\"></i></div>\n      <div class=\"col-9\">Refer and Earn</div>\n    </div>\n    <div  [routerLink]=\"['/help']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"far fa-question-circle\"></i></div>\n      <div class=\"col-9\">Help and FAQ</div>\n    </div>\n    <div [routerLink]=\"['/contact']\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-phone-volume\"></i></div>\n      <div class=\"col-9\">Contact Us</div>\n    </div>\n    <div (click)=\"logout()\" style=\"padding:10px 15px;border-bottom:1px solid black\" class=\"row\">\n      <div class=\"col-1\"><i class=\"fas fa-power-off\"></i></div>\n      <div class=\"col-9\">Logout</div>\n    </div>\n  </div>\n\n</div>\n";
     /***/
   },
 
@@ -2036,6 +2076,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./add-schedule/add-schedule.component */
     "./src/app/add-schedule/add-schedule.component.ts");
+    /* harmony import */
+
+
+    var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! ./forgot-password/forgot-password.component */
+    "./src/app/forgot-password/forgot-password.component.ts");
+    /* harmony import */
+
+
+    var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+    /*! ./reset-password/reset-password.component */
+    "./src/app/reset-password/reset-password.component.ts");
+    /* harmony import */
+
+
+    var _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+    /*! ./change-password/change-password.component */
+    "./src/app/change-password/change-password.component.ts");
 
     var routes = [{
       path: 'verified',
@@ -2054,6 +2112,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       path: 'welcome',
       component: _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_9__["LandingPageComponent"]
+    }, {
+      path: 'change-password',
+      component: _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_22__["ChangePasswordComponent"],
+      canActivate: [_blocks_chowkidaar__WEBPACK_IMPORTED_MODULE_5__["Chowkidaar"]],
+      data: {
+        authorities: ['authenticated']
+      }
+    }, {
+      path: 'forgot-password',
+      component: _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_20__["ForgotPasswordComponent"]
+    }, {
+      path: 'reset-password',
+      component: _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_21__["ResetPasswordComponent"]
     }, {
       path: 'add-location',
       component: _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_12__["AddLocationComponent"],
@@ -2269,7 +2340,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     });
 
     var Config = {
-      server: 'http://134.209.155.230:3001'
+      server: 'http://134.209.155.230/:3001'
     };
     /***/
   },
@@ -2491,6 +2562,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _contact_contact_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
     /*! ./contact/contact.component */
     "./src/app/contact/contact.component.ts");
+    /* harmony import */
+
+
+    var _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
+    /*! ./forgot-password/forgot-password.component */
+    "./src/app/forgot-password/forgot-password.component.ts");
+    /* harmony import */
+
+
+    var _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
+    /*! ./reset-password/reset-password.component */
+    "./src/app/reset-password/reset-password.component.ts");
 
     var config = {
       url: _app_config_js__WEBPACK_IMPORTED_MODULE_20__["Config"].server,
@@ -2503,7 +2586,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       imports: [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_12__["NgbModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_10__["SocketIoModule"].forRoot(config)],
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_11__["CarouselComponent"], _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__["ScheduleComponent"], _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_15__["DeviceListComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__["LandingPageComponent"], _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__["SignUpComponent"], _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"], _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__["LocationListComponent"], _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__["HomeToolbarComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_24__["HeaderComponent"], _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__["ToolbarComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__["SettingsComponent"], _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__["UsageComponent"], _about_about_component__WEBPACK_IMPORTED_MODULE_28__["AboutComponent"], _help_help_component__WEBPACK_IMPORTED_MODULE_29__["HelpComponent"], _refer_refer_component__WEBPACK_IMPORTED_MODULE_30__["ReferComponent"], _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_31__["ChangePasswordComponent"], _contact_contact_component__WEBPACK_IMPORTED_MODULE_32__["ContactComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_11__["CarouselComponent"], _add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _schedule_schedule_component__WEBPACK_IMPORTED_MODULE_14__["ScheduleComponent"], _device_list_device_list_component__WEBPACK_IMPORTED_MODULE_15__["DeviceListComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _landing_page_landing_page_component__WEBPACK_IMPORTED_MODULE_17__["LandingPageComponent"], _sign_up_sign_up_component__WEBPACK_IMPORTED_MODULE_18__["SignUpComponent"], _verified_verified_component__WEBPACK_IMPORTED_MODULE_19__["VerifiedComponent"], _location_list_location_list_component__WEBPACK_IMPORTED_MODULE_21__["LocationListComponent"], _home_toolbar_home_toolbar_component__WEBPACK_IMPORTED_MODULE_22__["HomeToolbarComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_24__["HeaderComponent"], _toolbar_toolbar_component__WEBPACK_IMPORTED_MODULE_25__["ToolbarComponent"], _settings_settings_component__WEBPACK_IMPORTED_MODULE_26__["SettingsComponent"], _usage_usage_component__WEBPACK_IMPORTED_MODULE_27__["UsageComponent"], _about_about_component__WEBPACK_IMPORTED_MODULE_28__["AboutComponent"], _help_help_component__WEBPACK_IMPORTED_MODULE_29__["HelpComponent"], _refer_refer_component__WEBPACK_IMPORTED_MODULE_30__["ReferComponent"], _change_password_change_password_component__WEBPACK_IMPORTED_MODULE_31__["ChangePasswordComponent"], _contact_contact_component__WEBPACK_IMPORTED_MODULE_32__["ContactComponent"], _forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_33__["ForgotPasswordComponent"], _reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_34__["ResetPasswordComponent"]],
       entryComponents: [_add_location_add_location_component__WEBPACK_IMPORTED_MODULE_13__["AddLocationComponent"], _add_board_add_board_component__WEBPACK_IMPORTED_MODULE_16__["AddBoardComponent"], _add_schedule_add_schedule_component__WEBPACK_IMPORTED_MODULE_23__["AddScheduleComponent"]],
       providers: [{
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HTTP_INTERCEPTORS"],
@@ -2827,7 +2910,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NoYW5nZS1wYXNzd29yZC9jaGFuZ2UtcGFzc3dvcmQuY29tcG9uZW50LmNzcyJ9 */";
+    __webpack_exports__["default"] = ".text-input{\r\n  background: transparent;\r\n    width: 250px;\r\n    height: 40px;\r\n    border: none;\r\n    border: 1px solid #ff5722;\r\n    border-radius: 4px;\r\n    padding-left: 10px;\r\n    margin: 10px auto;\r\n\r\n  }\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.message{\r\n  color:green;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.l-btn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhbmdlLXBhc3N3b3JkL2NoYW5nZS1wYXNzd29yZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQXVCO0lBQ3JCLFlBQVk7SUFDWixZQUFZO0lBQ1osWUFBWTtJQUNaLHlCQUF5QjtJQUN6QixrQkFBa0I7SUFDbEIsa0JBQWtCO0lBQ2xCLGlCQUFpQjs7RUFFbkI7OztBQUdGO0VBQ0UsU0FBUztFQUNULGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCOzs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7O0FBR0E7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0VBQ2QsaUNBQWlDO0VBQ2pDLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9jaGFuZ2UtcGFzc3dvcmQvY2hhbmdlLXBhc3N3b3JkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGV4dC1pbnB1dHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICAgIHdpZHRoOiAyNTBweDtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmZjU3MjI7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBtYXJnaW46IDEwcHggYXV0bztcclxuXHJcbiAgfVxyXG5cclxuXHJcbi5lcnJvcntcclxuICBjb2xvcjpyZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuLm1lc3NhZ2V7XHJcbiAgY29sb3I6Z3JlZW47XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuXHJcbi5sLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmNTcyMjtcclxuICB3aWR0aDogMjUwcHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogI2YyZjJmMjtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBib3JkZXI6ICNmMmYyZjI7XHJcbn1cclxuIl19 */";
     /***/
   },
 
@@ -2862,21 +2945,76 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../layout-service.service */
+    "./src/app/layout-service.service.ts");
+    /* harmony import */
+
+
+    var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../shared/services/fetch-data */
+    "./src/app/shared/services/fetch-data.ts");
 
     var ChangePasswordComponent =
     /*#__PURE__*/
     function () {
-      function ChangePasswordComponent() {
+      function ChangePasswordComponent(layoutService, fetchData) {
         _classCallCheck(this, ChangePasswordComponent);
+
+        this.layoutService = layoutService;
+        this.fetchData = fetchData;
+        this.loading = false;
       }
 
       _createClass(ChangePasswordComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.layoutService.header.next(true);
+          this.layoutService.back.next(['/settings']);
+          this.layoutService.title.next('Change Password');
+          this.layoutService.toolbar.next(false);
+        }
+      }, {
+        key: "reset",
+        value: function reset() {
+          var _this9 = this;
+
+          this.loading = true;
+          this.message = null;
+          this.error = null;
+          this.fetchData.changePassword({
+            oldPassword: this.oldPassword,
+            newPassword: this.newPassword
+          }).subscribe(function (res) {
+            _this9.loading = false;
+            _this9.message = "Password changed successfully";
+            _this9.oldPassword = null;
+            _this9.newPassword = null;
+          }, function (err) {
+            _this9.loading = false;
+
+            if (err && err.error && err.error.message) {
+              _this9.message = err.error.message;
+            } else {
+              _this9.error = "Please try again";
+            }
+          });
+        }
       }]);
 
       return ChangePasswordComponent;
     }();
+
+    ChangePasswordComponent.ctorParameters = function () {
+      return [{
+        type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"]
+      }, {
+        type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__["FetchData"]
+      }];
+    };
 
     ChangePasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-change-password',
@@ -3093,7 +3231,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(DeviceListComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this9 = this;
+          var _this10 = this;
 
           this.layoutService.toolbar.next(null);
           this.layoutService.title.next("Home");
@@ -3102,12 +3240,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.subscriptions.add(this.connect.onlineDevices$.subscribe(function (res) {
             if (res) {
               console.log(res);
-              _this9.devices = Object.assign({}, res);
-              _this9.onlineDevicesLength = Object.keys(_this9.devices).length;
+              _this10.devices = Object.assign({}, res);
+              _this10.onlineDevicesLength = Object.keys(_this10.devices).length;
             }
 
-            if (!_this9.onlineDevicesLength) {
-              _this9.router.navigateByUrl('/');
+            if (!_this10.onlineDevicesLength) {
+              _this10.router.navigateByUrl('/');
             }
           }));
         }
@@ -3155,6 +3293,138 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./device-list.component.css */
       "./src/app/device-list/device-list.component.css")).default]
     })], DeviceListComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/forgot-password/forgot-password.component.css":
+  /*!***************************************************************!*\
+    !*** ./src/app/forgot-password/forgot-password.component.css ***!
+    \***************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppForgotPasswordForgotPasswordComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".text-input{\r\n  background: transparent;\r\n    width: 250px;\r\n    height: 40px;\r\n    border: none;\r\n    border: 1px solid #ff5722;\r\n    border-radius: 4px;\r\n    padding-left: 10px;\r\n    margin: 10px auto;\r\n\r\n  }\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.message{\r\n  color:green;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.l-btn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9yZ290LXBhc3N3b3JkL2ZvcmdvdC1wYXNzd29yZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsdUJBQXVCO0lBQ3JCLFlBQVk7SUFDWixZQUFZO0lBQ1osWUFBWTtJQUNaLHlCQUF5QjtJQUN6QixrQkFBa0I7SUFDbEIsa0JBQWtCO0lBQ2xCLGlCQUFpQjs7RUFFbkI7OztBQUdGO0VBQ0UsU0FBUztFQUNULGtCQUFrQjtFQUNsQixlQUFlO0FBQ2pCOzs7QUFFQTtFQUNFLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7O0FBR0E7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtFQUNaLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFlBQVk7RUFDWixjQUFjO0VBQ2QsaUNBQWlDO0VBQ2pDLGVBQWU7QUFDakIiLCJmaWxlIjoic3JjL2FwcC9mb3Jnb3QtcGFzc3dvcmQvZm9yZ290LXBhc3N3b3JkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGV4dC1pbnB1dHtcclxuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxuICAgIHdpZHRoOiAyNTBweDtcclxuICAgIGhlaWdodDogNDBweDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmZjU3MjI7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBtYXJnaW46IDEwcHggYXV0bztcclxuXHJcbiAgfVxyXG5cclxuXHJcbi5lcnJvcntcclxuICBjb2xvcjpyZWQ7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuLm1lc3NhZ2V7XHJcbiAgY29sb3I6Z3JlZW47XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5cclxuXHJcbi5sLWJ0biB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmNTcyMjtcclxuICB3aWR0aDogMjUwcHg7XHJcbiAgaGVpZ2h0OiA0NXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICBvdXRsaW5lOiBub25lO1xyXG4gIGJvcmRlcjogbm9uZTtcclxuICBjb2xvcjogI2YyZjJmMjtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBib3JkZXI6ICNmMmYyZjI7XHJcbn1cclxuIl19 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/forgot-password/forgot-password.component.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/forgot-password/forgot-password.component.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: ForgotPasswordComponent */
+
+  /***/
+  function srcAppForgotPasswordForgotPasswordComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ForgotPasswordComponent", function () {
+      return ForgotPasswordComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _layout_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../layout-service.service */
+    "./src/app/layout-service.service.ts");
+    /* harmony import */
+
+
+    var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../shared/services/fetch-data */
+    "./src/app/shared/services/fetch-data.ts");
+
+    var ForgotPasswordComponent =
+    /*#__PURE__*/
+    function () {
+      function ForgotPasswordComponent(layoutService, fetchData) {
+        _classCallCheck(this, ForgotPasswordComponent);
+
+        this.layoutService = layoutService;
+        this.fetchData = fetchData;
+        this.loading = false;
+      }
+
+      _createClass(ForgotPasswordComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.layoutService.header.next(true);
+          this.layoutService.back.next(['/login']);
+          this.layoutService.title.next('Forgot Password');
+          this.layoutService.toolbar.next(false);
+        }
+      }, {
+        key: "reset",
+        value: function reset() {
+          var _this11 = this;
+
+          this.loading = true;
+          this.message = null;
+          this.error = null;
+          this.fetchData.forgotPassword({
+            email: this.email
+          }).subscribe(function (res) {
+            _this11.loading = false;
+            _this11.message = "Reset link sent to " + _this11.email;
+            _this11.email = null;
+          }, function (err) {
+            _this11.loading = false;
+
+            if (err && err.error && err.error.message) {
+              _this11.message = err.error.message;
+            } else {
+              _this11.error = "Please try again";
+            }
+          });
+        }
+      }]);
+
+      return ForgotPasswordComponent;
+    }();
+
+    ForgotPasswordComponent.ctorParameters = function () {
+      return [{
+        type: _layout_service_service__WEBPACK_IMPORTED_MODULE_2__["LayoutServiceService"]
+      }, {
+        type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__["FetchData"]
+      }];
+    };
+
+    ForgotPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-forgot-password',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./forgot-password.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/forgot-password/forgot-password.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./forgot-password.component.css */
+      "./src/app/forgot-password/forgot-password.component.css")).default]
+    })], ForgotPasswordComponent);
     /***/
   },
 
@@ -3235,16 +3505,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(HeaderComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this12 = this;
 
           this.subscriptions.add(this.layoutService.header.subscribe(function (header) {
-            _this10.show = header;
+            _this12.show = header;
           }));
           this.subscriptions.add(this.layoutService.title.subscribe(function (title) {
-            _this10.title = title;
+            _this12.title = title;
           }));
           this.subscriptions.add(this.layoutService.back.subscribe(function (back) {
-            _this10.back = back;
+            _this12.back = back;
           }));
         }
       }, {
@@ -3583,7 +3853,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(HomeComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this11 = this;
+          var _this13 = this;
 
           this.layoutService.toolbar.next('Home');
           this.layoutService.header.next(true);
@@ -3606,13 +3876,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                    this.roomsCount = Object.keys(roomsMap).length;
                  }
                })); */
-              _this11.subscriptions.add(_this11.connect.onlineDevices$.subscribe(function (response) {
+              _this13.subscriptions.add(_this13.connect.onlineDevices$.subscribe(function (response) {
                 if (response) {
-                  _this11.onlineDevices = Object.assign({}, response);
-                  _this11.onlineDevicesLength = Object.keys(_this11.onlineDevices).length;
+                  _this13.onlineDevices = Object.assign({}, response);
+                  _this13.onlineDevicesLength = Object.keys(_this13.onlineDevices).length;
                 } else {
-                  _this11.onlineDevices = null;
-                  _this11.onlineDevicesLength = 0;
+                  _this13.onlineDevices = null;
+                  _this13.onlineDevicesLength = 0;
                 }
               }));
               /*   this.subscriptions.add(this.connect.boards$.subscribe((response) => {
@@ -4011,7 +4281,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this12 = this;
+          var _this14 = this;
 
           if (this.selectedSwitches) {
             this.selectedForSchedule = this.selectedSwitches;
@@ -4019,41 +4289,41 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.fetchData.registeredDevices().subscribe(function (res) {
             if (res && res.devices && res.devices.length) {
-              _this12.subscriptions.add(_this12.connect.locations$.subscribe(function (res) {
-                _this12.locations = Object.assign({}, res);
-                _this12.locationsLength = Object.keys(_this12.locations).length;
+              _this14.subscriptions.add(_this14.connect.locations$.subscribe(function (res) {
+                _this14.locations = Object.assign({}, res);
+                _this14.locationsLength = Object.keys(_this14.locations).length;
 
-                if (!_this12.selectedLocation && _this12.locations && Object.keys(_this12.locations)[0]) {
-                  _this12.selectedLocation = Object.keys(res)[0];
+                if (!_this14.selectedLocation && _this14.locations && Object.keys(_this14.locations)[0]) {
+                  _this14.selectedLocation = Object.keys(res)[0];
                 }
               }));
 
-              _this12.subscriptions.add(_this12.connect.roomsMap.subscribe(function (roomsMap) {
+              _this14.subscriptions.add(_this14.connect.roomsMap.subscribe(function (roomsMap) {
                 if (roomsMap) {
                   console.log(roomsMap);
-                  _this12.joinedRooms = Object.assign({}, roomsMap);
-                  _this12.roomsCount = Object.keys(roomsMap).length;
+                  _this14.joinedRooms = Object.assign({}, roomsMap);
+                  _this14.roomsCount = Object.keys(roomsMap).length;
                 }
               }));
 
-              _this12.subscriptions.add(_this12.connect.onlineDevices$.subscribe(function (response) {
+              _this14.subscriptions.add(_this14.connect.onlineDevices$.subscribe(function (response) {
                 if (response) {
-                  _this12.onlineDevices = Object.assign({}, response);
-                  _this12.onlineDevicesLength = Object.keys(_this12.onlineDevices).length;
+                  _this14.onlineDevices = Object.assign({}, response);
+                  _this14.onlineDevicesLength = Object.keys(_this14.onlineDevices).length;
                 } else {
-                  _this12.onlineDevices = null;
-                  _this12.onlineDevicesLength = 0;
+                  _this14.onlineDevices = null;
+                  _this14.onlineDevicesLength = 0;
                 }
               }));
 
-              _this12.subscriptions.add(_this12.connect.boards$.subscribe(function (response) {
-                _this12.boards = response;
+              _this14.subscriptions.add(_this14.connect.boards$.subscribe(function (response) {
+                _this14.boards = response;
               }));
 
-              _this12.devices = Object.assign({}, res).devices;
+              _this14.devices = Object.assign({}, res).devices;
 
-              _this12.devices.map(function (m) {
-                _this12.connect.join(m.deviceId, m);
+              _this14.devices.map(function (m) {
+                _this14.connect.join(m.deviceId, m);
 
                 return m;
               });
@@ -4228,7 +4498,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "login",
         value: function login() {
-          var _this13 = this;
+          var _this15 = this;
 
           this.loading = true;
           this.error = null;
@@ -4239,45 +4509,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (res.id && res.userId) {
               localStorage.setItem('token', res.id);
 
-              _this13.fetchData.account().subscribe(function (res) {
-                _this13.loading = false;
+              _this15.fetchData.account().subscribe(function (res) {
+                _this15.loading = false;
 
                 if (!res.emailVerified) {
-                  _this13.error = "Email not verified, please check your email";
+                  _this15.error = "Email not verified, please check your email";
                 } else {
-                  _this13.fetchData.registeredDevices().subscribe(function (res) {
+                  _this15.fetchData.registeredDevices().subscribe(function (res) {
                     console.log(res);
 
                     if (res.devices && res.devices.length) {
-                      _this13.dataService.setDevices(res.devices);
+                      _this15.dataService.setDevices(res.devices);
 
                       if (!sessionStorage.getItem('url')) {
-                        _this13.router.navigate(['']);
+                        _this15.router.navigate(['']);
                       } else {
-                        _this13.router.navigate([sessionStorage.getItem('url')]);
+                        _this15.router.navigate([sessionStorage.getItem('url')]);
                       }
                     } else {
-                      _this13.dataService.setDevices([]);
+                      _this15.dataService.setDevices([]);
 
-                      _this13.router.navigate(['carousel']);
+                      _this15.router.navigate(['carousel']);
                     }
                   }, function (err) {
-                    _this13.loading = false;
+                    _this15.loading = false;
                     console.log(err);
                   });
                 }
               }, function (err) {
-                _this13.loading = false;
-                _this13.error = "Account not found";
+                _this15.loading = false;
+                _this15.error = "Account not found";
               });
             }
           }, function (err) {
             console.log(err);
             console.log(err.error);
-            _this13.loading = false;
+            _this15.loading = false;
 
             if (err && err.error && err.error && err.error.error.message) {
-              _this13.error = err.error.error.message;
+              _this15.error = err.error.error.message;
             }
           });
         }
@@ -4405,6 +4675,163 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       /*! ./refer.component.css */
       "./src/app/refer/refer.component.css")).default]
     })], ReferComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/reset-password/reset-password.component.css":
+  /*!*************************************************************!*\
+    !*** ./src/app/reset-password/reset-password.component.css ***!
+    \*************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppResetPasswordResetPasswordComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".text-input{\r\n  background: transparent;\r\n    width: 250px;\r\n    height: 40px;\r\n    border: none;\r\n    border: 1px solid #ff5722;\r\n    border-radius: 4px;\r\n    padding-left: 10px;\r\n    margin: 10px auto;\r\n\r\n  }\r\n\r\n\r\n.error{\r\n  color:red;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.message{\r\n  color:green;\r\n  text-align: center;\r\n  font-size: 14px;\r\n}\r\n\r\n\r\n.l-btn {\r\n  background-color: #ff5722;\r\n  width: 250px;\r\n  height: 45px;\r\n  border-radius: 4px;\r\n  outline: none;\r\n  border: none;\r\n  color: #f2f2f2;\r\n  font-family: \"Roboto\", sans-serif;\r\n  border: #f2f2f2;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVzZXQtcGFzc3dvcmQvcmVzZXQtcGFzc3dvcmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHVCQUF1QjtJQUNyQixZQUFZO0lBQ1osWUFBWTtJQUNaLFlBQVk7SUFDWix5QkFBeUI7SUFDekIsa0JBQWtCO0lBQ2xCLGtCQUFrQjtJQUNsQixpQkFBaUI7O0VBRW5COzs7QUFHRjtFQUNFLFNBQVM7RUFDVCxrQkFBa0I7RUFDbEIsZUFBZTtBQUNqQjs7O0FBRUE7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGVBQWU7QUFDakI7OztBQUdBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixZQUFZO0VBQ1osa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixZQUFZO0VBQ1osY0FBYztFQUNkLGlDQUFpQztFQUNqQyxlQUFlO0FBQ2pCIiwiZmlsZSI6InNyYy9hcHAvcmVzZXQtcGFzc3dvcmQvcmVzZXQtcGFzc3dvcmQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi50ZXh0LWlucHV0e1xyXG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gICAgd2lkdGg6IDI1MHB4O1xyXG4gICAgaGVpZ2h0OiA0MHB4O1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2ZmNTcyMjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICAgIHBhZGRpbmctbGVmdDogMTBweDtcclxuICAgIG1hcmdpbjogMTBweCBhdXRvO1xyXG5cclxuICB9XHJcblxyXG5cclxuLmVycm9ye1xyXG4gIGNvbG9yOnJlZDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG59XHJcblxyXG4ubWVzc2FnZXtcclxuICBjb2xvcjpncmVlbjtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG59XHJcblxyXG5cclxuLmwtYnRuIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY1NzIyO1xyXG4gIHdpZHRoOiAyNTBweDtcclxuICBoZWlnaHQ6IDQ1cHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIG91dGxpbmU6IG5vbmU7XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiAjZjJmMmYyO1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIGJvcmRlcjogI2YyZjJmMjtcclxufVxyXG4iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/reset-password/reset-password.component.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/reset-password/reset-password.component.ts ***!
+    \************************************************************/
+
+  /*! exports provided: ResetPasswordComponent */
+
+  /***/
+  function srcAppResetPasswordResetPasswordComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ResetPasswordComponent", function () {
+      return ResetPasswordComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../shared/services/fetch-data */
+    "./src/app/shared/services/fetch-data.ts");
+    /* harmony import */
+
+
+    var _layout_service_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../layout-service.service */
+    "./src/app/layout-service.service.ts");
+
+    var ResetPasswordComponent =
+    /*#__PURE__*/
+    function () {
+      function ResetPasswordComponent(route, router, fetchData, layoutService) {
+        _classCallCheck(this, ResetPasswordComponent);
+
+        this.route = route;
+        this.router = router;
+        this.fetchData = fetchData;
+        this.layoutService = layoutService;
+        this.loading = false;
+      }
+
+      _createClass(ResetPasswordComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.layoutService.header.next(true);
+          this.layoutService.back.next(['/login']);
+          this.layoutService.title.next('Reset Password');
+          this.layoutService.toolbar.next(false);
+          this.sub = this.route.queryParams.subscribe(function (params) {
+            console.log(params);
+
+            if (params && params.access_token) {
+              localStorage.setItem('token', params.access_token);
+            }
+          });
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.sub.unsubscribe();
+        }
+      }, {
+        key: "reset",
+        value: function reset() {
+          var _this16 = this;
+
+          this.loading = true;
+          this.message = null;
+          this.error = null;
+          this.fetchData.resetPassword({
+            newPassword: this.password
+          }).subscribe(function (res) {
+            _this16.loading = false;
+            _this16.message = "Password changed successfully";
+            _this16.password = null;
+            localStorage.delete('token');
+          }, function (err) {
+            _this16.loading = false;
+
+            if (err && err.error && err.error.message) {
+              _this16.message = err.error.message;
+            } else {
+              _this16.error = "Please try again";
+            }
+          });
+        }
+      }]);
+
+      return ResetPasswordComponent;
+    }();
+
+    ResetPasswordComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }, {
+        type: _shared_services_fetch_data__WEBPACK_IMPORTED_MODULE_3__["FetchData"]
+      }, {
+        type: _layout_service_service__WEBPACK_IMPORTED_MODULE_4__["LayoutServiceService"]
+      }];
+    };
+
+    ResetPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-reset-password',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./reset-password.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/reset-password/reset-password.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./reset-password.component.css */
+      "./src/app/reset-password/reset-password.component.css")).default]
+    })], ResetPasswordComponent);
     /***/
   },
 
@@ -4551,7 +4978,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ScheduleComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this14 = this;
+          var _this17 = this;
 
           this.layoutService.toolbar.next("Schedules");
           this.layoutService.title.next("Schedules");
@@ -4559,21 +4986,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.layoutService.back.next(false);
           this.subscriptions.add(this.connect.onlineDevices$.subscribe(function (res) {
             if (res) {
-              _this14.onlineDevices = JSON.parse(JSON.stringify(res));
+              _this17.onlineDevices = JSON.parse(JSON.stringify(res));
             }
 
-            if (_this14.onlineDevices) {
-              _this14.deviceLength = Object.keys(_this14.onlineDevices).length;
+            if (_this17.onlineDevices) {
+              _this17.deviceLength = Object.keys(_this17.onlineDevices).length;
             } else {
-              _this14.deviceLength = 0;
+              _this17.deviceLength = 0;
             }
 
-            if (!_this14.deviceLength) {
-              _this14.router.navigate(['/']);
+            if (!_this17.deviceLength) {
+              _this17.router.navigate(['/']);
             } else {
-              var devices = Object.keys(_this14.onlineDevices);
+              var devices = Object.keys(_this17.onlineDevices);
               devices.map(function (m) {
-                _this14.socket.emit('getSchedules', m);
+                _this17.socket.emit('getSchedules', m);
 
                 return m;
               });
@@ -4581,40 +5008,40 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }));
           this.socket.on('scheduleToggled', function (msg) {
             if (msg.err && !msg.deviceId) {
-              _this14.activeRequests[msg.scheduleId] = null;
+              _this17.activeRequests[msg.scheduleId] = null;
             }
 
-            if (msg.deviceId && _this14.activeRequests[msg.scheduleId] && _this14.activeRequests[msg.scheduleId].length && _this14.activeRequests[msg.scheduleId].indexOf(msg.deviceId) >= 0) {
-              _this14.activeRequests[msg.scheduleId].splice(_this14.activeRequests[msg.scheduleId].indexOf(msg.deviceId), 1);
+            if (msg.deviceId && _this17.activeRequests[msg.scheduleId] && _this17.activeRequests[msg.scheduleId].length && _this17.activeRequests[msg.scheduleId].indexOf(msg.deviceId) >= 0) {
+              _this17.activeRequests[msg.scheduleId].splice(_this17.activeRequests[msg.scheduleId].indexOf(msg.deviceId), 1);
             }
 
-            if (_this14.activeRequests[msg.scheduleId] && !_this14.activeRequests[msg.scheduleId].length) {
-              _this14.activeRequests[msg.scheduleId] = null;
+            if (_this17.activeRequests[msg.scheduleId] && !_this17.activeRequests[msg.scheduleId].length) {
+              _this17.activeRequests[msg.scheduleId] = null;
             }
 
-            var d = Object.keys(_this14.onlineDevices);
+            var d = Object.keys(_this17.onlineDevices);
             d.map(function (m) {
-              _this14.socket.emit('getSchedules', m);
+              _this17.socket.emit('getSchedules', m);
 
               return m;
             });
           });
           this.socket.on('scheduleDeleted', function (msg) {
             if (msg.err && !msg.deviceId) {
-              _this14.deleteRequests[msg.scheduleId] = null;
+              _this17.deleteRequests[msg.scheduleId] = null;
             }
 
-            if (msg.deviceId && _this14.deleteRequests[msg.scheduleId] && _this14.deleteRequests[msg.scheduleId].length && _this14.deleteRequests[msg.scheduleId].indexOf(msg.deviceId) >= 0) {
-              _this14.deleteRequests[msg.scheduleId].splice(_this14.deleteRequests[msg.scheduleId].indexOf(msg.deviceId), 1);
+            if (msg.deviceId && _this17.deleteRequests[msg.scheduleId] && _this17.deleteRequests[msg.scheduleId].length && _this17.deleteRequests[msg.scheduleId].indexOf(msg.deviceId) >= 0) {
+              _this17.deleteRequests[msg.scheduleId].splice(_this17.deleteRequests[msg.scheduleId].indexOf(msg.deviceId), 1);
             }
 
-            if (_this14.deleteRequests[msg.scheduleId] && !_this14.deleteRequests[msg.scheduleId].length) {
-              _this14.deleteRequests[msg.scheduleId] = null;
+            if (_this17.deleteRequests[msg.scheduleId] && !_this17.deleteRequests[msg.scheduleId].length) {
+              _this17.deleteRequests[msg.scheduleId] = null;
             }
 
-            var d = Object.keys(_this14.onlineDevices);
+            var d = Object.keys(_this17.onlineDevices);
             d.map(function (m) {
-              _this14.socket.emit('getSchedules', m);
+              _this17.socket.emit('getSchedules', m);
 
               return m;
             });
@@ -4624,39 +5051,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSchedules",
         value: function getSchedules() {
-          var _this15 = this;
+          var _this18 = this;
 
           this.socket.on('schedules', function (msg) {
             if (!msg.error) {
               // this.schedules = msg;
               if (msg.schedules && msg.schedules.length) {
                 msg.schedules.map(function (m) {
-                  if (!_this15.schedules[m.scheduleId]) {
-                    _this15.schedules[m.scheduleId] = {};
+                  if (!_this18.schedules[m.scheduleId]) {
+                    _this18.schedules[m.scheduleId] = {};
                   }
 
-                  _this15.schedules[m.scheduleId].schedule = m;
+                  _this18.schedules[m.scheduleId].schedule = m;
 
-                  if (_this15.schedules[m.scheduleId].schedule && _this15.schedules[m.scheduleId].schedule.days) {
-                    _this15.schedules[m.scheduleId].daysList = _this15.schedules[m.scheduleId].schedule.days.split(',');
+                  if (_this18.schedules[m.scheduleId].schedule && _this18.schedules[m.scheduleId].schedule.days) {
+                    _this18.schedules[m.scheduleId].daysList = _this18.schedules[m.scheduleId].schedule.days.split(',');
                   }
 
-                  if (!_this15.schedules[m.scheduleId].devices) {
-                    _this15.schedules[m.scheduleId].devices = {};
+                  if (!_this18.schedules[m.scheduleId].devices) {
+                    _this18.schedules[m.scheduleId].devices = {};
                   }
 
-                  if (!_this15.schedules[m.scheduleId].devices[msg.deviceId]) {
-                    _this15.schedules[m.scheduleId].devices[msg.deviceId] = {};
+                  if (!_this18.schedules[m.scheduleId].devices[msg.deviceId]) {
+                    _this18.schedules[m.scheduleId].devices[msg.deviceId] = {};
                   }
 
-                  if (!_this15.schedules[m.scheduleId].devices[msg.deviceId][m.sw_id]) {
-                    _this15.schedules[m.scheduleId].devices[msg.deviceId][m.sw_id] = m;
+                  if (!_this18.schedules[m.scheduleId].devices[msg.deviceId][m.sw_id]) {
+                    _this18.schedules[m.scheduleId].devices[msg.deviceId][m.sw_id] = m;
 
-                    if (!_this15.schedules[m.scheduleId].switchSize) {
-                      _this15.schedules[m.scheduleId].switchSize = 0;
+                    if (!_this18.schedules[m.scheduleId].switchSize) {
+                      _this18.schedules[m.scheduleId].switchSize = 0;
                     }
 
-                    _this15.schedules[m.scheduleId].switchSize += 1;
+                    _this18.schedules[m.scheduleId].switchSize += 1;
                   }
 
                   return m;
@@ -4695,7 +5122,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "toggleActive",
         value: function toggleActive(schedule, devices) {
-          var _this16 = this;
+          var _this19 = this;
 
           if (!this.activeRequests[schedule.scheduleId]) {
             this.activeRequests[schedule.scheduleId] = [];
@@ -4705,14 +5132,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (deviceKeys && deviceKeys.length) {
             deviceKeys.map(function (device) {
-              _this16.activeRequests[schedule.scheduleId].push(device);
+              _this19.activeRequests[schedule.scheduleId].push(device);
 
               var payload = {};
               payload.scheduleId = schedule.scheduleId;
               payload.deviceId = device;
               payload.active = schedule.active;
 
-              _this16.socket.emit('toggleSchedule', payload);
+              _this19.socket.emit('toggleSchedule', payload);
 
               return device;
             });
@@ -4721,7 +5148,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteSchedule",
         value: function deleteSchedule(schedule, devices) {
-          var _this17 = this;
+          var _this20 = this;
 
           if (!this.deleteRequests[schedule.scheduleId]) {
             this.deleteRequests[schedule.scheduleId] = [];
@@ -4732,13 +5159,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (deviceKeys && deviceKeys.length) {
             this.schedules = {};
             deviceKeys.map(function (device) {
-              _this17.deleteRequests[schedule.scheduleId].push(device);
+              _this20.deleteRequests[schedule.scheduleId].push(device);
 
               var payload = {};
               payload.scheduleId = schedule.scheduleId;
               payload.deviceId = device;
 
-              _this17.socket.emit('deleteSchedule', payload);
+              _this20.socket.emit('deleteSchedule', payload);
 
               return device;
             });
@@ -4957,6 +5384,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         name: 'registerDevice',
         url: '/api/Devices/register?id={parameter}',
         method: 'patch'
+      }, {
+        name: 'forgotPassword',
+        url: '/api/Customers/reset',
+        method: 'post'
+      }, {
+        name: 'resetPassword',
+        url: '/api/Customers/reset-password',
+        method: 'post'
+      }, {
+        name: 'changePassword',
+        url: '/api/Customers/change-password',
+        method: 'post'
       }]
     };
     /***/
@@ -5117,6 +5556,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "registerDevice",
         value: function registerDevice(param) {
           return this.serviceEndpoints.init().registerDevice.makeRequest({}, param);
+        }
+      }, {
+        key: "forgotPassword",
+        value: function forgotPassword(payload) {
+          return this.serviceEndpoints.init().forgotPassword.makeRequest(payload);
+        }
+      }, {
+        key: "resetPassword",
+        value: function resetPassword(payload) {
+          return this.serviceEndpoints.init().resetPassword.makeRequest(payload);
+        }
+      }, {
+        key: "changePassword",
+        value: function changePassword(payload) {
+          return this.serviceEndpoints.init().changePassword.makeRequest(payload);
         }
       }]);
 
@@ -5357,7 +5811,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "signup",
         value: function signup() {
-          var _this18 = this;
+          var _this21 = this;
 
           this.success = false;
           this.error = null;
@@ -5369,15 +5823,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           };
           this.loading = true;
           this.fetchData.signup(payload).subscribe(function (res) {
-            _this18.loading = false;
+            _this21.loading = false;
             console.log(res);
-            _this18.username = null;
-            _this18.email = null;
-            _this18.password = null;
-            _this18.terms = true;
-            _this18.success = true;
+            _this21.username = null;
+            _this21.email = null;
+            _this21.password = null;
+            _this21.terms = true;
+            _this21.success = true;
           }, function (err) {
-            _this18.loading = false;
+            _this21.loading = false;
             var e = null;
 
             if (err.error && err.error.error) {
@@ -5388,12 +5842,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var m = Object.keys(e.details.messages);
 
               if (m.length) {
-                return _this18.error = e.details.messages[m[0]];
+                return _this21.error = e.details.messages[m[0]];
               }
             }
 
             console.log(err);
-            return _this18.error = 'signup failed';
+            return _this21.error = 'signup failed';
           });
         }
       }]);
@@ -5496,31 +5950,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsage",
         value: function initUsage() {
-          var _this19 = this;
+          var _this22 = this;
 
           this.socket.on('usage', function (res) {
             console.log(res);
 
             if (!res.error) {
               if (res.deviceId && res.switches && res.switches.length) {
-                _this19.usage = {};
+                _this22.usage = {};
                 res.switches.some(function (s) {
-                  if (!_this19.usage[s.locationId]) {
-                    _this19.usage[s.locationId] = {};
+                  if (!_this22.usage[s.locationId]) {
+                    _this22.usage[s.locationId] = {};
                   }
 
-                  _this19.usage[s.locationId].name = s.locationName;
+                  _this22.usage[s.locationId].name = s.locationName;
 
-                  if (!_this19.usage[s.locationId].switches) {
-                    _this19.usage[s.locationId].switches = [];
+                  if (!_this22.usage[s.locationId].switches) {
+                    _this22.usage[s.locationId].switches = [];
                   }
 
                   s.deviceId = res.deviceId;
 
-                  _this19.usage[s.locationId].switches.push(s);
+                  _this22.usage[s.locationId].switches.push(s);
                 });
 
-                _this19.usage$.next(_this19.usage);
+                _this22.usage$.next(_this22.usage);
               }
             }
           });
@@ -5528,28 +5982,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initLocations",
         value: function initLocations() {
-          var _this20 = this;
+          var _this23 = this;
 
           this.socket.on('locations', function (res) {
             console.log(res);
 
             if (!res.error) {
               if (res.deviceId && res.switches && res.switches.length) {
-                _this20.locations = {};
+                _this23.locations = {};
                 res.switches.some(function (s) {
-                  if (!_this20.locations[s.locationId]) {
-                    _this20.locations[s.locationId] = {};
+                  if (!_this23.locations[s.locationId]) {
+                    _this23.locations[s.locationId] = {};
                   }
 
-                  _this20.locations[s.locationId].name = s.locationName;
+                  _this23.locations[s.locationId].name = s.locationName;
 
-                  if (!_this20.locations[s.locationId].switches) {
-                    _this20.locations[s.locationId].switches = [];
+                  if (!_this23.locations[s.locationId].switches) {
+                    _this23.locations[s.locationId].switches = [];
                   }
 
                   s.deviceId = res.deviceId;
 
-                  _this20.locations[s.locationId].switches.push(s);
+                  _this23.locations[s.locationId].switches.push(s);
                   /*  if (!this.locations[s.locationId].devices) {
                      this.locations[s.locationId].devices = {};
                    }
@@ -5566,9 +6020,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                 });
 
-                _this20.calculateActiveLocations();
+                _this23.calculateActiveLocations();
 
-                _this20.locations$.next(_this20.locations);
+                _this23.locations$.next(_this23.locations);
               }
             }
           });
@@ -5576,19 +6030,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "calculateActiveLocations",
         value: function calculateActiveLocations() {
-          var _this21 = this;
+          var _this24 = this;
 
           if (this.locations) {
             var locations = Object.keys(this.locations);
 
             if (locations.length) {
               locations.some(function (l) {
-                _this21.locations[l].active = false;
+                _this24.locations[l].active = false;
 
-                if (_this21.locations[l].switches) {
-                  _this21.locations[l].switches.some(function (s) {
-                    if (_this21.onlineDevices && _this21.onlineDevices[s.deviceId] && _this21.onlineDevices[s.deviceId][s.board] && _this21.onlineDevices[s.deviceId][s.board].switches && _this21.onlineDevices[s.deviceId][s.board].switches.length && _this21.onlineDevices[s.deviceId][s.board].switches[s.switch]) {
-                      _this21.locations[l].active = true;
+                if (_this24.locations[l].switches) {
+                  _this24.locations[l].switches.some(function (s) {
+                    if (_this24.onlineDevices && _this24.onlineDevices[s.deviceId] && _this24.onlineDevices[s.deviceId][s.board] && _this24.onlineDevices[s.deviceId][s.board].switches && _this24.onlineDevices[s.deviceId][s.board].switches.length && _this24.onlineDevices[s.deviceId][s.board].switches[s.switch]) {
+                      _this24.locations[l].active = true;
                       return;
                     }
                   });
@@ -5632,20 +6086,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDeviceDisconnect",
         value: function onDeviceDisconnect() {
-          var _this22 = this;
+          var _this25 = this;
 
           this.socket.on('deviceDisconnected', function (id) {
             if (id) {
-              if (_this22.onlineDevices && _this22.onlineDevices[id]) {
-                delete _this22.onlineDevices[id];
+              if (_this25.onlineDevices && _this25.onlineDevices[id]) {
+                delete _this25.onlineDevices[id];
 
-                if (!Object.keys(_this22.onlineDevices).length) {
-                  _this22.onlineDevices = null;
+                if (!Object.keys(_this25.onlineDevices).length) {
+                  _this25.onlineDevices = null;
                 }
 
-                _this22.getLocations();
+                _this25.getLocations();
 
-                _this22.onlineDevices$.next(_this22.onlineDevices);
+                _this25.onlineDevices$.next(_this25.onlineDevices);
               }
             }
           });
@@ -5661,26 +6115,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "joined",
         value: function joined(device) {
-          var _this23 = this;
+          var _this26 = this;
 
           return this.socket.fromEvent('joined').subscribe(function (m) {
             if (m != null && typeof m === 'string') {
-              _this23.rooms[m] = device;
+              _this26.rooms[m] = device;
 
-              _this23.roomsMap.next(_this23.rooms);
+              _this26.roomsMap.next(_this26.rooms);
 
-              _this23.socket.emit('getBoards', m);
+              _this26.socket.emit('getBoards', m);
             }
           });
         }
       }, {
         key: "leaveAll",
         value: function leaveAll(ids) {
-          var _this24 = this;
+          var _this27 = this;
 
           if (ids && ids.length) {
             ids.map(function (id) {
-              _this24.socket.emit('leave', id);
+              _this27.socket.emit('leave', id);
 
               return id;
             });
@@ -5689,35 +6143,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getSwitches",
         value: function getSwitches() {
-          var _this25 = this;
+          var _this28 = this;
 
           this.socket.on('boards', function (response) {
-            if (_this25.rooms && response && response.deviceId && response.boards) {
-              if (!_this25.onlineDevices) {
-                _this25.onlineDevices = {};
+            if (_this28.rooms && response && response.deviceId && response.boards) {
+              if (!_this28.onlineDevices) {
+                _this28.onlineDevices = {};
               }
 
-              _this25.onlineDevices[response.deviceId] = response.boards;
+              _this28.onlineDevices[response.deviceId] = response.boards;
 
-              _this25.getLocations();
+              _this28.getLocations();
 
-              _this25.onlineDevices$.next(_this25.onlineDevices);
+              _this28.onlineDevices$.next(_this28.onlineDevices);
 
-              _this25.calculateBoards();
+              _this28.calculateBoards();
             }
           });
         }
       }, {
         key: "calculateBoards",
         value: function calculateBoards() {
-          var _this26 = this;
+          var _this29 = this;
 
           var boards = [];
           var dk = Object.keys(this.onlineDevices);
           dk.some(function (d) {
-            var bk = Object.keys(_this26.onlineDevices[d]);
+            var bk = Object.keys(_this29.onlineDevices[d]);
             bk.some(function (b) {
-              boards.push(_this26.onlineDevices[d][b]);
+              boards.push(_this29.onlineDevices[d][b]);
             });
           });
           this.boards = boards;
@@ -5832,10 +6286,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ToolbarComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this27 = this;
+          var _this30 = this;
 
           this.subscriptions.add(this.layoutService.toolbar.subscribe(function (t) {
-            _this27.selected = t;
+            _this30.selected = t;
           }));
         }
       }]);
@@ -5946,7 +6400,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(UsageComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this28 = this;
+          var _this31 = this;
 
           this.layoutService.toolbar.next("Usage");
           this.layoutService.title.next("Usage");
@@ -5954,13 +6408,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.layoutService.back.next(false);
           this.connect.getUsage();
           this.subscription.add(this.connect.usage$.subscribe(function (res) {
-            _this28.usage = res;
+            _this31.usage = res;
 
             if (res) {
-              var keys = Object.keys(_this28.usage);
+              var keys = Object.keys(_this31.usage);
 
               if (keys && keys.length) {
-                _this28.location = keys[0];
+                _this31.location = keys[0];
               }
             }
           }));

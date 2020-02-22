@@ -25,10 +25,9 @@ export class UsageComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.connect.usage$.subscribe(res => {
         this.usage = res;
-        if(res){
-
+        if (res) {
           let keys = Object.keys(this.usage);
-          if(keys && keys.length){
+          if (keys && keys.length) {
             this.location = keys[0];
           }
         }

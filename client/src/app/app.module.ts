@@ -30,6 +30,8 @@ import { HelpComponent } from './help/help.component';
 import { ReferComponent } from './refer/refer.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ContactComponent } from './contact/contact.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
@@ -64,7 +66,9 @@ const config: SocketIoConfig = { url: Config.server, options: {} };
     HelpComponent,
     ReferComponent,
     ChangePasswordComponent,
-    ContactComponent
+    ContactComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent],
   providers: [

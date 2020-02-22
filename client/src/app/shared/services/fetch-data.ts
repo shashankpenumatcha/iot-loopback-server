@@ -35,5 +35,13 @@ export class FetchData {
     registerDevice(param) {
       return this.serviceEndpoints.init().registerDevice.makeRequest({}, param);
     }
-
+    forgotPassword(payload) {
+      return this.serviceEndpoints.init().forgotPassword.makeRequest(payload);
+    }
+    resetPassword(payload) {
+      return this.serviceEndpoints.init().resetPassword.makeRequest(payload);
+    }
+    changePassword(payload) {
+      return this.serviceEndpoints.init().changePassword.makeRequest(payload);
+    }
 }

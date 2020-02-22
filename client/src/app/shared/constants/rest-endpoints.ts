@@ -45,7 +45,24 @@ export class RestEndpointConstants {
           name: 'registerDevice',
           url: '/api/Devices/register?id={parameter}',
           method: 'patch'
+        },
+        {
+          name: 'forgotPassword',
+          url: '/api/Customers/reset',
+          method: 'post'
+        },
+        {
+          name: 'resetPassword',
+          url: '/api/Customers/reset-password',
+          method: 'post'
+        },
+        {
+          name: 'changePassword',
+          url: '/api/Customers/change-password',
+          method: 'post'
         }
+
+
 
 
       ]
