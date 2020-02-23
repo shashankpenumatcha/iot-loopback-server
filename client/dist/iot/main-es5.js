@@ -71,7 +71,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div style=\"padding:25px;\">\n  <h3>Add Board - {{deviceId}}</h3>\n  <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;height: 36px;font-size: 100%;border: none;border-bottom: 1px solid #0000001a;outline:none;\"\n    [disabled]=\"adding\" [(ngModel)]=\"boardId\" type=\"text\" placeholder=\"Enter Board ID\"/>\n  </div>\n<p *ngIf=\"error\" style=\"color: red;\nfont-size: 12px;\ntext-align: center;\nposition: relative;\ntop: 22px;\n\">Error adding board, please try again</p>\n   <div id=\"scan-section\">\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #ff5722;\n        border: 1px solid #ff5722;\n        border-radius: 4px;\n        color: #fff;\"  [disabled]=\"adding||!deviceId||!boardId\" (click)=\"addBoard()\">\n        <div *ngIf=\"!adding\">\n          Add Board\n\n        </div>\n        <div *ngIf=\"adding\" class=\"spinner-border text-light\" role=\"status\">\n          <span class=\"sr-only\">Adding...</span>\n        </div>\n      </button>\n\n   </div>\n\n\n</div>\n";
+    __webpack_exports__["default"] = "<div style=\"padding:25px;\">\n  <h3>Add Board - {{deviceId}}</h3>\n  <i *ngIf=\"!adding\" (click)=\"activeModal.dismiss()\" style=\"cursor:pointer;position: absolute;right:27px;top:20px\" class=\"fas fa-times\"></i>\n  <div style=\"margin-top:20px\" id=\"add-location-form\">\n    <input style=\"width: 100%;height: 36px;font-size: 100%;border: none;border-bottom: 1px solid #0000001a;outline:none;\"\n    [disabled]=\"adding\" [(ngModel)]=\"boardId\" type=\"text\" placeholder=\"Enter Board ID\"/>\n  </div>\n\n<p *ngIf=\"error\" style=\"color: red;\nfont-size: 12px;\ntext-align: center;\nposition: relative;\ntop: 22px;\n\">\n<span>Something went wrong. Please try agian.</span>\n<br>\n{{error}}\n</p>\n   <div id=\"scan-section\">\n     <button style=\"margin: 0 auto;\n        display: block;\n        margin-top: 40px;\n        padding: 10px 35px;\n        background: #ff5722;\n        border: 1px solid #ff5722;\n        border-radius: 4px;\n        color: #fff;\"  [disabled]=\"adding||!deviceId||!boardId\" (click)=\"addBoard()\">\n        <div *ngIf=\"!adding\">\n          Add Board\n\n        </div>\n        <div *ngIf=\"adding\" class=\"spinner-border text-light\" role=\"status\">\n          <span class=\"sr-only\">Adding...</span>\n        </div>\n      </button>\n\n   </div>\n\n\n</div>\n";
     /***/
   },
 
@@ -1270,7 +1270,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.activeModal = activeModal;
         this.socket = socket;
         this.connect = connect;
-        this.error = false;
+        this.error = null;
       }
 
       _createClass(AddBoardComponent, [{
@@ -1289,7 +1289,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             } else {
               _this.adding = false;
-              _this.error = true;
+              _this.error = res.error;
             }
           });
         }
@@ -1299,7 +1299,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this2 = this;
 
           this.adding = true;
-          this.error = false;
+          this.error = null;
           this.socket.emit('addBoard', {
             boardId: this.boardId,
             deviceId: this.deviceId,
@@ -1307,8 +1307,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }, function (res) {
             if (!res || res.error) {
               _this2.adding = false;
-              console.log("add-board-error");
-              console.log(res.error);
+              _this2.error = res.error ? res.error : '.';
             }
           });
         }

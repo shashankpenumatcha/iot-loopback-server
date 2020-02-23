@@ -14,7 +14,7 @@ export class AddBoardComponent implements OnInit, OnDestroy {
   @Input() deviceId: string;
   adding: boolean;
   boardId: string;
-  error = false;
+  error = null;
   constructor(public activeModal: NgbActiveModal, private socket: Socket, private connect: ConnectSocket) { }
 
   ngOnInit() {
@@ -28,20 +28,20 @@ export class AddBoardComponent implements OnInit, OnDestroy {
         }
       } else {
         this.adding = false;
-        this.error = true;
+        this.error = res.error ;
       }
     });
   }
 
   addBoard() {
     this.adding = true;
-    this.error = false;
+    this.error = null;
 
     this.socket.emit('addBoard', {boardId: this.boardId, deviceId: this.deviceId, token: localStorage.getItem('token')}, res => {
       if (!res || res.error) {
         this.adding = false;
-        console.log(`add-board-error`);
-        console.log(res.error);
+        this.error = (res.error ? res.error : '.') ;
+
       }
     });
   }

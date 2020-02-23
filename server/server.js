@@ -265,32 +265,40 @@ boot(app, __dirname, function(err) {
         if(!msg || !msg.boardId || !msg.deviceId||!msg.token ){
           return callback({error: "no token or board or device in request"})
         }
-        let payload = null;
-        Board.register(msg.deviceId,msg.boardId,msg.token,function(err,board){
-          if(err){
-            callback({"error":err});
-            console.log(err)
-            log.debug("error while registering board")
-          }else{
-            log.debug("board registered in db sending to device")
-            Device.findOne({"where":{"deviceId":msg.deviceId},"include":["boards"]},(err,device)=>{
-              if(device){
-                device = device.toJSON();
-                Board.findOne({"where":{"id":msg.boardId}},function(err,board){
-                    if(board){
-                      if(!device.boards){
-                        device.boards = [];
-                      }
-                      device.boards.push(board);
-                      app.io.to(msg.deviceId).emit('addBoard', {deviceInfo:device,deviceId:msg.deviceId, boardId: msg.boardId, socketId: socket.id})
-                      log.info(`device info with board sent to ${msg.deviceId}`);
-                    }
-                })
+
+        Board.findOne({"where":{"_id":msg.boardId}},function(err,board){
+            if(err){
+              return callback({error: "error while fetching board"})
+            }
+            if(board && board.deviceId && board.deviceI!=msg.deviceId){
+                return callback({error: "Board already registered to another device"});
+            }
+            let payload = null;
+            Board.register(msg.deviceId,msg.boardId,msg.token,function(err,board){
+              if(err){
+                callback({"error":err.message});
+                log.debug("error while registering board")
               }else{
-                log.error(`device ${msg.deviceId} not found`);
+                log.debug("board registered in db sending to device")
+                Device.findOne({"where":{"deviceId":msg.deviceId},"include":["boards"]},(err,device)=>{
+                  if(device){
+                    device = device.toJSON();
+                    Board.findOne({"where":{"id":msg.boardId}},function(err,board){
+                        if(board){
+                          if(!device.boards){
+                            device.boards = [];
+                          }
+                          device.boards.push(board);
+                          app.io.to(msg.deviceId).emit('addBoard', {deviceInfo:device,deviceId:msg.deviceId, boardId: msg.boardId, socketId: socket.id})
+                          log.info(`device info with board sent to ${msg.deviceId}`);
+                        }
+                    })
+                  }else{
+                    log.error(`device ${msg.deviceId} not found`);
+                  }
+                })
               }
             })
-          }
         })
       });
 

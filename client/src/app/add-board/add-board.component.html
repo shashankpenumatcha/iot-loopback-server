@@ -5,12 +5,17 @@
     <input style="width: 100%;height: 36px;font-size: 100%;border: none;border-bottom: 1px solid #0000001a;outline:none;"
     [disabled]="adding" [(ngModel)]="boardId" type="text" placeholder="Enter Board ID"/>
   </div>
+
 <p *ngIf="error" style="color: red;
 font-size: 12px;
 text-align: center;
 position: relative;
 top: 22px;
-">Error adding board, please try again</p>
+">
+<span>Something went wrong. Please try agian.</span>
+<br>
+{{error}}
+</p>
    <div id="scan-section">
      <button style="margin: 0 auto;
         display: block;
