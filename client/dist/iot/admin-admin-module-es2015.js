@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>admin works!</p>\n\n<button [routerLink]=\"['register/device']\">Register Device</button>\n<button [routerLink]=\"['register/board']\">Register Board</button>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>admin works!</p>\r\n\r\n<button [routerLink]=\"['register/device']\">Register Device</button>\r\n<button [routerLink]=\"['register/board']\">Register Board</button>\r\n\r\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>Register Board</p>\n\n<button (click)=\"register()\">Add Board</button><br/>\n{{message}}<br/>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>Register Board</p>\r\n\r\n<button (click)=\"register()\">Add Board</button><br/>\r\n{{message}}<br/>\r\n\r\n\r\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>Register Device</p>\n<form>\n  <div>Device Id</div>\n  <input type=\"text\" name=\"deviceId\" [(ngModel)]=\"deviceId\" />\n  <button [disabled]=\"!deviceId || !deviceId.length\" type=\"submit\" (click)=\"register()\">Add Device</button>\n</form>\n{{message}}\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>Register Device</p>\r\n<form>\r\n  <div>Device Id</div>\r\n  <input type=\"text\" name=\"deviceId\" [(ngModel)]=\"deviceId\" />\r\n  <button [disabled]=\"!deviceId || !deviceId.length\" type=\"submit\" (click)=\"register()\">Add Device</button>\r\n</form>\r\n{{message}}\r\n");
 
 /***/ }),
 
