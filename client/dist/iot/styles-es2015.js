@@ -376,8 +376,8 @@ if (content.locals) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\bgh45159\Desktop\iot-loopback-server\client\src\styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! C:\Users\bgh45159\Desktop\iot-loopback-server\client\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+__webpack_require__(/*! C:\Users\shashank\Desktop\iot-loopback-server\client\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\shashank\Desktop\iot-loopback-server\client\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
 
 
 /***/ })
