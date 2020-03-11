@@ -21,14 +21,8 @@ module.exports = function(Board) {
   }
 
   function register(){
-    Board.register =  function(deviceId,boardId,tkn, cb) {
-        AccessToken.findOne({
-          "where" : {"id":tkn}
-        },function(err,token){
-          if(err){
-            sendError("token invalid",500,cb);
-          }
-          const userId = token.userId.toString();
+    Board.register =  function(deviceId,boardId, cb) {
+
           Device.findOne({
             "where":{"deviceId":deviceId}
           },function(err,device){
@@ -38,15 +32,17 @@ module.exports = function(Board) {
             if (err) {
               return sendError('error while fetching device',500,cb)
             }
-            console.log(userId.toString())
-
-            if(device.userId && device.userId.toString() != userId){
-              sendError("device is not registered to your account", 500, cb);
+            if(!device.userId || !device.userId.toString()){
+              sendError("device is not registered to any account", 500, cb);
             }
+            console.log(11111111111111)
+            console.log(boardId)
             Board.findOne({"where":{"id":boardId}},function(err,board){
               if(err){
                 console.log("get board error "  + err)
               }
+              console.log(11111111111111)
+              console.log(board)
               if(!board){
                return sendError("board not found", 404, cb);
               }
@@ -73,7 +69,7 @@ module.exports = function(Board) {
 
           });
 
-        });
+
 
 
     }

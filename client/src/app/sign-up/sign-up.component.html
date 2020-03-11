@@ -9,9 +9,9 @@
 
     <div class="regbdy-up">
 
-    <input [(ngModel)]="username" class="reginp" placeholder="Username">
-
-    <input [(ngModel)]="email" class="reginp" placeholder="Email">
+<!--     <input [(ngModel)]="username" class="reginp" placeholder="Username">
+ -->
+    <input [(ngModel)]="email" type="email" class="reginp" placeholder="Email">
 
     <input [(ngModel)]="password" class="reginp" placeholder="Password" type="password">
 
@@ -21,7 +21,7 @@
     <div class="regbdy-down"></div>
   </div>
   <div class="register-buttons">
-    <button (click)="signup()" [disabled]="!username||!email||!password||!terms" class="register-btn">
+    <button (click)="signup()" [disabled]="!email||!password||!terms" class="register-btn">
      <div *ngIf="!loading">
 
        Register

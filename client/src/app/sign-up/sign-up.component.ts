@@ -29,7 +29,7 @@ export class SignUpComponent implements OnInit {
     this.success = false;
     this.error = null;
     const payload = {
-      username: this.username,
+      username: this.email,
       email: this.email,
       password: this.password,
       emailVerified: true

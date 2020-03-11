@@ -44,4 +44,31 @@ export class FetchData {
     changePassword(payload) {
       return this.serviceEndpoints.init().changePassword.makeRequest(payload);
     }
+    adminDevices() {
+      return this.serviceEndpoints.init().adminDevices.makeRequest();
+    }
+    patchAdminDevices(param, payload) {
+      return this.serviceEndpoints.init().patchAdminDevices.makeRequest(payload, param);
+    }
+    deleteAdminDevices(id) {
+      return this.serviceEndpoints.init().deleteAdminDevices.makeRequest(null, id);
+    }
+    adminBoards() {
+      return this.serviceEndpoints.init().adminBoards.makeRequest();
+    }
+    patchAdminBoards(param, payload) {
+      return this.serviceEndpoints.init().patchAdminBoards.makeRequest(payload, param);
+    }
+    deleteAdminBoards(id) {
+      return this.serviceEndpoints.init().deleteAdminBoards.makeRequest(null, id);
+    }
+    users() {
+      return this.serviceEndpoints.init().users.makeRequest();
+    }
+    patchUsers(param, payload) {
+      return this.serviceEndpoints.init().patchUsers.makeRequest(payload, param);
+    }
+    deleteUsers(id) {
+      return this.serviceEndpoints.init().deleteUsers.makeRequest(null, id);
+    }
 }

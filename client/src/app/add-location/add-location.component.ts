@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {ConnectSocket} from '../sockets/connect';
 import { Subscription } from 'rxjs';
@@ -13,6 +13,7 @@ import { LayoutServiceService } from '../layout-service.service';
   styleUrls: ['./add-location.component.css']
 })
 export class AddLocationComponent implements OnInit, OnDestroy {
+  @Input() location: any;
   deviceLength: number  = null;
   devices: any = {};
   allDevices: any = {};
@@ -27,7 +28,7 @@ export class AddLocationComponent implements OnInit, OnDestroy {
   switchCount = 0;
   selectedSwitchCount = 0;
   // get available switches
-  constructor( private connect: ConnectSocket, private socket: Socket, private router: Router, private layoutService: LayoutServiceService) { }
+  constructor( public connect: ConnectSocket, public socket: Socket, public router: Router, public layoutService: LayoutServiceService) { }
 
   ngOnInit() {
     this.layoutService.header.next(true);
@@ -70,6 +71,7 @@ export class AddLocationComponent implements OnInit, OnDestroy {
         alert(res.error);
       }
     });
+
   }
 
   ngOnDestroy() {

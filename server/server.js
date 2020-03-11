@@ -131,6 +131,30 @@ boot(app, __dirname, function(err) {
         })
       });
 
+      socket.on('getDeviceInfo2',function(deviceId){
+        log.info(`request to get device info from device ${deviceId}`);
+        Device.findOne({"where":{"deviceId":deviceId},"include":["boards"]},(err,device)=>{
+          console.log(device)
+          if(device){
+
+            Board.find({"where" : {"deviceId":deviceId}},(err,boards)=>{
+              if(boards){
+                device=device.toJSON();
+                device.boards=boards;
+              }
+              app.io.to(socket.id).emit('deviceInfo2',device);
+
+              log.info(`device info sent to ${deviceId}`);
+
+            })
+
+
+          }else{
+            log.error(`device ${deviceId} not found`);
+          }
+        })
+      });
+
       socket.on('getBoards',function(deviceId){
         log.info(`request to get boards by user for device ${deviceId}`);
         Device.findOne({"where":{"deviceId":deviceId},"include":["boards"]},(err,device)=>{
@@ -172,6 +196,134 @@ boot(app, __dirname, function(err) {
         }
       })
 
+      socket.on('deletedSwitch',function(msg){
+        log.info(` deletedSwitch confirmation from device`)
+        if(msg.socket){
+
+            let socket = msg.socket;
+            delete msg.socket;
+            app.io.to(socket).emit('deletedSwitch',msg.switch)
+
+        }
+      })
+      socket.on('deleteSwitch',function(msg, callback){
+        log.info(`deleteSwitch request`)
+        if(!msg || !msg.switch || !msg.switch.deviceId ){
+          return callback({error: "bad request deleteSwitch"})
+        }
+        app.io.to(msg.switch.deviceId).emit('deleteSwitch', {switch:msg.switch,socket:socket.id});
+
+
+      });
+
+      socket.on('deletedLocation',function(msg){
+        log.info(` deletedLocation confirmation from device`)
+        if(msg.socket){
+
+            let socket = msg.socket;
+            delete msg.socket;
+            app.io.to(socket).emit('deletedLocation',msg)
+
+        }
+      })
+      socket.on('deleteLocation',function(msg, callback){
+        log.info(`deleteLocation request`)
+        if(!msg || !msg.location || !msg.location.deviceId ){
+          return callback({error: "bad request"})
+        }
+        app.io.to(msg.location.deviceId).emit('deleteLocation', {locationId:msg.locationId,socket:socket.id});
+
+
+      });
+      socket.on('editedSwitch',function(msg){
+        log.info(` editedSwitch confirmation from device`)
+        console.log(msg)
+        if(msg.socket){
+
+            let socket = msg.socket;
+            delete msg.socket;
+            app.io.to(socket).emit('editedSwitch',msg.switch)
+
+        }
+      })
+      socket.on('editSwitch',function(msg, callback){
+        log.info(`edit switch  name request`)
+        if(!msg || !msg.switch || !msg.switch.deviceId ){
+          return callback({error: "bad request"})
+        }
+        app.io.to(msg.switch.deviceId).emit('editSwitch', {switch:msg.switch,socket:socket.id});
+
+
+      });
+
+
+      socket.on('editedLocationName',function(msg){
+        log.info(` editedLocationName confirmation from device`)
+        if(msg.socket){
+
+            let socket = msg.socket;
+            delete msg.socket;
+            app.io.to(socket).emit('editedLocationName',msg)
+
+        }
+      })
+      socket.on('editLocationName',function(msg, callback){
+        log.info(`edit location  name request`)
+        if(!msg || !msg.location || !msg.location.deviceId ){
+          return callback({error: "bad request"})
+        }
+        app.io.to(msg.location.deviceId).emit('editLocationName', {location:msg.location,socket:socket.id});
+
+
+      });
+
+      socket.on('switchesAdded',function(msg){
+        log.info(` switched added confirmation from device`)
+        if(msg.socketId){
+          if(!msg.error){
+            let socket = msg.socketId;
+            delete msg.socketId;
+            app.io.to(socket).emit('switchesAdded',msg)
+          } else if (msg.devices){
+
+            app.io.to(socket).emit('switchesAdded',{error : 'error while creating switches'})
+
+          }
+        }
+      })
+      socket.on('addSwitches',function(msg, callback){
+        log.info(`add switches request`)
+        if(!msg || !msg.name || !msg.devices || !Object.keys(msg.devices).length || !msg.location ){
+          return callback({error: "no devices in request"})
+        }
+        let devices = Object.keys(msg.devices);
+
+        let payload = null;
+        devices.some(d => {
+          let boards = Object.keys(msg.devices[d]);
+          if(!boards.length){
+            payload = {error: 'no borad with device in request'}
+            return
+          }
+          boards.some(b => {
+            let switches = Object.keys(msg.devices[d][b]);
+            if(!switches.length){
+              payload = {error: 'no switches with board in request'}
+              return
+            }
+
+          });
+        });
+        if(payload && payload.error){
+          callback(payload);
+        }else{
+          const locationId = msg.location.locationId;
+          devices.map(m => {
+            app.io.to(m).emit('addSwitches', {devices:devices,locationId:locationId, name: msg.name, boards: msg.devices[m], socketId: socket.id})
+            return m
+          })
+        }
+      });
       socket.on('addLocation',function(msg, callback){
         log.info(`add location request`)
         if(!msg || !msg.name || !msg.devices || !Object.keys(msg.devices).length ){
@@ -260,27 +412,38 @@ boot(app, __dirname, function(err) {
       })
 
 
+      socket.on('sendMail', response => {
+        console.log("send-mail-start")
+        console.log(respone)
+        console.log("send-mail-end")
+
+      })
+
+
       socket.on('addBoard',function(msg, callback){
         log.info(`add board request`)
-        if(!msg || !msg.boardId || !msg.deviceId||!msg.token ){
-          return callback({error: "no token or board or device in request"})
+        if(!msg || !msg.boardId || !msg.deviceId ){
+          return callback({error: "no board or device in request"})
         }
 
         Board.findOne({"where":{"_id":msg.boardId}},function(err,board){
             if(err){
               return callback({error: "error while fetching board"})
             }
-            if(board && board.deviceId && board.deviceI!=msg.deviceId){
+            if(board && board.deviceId && board.deviceId!=msg.deviceId){
                 return callback({error: "Board already registered to another device"});
             }
             let payload = null;
-            Board.register(msg.deviceId,msg.boardId,msg.token,function(err,board){
+            console.log(3333333333333333333)
+            console.log(msg.boardId)
+            Board.register(msg.deviceId,msg.boardId,function(err,board){
               if(err){
                 callback({"error":err.message});
                 log.debug("error while registering board")
               }else{
-                log.debug("board registered in db sending to device")
-                Device.findOne({"where":{"deviceId":msg.deviceId},"include":["boards"]},(err,device)=>{
+                log.debug("board registered in db")
+                callback("success");
+                /* Device.findOne({"where":{"deviceId":msg.deviceId},"include":["boards"]},(err,device)=>{
                   if(device){
                     device = device.toJSON();
                     Board.findOne({"where":{"id":msg.boardId}},function(err,board){
@@ -296,7 +459,7 @@ boot(app, __dirname, function(err) {
                   }else{
                     log.error(`device ${msg.deviceId} not found`);
                   }
-                })
+                }) */
               }
             })
         })

@@ -1,5 +1,5 @@
 <!--  <pre>
-  {{onlineDevices|json}}
+  {{locations|json}}
 </pre>
 boards - {{boards.length}} -->
 <div class="container">
@@ -9,7 +9,9 @@ boards - {{boards.length}} -->
     <div class="col-12" style="padding: 0px;">
       <ng-container *ngFor="let location of locations | keyvalue">
         <span *ngIf="location.key" [ngClass]="{'selected' : location.key == selectedLocation}"  (click)="selectedLocation = location.key" style="cursor:pointer;padding:0px 15px;padding-bottom:7px;color: #10316b;text-transform: capitalize;" >
-         {{location.value.name}}
+          <i (click)="editLocation(location.key,location.value)" style="margin-right:10px" *ngIf="selectedLocation==location.key" class="fas fa-pencil-alt"></i>
+
+          {{location.value.name}}
          <i [ngClass]="{'green': location.value.active}" style="font-weight: 900;font-size: 8px;position: relative;
          top: -2px;margin-left: 5px;color: #8080806e;" class="fas fa-circle" >
          </i>

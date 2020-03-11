@@ -5,6 +5,7 @@ import { DataService } from '../shared/services/data.service';
 import { Subscription } from 'rxjs';
 import { FetchData } from '../shared/services/fetch-data';
 import { LayoutServiceService } from '../layout-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-device',
@@ -16,10 +17,17 @@ export class DeviceComponent implements OnInit, OnDestroy {
   subscriptions = new Subscription();
   devices: any[];
   deviceId;
-
-  constructor(private router: Router, private dataService: DataService, private fetchData: FetchData, private layoutService: LayoutServiceService) { }
+  error:any;
+  private sub: any;
+  tutorial:any;
+  constructor(private route: ActivatedRoute,private router: Router, private dataService: DataService, private fetchData: FetchData, private layoutService: LayoutServiceService) { }
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.tutorial = params['tutorial']; // (+) converts string 'id' to a number
+
+      // In a real app: dispatch action to load the details here.
+   });
     this.layoutService.header.next(true);
     this.layoutService.back.next(null);
     this.layoutService.title.next('Register your Device');
@@ -39,18 +47,27 @@ export class DeviceComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptions.unsubscribe();
+    this.sub.unsubscribe();
+
   }
 
   register(deviceId) {
+    this.error = null;
     if (deviceId) {
       this.fetchData.registerDevice(deviceId).subscribe(res => {
         if (res && res.devices && res.devices.length) {
           this.dataService.setDevices(res.devices);
         }
-        //this.router.navigate['/'];
-        //TODO navigate to on-boarding
-        this.step = 4;
-        this.changeStep('Setup complete');
+        if (this.tutorial) {
+          this.step = 4;
+          this.changeStep('Setup complete');
+        } else {
+          this.router.navigate(['/']);
+        }
+      },e=>{
+        if(e && e.error && e.error.error && e.error.error.message) {
+          this.error = e.error.error.message;
+        }
       });
     }
   }

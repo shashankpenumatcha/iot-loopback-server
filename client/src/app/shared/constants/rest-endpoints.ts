@@ -60,7 +60,55 @@ export class RestEndpointConstants {
           name: 'changePassword',
           url: '/api/Customers/change-password',
           method: 'post'
+        },
+        {
+          name: 'adminDevices',
+          url: '/api/Devices',
+          method: 'get'
+        },
+        {
+          name: 'patchAdminDevices',
+          url: '/api/Devices{parameter}',
+          method: 'patch'
+        },
+        {
+          name: 'deleteAdminDevices',
+          url: '/api/Devices/{parameter}',
+          method: 'delete'
+        },
+        {
+          name: 'adminBoards',
+          url: '/api/Boards',
+          method: 'get'
+        },
+        {
+          name: 'patchAdminBoards',
+          url: '/api/Boards{parameter}',
+          method: 'patch'
+        },
+        {
+          name: 'deleteAdminBoards',
+          url: '/api/Boards/{parameter}',
+          method: 'delete'
+        },
+        {
+          name: 'users',
+          url: '/api/Customers',
+          method: 'get'
+        },
+        {
+          name: 'patchUsers',
+          url: '/api/Customers{parameter}',
+          method: 'patch'
+        },
+        {
+          name: 'deleteUsers',
+          url: '/api/Customers/{parameter}',
+          method: 'delete'
         }
+
+
+
 
 
 

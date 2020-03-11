@@ -7,6 +7,8 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddLocationComponent } from '../add-location/add-location.component';
 import { ThrowStmt } from '@angular/compiler';
 import { DataService } from '../shared/services/data.service';
+import {Data} from '../../app/data.provider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location-list',
@@ -16,8 +18,7 @@ import { DataService } from '../shared/services/data.service';
 export class LocationListComponent implements OnInit, OnDestroy {
   @Input() selectedSwitches: any;
   @Output() valueChange = new EventEmitter();
-
-
+  hoveredLocaton: any;
   selectedLocation: any;
   devices: any[];
   joinedRooms: any = {};
@@ -35,12 +36,20 @@ export class LocationListComponent implements OnInit, OnDestroy {
     private chowkidaar: Chowkidaar,
     private connect: ConnectSocket,
     private dataservice: DataService,
-    config: NgbModalConfig, private modalService: NgbModal
+    private router: Router,
+    config: NgbModalConfig, private modalService: NgbModal,
+    private data: Data
      ) {
       config.backdrop = 'static';
       config.keyboard = false;
      }
 
+
+editLocation(id, location) {
+  this.data.storage.location = location;
+  this.data.storage.locationId = id;
+  this.router.navigate(['/edit-location']);
+}
 
 addSchedule(s) {
   if (!this.selectedForSchedule[s.deviceId]) {
@@ -66,6 +75,8 @@ removeSchedule(s) {
 
 }
   ngOnInit() {
+    this.locations = {};
+    this.connect.getLocations();
     if (this.selectedSwitches) {
       this.selectedForSchedule = this.selectedSwitches;
     }

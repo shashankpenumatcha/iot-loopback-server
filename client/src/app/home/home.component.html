@@ -12,7 +12,7 @@ boards - {{boards.length}} -->
     <img id="dropdownManual" ngbDropdownAnchor (click)="myDrop.open()" class="h-back" src="content/images/add.png" />
     <div ngbDropdownMenu aria-labelledby="dropdownManual">
       <button ngbDropdownItem  [routerLink]="['/devices/']">Add Device</button>
-      <button ngbDropdownItem [routerLink]="['/device-list']">Add Board</button>
+<!--<button ngbDropdownItem [routerLink]="['/device-list']">Add Board</button>-->
       <button (click)="launchDeviceAdder()" ngbDropdownItem>Add Location</button>
       <button [routerLink]="['/schedules']" ngbDropdownItem>Add Schedule</button>
 

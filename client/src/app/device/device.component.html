@@ -25,14 +25,17 @@
     border: 1px solid #ff5722;
     border-radius: 4px;
     margin: 10px auto;" type="text" placeholder="Enter device ID" [(ngModel)]="deviceId">
-  <div style="margin-top:40px;" class="step1-btn"><button [disabled]="!deviceId || !deviceId.length" (click)="register(deviceId)" class="step1-btnn">Next</button></div>
+    <p style="color:#ff5722;padding:15px;text-align:center">{{error}}</p>
+  <div *ngIf="tutorial" style="margin-top:40px;" class="step1-btn"><button [disabled]="!deviceId || !deviceId.length" (click)="register(deviceId)" class="step1-btnn">Next</button></div>
+  <div *ngIf="!tutorial" style="margin-top:40px;" class="step1-btn"><button [disabled]="!deviceId || !deviceId.length" (click)="register(deviceId)" class="step1-btnn">Done</button></div>
 
+  <!--
   <p (click)="step=4;changeStep('Setup complete')" style="text-align: center;
   font-family: 'Roboto', sans-serif;
   color: #ff5722;
   margin-top: 25px;
   text-decoration: underline;
-  cursor: pointer;">Skip</p>
+  cursor: pointer;">Skip</p> -->
 </div>
 
 

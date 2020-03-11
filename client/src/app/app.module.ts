@@ -32,6 +32,9 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ContactComponent } from './contact/contact.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
+import { Data } from './data.provider';
+import { AddSwitchComponent } from './add-switch/add-switch.component';
 const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
@@ -68,11 +71,14 @@ const config: SocketIoConfig = { url: Config.server, options: {} };
     ChangePasswordComponent,
     ContactComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    EditLocationComponent,
+    AddSwitchComponent
   ],
-  entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent],
+  entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent, AddSwitchComponent],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    Data
   ],
   bootstrap: [AppComponent]
 })

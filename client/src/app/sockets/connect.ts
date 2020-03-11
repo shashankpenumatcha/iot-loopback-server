@@ -62,6 +62,9 @@ export class ConnectSocket implements OnDestroy {
           res.switches.some(s => {
               if (!this.locations[s.locationId]) {
                 this.locations[s.locationId] = {};
+                this.locations[s.locationId].deviceId = res.deviceId;
+                this.locations[s.locationId].locationId = s.locationId;
+
               }
               this.locations[s.locationId].name = s.locationName;
               if (!this.locations[s.locationId].switches) {
@@ -84,6 +87,10 @@ export class ConnectSocket implements OnDestroy {
               }
               this.locations[s.locationId].devices[res.deviceId][s.board][s.switch].name = s.name; */
           });
+          this.calculateActiveLocations();
+          this.locations$.next(this.locations);
+        } else if (!res.switches || !res.switches.length) {
+          this.locations = {};
           this.calculateActiveLocations();
           this.locations$.next(this.locations);
         }

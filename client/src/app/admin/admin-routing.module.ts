@@ -5,6 +5,7 @@ import { AdminComponent } from './admin.component';
 import { Chowkidaar } from '../blocks/chowkidaar';
 import { RegisterDeviceComponent } from './register/register-device/register-device.component';
 import { RegisterBoardComponent } from './register/register-board/register-board.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,11 @@ const routes: Routes = [
                         }, {
                           path: 'register/board',
                           component: RegisterBoardComponent,
+                          canActivate: [Chowkidaar],
+                          data: {authorities: ['authenticated', 'admin']}
+                        }, {
+                          path: 'user-management',
+                          component: UserManagementComponent,
                           canActivate: [Chowkidaar],
                           data: {authorities: ['authenticated', 'admin']}
                         }

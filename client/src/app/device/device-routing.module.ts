@@ -10,6 +10,12 @@ const routes: Routes = [
                           component: DeviceComponent,
                           canActivate: [Chowkidaar],
                           data: {authorities: ['authenticated']}
+                        },
+                        {
+                          path: 'tutorial/:tutorial',
+                          component: DeviceComponent,
+                          canActivate: [Chowkidaar],
+                          data: {authorities: ['authenticated']}
                         }
                       ];
 

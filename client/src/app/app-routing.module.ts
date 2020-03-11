@@ -20,6 +20,7 @@ import { AddScheduleComponent } from './add-schedule/add-schedule.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'change-password', component: ChangePasswordComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
+  {path: 'edit-location', component: EditLocationComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'add-location', component: AddLocationComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'add-schedule', component: AddScheduleComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'settings', component: SettingsComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},

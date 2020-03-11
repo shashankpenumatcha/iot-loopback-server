@@ -1,5 +1,23 @@
-<p>admin works!</p>
 
-<button [routerLink]="['register/device']">Register Device</button>
-<button [routerLink]="['register/board']">Register Board</button>
+<div class="container">
+  <div class="row" style="padding:45px;">
+    <div class="col-md-4 col-12" style="padding:15px;height:165px;">
+     <div  [routerLink]="['register/device']" style="height:100%;cursor:pointer;border:1px solid #01010130;display:flex;justify-content: center;align-items: center;">
+      <button style="border: none;background: none;" [routerLink]="['register/device']">Device Management</button>
+    </div>
+    </div>
+    <div class="col-md-4 col-12" style="padding:15px;height:165px;">
+      <div  [routerLink]="['register/board']" style="height:100%;cursor:pointer;border:1px solid #01010130;display:flex;justify-content: center;align-items: center;">
+        <button style="border: none;background: none;" [routerLink]="['register/board']">Board Management</button>
+      </div>
+    </div>
+    <div class="col-md-4 col-12" style="padding:15px;height:165px;">
+      <div [routerLink]="['user-management']" style="height:100%;cursor:pointer;border:1px solid #01010130;display:flex;justify-content: center;align-items: center;">
+        <button style="border: none;background: none;" [routerLink]="['user-management']">User Management</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
