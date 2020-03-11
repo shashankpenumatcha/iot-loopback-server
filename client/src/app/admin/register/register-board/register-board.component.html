@@ -21,11 +21,11 @@
         <td>{{board.id}}</td>
         <td>{{board.deviceId}}</td>
         <td>
-          <button *ngIf="board.deviceId" style="margin-right:15px;margin-left:15px" type="button" class="btn btn-warning">
-            <span style="display: inline-block;margin: 0px 7px;" (click)="deregister(board)" >Deregister</span>
-          </button>
-          <button type="button" class="btn btn-danger">
+          <button style="margin-right:15px;margin-left:15px"  type="button" class="btn btn-danger">
             <span style="display: inline-block;margin: 0px 7px;" (click)="delete(board.id)" >Delete</span>
+          </button>
+          <button *ngIf="board.deviceId" type="button" class="btn btn-warning">
+            <span style="display: inline-block;margin: 0px 7px;" (click)="deregister(board)" >Deregister</span>
           </button>
 
 
