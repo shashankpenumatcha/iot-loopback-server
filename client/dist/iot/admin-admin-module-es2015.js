@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div style=\"padding:15px\">\n  <form style=\"margin-bottom:15px;\">\n\n    <button style=\"margin-left: 15px;\" type=\"submit\" (click)=\"register()\">Add Board</button>\n  </form>\n  {{message}}\n\n  <div class=\"table-responsive\">\n\n    <table stye=\"background:#ffffffcf\" class=\"table\" *ngIf=\"boards&&boards.length\">\n      <tr>\n        <th>S No.</th>\n        <th>Board Id</th>\n        <th>Registered To</th>\n        <th></th>\n      </tr>\n      <tr *ngFor=\"let board of boards; let i = index\">\n        <td>{{i+1}}</td>\n        <td>{{board.id}}</td>\n        <td>{{board.deviceId}}</td>\n        <td>\n          <button style=\"margin-right:15px;margin-left:15px\"  type=\"button\" class=\"btn btn-danger\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"delete(board.id)\" >Delete</span>\n          </button>\n          <button *ngIf=\"board.deviceId\" type=\"button\" class=\"btn btn-warning\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"deregister(board)\" >Deregister</span>\n          </button>\n\n\n\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div style=\"padding:15px\">\n  <form style=\"margin-bottom:15px;\">\n\n    <button style=\"height:30px;margin-left: 15px;\" type=\"submit\" (click)=\"register()\">Add Board</button>\n    <input [ngModelOptions]=\"{standalone: true}\" style=\"margin-left:15px;height:30px;padding:5px\" placeholder=\"Filter by device id\" (keyup)=\"search()\" [(ngModel)]=\"deviceId\" type=\"text\" name=\"\" id=\"\">\n  </form>\n  {{message}}\n\n  <div class=\"table-responsive\">\n\n    <table stye=\"background:#ffffffcf\" class=\"table\" *ngIf=\"boards&&boards.length\">\n      <tr>\n        <th>S No.</th>\n        <th>Board Id</th>\n        <th>Registered To</th>\n        <th></th>\n      </tr>\n      <tr *ngFor=\"let board of boards; let i = index\">\n        <td>{{i+1}}</td>\n        <td>{{board.id}}</td>\n        <td>{{board.deviceId}}</td>\n        <td>\n          <button style=\"margin-right:15px;margin-left:15px\"  type=\"button\" class=\"btn btn-danger\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"delete(board.id)\" >Delete</span>\n          </button>\n          <button *ngIf=\"board.deviceId\" type=\"button\" class=\"btn btn-warning\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"deregister(board)\" >Deregister</span>\n          </button>\n\n\n\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"padding:15px\">\n\n  {{message}}\n\n  <div class=\"table-responsive\">\n\n    <table stye=\"background:#ffffffcf\" class=\"table\" *ngIf=\"users&&users.length\">\n      <tr>\n        <th>S No.</th>\n        <th>User Id</th>\n        <th>Email</th>\n        <th>Verified</th>\n\n        <th></th>\n      </tr>\n      <tr *ngFor=\"let user of users; let i = index\">\n        <td>{{i+1}}</td>\n        <td>{{user.id}}</td>\n        <td>{{user.username}}</td>\n        <td>{{user.emailVerified}}</td>\n\n        <td>\n\n          <button type=\"button\" style=\"margin-right:15px;margin-left:15px\" class=\"btn btn-danger\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"delete(user.id)\" >Delete</span>\n          </button>\n          <button *ngIf=\"!user.emailVerified\"  type=\"button\" class=\"btn btn-success\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"verify(user)\" >Verify</span>\n          </button>\n          <button  *ngIf=\"user.emailVerified\"  type=\"button\" class=\"btn btn-warning\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"unverify(user)\">Unverify</span>\n          </button>\n\n\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div style=\"padding:15px\">\n\n  {{message}}\n\n  <div class=\"table-responsive\">\n\n    <table stye=\"background:#ffffffcf\" class=\"table\" *ngIf=\"users&&users.length\">\n      <tr>\n        <th>S No.</th>\n        <th>User Id</th>\n        <th>Email</th>\n        <th>Name</th>\n        <th>Contact</th>\n        <th>Device</th>\n        <th>Verified</th>\n\n        <th></th>\n      </tr>\n      <tr *ngFor=\"let user of users; let i = index\">\n        <td>{{i+1}}</td>\n        <td>{{user.id}}</td>\n        <td>{{user.username}}</td>\n        <td>{{user.name}}</td>\n        <td>{{user.contactNumber}}</td>\n        <td>{{user.deviceId}}</td>\n        <td>{{user.emailVerified}}</td>\n\n        <td>\n\n          <button type=\"button\" style=\"margin-right:15px;margin-left:15px\" class=\"btn btn-danger\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"delete(user.id)\" >Delete</span>\n          </button>\n          <button *ngIf=\"!user.emailVerified\"  type=\"button\" class=\"btn btn-success\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"verify(user)\" >Verify</span>\n          </button>\n          <button  *ngIf=\"user.emailVerified\"  type=\"button\" class=\"btn btn-warning\">\n            <span style=\"display: inline-block;margin: 0px 7px;\" (click)=\"unverify(user)\">Unverify</span>\n          </button>\n\n\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ AdminRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAvYWRtaW4vYWRtaW4uY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2FkbWluLmNvbXBvbmVudC5jc3MifQ== */");
 
 /***/ }),
 
@@ -223,7 +223,7 @@ AdminModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAvYWRtaW4vcmVnaXN0ZXIvcmVnaXN0ZXItYm9hcmQvcmVnaXN0ZXItYm9hcmQuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3JlZ2lzdGVyL3JlZ2lzdGVyLWJvYXJkL3JlZ2lzdGVyLWJvYXJkLmNvbXBvbmVudC5jc3MifQ== */");
 
 /***/ }),
 
@@ -251,6 +251,14 @@ let RegisterBoardComponent = class RegisterBoardComponent {
         this.layoutService = layoutService;
         this.message = null;
     }
+    search() {
+        console.log(this.deviceId);
+        if (!this.deviceId) {
+            this.boards = this.allBoards;
+            return;
+        }
+        this.boards = this.allBoards.filter(f => f.deviceId && f.deviceId.indexOf(this.deviceId) >= 0);
+    }
     ngOnInit() {
         this.layoutService.header.next(true);
         this.layoutService.back.next(['/admin']);
@@ -261,7 +269,10 @@ let RegisterBoardComponent = class RegisterBoardComponent {
     getBoards() {
         this.fetchData.adminBoards().subscribe(res => {
             console.log(res);
-            this.boards = res;
+            if (res && res.length) {
+                this.boards = [...res];
+                this.allBoards = [...res];
+            }
         });
     }
     deregister(device) {
@@ -314,7 +325,7 @@ RegisterBoardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAvYWRtaW4vcmVnaXN0ZXIvcmVnaXN0ZXItZGV2aWNlL3JlZ2lzdGVyLWRldmljZS5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3JlZ2lzdGVyL3JlZ2lzdGVyLWRldmljZS9yZWdpc3Rlci1kZXZpY2UuY29tcG9uZW50LmNzcyJ9 */");
 
 /***/ }),
 
@@ -406,7 +417,7 @@ RegisterDeviceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAvYWRtaW4vdXNlci1tYW5hZ2VtZW50L3VzZXItbWFuYWdlbWVudC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3VzZXItbWFuYWdlbWVudC91c2VyLW1hbmFnZW1lbnQuY29tcG9uZW50LmNzcyJ9 */");
 
 /***/ }),
 

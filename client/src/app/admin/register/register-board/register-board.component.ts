@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FetchData } from 'src/app/shared/services/fetch-data';
 import { LayoutServiceService } from 'src/app/layout-service.service';
 
+
 @Component({
   selector: 'app-register-board',
   templateUrl: './register-board.component.html',
@@ -12,9 +13,19 @@ export class RegisterBoardComponent implements OnInit {
   deviceId: string;
   device: any;
   message: any = null;
-  boards:any;
+  boards: any;
+  allBoards: any;
+
   constructor(private fetchData: FetchData, private layoutService: LayoutServiceService) { }
 
+  search() {
+    console.log(this.deviceId);
+    if (!this.deviceId) {
+      this.boards = this.allBoards;
+      return;
+    }
+    this.boards = this.allBoards.filter(f => f.deviceId && f.deviceId.indexOf(this.deviceId) >= 0);
+  }
   ngOnInit() {
     this.layoutService.header.next(true);
     this.layoutService.back.next(['/admin']);
@@ -24,8 +35,12 @@ export class RegisterBoardComponent implements OnInit {
   }
   getBoards() {
     this.fetchData.adminBoards().subscribe(res => {
-      console.log(res)
-      this.boards = res;
+      console.log(res);
+      if (res && res.length) {
+
+        this.boards = [...res];
+        this.allBoards = [...res];
+      }
     });
   }
 

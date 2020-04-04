@@ -1,9 +1,11 @@
 module.exports = function(app) {
   var router = app.loopback.Router();
-
+  const User = app.models.Customer;
+  const Device = app.models.Device;
   router.get('/api/account', function(req, res) {
     if(req.headers.authorization){
-      const User = app.models.Customer;
+
+
       const AccessToken = app.models.AccessToken;
       const RoleMapping = app.models.RoleMapping;
       AccessToken.findOne({'where':{'id':req.headers.authorization}},(err,accessToken)=>{
@@ -35,6 +37,43 @@ module.exports = function(app) {
       res.status(401).send({'error':'no access token'})
     }
   });
+
+  router.get('/api/mail', function(req, res) {
+      const Device = app.models.Device;
+      Device.sendMail((r)=>{
+        res.send(r);
+      });
+  });
+
+  router.get('/api/users/devices', function(req, res) {
+    let devices =null;
+    let deviceMap ={};
+      Device.find({},function(err,deviceindb){
+        devices = deviceindb;
+        if(devices.length){
+          devices.map(m=>{
+            if(m.userId){
+              deviceMap[m.userId] = m.deviceId;
+            }
+            return m
+          })
+        }
+        User.find({},function(err,users){
+          if(err){
+            return res.status(500).send({"error":err})
+          }
+          users = users.map(m=>{
+            if(deviceMap[m.id]){
+              m.deviceId = deviceMap[m.id];
+            }
+            return m
+          })
+          res.status(200).send(users);
+        })
+        console.log(devices);
+
+      })
+ });
 
   app.use(router);
 }

@@ -93,7 +93,7 @@ export class RestEndpointConstants {
         },
         {
           name: 'users',
-          url: '/api/Customers',
+          url: '/api/users/devices',
           method: 'get'
         },
         {

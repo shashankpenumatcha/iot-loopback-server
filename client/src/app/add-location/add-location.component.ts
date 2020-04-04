@@ -40,7 +40,9 @@ export class AddLocationComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.connect.onlineDevices$.subscribe(res => {
         if (res) {
-           this.allDevices = JSON.parse(JSON.stringify(res));
+           this.allDevices = {...JSON.parse(JSON.stringify(res))};
+           console.log(JSON.parse(JSON.stringify(res)))
+           console.log('allDevices', this.allDevices);
         }
         if (this.allDevices) {
           this.deviceLength = Object.keys(this.allDevices).length;
@@ -95,6 +97,7 @@ export class AddLocationComponent implements OnInit, OnDestroy {
           this.activeRequests.splice(this.activeRequests.indexOf(res.deviceId), 1);
           if (res.switches && res.switches.length) {
             res.switches.some(s => {
+              console.log(res);
               console.log(this.allDevices);
               if (this.allDevices[res.deviceId] && this.allDevices[res.deviceId][s.board]
                 && this.allDevices[res.deviceId][s.board].switches
@@ -103,6 +106,8 @@ export class AddLocationComponent implements OnInit, OnDestroy {
                  this.allDevices[res.deviceId][s.board].switches[parseInt(s.switch)] === false)) {
                 // tslint:disable-next-line: radix
                 this.allDevices[res.deviceId][s.board].switches.splice(parseInt(s.switch), 1);
+                this.allDevices[res.deviceId][s.board].switches.splice(parseInt(s.switch), 0, null);
+
               }
             });
           }
@@ -185,7 +190,7 @@ export class AddLocationComponent implements OnInit, OnDestroy {
         this.switchCount = 0;
       }
       if (board && board.switches) {
-        this.switchCount += board.switches.length;
+        this.switchCount += board.switches.filter(f => f != null).length;
       }
 
     }

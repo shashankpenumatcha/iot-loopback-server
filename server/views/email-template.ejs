@@ -1,0 +1,62 @@
+
+<% payload.map((m)=>{ %>
+  <% m.map((s,i)=>{ %>
+    <% if(i==0){ %>
+      <p style="margin-top:25px;">
+        <span>Location: </span> <span> <%- s['locationName'] %></span>
+      </p>
+    <% } %>
+    <div>
+      <span>Switch: </span> <span> <%- s['name'] %>
+    </div>
+    <div>
+      <span>This week usage: </span> <span> <%- s['duration'] %>
+    </div>
+    <table style="border: 1px solid black">
+      <% if(s['monday']){ %>
+      <tr>
+        <td style="border-right: 1px solid black">monday</td>
+        <td ><%- s['monday'] %></td>
+      </tr>
+      <% } %>
+      <% if(s['tuesday']){ %>
+        <tr>
+          <td style="border-right: 1px solid black">tuesday</td>
+          <td ><%- s['tuesday'] %></td>
+        </tr>
+      <% } %>
+      <% if(s['wednesday']){ %>
+        <tr>
+          <td style="border-right: 1px solid black">wednesday</td>
+          <td><%- s['wednesday'] %></td>
+        </tr>
+      <% } %>
+      <% if(s['thursday']){ %>
+        <tr>
+          <td style="border-right: 1px solid black">thursday</td>
+          <td ><%- s['thursday'] %></td>
+        </tr>
+      <% } %>
+      <% if(s['friday']){ %>
+        <tr>
+          <td style="border-right: 1px solid black">friday</td>
+          <td ><%- s['friday'] %></td>
+        </tr>
+      <% } %>
+      <% if(s['saturday']){ %>
+        <tr>
+          <td style="border-right: 1px solid black">saturday</td>
+          <td ><%- s['saturday'] %></td>
+        </tr>
+      <% } %>
+      <% if(s['sunday']){ %>
+        <tr>
+          <td style="border-right: 1px solid black">sunday</td>
+          <td ><%- s['sunday'] %></td>
+        </tr>
+      <% } %>
+    </table>
+    <% return s %>
+  <% }) %>
+  <% return m %>
+<% }) %>

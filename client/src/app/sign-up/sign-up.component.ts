@@ -15,6 +15,8 @@ export class SignUpComponent implements OnInit {
   terms: boolean;
   success: boolean;
   loading = false;
+  name: any;
+  contact: any;
   constructor(private fetchData: FetchData, private layoutService: LayoutServiceService) { }
 
   ngOnInit() {
@@ -28,11 +30,14 @@ export class SignUpComponent implements OnInit {
   signup() {
     this.success = false;
     this.error = null;
+
     const payload = {
       username: this.email,
       email: this.email,
       password: this.password,
-      emailVerified: true
+      emailVerified: true,
+      name: this.name,
+      contactNumber: this.contact
     };
 
     this.loading = true;
@@ -55,7 +60,7 @@ export class SignUpComponent implements OnInit {
       if (e && e.details && e.details.messages && Object.keys(e.details.messages)){
         let m = Object.keys(e.details.messages);
         if (m.length) {
-         return this.error = e.details.messages[m[0]]
+         return this.error = m + ' ' + e.details.messages[m[0]];
         }
       }
       console.log(err)

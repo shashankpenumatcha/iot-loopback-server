@@ -51,32 +51,34 @@ margin: 30px auto;">
 
                   <div style="margin-bottom:20px;background:white;position: relative;" *ngFor="let switch of board.value.switches; let i = index">
 
+                    <ng-container *ngIf="switch!=null">
+                      <table style="width:100px;height:70px;">
+                        <tr>
+                          <td style="width:50px;padding:24px">
+                            <button style="outline:none;border:none;background:none;color:#ff5722;" *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)"><i class="far fa-square"></i></button>
+                           <button style="outline:none;border:none;background:none;color:#ff5722;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square"></i></button>
+                          </td>
 
-                    <table style="width:100px;height:70px;">
-                      <tr>
-                        <td style="width:50px;padding:24px">
-                          <button style="outline:none;border:none;background:none;color:#ff5722;" *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)"><i class="far fa-square"></i></button>
-                         <button style="outline:none;border:none;background:none;color:#ff5722;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square"></i></button>
-                        </td>
+                              <td style="font-size:25px;">
+                              <!--   <button style="outline:none;padding:0px;margin:0px;border:none;background:none;"  *ngIf="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-on"></i></button>
+                                <button style="outline:none;padding:0px;margin: 0px;border:none;background:none;"  *ngIf="!devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-off"></i></button>
+                              -->
+                              <label style="right: 23px;bottom:13px" class="switch">
+                                <input [(ngModel)]="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)" type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                              </td>
 
-                            <td style="font-size:25px;">
-                            <!--   <button style="outline:none;padding:0px;margin:0px;border:none;background:none;"  *ngIf="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-on"></i></button>
-                              <button style="outline:none;padding:0px;margin: 0px;border:none;background:none;"  *ngIf="!devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-off"></i></button>
-                            -->
-                            <label style="right: 23px;bottom:13px" class="switch">
-                              <input [(ngModel)]="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)" type="checkbox">
-                              <span class="slider round"></span>
-                            </label>
-                            </td>
+                              <td style="height:35px;padding-left:25px">
+                                <input style="outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" placeholder="label" [(ngModel)]="selectedSwitches[device.key][board.key][i].label">
 
-                            <td style="height:35px;padding-left:25px">
-                              <input style="outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" placeholder="label" [(ngModel)]="selectedSwitches[device.key][board.key][i].label">
-
-                            </td>
+                              </td>
 
 
-                      </tr>
-                    </table>
+                        </tr>
+                      </table>
+                    </ng-container>
+
 
                   </div>
                 </ng-container>

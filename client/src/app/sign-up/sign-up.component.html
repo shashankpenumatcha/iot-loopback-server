@@ -14,6 +14,10 @@
     <input [(ngModel)]="email" type="email" class="reginp" placeholder="Email">
 
     <input [(ngModel)]="password" class="reginp" placeholder="Password" type="password">
+    <input [(ngModel)]="name" class="reginp" placeholder="Name" type="text">
+
+    <input [(ngModel)]="contact" class="reginp" placeholder="Contact number" type="text">
+
 
     </div>
     <div  style="margin-top:15px;" class=regbdy-up2><input [(ngModel)]="terms" type="checkbox"></div>
@@ -21,7 +25,7 @@
     <div class="regbdy-down"></div>
   </div>
   <div class="register-buttons">
-    <button (click)="signup()" [disabled]="!email||!password||!terms" class="register-btn">
+    <button (click)="signup()" [disabled]="!email||!password||!terms||!name||!contact" class="register-btn">
      <div *ngIf="!loading">
 
        Register

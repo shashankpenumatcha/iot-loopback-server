@@ -6,6 +6,14 @@
   },
   "validations": [],
   "relations": {},
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "contactNumber":{
+      "type":"number"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

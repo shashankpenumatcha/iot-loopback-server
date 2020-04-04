@@ -3,7 +3,8 @@
 <div style="padding:15px">
   <form style="margin-bottom:15px;">
 
-    <button style="margin-left: 15px;" type="submit" (click)="register()">Add Board</button>
+    <button style="height:30px;margin-left: 15px;" type="submit" (click)="register()">Add Board</button>
+    <input [ngModelOptions]="{standalone: true}" style="margin-left:15px;height:30px;padding:5px" placeholder="Filter by device id" (keyup)="search()" [(ngModel)]="deviceId" type="text" name="" id="">
   </form>
   {{message}}
 

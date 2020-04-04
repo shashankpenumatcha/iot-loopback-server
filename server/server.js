@@ -414,7 +414,24 @@ boot(app, __dirname, function(err) {
 
       socket.on('sendMail', response => {
         console.log("send-mail-start")
-        console.log(respone)
+        console.log(response)
+        let payload ={};
+        if(response&&response.switches&&response.switches.length){
+          response.switches.map(s=>{
+            if(!payload[s.locationId]){
+              payload[s.locationId]=[];
+            }
+            payload[s.locationId].push(s)
+            let array =[];
+            Object.values(payload).map(m=>{
+              array.push(m)
+              return m
+            })
+            console.log(array)
+            Device.sendMail(array)
+            return s;
+          })
+        }
         console.log("send-mail-end")
 
       })
