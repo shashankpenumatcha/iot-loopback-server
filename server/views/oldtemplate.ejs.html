@@ -1,0 +1,61 @@
+<% payload.map((m)=>{ %>
+    <% m.map((s,i)=>{ %>
+      <% if(i==0){ %>
+        <p style="margin-top:25px;">
+          <span style="font-weight:bold">Location: </span> <span> <%- s['locationName'] %></span>
+        </p>
+      <% } %>
+      <div>
+        <span style="font-weight:bold">Switch: </span> <span> <%- s['name'] %>
+      </div>
+      <div>
+        <span style="font-weight:bold">This week usage: </span> <span> <%- s['duration'] %>
+      </div>
+      <table style="border: 1px solid black;border-bottom:none">
+        <% if(s['monday']){ %>
+        <tr >
+          <td style="border-bottom: 1px solid black;border-right: 1px solid black">Monday - <%- days[0] %></td>
+          <td style="border-bottom: 1px solid black"><%- s['monday'] %></td>
+        </tr>
+        <% } %>
+        <% if(s['tuesday']){ %>
+          <tr>
+            <td style="border-bottom: 1px solid black;border-right: 1px solid black">Tuesday - <%- days[1] %></td>
+            <td style="border-bottom: 1px solid black"><%- s['tuesday'] %></td>
+          </tr>
+        <% } %>
+        <% if(s['wednesday']){ %>
+          <tr>
+            <td style="border-bottom: 1px solid black;border-right: 1px solid black">Wednesday - <%- days[2] %></td>
+            <td style="border-bottom: 1px solid black"><%- s['wednesday'] %></td>
+          </tr>
+        <% } %>
+        <% if(s['thursday']){ %>
+          <tr>
+            <td style="border-bottom: 1px solid black;border-right: 1px solid black">Thursday - <%- days[3] %></td>
+            <td style="border-bottom: 1px solid black"><%- s['thursday'] %></td>
+          </tr>
+        <% } %>
+        <% if(s['friday']){ %>
+          <tr>
+            <td style="border-bottom: 1px solid black;border-right: 1px solid black">Friday - <%- days[4] %></td>
+            <td style="border-bottom: 1px solid black"><%- s['friday'] %></td>
+          </tr>
+        <% } %>
+        <% if(s['saturday']){ %>
+          <tr>
+            <td style="border-bottom: 1px solid black;border-right: 1px solid black">Saturday - <%- days[5] %></td>
+            <td style="border-bottom: 1px solid black"><%- s['saturday'] %></td>
+          </tr>
+        <% } %>
+        <% if(s['sunday']){ %>
+          <tr>
+            <td style="border-bottom: 1px solid black;border-right: 1px solid black">Sunday - <%- days[6] %></td>
+            <td style="border-bottom: 1px solid black"><%- s['sunday'] %></td>
+          </tr>
+        <% } %>
+      </table>
+      <% return s %>
+    <% }) %>
+    <% return m %>
+  <% }) %>

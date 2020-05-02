@@ -7,21 +7,21 @@ module.exports = function(Device) {
 
   Device.validatesUniquenessOf('deviceId', {message: 'deviceId is not unique'});
 
-  Device.sendMail = function(payload) {
+  Device.sendMail = function(payload,email,days,week) {
 
     // create a custom object your want to pass to the email template. You can create as many key-value pairs as you want
     var myMessage = {heading:"Welcome to MyCompany", text:"We are happy to have you on board."};
 
     // prepare a loopback template renderer
     var renderer = loopback.template(path.resolve(__dirname, '../../server/views/email-template.ejs'));
-    console.log({payload:payload,load:'load'})
-    let html_body = renderer({payload:payload,load:'ayyya'});
+
+    let html_body = renderer({payload:payload,days:days,week:week});
 
     // send email using Email model of Loopback
     Device.app.models.Email.send({
-      to: "thenewurbankid@gmail.com",
+      to: email,
       from: 'shashankpenumatcha@gmail.com',
-      subject: 'Your custom email subject here',
+      subject: 'Usage for week - '+week,
       html: html_body
       }, function(err, mail) {
       console.log('email sent!');

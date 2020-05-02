@@ -1,0 +1,19 @@
+<div class="container">
+  <div>
+    <input type="text" [(ngModel)]="name">
+  </div>
+  <div>
+    <input type="text" [(ngModel)]="password">
+  </div>
+  <div>
+    <button [disabled]="!device||!name" (click)="submit()" >Submit</button>
+  </div>
+  <p (click)="scan()">
+    scan
+  </p>
+  <div>
+    <p *ngFor="let network of networks">
+      <span (click)="name=network">{{network}}</span>
+    </p>
+  </div>
+</div>

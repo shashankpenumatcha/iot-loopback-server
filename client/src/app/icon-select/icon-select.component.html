@@ -1,0 +1,17 @@
+<div style="padding:40px 0px" *ngIf="icons && icons.length" class="contaier">
+  <div class="row">
+    <div (click)="selectedIcon=icon" style="display:flex;justify-content: center;align-items: center;padding:15px;" *ngFor="let icon of icons" class="col-lg-3 col-md-4 col-6" >
+      <img [ngClass]="{'selected':selectedIcon==icon}"  style="width:50%;height:auto;padding:10px;border:3px solid black" src="/content/icons/{{type}}/{{icon}}" alt="">
+    </div>
+  </div>
+</div>
+
+<button style="    margin: 0 auto;
+display: block;
+margin: 15px auto 40px auto;
+padding: 10px 35px;
+background: #0693E3;
+border: 1px solid #0693E3;
+border-radius: 4px;
+color: #fff;
+" (click)="select()">Select</button>

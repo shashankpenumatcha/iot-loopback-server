@@ -21,6 +21,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { EditLocationComponent } from './edit-location/edit-location.component';
+import { UpdateWifiComponent } from './update-wifi/update-wifi.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'devices', loadChildren: () => import('./device/device.module').then(m => m.DeviceModule) },
   {path: 'schedules', component: ScheduleComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
   {path: 'usage', component: UsageComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
+  {path: 'wifi', component: UpdateWifiComponent, canActivate: [Chowkidaar], data: {authorities: ['authenticated']}},
 
   {path: '**', component: LandingPageComponent}
 

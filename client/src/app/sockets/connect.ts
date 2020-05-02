@@ -64,6 +64,7 @@ export class ConnectSocket implements OnDestroy {
                 this.locations[s.locationId] = {};
                 this.locations[s.locationId].deviceId = res.deviceId;
                 this.locations[s.locationId].locationId = s.locationId;
+                this.locations[s.locationId].locationLogo = s.locationLogo;
 
               }
               this.locations[s.locationId].name = s.locationName;
@@ -222,7 +223,12 @@ export class ConnectSocket implements OnDestroy {
     this.socket.emit('toggle', msg);
   }
 
-  getSchedules() {
+  wifi(d, n, p) {
+    this.socket.emit('update_wifi', {device: d, name: n, password: p});
+  }
+
+  getSchedules(){
+
 
   }
 

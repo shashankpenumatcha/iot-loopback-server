@@ -10,12 +10,23 @@
 </pre>
 {{error}}
  -->
- <div style="padding:15px">
 
-   <div class="container">
+ <div style="padding:15px">
+  <app-add-switch *ngIf="addSwitches" [location]="location" (switchAdded)="switchAdded($event)"></app-add-switch>
+  <app-icon-select *ngIf="showIcons" [type]="iconType" (iconSelected)="onIconSelect($event)"></app-icon-select>
+
+   <div *ngIf="!showIcons&&!addSwitches" class="container">
+     <div class="row">
+      <div (click)="openLocationIcon()" style="width: 150px;height: 150px;background: #d4d4d4;border: 5px solid white;margin: 0 auto;margin-bottom: 15px;margin-top:15px;display: flex;justify-content: center;align-items: center;">
+        <img *ngIf="!location.locationLogo" src="content/icons/location/default.svg" style="width: 90%;justify-content: center;align-items: center;display: flex;">
+        <img *ngIf="location.locationLogo" src="content/icons/location/{{location.locationLogo}}" style="width: 90%;justify-content: center;align-items: center;display: flex;">
+        <p style="z-index: 2;position: absolute;background: #000000a3;padding: 0px 11px;color: #fff;font-weight: bold;
+        border: 1px solid #fff;text-align: center;">Change Icon</p>
+      </div>
+     </div>
      <div class="row">
        <div style="padding: 15px 0px;
-       margin-bottom: 46px;" class="col-12">
+       margin-bottom: 15px;" class="col-12">
          <h3 *ngIf="!editName">
            {{location.name}} <i (click)="editName=!editName" style="margin-left:10px;font-size:16px"  class="fas fa-pencil-alt"></i>
            <i  (click)="deleteLocation()" style="margin-left:10px;font-size:16px" class="fas fa-trash-alt"></i>
@@ -42,7 +53,7 @@
      <div style="margin-bottom: 75px;" class="row">
        <ng-container *ngIf="location&&location.switches&&location.switches.length&&onlineDevices">
          <ng-container *ngFor="let switch of location.switches">
-           <div *ngIf="onlineDevices[switch.deviceId]&&onlineDevices[switch.deviceId][switch.board]&&
+     <!--       <div *ngIf="onlineDevices[switch.deviceId]&&onlineDevices[switch.deviceId][switch.board]&&
            onlineDevices[switch.deviceId][switch.board].switches&&
            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&
            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null"
@@ -65,7 +76,38 @@
                <input (click)="toggle(switch,onlineDevices[switch.deviceId][switch.board].switches[switch.switch])" [(ngModel)]="onlineDevices[switch.deviceId][switch.board].switches[switch.switch]" type="checkbox">
                <span class="slider round"></span>
              </label>
-           </div>
+           </div> -->
+
+           <div  class="col-lg-3 col-md-4 col-6" (click)="toggle(switch,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],$event)" *ngIf="onlineDevices[switch.deviceId]&&onlineDevices[switch.deviceId][switch.board]&&
+           onlineDevices[switch.deviceId][switch.board].switches&&
+           onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&
+           onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null"
+            style="padding:0px;cursor:pointer;color: #10316b;text-transform: capitalize;" >
+            <div style="border:1px solid #0000002e;padding:15px;padding-bottom:45px;">
+              <span style="width:90%;display:inline-block" class="stop"> <i [ngClass]="{'green':onlineDevices[switch.deviceId][switch.board].switches[switch.switch]   }" style="font-weight: 900;font-size: 8px;position: relative;
+              top: -2px;margin-right: 5px;color: #8080806e;" class="fas fa-circle" >
+              </i>
+              <span class="stop" *ngIf="!switch.edit">
+                {{switch.name}} <i (click)="switch.edit=true" style="margin-left:10px;font-size:16px"  class="fas fa-pencil-alt stop"></i>
+                <i  (click)="deleteSwitch(switch)" style="margin-left:10px;font-size:16px" class="fas fa-trash-alt stop"></i>
+               </span>
+              <span class="stop"  *ngIf="switch.edit">
+                <input style="width:75%" class="stop" type="text" name="name" id="location-name" [(ngModel)]="switch.name">
+                <i style="margin-left:10px;font-size:16px"  (click)="saveSwitch(switch)" class="fas fa-check stop"></i>
+              </span>
+
+
+            </span>
+
+              <div style="display:flex;justify-content:center; align-items:center;">
+                <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="switch.switchLogo" src="/content/icons/switch/{{switch.switchLogo}}" alt="">
+
+                <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="!switch.switchLogo" src="/content/icons/switch/default.svg" alt="">
+                <p  (click)="openSwitchIcon(switch)"  class="stop" style="z-index: 2;position: absolute;background: #000000a3;padding: 0px 11px;color: #fff;font-weight: bold;border: 1px solid #fff;text-align: center;top:54%">Change Icon</p>
+
+              </div>
+            </div>
+          </div>
          </ng-container>
        </ng-container>
      </div>

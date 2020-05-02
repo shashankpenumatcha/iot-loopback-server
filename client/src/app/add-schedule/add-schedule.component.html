@@ -11,7 +11,7 @@
       font-size: 1rem;
       width: 100%;
       outline: none;
-      border: 1px solid #ff5722;
+      border: 1px solid #0693E3;
       display: flex;
       justify-content: center;" placeholder="Scene Name" [(ngModel)]="name" value="Bedroom Light 1" class="auto-inpp" />
     </div>
@@ -39,14 +39,14 @@
 
 
   <ng-container *ngIf="showLocations">
-    <app-location-list (valueChange)='displayCounter($event)' [selectedSwitches]="selectedForSchedule"></app-location-list>
+    <app-location-list [schedules]="true" (valueChange)='displayCounter($event)' [selectedSwitches]="selectedForSchedule"></app-location-list>
   </ng-container>
 
 
 
 
   <div class="auto-savebtn" style="margin-bottom:65px;">
-    <button style="margin-right:15px;background:#2d4059!important;border-color:#2d4059!important" *ngIf="!showLocations;toggle"  (click)="showLocations=true;disableBack()" class="auto-savebtnn">Select Switches</button>
+    <button style="margin-right:15px;background:#2d4059!important;border-color:#2d4059!important" *ngIf="!showLocations"  (click)="showLocations=true;disableBack()" class="auto-savebtnn">Select Switches</button>
     <button *ngIf="showLocations"  (click)="showLocations=false;enableBack()" class="auto-savebtnn">Done</button>
 
     <button  *ngIf="!showLocations" (click)="addSchedule()" [disabled]="!name||!selectedDaysLength" class="auto-savebtnn">Create</button>

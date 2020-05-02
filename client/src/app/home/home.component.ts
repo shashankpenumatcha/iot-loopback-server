@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   joinedRooms: any = {};
   locations: any = {};
   roomsCount = 0; */
+  selectedLocation:any;
   onlineDevices: any = null;
   onlineDevicesLength = 0;
   subscriptions = new Subscription();
@@ -42,7 +43,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       config.backdrop = 'static';
       config.keyboard = false;
      }
-
+     selectedLocationChange(e) {
+       this.selectedLocation = e;
+     }
   ngOnInit() {
     this.layoutService.toolbar.next('Home');
 

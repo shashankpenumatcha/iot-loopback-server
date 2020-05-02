@@ -61,18 +61,18 @@
 
 .l-lab {
   font-family: "Roboto", sans-serif;
-  color: #ff5722;
+  color: #0693E3;
   padding-bottom: 0px;
 }
 
 .l-lab2 {
   font-family: "Roboto", sans-serif;
-  color: #ff5722;
+  color: #0693E3;
   padding-bottom: 0px;
 }
 
 .l-btn {
-  background-color: #ff5722;
+  background-color: #0693E3;
   width: 250px;
   height: 45px;
   border-radius: 4px;
@@ -94,7 +94,7 @@
   display: flex;
   justify-content: center;
 
-  color: #ff5722;
+  color: #0693E3;
 
 }
 
@@ -111,7 +111,7 @@ background: transparent;
   width: 250px;
   height: 40px;
   border: none;
-  border: 1px solid #ff5722;
+  border: 1px solid #0693E3;
   border-radius: 4px;
   padding-left: 10px;
   margin: 10px auto;

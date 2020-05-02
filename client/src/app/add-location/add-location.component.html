@@ -8,28 +8,35 @@
 <pre>
   {{location|json}}
 </pre> -->
-<div [ngClass]="{'padding':addSwitch}" style="border: none;
+<app-icon-select *ngIf="showIcons" [type]="iconType" (iconSelected)="onIconSelect($event)"></app-icon-select>
+
+<div class="container" *ngIf="!showIcons" [ngClass]="{'padding':addSwitch}" style="border: none;
 background: none;
 position: relative;
 right: 0px;
 opacity: 1;
 margin-top: 20px;
-width: 500px;
-max-width: 90vw;
 margin: 30px auto;">
-<h3 *ngIf="addSwitch">Add Switches</h3>
+<!-- <h3 *ngIf="addSwitch">Add Switches</h3>
 <i (click)="activeModal.close()" *ngIf="addSwitch" style="position: absolute;right: 15px;top: -15px;" class="fas fa-times"></i>
-<!--   <i *ngIf="!adding" (click)="activeModal.dismiss()" style="cursor:pointer;position: absolute;right:27px;top:20px" class="fas fa-times"></i>
- -->  <div *ngIf="!addSwitch" style="margin-top:20px" id="add-location-form">
-    <input  style="width: 100%;
+  -->
+<div  *ngIf="!addSwitch" (click)="openLocationIcon()" style="width: 150px;height: 150px;background: #d4d4d4;border: 5px solid white;margin: 0 auto;margin-bottom: 25px;display: flex;justify-content: center;align-items: center;">
+    <img *ngIf="!logo" src="content/icons/location/default.svg" style="width: 90%;justify-content: center;align-items: center;display: flex;">
+    <img *ngIf="logo" src="content/icons/location/{{logo}}" style="width: 90%;justify-content: center;align-items: center;display: flex;">
+    <p style="z-index: 2;position: absolute;background: #000000a3;padding: 0px 11px;color: #fff;font-weight: bold;
+    border: 1px solid #fff;text-align: center;">Change Icon</p>
+  </div>
+<div *ngIf="!addSwitch" style="margin-top:20px" id="add-location-form">
+    <input  style=" width: 500px;
+    max-width:90vw;
     height: 45px;
     font-size: 100%;
     border: none;
     border-bottom: 1px solid #0000001a;
     outline: none;
     padding-left: 10px;
-    border: 1px solid #ff5722;
-    border-radius: 4px;" [disabled]="adding" [(ngModel)]="name" type="text" placeholder="Location Name"/>
+    border: 1px solid #0693E3;
+    border-radius: 4px;margin:0 auto;display: block;" [disabled]="adding" [(ngModel)]="name" type="text" placeholder="Location Name"/>
   </div>
   <button *ngIf="!addSwitch" style="border:none;background:none;position: absolute;
   right: 29px;
@@ -39,53 +46,47 @@ margin: 30px auto;">
      <div style="     margin-top: 50px;
      padding: 15px;
      border-radius: 5px;
-     background: #222831;
+     background: transparent;
      color: #eeeeee;" id="switches" *ngIf="deviceLength&&!adding&&showSwitches">
-        <div *ngFor="let device of devices | keyvalue ; let ix=index">
+
+     <div class="row">
+        <ng-container *ngFor="let device of devices | keyvalue ; let ix=index">
             <ng-container *ngIf="device.value">
-              <div *ngFor="let board of device.value | keyvalue; let ixx = index">
+              <ng-container  *ngFor="let board of device.value | keyvalue; let ixx = index">
 
                 <ng-container *ngIf="board.value && board.value.switches; ">
 
-
-
-                  <div style="margin-bottom:20px;background:white;position: relative;" *ngFor="let switch of board.value.switches; let i = index">
-
+                  <ng-container  *ngFor="let switch of board.value.switches; let i = index">
                     <ng-container *ngIf="switch!=null">
-                      <table style="width:100px;height:70px;">
-                        <tr>
-                          <td style="width:50px;padding:24px">
-                            <button style="outline:none;border:none;background:none;color:#ff5722;" *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)"><i class="far fa-square"></i></button>
-                           <button style="outline:none;border:none;background:none;color:#ff5722;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square"></i></button>
-                          </td>
 
-                              <td style="font-size:25px;">
-                              <!--   <button style="outline:none;padding:0px;margin:0px;border:none;background:none;"  *ngIf="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-on"></i></button>
-                                <button style="outline:none;padding:0px;margin: 0px;border:none;background:none;"  *ngIf="!devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)"><i class="fas fa-toggle-off"></i></button>
-                              -->
-                              <label style="right: 23px;bottom:13px" class="switch">
-                                <input [(ngModel)]="devices[device.key][board.key].switches[i]" (click)="toggle(device.key,switch,board.key,i)" type="checkbox">
-                                <span class="slider round"></span>
-                              </label>
-                              </td>
+                      <div  class="col-lg-3 col-md-4 col-6"    (click)="toggle(device.key,switch,board.key,i,$event)" style="padding:0px;cursor:pointer;color: #10316b;text-transform: capitalize;" >
+                        <div style="border:1px solid #0000002e;padding:15px;padding-bottom:45px;">
+                          <span style="width:90%;display:inline-block"> <i [ngClass]="{'green':devices[device.key][board.key].switches[i]}" style="font-weight: 900;font-size: 8px;position: relative;
+                          top: -2px;margin-right: 5px;color: #8080806e;" class="fas fa-circle" >
+                          </i> <input class="stop" style="outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;width:85%"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" placeholder="label" [(ngModel)]="selectedSwitches[device.key][board.key][i].label"></span>
+                          <span class="stop" style="position:absolute;top:10px;right:10px">
+                            <button style="outline:none;border:none;background:none;color:#0693E3;" *ngIf="(!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i])" (click)="select(device.key,board.key, i)"><i class="far fa-square stop"></i></button>
+                           <button style="outline:none;border:none;background:none;color:#0693E3;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square stop"></i></button>
+                          </span>
+                          <div style="display:flex;justify-content:center; align-items:center;">
+                            <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]&&selectedSwitches[device.key][board.key][i].switchLogo" src="/content/icons/switch/{{selectedSwitches[device.key][board.key][i].switchLogo}}" alt="">
 
-                              <td style="height:35px;padding-left:25px">
-                                <input style="outline:none;border:none;background:none;  border-bottom: 1px solid #0000001a;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" placeholder="label" [(ngModel)]="selectedSwitches[device.key][board.key][i].label">
+                            <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="!selectedSwitches||!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i]||!selectedSwitches[device.key][board.key][i].switchLogo" src="/content/icons/switch/default.svg" alt="">
+                            <p *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="openSwitchIcon(device.key,board.key,i)"  class="stop" style="z-index: 2;position: absolute;background: #000000a3;padding: 0px 11px;color: #fff;font-weight: bold;border: 1px solid #fff;text-align: center;top:54%">Change Icon</p>
 
-                              </td>
-
-
-                        </tr>
-                      </table>
+                          </div>
+                        </div>
+                      </div>
                     </ng-container>
+                  </ng-container>
 
 
-                  </div>
+
                 </ng-container>
-              </div>
+              </ng-container >
             </ng-container>
-        </div>
-
+        </ng-container >
+     </div>
         <div *ngIf="!switchCount">
           <p style="text-align:center">No free switches available</p>
         </div>
@@ -94,20 +95,31 @@ margin: 30px auto;">
         display: block;
         margin-top: 40px;
         padding: 10px 35px;
-        background: #ff5722;
-        border: 1px solid #ff5722;
+        background: #0693E3;
+        border: 1px solid #0693E3;
         border-radius: 4px;
         color: #fff;"  [disabled]="!name||adding||!switchCount" (click)="addLocation()">Add Location</button>
+            <div style="display: flex;justify-content: center;align-items: center;">
 
-            <button *ngIf="addSwitch" style="margin: 0 auto;
-             display: block;
-             margin-top: 40px;
-             padding: 10px 35px;
-             background: #ff5722;
-             border: 1px solid #ff5722;
-             border-radius: 4px;
-             color: #fff;"  [disabled]="!location||adding||!switchCount" (click)="addSwitches()">Add</button>
-     <div *ngIf="!deviceLength">
+              <button *ngIf="addSwitch" style="
+                 display: block;
+                 margin-top: 40px;
+                 padding: 10px 35px;
+                 background: transparent;
+                 border: 1px solid #0693E3;
+                 border-radius: 4px;
+                 color:#0693E3 ;"  [disabled]="!location||adding||!switchCount" (click)="cancel()">Cancel</button>
+              <button *ngIf="addSwitch" style="
+               display: block;
+               margin-top: 40px;
+               padding: 10px 35px;
+               background: #0693E3;
+               border: 1px solid #0693E3;
+               border-radius: 4px;
+               color: #fff;margin-left:15px"  [disabled]="!location||adding||!switchCount" (click)="addSwitches()">Add</button>
+
+            </div>
+    <div *ngIf="!deviceLength">
        No devices found
      </div>
    </div>

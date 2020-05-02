@@ -35,6 +35,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { EditLocationComponent } from './edit-location/edit-location.component';
 import { Data } from './data.provider';
 import { AddSwitchComponent } from './add-switch/add-switch.component';
+import { UpdateWifiComponent } from './update-wifi/update-wifi.component';
+import { IconSelectComponent } from './icon-select/icon-select.component';
 const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
@@ -73,7 +75,9 @@ const config: SocketIoConfig = { url: Config.server, options: {} };
     ForgotPasswordComponent,
     ResetPasswordComponent,
     EditLocationComponent,
-    AddSwitchComponent
+    AddSwitchComponent,
+    UpdateWifiComponent,
+    IconSelectComponent
   ],
   entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent, AddSwitchComponent],
   providers: [

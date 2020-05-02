@@ -71,4 +71,7 @@ export class FetchData {
     deleteUsers(id) {
       return this.serviceEndpoints.init().deleteUsers.makeRequest(null, id);
     }
+    icons(type) {
+      return this.serviceEndpoints.init().icons.makeRequest(null, type);
+    }
 }

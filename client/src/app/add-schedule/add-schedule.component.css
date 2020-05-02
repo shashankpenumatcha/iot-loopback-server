@@ -106,10 +106,10 @@
 }
 
 .auto-day {
-  border: 1px solid #ff5722;
+  border: 1px solid #0693E3;
   border-radius: 50%;
   width: 42px;
-  color: #ff5722;
+  color: #0693E3;
   font-weight: bold;
   padding: 0.5rem;
   display: flex;
@@ -131,7 +131,7 @@
 }
 
 .auto-savebtnn {
-  background-color: #ff5722;
+  background-color: #0693E3;
     width: 150px;
     height: 40px;
     border-radius: 4px;
@@ -139,13 +139,13 @@
     border: none;
     color: #fff;
     font-weight: normal;
-    border: 2px solid #ff5722;
+    border: 2px solid #0693E3;
     font-family: 'Roboto';
     font-size: 14px;
 }
 
 .selected-day{
-  background: #ff5722!important;
+  background: #0693E3!important;
   color:#fff!important;
 }
 

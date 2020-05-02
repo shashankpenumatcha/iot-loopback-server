@@ -1,13 +1,30 @@
+const locationIconsPath = './client/content/icons/location';
+const switchIconsPath = './client/content/icons/switch';
+
+const fs = require('fs');
+
 module.exports = function(app) {
   var router = app.loopback.Router();
   const User = app.models.Customer;
   const Device = app.models.Device;
+  const AccessToken = app.models.AccessToken;
+  const RoleMapping = app.models.RoleMapping;
+
+  router.get('/api/icons/location', function(req,res){
+    fs.readdir(locationIconsPath, (err, files) => {
+      res.status(200).send(files)
+    });
+  })
+
+  router.get('/api/icons/switch', function(req,res){
+    fs.readdir(switchIconsPath, (err, files) => {
+      res.status(200).send(files)
+    });
+  })
+
   router.get('/api/account', function(req, res) {
     if(req.headers.authorization){
 
-
-      const AccessToken = app.models.AccessToken;
-      const RoleMapping = app.models.RoleMapping;
       AccessToken.findOne({'where':{'id':req.headers.authorization}},(err,accessToken)=>{
         if(accessToken){
           User.findOne({'where':{'id':accessToken.userId}},(e,user)=>{
@@ -37,6 +54,14 @@ module.exports = function(app) {
       res.status(401).send({'error':'no access token'})
     }
   });
+
+  router.get('/api/mail', function(req, res) {
+      const Device = app.models.Device;
+      Device.sendMail((r)=>{
+        res.send(r);
+      });
+  });
+
 
   router.get('/api/mail', function(req, res) {
       const Device = app.models.Device;

@@ -9,6 +9,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { DataService } from '../shared/services/data.service';
 import {Data} from '../../app/data.provider';
 import { Router } from '@angular/router';
+import { LayoutServiceService } from '../layout-service.service';
 
 @Component({
   selector: 'app-location-list',
@@ -16,8 +17,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./location-list.component.css']
 })
 export class LocationListComponent implements OnInit, OnDestroy {
+  @Input() schedules:any;
   @Input() selectedSwitches: any;
   @Output() valueChange = new EventEmitter();
+  @Output() selectedLocationChange = new EventEmitter();
+
   hoveredLocaton: any;
   selectedLocation: any;
   devices: any[];
@@ -37,6 +41,7 @@ export class LocationListComponent implements OnInit, OnDestroy {
     private connect: ConnectSocket,
     private dataservice: DataService,
     private router: Router,
+    private layoutService: LayoutServiceService,
     config: NgbModalConfig, private modalService: NgbModal,
     private data: Data
      ) {
@@ -44,6 +49,26 @@ export class LocationListComponent implements OnInit, OnDestroy {
       config.keyboard = false;
      }
 
+back() {
+  this.selectedLocation = null;
+
+  this.selectedLocationChange.emit(null);
+  this.layoutService.toolbar.next('Home');
+  this.layoutService.header.next(true);
+  this.layoutService.back.next(null);
+  this.layoutService.title.next('Home');
+
+}
+selectLocation(location) {
+  this.selectedLocation = location.key;
+  if (!this.schedules) {
+    this.selectedLocationChange.emit(location.key);
+    this.layoutService.toolbar.next(false);
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(null);
+    this.layoutService.title.next(location.value.name);
+  }
+}
 
 editLocation(id, location) {
   this.data.storage.location = location;
@@ -86,8 +111,8 @@ removeSchedule(s) {
         this.subscriptions.add(this.connect.locations$.subscribe(res => {
           this.locations = {...res};
           this.locationsLength = Object.keys(this.locations).length;
-          if (!this.selectedLocation && this.locations &&  Object.keys(this.locations)[0]) {
-            this.selectedLocation = Object.keys(res)[0];
+          if (!this.selectedLocation && this.locations &&  Object.keys(this.locations)[0] && this.schedules) {
+             this.selectedLocation = Object.keys(res)[0];
           }
 
         }));

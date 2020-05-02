@@ -252,9 +252,33 @@ boot(app, __dirname, function(err) {
           return callback({error: "bad request"})
         }
         app.io.to(msg.switch.deviceId).emit('editSwitch', {switch:msg.switch,socket:socket.id});
-
-
       });
+
+      socket.on('editedSwitchLogo',function(msg){
+        log.info(` editedSwitchLogo confirmation from device`)
+        console.log(msg)
+        if(msg.error){
+          let socket = msg.socket;
+          delete msg.socket;
+          return app.io.to(socket).emit('editedSwitchLogo',msg)
+
+        }
+        if(msg.socket){
+
+            let socket = msg.socket;
+            delete msg.socket;
+            app.io.to(socket).emit('editedSwitchLogo',msg.switch)
+
+        }
+      })
+      socket.on('editSwitchLogo',function(msg, callback){
+        log.info(`editSwitchLogo request`)
+        if(!msg || !msg.switch || !msg.switch.deviceId ){
+          return callback({error: "bad request"})
+        }
+        app.io.to(msg.switch.deviceId).emit('editSwitchLogo', {switch:msg.switch,socket:socket.id});
+      });
+
 
 
       socket.on('editedLocationName',function(msg){
@@ -273,6 +297,33 @@ boot(app, __dirname, function(err) {
           return callback({error: "bad request"})
         }
         app.io.to(msg.location.deviceId).emit('editLocationName', {location:msg.location,socket:socket.id});
+
+
+      });
+
+      socket.on('editedLocationLogo',function(msg){
+        log.info(` editedLocationLogo confirmation from device`)
+        if(msg.error){
+          let socket = msg.socket;
+          delete msg.socket;
+         return app.io.to(socket).emit('editedSwitchLogo',msg)
+
+        }
+        if(msg.socket){
+
+            let socket = msg.socket;
+            delete msg.socket;
+            app.io.to(socket).emit('editedLocationLogo',msg)
+
+        }
+      })
+
+      socket.on('editLocationLogo',function(msg, callback){
+        log.info(`edit location  Logo request`)
+        if(!msg || !msg.location || !msg.location.deviceId ){
+          return callback({error: "bad request"})
+        }
+        app.io.to(msg.location.deviceId).emit('editLocationLogo', {location:msg.location,socket:socket.id});
 
 
       });
@@ -351,8 +402,9 @@ boot(app, __dirname, function(err) {
           callback(payload);
         }else{
           const locationId = uuid();
+          console.log(msg)
           devices.map(m => {
-            app.io.to(m).emit('addLocation', {devices:devices,locationId:locationId, name: msg.name, boards: msg.devices[m], socketId: socket.id})
+            app.io.to(m).emit('addLocation', {locationLogo:msg.locationLogo,devices:devices,locationId:locationId, name: msg.name, boards: msg.devices[m], socketId: socket.id})
             return m
           })
         }
@@ -414,23 +466,29 @@ boot(app, __dirname, function(err) {
 
       socket.on('sendMail', response => {
         console.log("send-mail-start")
-        console.log(response)
+       // console.log(response)
         let payload ={};
         if(response&&response.switches&&response.switches.length){
-          response.switches.map(s=>{
-            if(!payload[s.locationId]){
-              payload[s.locationId]=[];
+          Device.findOne({"include":"user","where":{"deviceId":response.device}},function(err,device){
+
+            if(!err){
+               response.switches.map(s=>{
+                if(!payload[s.locationId]){
+                  payload[s.locationId]=[];
+                }
+                payload[s.locationId].push(s)
+                return s;
+              })
+              let array=[];
+              Object.values(payload).map(m=>{
+                array.push(m)
+                return m
+              })
+              let days = response.days.map(d=>d.split('T')[0])
+              Device.sendMail(array,device.toJSON().user.email,days,response.week)
             }
-            payload[s.locationId].push(s)
-            let array =[];
-            Object.values(payload).map(m=>{
-              array.push(m)
-              return m
-            })
-            console.log(array)
-            Device.sendMail(array)
-            return s;
           })
+
         }
         console.log("send-mail-end")
 
@@ -451,8 +509,7 @@ boot(app, __dirname, function(err) {
                 return callback({error: "Board already registered to another device"});
             }
             let payload = null;
-            console.log(3333333333333333333)
-            console.log(msg.boardId)
+
             Board.register(msg.deviceId,msg.boardId,function(err,board){
               if(err){
                 callback({"error":err.message});
@@ -481,7 +538,28 @@ boot(app, __dirname, function(err) {
             })
         })
       });
+      socket.on('scan',function(device){
+        console.log('request to scan for networks')
+        app.io.to(device).emit('scan',socket.id)
+      })
 
+      socket.on('networks',function(msg){
+        console.log("got networks")
+        console.log(msg)
+        app.io.to(msg.socketId).emit('networks',msg)
+      })
+      socket.on('update_wifi',function(msg){
+        log.info('socket message to update wifi')
+        console.log('message')
+        console.log(msg)
+        if(!msg||!msg.device||!msg.name||!msg.password){
+
+          return
+        }
+        msg.socketId = socket.id;
+        app.io.to(msg.device).emit('update_wifi',msg)
+
+      })
 
 
       socket.on('board_added',function(msg){

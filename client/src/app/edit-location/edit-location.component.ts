@@ -22,13 +22,89 @@ export class EditLocationComponent implements OnInit, OnDestroy {
   error: any;
   onlineDevices: any;
   subscription = new Subscription();
+  showIcons: any = null;
+  iconType: any = null;
+  addSwitches = false;
+  switchForIcon: any = [];
   constructor(private connect: ConnectSocket, private socket: Socket, private layoutService: LayoutServiceService,
-    private data: Data, private router: Router,config: NgbModalConfig, private modalService: NgbModal
+    private data: Data, private router: Router, config: NgbModalConfig, private modalService: NgbModal
     ) {
      config.backdrop = 'static';
      config.keyboard = false;
     }
 
+
+
+  saveLocationLogo(e) {
+    if (this.loading) {
+      return;
+    }
+    this.loading = true;
+    this.error = null;
+    const l: any = {...this.location};
+    l.locationLogo = e;
+    this.socket.emit('editLocationLogo', {location: l}, res => {
+     /*  console.log(res);
+      this.location.locationLogo = res.locationLogo; */
+      this.loading = false;
+      if (!res || res.error) {
+        this.error = res.error;
+      }
+    });
+  }
+
+
+  saveSwitchLogo(e) {
+    if (this.loading) {
+      return;
+    }
+    this.loading = true;
+    this.error = null;
+    const s: any = {...this.switchForIcon[0]};
+    s.switchLogo = e;
+    this.socket.emit('editSwitchLogo', {switch: s}, res => {
+     /*  console.log(res);
+      this.location.locationLogo = res.locationLogo; */
+      this.loading = false;
+      if (!res || res.error) {
+        this.error = res.error;
+      }
+    });
+  }
+
+  openSwitchIcon(s) {
+    this.iconType = 'switch';
+    this.showIcons = true;
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(null);
+    this.layoutService.title.next('Select Icon');
+    this.layoutService.toolbar.next(null);
+
+    this.switchForIcon.push(s);
+
+  }
+  openLocationIcon() {
+    this.iconType = 'location';
+    this.showIcons = true;
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(null);
+    this.layoutService.title.next('Select Icon');
+    this.layoutService.toolbar.next(null);
+  }
+  onIconSelect(e) {
+    if (this.iconType === 'location') {
+     this.saveLocationLogo(e);
+    }
+    if (this.iconType === 'switch') {
+      this.saveSwitchLogo(e);
+    }
+    this.iconType = null;
+    this.showIcons = false;
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(['/']);
+    this.layoutService.title.next('Edit Location');
+    this.layoutService.toolbar.next(null);
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -132,10 +208,37 @@ export class EditLocationComponent implements OnInit, OnDestroy {
         this.loading = false;
       }
     });
+
+    this.socket.on('editedLocationLogo', (res) => {
+      if (!res.error) {
+        if (res.locationLogo !== undefined) {
+          this.loading = false;
+          this.location.locationLogo = res.locationLogo;
+
+        }
+      } else {
+        this.error = res.error;
+        this.loading = false;
+      }
+    });
+
+    this.socket.on('editedSwitchLogo', (res) => {
+      console.log(res)
+      if (!res.error) {
+        if (res.switchLogo !== undefined) {
+          this.loading = false;
+          this.switchForIcon[0].switchLogo = res.switchLogo;
+          this.switchForIcon = [];
+        }
+      } else {
+        this.error = res.error;
+        this.loading = false;
+      }
+    });
   }
 
   saveName() {
-    if (!this.location.name && !this.loading) {
+    if (!this.location.name || this.loading) {
       return;
     }
     this.loading = true;
@@ -167,8 +270,11 @@ export class EditLocationComponent implements OnInit, OnDestroy {
     }
   }
 
-  toggle(swtch, value) {
-    this.connect.toggle(swtch.deviceId, !value, swtch.board, swtch.switch);
+  toggle(swtch, value, e) {
+    if (e.target.className.indexOf('stop') === -1) {
+
+      this.connect.toggle(swtch.deviceId, !value, swtch.board, swtch.switch);
+    }
   }
 
   deleteSwitch(s) {
@@ -208,9 +314,22 @@ export class EditLocationComponent implements OnInit, OnDestroy {
   }
 
   addSwitch() {
-    const modal = this.modalService.open(AddSwitchComponent);
-    modal.componentInstance.location = this.location;
-
+/*     const modal = this.modalService.open(AddSwitchComponent);
+    modal.componentInstance.location = this.location; */
+    this.addSwitches = true;
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(null);
+    this.layoutService.title.next('Add Switches');
+    this.layoutService.toolbar.next(null);
+  }
+  switchAdded(e) {
+    if (e) {
+      this.addSwitches = false;
+      this.layoutService.header.next(true);
+      this.layoutService.back.next(['/']);
+      this.layoutService.title.next('Edit Location');
+      this.layoutService.toolbar.next(null);
+    }
   }
 
   saveSwitch(sw){
@@ -228,17 +347,6 @@ export class EditLocationComponent implements OnInit, OnDestroy {
     });
   }
 
-  /*
 
-  addLocation() {
-    this.adding = true;
-    this.activeRequests = Object.keys(this.selectedSwitches) || [];
-    this.socket.emit('addLocation', {name: this.name, devices: this.selectedSwitches}, res => {
-      if (!res || res.error) {
-        this.adding = false;
-        alert(res.error);
-      }
-    });
-  } */
 
 }

@@ -105,7 +105,13 @@ export class RestEndpointConstants {
           name: 'deleteUsers',
           url: '/api/Customers/{parameter}',
           method: 'delete'
+        },
+        {
+          name: 'icons',
+          url: '/api/icons/{parameter}',
+          method: 'get'
         }
+
 
 
 

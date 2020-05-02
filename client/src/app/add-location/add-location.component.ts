@@ -27,8 +27,57 @@ export class AddLocationComponent implements OnInit, OnDestroy {
   showSwitches = false;
   switchCount = 0;
   selectedSwitchCount = 0;
+  logo: string = null;
+  showIcons: any = null;
+  iconType: any = null;
+  switchForIcon = [];
+  addSwitch: any;
   // get available switches
   constructor( public connect: ConnectSocket, public socket: Socket, public router: Router, public layoutService: LayoutServiceService) { }
+
+  openLocationIcon() {
+    this.iconType = 'location';
+    this.showIcons = true;
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(null);
+    this.layoutService.title.next('Select Icon');
+    this.layoutService.toolbar.next(null);
+  }
+
+
+  openSwitchIcon(d, b, s) {
+    this.iconType = 'switch';
+    this.showIcons = true;
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(null);
+    this.layoutService.title.next('Select Icon');
+    this.layoutService.toolbar.next(null);
+    this.switchForIcon.push(d);
+    this.switchForIcon.push(b);
+    this.switchForIcon.push(s);
+
+  }
+
+  onIconSelect(e) {
+    if (this.iconType === 'location') {
+      this.logo = e;
+    }
+    if (this.iconType === 'switch') {
+      this.selectedSwitches[this.switchForIcon[0]][this.switchForIcon[1]][this.switchForIcon[2]].switchLogo = e;
+    }
+    this.iconType = null;
+    this.showIcons = false;
+    this.switchForIcon = [];
+    this.layoutService.header.next(true);
+    this.layoutService.back.next(['/']);
+    if (!this.addSwitch) {
+      this.layoutService.title.next('Add Location');
+    } else {
+      this.layoutService.title.next('Add Switches');
+
+    }
+    this.layoutService.toolbar.next(null);
+  }
 
   ngOnInit() {
     this.layoutService.header.next(true);
@@ -160,15 +209,17 @@ export class AddLocationComponent implements OnInit, OnDestroy {
       }
   }
 
-  toggle(device: any, value: any, board: any, swtch: any) {
-    if (board && swtch != null && swtch !== undefined && device &&
-      this.devices &&
-      this.devices[device] &&
-      this.devices[device][board] &&
-      this.devices[device][board].switches &&
-      this.devices[device][board].switches[swtch] != null &&
-      this.devices[device][board].switches[swtch] !== undefined) {
-        this.connect.toggle(device, !value, board, swtch);
+  toggle(device: any, value: any, board: any, swtch: any, e) {
+    if (e.target.className.indexOf('stop') === -1) {
+      if (board && swtch != null && swtch !== undefined && device &&
+        this.devices &&
+        this.devices[device] &&
+        this.devices[device][board] &&
+        this.devices[device][board].switches &&
+        this.devices[device][board].switches[swtch] != null &&
+        this.devices[device][board].switches[swtch] !== undefined) {
+          this.connect.toggle(device, !value, board, swtch);
+      }
     }
   }
 
@@ -177,7 +228,7 @@ export class AddLocationComponent implements OnInit, OnDestroy {
   addLocation() {
     this.adding = true;
     this.activeRequests = Object.keys(this.selectedSwitches) || [];
-    this.socket.emit('addLocation', {name: this.name, devices: this.selectedSwitches}, res => {
+    this.socket.emit('addLocation', {name: this.name, devices: this.selectedSwitches, locationLogo: this.logo}, res => {
       if (!res || res.error) {
         this.adding = false;
         alert(res.error);
