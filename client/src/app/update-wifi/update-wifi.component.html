@@ -1,19 +1,35 @@
-<div class="container">
-  <div>
-    <input type="text" [(ngModel)]="name">
+<div style="padding-top:45px;" class="container">
+  <ng-container *ngIf="!showList">
+    <div style="display: flex;justify-content: center;align-items: center;">
+<div>
+
+  <div style="margin-bottom:15px;width: 200px;">
+    <input (keydown)="msg=null" style="width:100%;padding:5px" placeholder="SSID" type="text" [(ngModel)]="name">
   </div>
-  <div>
-    <input type="text" [(ngModel)]="password">
+  <div style="width: 200px;">
+    <input style="width:100%;padding:5px;" placeholder="Passcode" type="text" [(ngModel)]="password">
   </div>
-  <div>
-    <button [disabled]="!device||!name" (click)="submit()" >Submit</button>
+</div>
+
+    </div>
+  </ng-container>
+  <p *ngIf="showList&&networks.length"  style="margin-top:10px;text-align:center;color:#0693E3">Select a network for the list</p>
+  <p *ngIf="showList&&!networks.length"  style="margin-top:10px;text-align:center;color:#0693E3">No networks found</p>
+
+  <div style="max-height: 50vh;overflow-y: auto;">
+    <ul *ngIf="showList" class="list-group">
+      <li style="cursor: pointer;" *ngFor="let network of networks" class="list-group-item"  (click)="name=network;showList=false">{{network}}</li>
+    </ul>
   </div>
-  <p (click)="scan()">
-    scan
-  </p>
-  <div>
-    <p *ngFor="let network of networks">
-      <span (click)="name=network">{{network}}</span>
-    </p>
+
+  <div style="margin-top:15px;display: flex;justify-content: center;align-items: center;">
+    <button class="btn1" style="margin-right:15px;" *ngIf="!showList" [disabled]="!device||!name" (click)="submit()" >submit</button>
+    <button  class="btn2"  style="margin-right:15px;"  (click)="scan()" >scan</button>
+    <button  class="btn2"  style="margin-right:15px;"  *ngIf="showList"  (click)="cancel()" >cancel</button>
+
   </div>
+
+  <p style="margin-top:10px;text-align:center;color:#0693E3">{{msg}}</p>
+
+
 </div>

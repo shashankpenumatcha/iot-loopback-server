@@ -14,6 +14,9 @@
     <input [(ngModel)]="email" type="email" class="reginp" placeholder="Email">
 
     <input [(ngModel)]="password" class="reginp" placeholder="Password" type="password">
+    <input [(ngModel)]="password2" class="reginp" placeholder="Confirm password" type="password">
+    <p style="margin-bottom: 0px;" class="error" *ngIf="password&&password2&&password!=password2">Passwords dont match</p>
+
     <input [(ngModel)]="name" class="reginp" placeholder="Name" type="text">
 
     <input [(ngModel)]="contact" class="reginp" placeholder="Contact number" type="text">
@@ -25,7 +28,7 @@
     <div class="regbdy-down"></div>
   </div>
   <div class="register-buttons">
-    <button (click)="signup()" [disabled]="!email||!password||!terms||!name||!contact" class="register-btn">
+    <button (click)="signup()" [disabled]="!email||!password||!terms||!name||!contact||!password2||password!=password2" class="register-btn">
      <div *ngIf="!loading">
 
        Register

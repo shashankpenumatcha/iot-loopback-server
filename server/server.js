@@ -466,7 +466,7 @@ boot(app, __dirname, function(err) {
 
       socket.on('sendMail', response => {
         console.log("send-mail-start")
-       // console.log(response)
+        console.log(response)
         let payload ={};
         if(response&&response.switches&&response.switches.length){
           Device.findOne({"include":"user","where":{"deviceId":response.device}},function(err,device){
@@ -484,8 +484,12 @@ boot(app, __dirname, function(err) {
                 array.push(m)
                 return m
               })
-              let days = response.days.map(d=>d.split('T')[0])
+              if(response.days){
+                let days = response.days.map(d=>d.split('T')[0])
               Device.sendMail(array,device.toJSON().user.email,days,response.week)
+              }else{
+                console.log("send mail fail, no days")
+              }
             }
           })
 

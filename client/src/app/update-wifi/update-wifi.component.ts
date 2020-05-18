@@ -17,6 +17,8 @@ export class UpdateWifiComponent implements OnInit, OnDestroy {
   name:any;
   password:any;
   networks:any =[];
+  showList = false;
+  msg = null;
   constructor(private socket: Socket,private layoutService: LayoutServiceService, private connect: ConnectSocket, private fetchData: FetchData) { }
 
   ngOnInit() {
@@ -53,8 +55,12 @@ export class UpdateWifiComponent implements OnInit, OnDestroy {
   }
 
   scan(){
+    this.showList = true;
     this.socket.emit('scan', this.device);
   }
+cancel(){
+this.showList = false;
+}
 
   ngOnDestroy(){
     if (this.sub) {
@@ -64,6 +70,9 @@ export class UpdateWifiComponent implements OnInit, OnDestroy {
 
   submit() {
     this.connect.wifi(this.device, this.name, this.password);
+    this.name = null;
+    this.password = null;
+    this.msg = 'Wifi details sent to device. It might take a few minutes for the new settings to take effect';
   }
 
 

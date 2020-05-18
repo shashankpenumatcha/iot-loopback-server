@@ -11,6 +11,8 @@ export class SignUpComponent implements OnInit {
   email: string;
   username: string;
   password: string;
+  password2: string;
+
   error: string;
   terms: boolean;
   success: boolean;
@@ -48,6 +50,8 @@ export class SignUpComponent implements OnInit {
       this.username = null;
       this.email = null;
       this.password = null;
+      this.password2 = null;
+
       this.terms = true;
       this.success = true;
     }, err => {
