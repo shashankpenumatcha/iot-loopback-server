@@ -9,10 +9,16 @@
   right: 25px;
   top: 10px;"><img class="auto-back" src="content/images/back.svg" /></div>
 </div> -->
-
-<!-- <pre>
+<!--
+<pre>
   {{schedules|json}}
 </pre> -->
+<ng-container *ngIf="!editSchedule">
+<!--
+<pre>
+  {{raw|json}}
+</pre>
+ -->
 <div class="auto-spacer"></div>
 <div style="font-size:21px;" class="auto0-bodyhead">
   Easily Automate your smart switches
@@ -37,10 +43,11 @@
 <div style="margin-bottom:250px" class="container">
   <div class="row">
     <ng-container *ngFor="let schedule of schedules | keyvalue">
-        <div style="padding:10px;margin:15px 0px;" class="col-lg-3 col-md-4 col-6">
+        <div  style="padding:10px;margin:15px 0px;" class="col-lg-3 col-md-4 col-6">
           <div style="border: 1px solid #2d4059;" *ngIf="schedule.value&&schedule.value.schedule">
-           <div style="color:#fff;padding:5px 10px;background:#2d4059">
+           <div style="color:#fff;padding:5px 10px;background:#2d4059;position:relative">
              <p style="margin: 0px;" *ngIf="schedule.value.schedule.name">{{schedule.value.schedule.name}}</p>
+             <i (click)="selectEdit(schedule)" style="position: absolute;right:9px;top:9px;cursor:pointer" class="fas fa-pencil-alt"></i>
            </div>
            <div style="padding:10px">
             <table>
@@ -80,6 +87,12 @@
     </ng-container>
   </div>
 </div>
+</ng-container>
+
+<ng-container *ngIf="editSchedule">
+  <app-add-schedule (scheduleEdited)="scheduleEdited($event)" [editSchedule]="editSchedule"></app-add-schedule>
+</ng-container>
+
 <!-- <pre>
   {{schedules|json}}
 </pre> -->

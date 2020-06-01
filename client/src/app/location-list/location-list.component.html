@@ -75,15 +75,15 @@ top: 62px;color:#fff" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown"
     <!--locations-->
     <div style="padding:45px 0px 25px 0px"  *ngIf="locations&&!selectedLocation" class="row">
       <ng-container *ngFor="let location of locations | keyvalue">
-        <div  class="col-lg-3 col-md-4 col-6" *ngIf="location.key"   (click)="selectLocation(location)" style="padding:0px;cursor:pointer;color: #10316b;text-transform: capitalize;" >
+        <div  class="col-lg-3 col-md-4 col-6 hover" *ngIf="location.key"   (click)="selectLocation(location)" style="padding:0px;cursor:pointer;color: #10316b;text-transform: capitalize;" >
           <div style="border:1px solid #0000002e;padding:15px;padding-bottom:45px;">
             <h5 style="width:90%;display:inline-block"> <i [ngClass]="{'green': location.value.active}" style="font-weight: 900;font-size: 8px;position: relative;
             top: -2px;margin-right: 5px;color: #8080806e;" class="fas fa-circle" >
             </i>{{location.value.name}} </h5>
             <i (click)="editLocation(location.key,location.value)" style="width:10%;display:inline-block" class="fas fa-pencil-alt"></i>
-            <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="location.value.locationLogo" src="/content/icons/location/{{location.value.locationLogo}}" alt="">
+            <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto"  *ngIf="location.value.locationLogo" src="/content/icons/location/{{location.value.locationLogo}}" alt="">
 
-            <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="!location.value.locationLogo" src="/content/icons/location/default.svg" alt="">
+            <img style="opacity:0.5;margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto;opacity: 0.5;" *ngIf="!location.value.locationLogo" src="/content/icons/location/default.svg" alt="">
           </div>
         </div>
       </ng-container>
@@ -102,13 +102,13 @@ top: 62px;color:#fff" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown"
             onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&
             onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null&&
             switch.locationId == selectedLocation">
-              <div class="col-lg-3 col-md-4 col-6" (click)="toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)" style="padding:0px;cursor:pointer;color: #10316b;text-transform: capitalize;" >
+              <div class="col-lg-3 col-md-4 col-6 hover" (click)="toggle(switch.deviceId,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],switch.board,switch.switch)" style="padding:0px;cursor:pointer;color: #10316b;text-transform: capitalize;" >
                 <div style="border:1px solid #0000002e;padding:15px;padding-bottom:45px;">
                   <h5 style="width:90%;display:inline-block"> <i [ngClass]="{'green': onlineDevices[switch.deviceId][switch.board].switches[switch.switch]}" style="font-weight: 900;font-size: 8px;position: relative;
                   top: -2px;margin-right: 5px;color: #8080806e;" class="fas fa-circle" >
                   </i>{{switch.name}} </h5>
-                  <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="switch.switchLogo" src="/content/icons/switch/{{switch.switchLogo}}" alt="">
-                  <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="!switch.switchLogo" src="/content/icons/switch/default.svg" alt="">
+                  <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" [ngClass]="{'transparent': !onlineDevices[switch.deviceId][switch.board].switches[switch.switch]}" *ngIf="switch.switchLogo" src="/content/icons/switch/{{switch.switchLogo}}" alt="">
+                  <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" [ngClass]="{'transparent': !onlineDevices[switch.deviceId][switch.board].switches[switch.switch]}" *ngIf="!switch.switchLogo" src="/content/icons/switch/default.svg" alt="">
                 </div>
               </div>
             </ng-container>

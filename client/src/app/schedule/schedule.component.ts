@@ -18,11 +18,12 @@ import { LayoutServiceService } from '../layout-service.service';
 export class ScheduleComponent implements OnInit, OnDestroy {
   activeRequests: any = {};
   deleteRequests: any = {};
-
+  raw: any;
   deviceLength: number  = null;
   onlineDevices: any = {};
   subscriptions = new Subscription();
   schedules: any = {};
+  editSchedule = null;
   object = Object;
   days: any = [
     {i: 0, v: 'S', selected: false},
@@ -39,6 +40,19 @@ export class ScheduleComponent implements OnInit, OnDestroy {
      config.backdrop = 'static';
      config.keyboard = false;
      config.size = 'lg';
+    }
+
+    scheduleEdited(e) {
+      this.editSchedule = null;
+      this.schedules = {};
+      const devices = Object.keys(this.onlineDevices);
+      devices.map(m => {
+        this.socket.emit('getSchedules', m);
+        return m;
+      });
+    }
+    selectEdit(schedule) {
+      this.editSchedule = schedule;
     }
 
   ngOnInit() {
@@ -111,6 +125,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     this.socket.on('schedules', (msg) => {
       if (!msg.error) {
        // this.schedules = msg;
+       this.raw = msg;
         if (msg.schedules && msg.schedules.length) {
           msg.schedules.map(m => {
             if (!this.schedules[m.scheduleId]) {

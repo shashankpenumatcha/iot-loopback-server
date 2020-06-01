@@ -1,8 +1,29 @@
+<!-- <ng-container *ngIf="!editSchedule">
+  <pre>
+    {{selectedForSchedule|json}}
+  </pre>
+  name  -  {{name}}
+  start - {{start|json}}
+  <pre>{{days|json}}</pre>
+</ng-container>
 
+<ng-container *ngIf="editSchedule">
+  <pre>
+    {{editSchedule|json}}
+  </pre>
+</ng-container>
+-------------------------------------
+<pre>
+  {{selectedForSchedule|json}}
+</pre> -->
 <div *ngIf="!showLocations" class="auto-spacer"></div>
 <div style="margin-bottom:250px" style="padding:15px;">
   <ng-container *ngIf="!showLocations">
-
+    <p style="color: #fff;
+    position: absolute;
+    right: 20px;
+    top: 65px;
+    cursor: pointer;" (click)="back()">Back</p>
     <div style="max-width:500px;width:100%;margin: 0 auto;display: block;" class="auto-inp">
       <input style="box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.15);
       border-radius: 4px;
@@ -46,10 +67,11 @@
 
 
   <div class="auto-savebtn" style="margin-bottom:65px;">
-    <button style="margin-right:15px;background:#2d4059!important;border-color:#2d4059!important" *ngIf="!showLocations"  (click)="showLocations=true;disableBack()" class="auto-savebtnn">Select Switches</button>
+    <button style="margin-right:15px;background:#2d4059!important;border-color:#2d4059!important" *ngIf="!showLocations"  (click)="showLocations=true;disableBack()" class="auto-savebtnn">{{editSchedule?'Edit':'Select'}} Switches</button>
     <button *ngIf="showLocations"  (click)="showLocations=false;enableBack()" class="auto-savebtnn">Done</button>
+    <button  *ngIf="!showLocations&&editSchedule" (click)="editScheduleCall()" [disabled]="!name||!selectedDaysLength" class="auto-savebtnn">Update</button>
 
-    <button  *ngIf="!showLocations" (click)="addSchedule()" [disabled]="!name||!selectedDaysLength" class="auto-savebtnn">Create</button>
+    <button  *ngIf="!showLocations&&!editSchedule" (click)="addSchedule()" [disabled]="!name||!selectedDaysLength" class="auto-savebtnn">Create</button>
   </div>
 
 </div>

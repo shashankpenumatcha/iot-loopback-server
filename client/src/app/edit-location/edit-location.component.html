@@ -18,7 +18,7 @@
    <div *ngIf="!showIcons&&!addSwitches" class="container">
      <div class="row">
       <div (click)="openLocationIcon()" style="width: 150px;height: 150px;background: #d4d4d4;border: 5px solid white;margin: 0 auto;margin-bottom: 15px;margin-top:15px;display: flex;justify-content: center;align-items: center;">
-        <img *ngIf="!location.locationLogo" src="content/icons/location/default.svg" style="width: 90%;justify-content: center;align-items: center;display: flex;">
+        <img *ngIf="!location.locationLogo" src="content/icons/location/default.svg" style="opacity:0.5;width: 90%;justify-content: center;align-items: center;display: flex;">
         <img *ngIf="location.locationLogo" src="content/icons/location/{{location.locationLogo}}" style="width: 90%;justify-content: center;align-items: center;display: flex;">
         <p style="z-index: 2;position: absolute;background: #000000a3;padding: 0px 11px;color: #fff;font-weight: bold;
         border: 1px solid #fff;text-align: center;">Change Icon</p>
@@ -78,7 +78,7 @@
              </label>
            </div> -->
 
-           <div  class="col-lg-3 col-md-4 col-6" (click)="toggle(switch,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],$event)" *ngIf="onlineDevices[switch.deviceId]&&onlineDevices[switch.deviceId][switch.board]&&
+           <div  class="col-lg-3 col-md-4 col-6 hover" (click)="toggle(switch,onlineDevices[switch.deviceId][switch.board].switches[switch.switch],$event)" *ngIf="onlineDevices[switch.deviceId]&&onlineDevices[switch.deviceId][switch.board]&&
            onlineDevices[switch.deviceId][switch.board].switches&&
            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=undefined&&
            onlineDevices[switch.deviceId][switch.board].switches[switch.switch]!=null"
@@ -100,9 +100,9 @@
             </span>
 
               <div style="display:flex;justify-content:center; align-items:center;">
-                <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="switch.switchLogo" src="/content/icons/switch/{{switch.switchLogo}}" alt="">
+                <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" [ngClass]="{'transparent':!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]   }" *ngIf="switch.switchLogo" src="/content/icons/switch/{{switch.switchLogo}}" alt="">
 
-                <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="!switch.switchLogo" src="/content/icons/switch/default.svg" alt="">
+                <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="!switch.switchLogo" [ngClass]="{'transparent':!onlineDevices[switch.deviceId][switch.board].switches[switch.switch]   }" src="/content/icons/switch/default.svg" alt="">
                 <p  (click)="openSwitchIcon(switch)"  class="stop" style="z-index: 2;position: absolute;background: #000000a3;padding: 0px 11px;color: #fff;font-weight: bold;border: 1px solid #fff;text-align: center;top:54%">Change Icon</p>
 
               </div>

@@ -21,7 +21,7 @@ margin: 30px auto;">
 <i (click)="activeModal.close()" *ngIf="addSwitch" style="position: absolute;right: 15px;top: -15px;" class="fas fa-times"></i>
   -->
 <div  *ngIf="!addSwitch" (click)="openLocationIcon()" style="width: 150px;height: 150px;background: #d4d4d4;border: 5px solid white;margin: 0 auto;margin-bottom: 25px;display: flex;justify-content: center;align-items: center;">
-    <img *ngIf="!logo" src="content/icons/location/default.svg" style="width: 90%;justify-content: center;align-items: center;display: flex;">
+    <img *ngIf="!logo" src="content/icons/location/default.svg" style="opacity:0.5;width: 90%;justify-content: center;align-items: center;display: flex;">
     <img *ngIf="logo" src="content/icons/location/{{logo}}" style="width: 90%;justify-content: center;align-items: center;display: flex;">
     <p style="z-index: 2;position: absolute;background: #000000a3;padding: 0px 11px;color: #fff;font-weight: bold;
     border: 1px solid #fff;text-align: center;">Change Icon</p>
@@ -59,7 +59,7 @@ margin: 30px auto;">
                   <ng-container  *ngFor="let switch of board.value.switches; let i = index">
                     <ng-container *ngIf="switch!=null">
 
-                      <div  class="col-lg-3 col-md-4 col-6"    (click)="toggle(device.key,switch,board.key,i,$event)" style="padding:0px;cursor:pointer;color: #10316b;text-transform: capitalize;" >
+                      <div  class="col-lg-3 col-md-4 col-6 hover"    (click)="toggle(device.key,switch,board.key,i,$event)" style="padding:0px;cursor:pointer;color: #10316b;text-transform: capitalize;" >
                         <div style="border:1px solid #0000002e;padding:15px;padding-bottom:45px;">
                           <span style="width:90%;display:inline-block"> <i [ngClass]="{'green':devices[device.key][board.key].switches[i]}" style="font-weight: 900;font-size: 8px;position: relative;
                           top: -2px;margin-right: 5px;color: #8080806e;" class="fas fa-circle" >
@@ -69,9 +69,9 @@ margin: 30px auto;">
                            <button style="outline:none;border:none;background:none;color:#0693E3;"  *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="deselect(device.key,board.key, i)"><i class="far fa-check-square stop"></i></button>
                           </span>
                           <div style="display:flex;justify-content:center; align-items:center;">
-                            <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]&&selectedSwitches[device.key][board.key][i].switchLogo" src="/content/icons/switch/{{selectedSwitches[device.key][board.key][i].switchLogo}}" alt="">
+                            <img  [ngClass]="{'transparent':!devices[device.key][board.key].switches[i]}" style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]&&selectedSwitches[device.key][board.key][i].switchLogo" src="/content/icons/switch/{{selectedSwitches[device.key][board.key][i].switchLogo}}" alt="">
 
-                            <img style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="!selectedSwitches||!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i]||!selectedSwitches[device.key][board.key][i].switchLogo" src="/content/icons/switch/default.svg" alt="">
+                            <img  [ngClass]="{'transparent':!devices[device.key][board.key].switches[i]}" style="margin-top:18%!important;display: block;height:auto;width:50%;margin:0 auto" *ngIf="!selectedSwitches||!selectedSwitches[device.key]||!selectedSwitches[device.key][board.key]||!selectedSwitches[device.key][board.key][i]||!selectedSwitches[device.key][board.key][i].switchLogo" src="/content/icons/switch/default.svg" alt="">
                             <p *ngIf="selectedSwitches[device.key]&&selectedSwitches[device.key][board.key]&&selectedSwitches[device.key][board.key][i]" (click)="openSwitchIcon(device.key,board.key,i)"  class="stop" style="z-index: 2;position: absolute;background: #000000a3;padding: 0px 11px;color: #fff;font-weight: bold;border: 1px solid #fff;text-align: center;top:54%">Change Icon</p>
 
                           </div>

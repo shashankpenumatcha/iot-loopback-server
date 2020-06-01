@@ -37,6 +37,7 @@ import { Data } from './data.provider';
 import { AddSwitchComponent } from './add-switch/add-switch.component';
 import { UpdateWifiComponent } from './update-wifi/update-wifi.component';
 import { IconSelectComponent } from './icon-select/icon-select.component';
+import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 const config: SocketIoConfig = { url: Config.server, options: {} };
 
 @NgModule({
@@ -77,7 +78,8 @@ const config: SocketIoConfig = { url: Config.server, options: {} };
     EditLocationComponent,
     AddSwitchComponent,
     UpdateWifiComponent,
-    IconSelectComponent
+    IconSelectComponent,
+    EditScheduleComponent
   ],
   entryComponents:[AddLocationComponent, AddBoardComponent, AddScheduleComponent, AddSwitchComponent],
   providers: [

@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add( this.layoutService.back.subscribe(back => {
       this.back = back;
+      //alert(back)
     }));
 
   }

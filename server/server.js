@@ -634,6 +634,64 @@ boot(app, __dirname, function(err) {
           })
         }
       });
+      socket.on('scheduleEdited',function(msg){
+        log.info(` schedule edited confirmation from device`)
+        if(msg.socketId){
+          if(!msg.error){
+            let socket = msg.socketId;
+            delete msg.socketId;
+            app.io.to(socket).emit('scheduleEdited',msg)
+          } else if (msg.devices){
+            msg.devices.some(s => {
+              app.io.to(s).emit('deleteSchedule', msg.scheduleId);
+            })
+            app.io.to(socket).emit('scheduleEdited',{error : 'error while editing schedule, please create a new schedule'})
+
+          }
+        }
+      })
+      socket.on('editSchedule',function(msg, callback){
+        log.info(`edit schedule request`)
+        if(!msg ||!msg.name || !msg.devices || !Object.keys(msg.devices).length ){
+          return callback({error: "no devices in request"})
+        }
+        if(!msg.schedule){
+          return callback({error: "no schedule in request"})
+
+        }
+        if(!msg.id){
+          return callback({error: "no schedule id in request"})
+
+        }
+        let devices = Object.keys(msg.devices);
+
+        let payload = null;
+        devices.some(d => {
+          let boards = Object.keys(msg.devices[d]);
+          if(!boards.length){
+            payload = {error: 'no borad with device in request'}
+            return
+          }
+          boards.some(b => {
+            let switches = Object.keys(msg.devices[d][b]);
+            if(!switches.length){
+              payload = {error: 'no switches with board in request'}
+              return
+            }
+
+          });
+        });
+        if(payload && payload.error){
+          callback(payload);
+        }else{
+          const scheduleId = uuid();
+          devices.map(m => {
+            console.log(`add schedule request sent to device ${m}`)
+            app.io.to(m).emit('editSchedule', {id:msg.id,schedule:msg.schedule,devices:devices,scheduleId:scheduleId, name: msg.name, boards: msg.devices[m], socketId: socket.id})
+            return m
+          })
+        }
+      });
 
       socket.on('toggleSchedule', payload => {
         console.log('request to toggle schedule')

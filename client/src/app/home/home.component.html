@@ -11,7 +11,7 @@ boards - {{boards.length}} -->
   top: 57px;" ngbDropdown placement="bottom-right" #myDrop="ngbDropdown">
     <img  id="dropdownManual" ngbDropdownAnchor (click)="myDrop.open()" class="h-back" src="content/images/add.png" />
     <div ngbDropdownMenu aria-labelledby="dropdownManual">
-      <button *ngIf="!onlineDevicesLength" ngbDropdownItem  [routerLink]="['/devices/']">Add Device</button>
+      <button *ngIf="!registeredDevices.length" ngbDropdownItem  [routerLink]="['/devices/']">Add Device</button>
       <button (click)="launchDeviceAdder()" ngbDropdownItem>Add Location</button>
       <button [routerLink]="['/schedules']" ngbDropdownItem>Add Schedule</button>
 
@@ -34,7 +34,7 @@ boards - {{boards.length}} -->
               <td style="line-height: 18px;padding: 0px 18px;">
 
                 <tr><td>
-                  <span style="display: block;"><span> {{ onlineDevicesLength?'Online':'Offline'}}</span></span>
+                  <span style="display: block;"><span> {{onlineDevicesLength?'Online':'Offline'}}</span></span>
 
                 </td></tr>
 

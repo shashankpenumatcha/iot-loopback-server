@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   onlineDevices: any = null;
   onlineDevicesLength = 0;
   subscriptions = new Subscription();
+  registeredDevices:any = [];
 /*   locationsLength = 0;
   boards = []; */
 
@@ -71,7 +72,7 @@ export class HomeComponent implements OnInit, OnDestroy {
             this.roomsCount = Object.keys(roomsMap).length;
           }
         })); */
-
+        this.registeredDevices = res.devices;
         this.subscriptions.add(this.connect.onlineDevices$.subscribe((response) => {
           if (response) {
             this.onlineDevices = {...response};
